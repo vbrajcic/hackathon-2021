@@ -1,9 +1,10 @@
 {
-  "name": "cms-wordpress",
+  "name": "react-profico-web",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "build:static": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
