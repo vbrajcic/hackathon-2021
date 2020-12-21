@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build",
     "build:static": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "start:local": "NODE_ENV=development next start"
   },
   "dependencies": {
     "classnames": "2.2.6",
