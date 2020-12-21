@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
@@ -35,7 +36,7 @@ export default function Index({ allPosts: { edges }, preview }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
   return {
     props: { allPosts, preview },
