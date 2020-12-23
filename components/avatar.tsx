@@ -1,22 +1,38 @@
-export default function Avatar({ author }) {
-  const name = author
-    ? author.firstName && author.lastName
-      ? `${author.firstName} ${author.lastName}`
-      : author.name
-    : null
+import React from 'react';
+import useFactory from 'utils/hooks/useFactory';
+
+interface AvatarProps {
+  author?: {
+    name: string;
+    firstName?: string;
+    lastName?: string;
+    avatar: { url: string };
+  };
+}
+
+const Avatar: React.FC<AvatarProps> = ({ author }) => {
+  const name = useFactory(() => {
+    if (author) {
+      if (author.firstName && author.lastName) {
+        return `${author.firstName} ${author.lastName}`;
+      }
+
+      return author.name;
+    }
+
+    return null;
+  });
 
   return (
     <>
-      {author && (
+      {author && name && (
         <div className="flex items-center">
-          <img
-            src={author.avatar.url}
-            className="w-12 h-12 rounded-full mr-4"
-            alt={name}
-          />
+          <img src={author.avatar.url} className="w-12 h-12 rounded-full mr-4" alt={name} />
           <div className="text-xl font-bold">{name}</div>
         </div>
       )}
     </>
-  )
-}
+  );
+};
+
+export default Avatar;

@@ -1,5 +1,5 @@
-import Container from './container'
-import Link from 'next/link'
+import Link from 'next/link';
+import Container from './container';
 
 export default function Footer() {
   return (
@@ -11,21 +11,14 @@ export default function Footer() {
           </h4>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
             <Link href="/privacy-policy">
-            <a
-              className="mx-6 font-bold hover:underline"
-            >
-              Privacy Policy
-            </a>
+              <a className="mx-6 font-bold hover:underline">Privacy Policy</a>
             </Link>
-            <a
-              href="https://profi.co/"
-              className="mx-3 font-bold hover:underline"
-            >
+            <a href="https://profi.co/" className="mx-3 font-bold hover:underline">
               View old site
             </a>
           </div>
         </div>
       </Container>
     </footer>
-  )
+  );
 }
