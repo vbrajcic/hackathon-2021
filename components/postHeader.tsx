@@ -31,7 +31,7 @@ export default function PostHeader({ title, coverImage, date, author, categories
           <Avatar author={author} />
         </div>
         <div className="mb-6 text-lg">
-          Posted
+          Posted&nbsp;
           <Date dateString={date} />
           {categories && <Categories categories={categories} />}
         </div>

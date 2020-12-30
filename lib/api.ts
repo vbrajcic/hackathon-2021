@@ -38,30 +38,22 @@ export async function getAllPostsForHome(preview: boolean) {
 }
 
 export async function getPostAndMorePosts(slug: string, preview: boolean, previewData?: PreviewData) {
-  const postPreview = preview && previewData ? previewData.post : undefined;
-
-  if (!postPreview) {
-    return {
-      post: undefined,
-      posts: undefined,
-    };
-  }
-
+  const postPreview = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
-  const isSamePost = isId ? Number(slug) === postPreview.id : slug === postPreview.slug;
-  const isDraft = isSamePost && postPreview.status === 'draft';
-  const isRevision = isSamePost && postPreview.status === 'publish';
+  const isSamePost = isId && postPreview ? Number(slug) === postPreview.id : postPreview && slug === postPreview.slug;
+  const isDraft = Boolean(isSamePost && postPreview && postPreview.status === 'draft');
+  const isRevision = Boolean(isSamePost && postPreview && postPreview.status === 'publish');
 
   const data = await fetchAPI<GetPostAndMorePostsResult>(GET_POST_AND_MORE_POSTS(isRevision), {
     variables: {
-      id: isDraft ? postPreview.id : slug,
+      id: isDraft && postPreview ? postPreview.id : slug,
       idType: isDraft ? 'DATABASE_ID' : 'SLUG',
     },
   });
 
   // Draft posts may not have an slug
-  if (isDraft) {
+  if (isDraft && postPreview) {
     data.post.slug = `${postPreview.id}`;
   }
 
