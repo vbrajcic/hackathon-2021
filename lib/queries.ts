@@ -1,9 +1,9 @@
 import Post from 'types/posts/post';
 
 import { Edges, QueryEdgesResult } from 'types/common';
-import { PreviewData } from 'types/posts/preview';
+import { Preview } from 'types/posts/preview';
 
-export type GetPreviewPostResult = PreviewData;
+export type GetPreviewPostResult = Preview;
 
 export const GET_PREVIEW_POST = `
   query PreviewPost($id: ID!, $idType: PostIdType!) {
