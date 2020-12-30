@@ -1,20 +1,20 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Posts } from 'types/common';
+import { Edges } from 'types/common';
+import Post from 'types/posts/post';
 import Container from 'components/container';
 import MoreStories from 'components/moreStories';
 import HeroPost from 'components/heroPost';
 import Intro from 'components/intro';
 import Layout from 'components/layout';
 import { getAllPostsForHome } from 'lib/api';
-import Post from 'types/posts/post';
 
-type Props = {
-  allPosts: Posts;
+type BlogPageProps = {
+  allPosts: Edges<Post>;
   preview: boolean;
 };
 
-export default function BlogPage({ allPosts: { edges }, preview }: Props) {
+export default function BlogPage({ allPosts: { edges }, preview }: BlogPageProps) {
   const heroPost = edges[0]?.node;
   const morePosts = edges.slice(1);
 

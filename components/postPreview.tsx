@@ -1,11 +1,11 @@
 import Author from 'types/posts/author';
 import FeaturedImage from 'types/posts/featuredImage';
-import Link from 'next/link';
 import Avatar from './avatar';
 import Date from './date';
 import CoverImage from './coverImage';
+import Hyperlink from './Hyperlink';
 
-type Props = {
+type PostPreviewProps = {
   title: string;
   coverImage: FeaturedImage;
   date: string;
@@ -14,16 +14,21 @@ type Props = {
   slug: string;
 };
 
-export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: Props) {
+export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: PostPreviewProps) {
   return (
     <div>
       <div className="mb-5">
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/blog/${slug}`} href="/blog/[slug]">
-          <a className="hover:underline" dangerouslySetInnerHTML={{ __html: title }} />
-        </Link>
+        <Hyperlink
+          as={`/blog/${slug}`}
+          href="/blog/[slug]"
+          AnchorProps={{
+            className: 'hover:underline',
+            dangerouslySetInnerHTML: { __html: title },
+          }}
+        />
       </h3>
       <div className="text-lg mb-4">
         <Date dateString={date} />

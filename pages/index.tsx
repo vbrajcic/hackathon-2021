@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Intro from 'components/intro';
 import Container from 'components/container';
 import Layout from 'components/layout';
+import Hyperlink from 'components/Hyperlink';
 
 export default function HomePage() {
   return (
@@ -12,29 +12,47 @@ export default function HomePage() {
       </Head>
       <Container>
         <Intro text="Home" />
-        <Link href="/work">
-          <a>Work</a>
-        </Link>
+        <Hyperlink
+          href="/work"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'Work' },
+          }}
+        />
         {' | '}
-        <Link href="/services">
-          <a>Services</a>
-        </Link>
+        <Hyperlink
+          href="/services"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'Services' },
+          }}
+        />
         {' | '}
-        <Link href="/about">
-          <a>About us</a>
-        </Link>
+        <Hyperlink
+          href="/about"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'About us' },
+          }}
+        />
         {' | '}
-        <Link href="/careers">
-          <a>Careers</a>
-        </Link>
+        <Hyperlink
+          href="/careers"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'Careers' },
+          }}
+        />
         {' | '}
-        <Link href="/blog">
-          <a>Blog</a>
-        </Link>
+        <Hyperlink
+          href="/blog"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'Blog' },
+          }}
+        />
         {' | '}
-        <Link href="/contact">
-          <a>Contact us</a>
-        </Link>
+        <Hyperlink
+          href="/contact"
+          AnchorProps={{
+            dangerouslySetInnerHTML: { __html: 'Contact us' },
+          }}
+        />
       </Container>
     </Layout>
   );
