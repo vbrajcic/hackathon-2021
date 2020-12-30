@@ -26,7 +26,7 @@ export default function CoverImage({ title, coverImage, slug }: CoverImageProps)
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Hyperlink as={`/blog/${slug}`} href="/blog/[slug]" AnchorProps={{ 'aria-label': title }}>
+        <Hyperlink as={slug} href={slug} AnchorProps={{ 'aria-label': title }}>
           {image}
         </Hyperlink>
       ) : (

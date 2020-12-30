@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Edges } from 'types/common';
 import Post from 'types/posts/post';
 import Container from 'components/container';
-import MoreStories from 'components/moreStories';
+import RelatedPosts from 'components/relatedPosts';
 import HeroPost from 'components/heroPost';
 import Intro from 'components/intro';
 import Layout from 'components/layout';
@@ -31,11 +31,11 @@ export default function BlogPage({ allPosts: { edges }, preview }: BlogPageProps
             coverImage={heroPost.featuredImage?.node}
             date={heroPost.date}
             author={heroPost.author?.node}
-            slug={heroPost.slug}
+            slug={`/blog/${heroPost.slug}`}
             excerpt={heroPost.excerpt}
           />
         )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        <RelatedPosts posts={morePosts} page="blog" />
       </Container>
     </Layout>
   );

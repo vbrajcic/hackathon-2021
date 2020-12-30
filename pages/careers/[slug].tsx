@@ -4,7 +4,7 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import Container from 'components/container';
 import PostBody from 'components/postBody';
-import MoreStories from 'components/moreStories';
+import RelatedPosts from 'components/relatedPosts';
 import PostHeader from 'components/postHeader';
 import SectionSeparator from 'components/sectionSeparator';
 import Layout from 'components/layout';
@@ -49,7 +49,7 @@ export default function CareerPost({ post, posts, preview }: CareerPostProps) {
             </article>
 
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            <RelatedPosts posts={morePosts} page="careers" />
           </>
         )}
       </Container>
