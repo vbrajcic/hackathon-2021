@@ -1,9 +1,11 @@
-export default function Intro() {
+type Props = {
+  text: string;
+};
+
+export default function Intro({ text }: Props) {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Profico.
-      </h1>
+      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">{text}</h1>
     </section>
-  )
+  );
 }
