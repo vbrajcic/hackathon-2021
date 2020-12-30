@@ -1,18 +1,18 @@
-import Author from 'types/author';
-import FeaturedImage from 'types/featuredImage';
+import Author from 'types/posts/author';
+import FeaturedImage from 'types/posts/featuredImage';
 import Link from 'next/link';
 import Avatar from './avatar';
 import Date from './date';
-import CoverImage from './cover-image';
+import CoverImage from './coverImage';
 
-type Props = { 
-  title: string, 
-  coverImage: FeaturedImage, 
-  date: string, 
-  excerpt: string, 
-  author: Author, 
-  slug : string
-}
+type Props = {
+  title: string;
+  coverImage: FeaturedImage;
+  date: string;
+  excerpt: string;
+  author: Author;
+  slug: string;
+};
 
 export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: Props) {
   return (

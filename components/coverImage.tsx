@@ -1,12 +1,12 @@
-import cn from 'classnames'
-import Link from 'next/link'
-import FeaturedImage from 'types/featuredImage'
+import cn from 'classnames';
+import Link from 'next/link';
+import FeaturedImage from 'types/posts/featuredImage';
 
 type Props = {
-  title: string
-  coverImage: FeaturedImage
-  slug?: string
-}
+  title: string;
+  coverImage: FeaturedImage;
+  slug?: string;
+};
 
 export default function CoverImage({ title, coverImage, slug }: Props) {
   const image = (
@@ -16,7 +16,7 @@ export default function CoverImage({ title, coverImage, slug }: Props) {
         'hover:shadow-medium transition-shadow duration-200': slug,
       })}
     />
-  )
+  );
   return (
     <div className="sm:mx-0">
       {slug ? (
@@ -27,5 +27,5 @@ export default function CoverImage({ title, coverImage, slug }: Props) {
         image
       )}
     </div>
-  )
+  );
 }

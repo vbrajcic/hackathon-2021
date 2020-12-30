@@ -1,12 +1,8 @@
-import Category from 'types/category'
+import { Categories as CategoriesProp } from 'types/common';
 
 type Props = {
-  categories: {
-    edges: {
-      node: Category
-    }[]
-  },
-}
+  categories: CategoriesProp;
+};
 
 export default function Categories({ categories }: Props) {
   return (
@@ -22,5 +18,5 @@ export default function Categories({ categories }: Props) {
         <span className="ml-1">{categories.edges[0].node.name}</span>
       )}
     </span>
-  )
+  );
 }

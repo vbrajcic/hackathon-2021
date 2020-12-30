@@ -1,23 +1,19 @@
-import Author from 'types/author';
-import Category from 'types/category';
-import FeaturedImage from 'types/featuredImage';
+import Author from 'types/posts/author';
+import { Categories as CategoriesProp } from 'types/common';
+import FeaturedImage from 'types/posts/featuredImage';
 import Avatar from './avatar';
 import Date from './date';
-import CoverImage from './cover-image';
-import PostTitle from './post-title';
+import CoverImage from './coverImage';
+import PostTitle from './postTitle';
 import Categories from './categories';
 
 type Props = {
-  title: string,
-  coverImage: FeaturedImage,
-  date: string,
-  author: Author,
-  categories: {
-    edges: {
-      node: Category
-    }[]
-  },
-}
+  title: string;
+  coverImage: FeaturedImage;
+  date: string;
+  author: Author;
+  categories: CategoriesProp;
+};
 
 export default function PostHeader({ title, coverImage, date, author, categories }: Props) {
   return (
@@ -34,9 +30,7 @@ export default function PostHeader({ title, coverImage, date, author, categories
           <Avatar author={author} />
         </div>
         <div className="mb-6 text-lg">
-          Posted 
-          {' '}
-          <Date dateString={date} />
+          Posted <Date dateString={date} />
           <Categories categories={categories} />
         </div>
       </div>

@@ -2,7 +2,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import PostType from 'types/post';
+import { Posts } from 'types/common';
+import Post from 'types/posts/post';
 import Container from '../../components/container';
 import PostBody from '../../components/post-body';
 import MoreStories from '../../components/more-stories';
@@ -15,16 +16,12 @@ import PostTitle from '../../components/post-title';
 import Tags from '../../components/tags';
 
 type Props = {
-  post: PostType;
-  posts: {
-    edges: {
-      node: PostType
-    }[]
-  };
+  post: Post;
+  posts: Posts;
   preview: boolean;
-}
+};
 
-export default function Post({ post, posts, preview }: Props) {
+export default function BlogPost({ post, posts, preview }: Props) {
   const router = useRouter();
   const morePosts = posts?.edges;
 
@@ -42,11 +39,7 @@ export default function Post({ post, posts, preview }: Props) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title}
-                  {' '}
-                  | Profico
-                </title>
+                <title>{post.title} | Profico</title>
                 <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
               </Head>
               <PostHeader
@@ -63,7 +56,7 @@ export default function Post({ post, posts, preview }: Props) {
             <SectionSeparator />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
-          )}
+        )}
       </Container>
     </Layout>
   );

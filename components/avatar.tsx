@@ -1,13 +1,9 @@
 import React from 'react';
+import Author from 'types/posts/author';
 import useFactory from 'utils/hooks/useFactory';
 
 interface AvatarProps {
-  author?: {
-    name: string;
-    firstName?: string;
-    lastName?: string;
-    avatar: { url: string };
-  };
+  author?: Author;
 }
 
 const Avatar: React.FC<AvatarProps> = ({ author }) => {

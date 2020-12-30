@@ -1,12 +1,12 @@
-import Tag from 'types/tag'
+import Tag from 'types/posts/tag';
 
 type Props = {
   tags: {
     edges: {
-      node: Tag
-    }[]
-  },
-}
+      node: Tag;
+    }[];
+  };
+};
 
 export default function Tags({ tags }: Props) {
   return (
@@ -20,5 +20,5 @@ export default function Tags({ tags }: Props) {
         ))}
       </p>
     </div>
-  )
+  );
 }

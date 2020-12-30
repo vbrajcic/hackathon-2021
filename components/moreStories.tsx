@@ -1,11 +1,11 @@
-import Post from 'types/post';
-import PostPreview from './post-preview';
+import Post from 'types/posts/post';
+import PostPreview from './postPreview';
 
 type Props = {
   posts: {
-    node: Post
-  }[]
-}
+    node: Post;
+  }[];
+};
 
 export default function MoreStories({ posts }: Props) {
   return (

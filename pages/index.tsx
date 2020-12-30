@@ -1,25 +1,22 @@
-import { GetStaticProps } from 'next'
-import Head from 'next/head'
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import Post from '../types/post'
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { Posts } from 'types/common';
+import Container from '../components/container';
+import MoreStories from '../components/more-stories';
+import HeroPost from '../components/hero-post';
+import Intro from '../components/intro';
+import Layout from '../components/layout';
+import { getAllPostsForHome } from '../lib/api';
+import Post from '../types/posts/post';
 
 type Props = {
-  allPosts: {
-    edges: {
-      node: Post
-    }[]
-  }, 
+  allPosts: Posts;
   preview: boolean;
-}
+};
 
 export default function Index({ allPosts: { edges }, preview }: Props) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+  const heroPost = edges[0]?.node;
+  const morePosts = edges.slice(1);
 
   return (
     <>
@@ -43,18 +40,18 @@ export default function Index({ allPosts: { edges }, preview }: Props) {
         </Container>
       </Layout>
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   type Data = {
     edges: {
-      node: Post
-    }[]
-  }
+      node: Post;
+    }[];
+  };
 
-  const allPosts: Data = await getAllPostsForHome(preview)
+  const allPosts: Data = await getAllPostsForHome(preview);
   return {
     props: { allPosts, preview },
-  }
-}
+  };
+};
