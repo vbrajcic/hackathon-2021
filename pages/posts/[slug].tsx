@@ -5,14 +5,14 @@ import Head from 'next/head';
 import { Posts } from 'types/common';
 import Post from 'types/posts/post';
 import Container from '../../components/container';
-import PostBody from '../../components/post-body';
-import MoreStories from '../../components/more-stories';
+import PostBody from '../../components/postBody';
+import MoreStories from '../../components/moreStories';
 import Header from '../../components/header';
-import PostHeader from '../../components/post-header';
-import SectionSeparator from '../../components/section-separator';
+import PostHeader from '../../components/postHeader';
+import SectionSeparator from '../../components/sectionSeparator';
 import Layout from '../../components/layout';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
-import PostTitle from '../../components/post-title';
+import PostTitle from '../../components/postTitle';
 import Tags from '../../components/tags';
 
 type Props = {
