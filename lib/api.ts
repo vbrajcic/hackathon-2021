@@ -1,13 +1,14 @@
-import Draft from 'types/draft';
-import Post from 'types/post';
+import Draft from 'types/posts/draft';
+import Post from 'types/posts/post';
+import { GET_PREVIEW_POST, GET_ALL_POSTS_WITH_SLUG, GET_ALL_POSTS_FOR_HOME, GET_POST_AND_MORE_POSTS } from './queries';
 
 const API_URL = process.env.WORDPRESS_API_URL;
 
 async function fetchAPI(query: string, { variables = {} } = {}) {
   type Headers = {
-    'Content-Type': string,
-    Authorization?: string,
-  }
+    'Content-Type': string;
+    Authorization?: string;
+  };
 
   const headers: Headers = { 'Content-Type': 'application/json' };
 
@@ -33,19 +34,9 @@ async function fetchAPI(query: string, { variables = {} } = {}) {
 }
 
 export async function getPreviewPost(id: string | string[], idType = 'DATABASE_ID') {
-  const data = await fetchAPI(
-    `
-    query PreviewPost($id: ID!, $idType: PostIdType!) {
-      post(id: $id, idType: $idType) {
-        databaseId
-        slug
-        status
-      }
-    }`,
-    {
-      variables: { id, idType },
-    }
-  );
+  const data = await fetchAPI(GET_PREVIEW_POST, {
+    variables: { id, idType },
+  });
   return data.post;
 }
 
@@ -53,22 +44,12 @@ export async function getAllPostsWithSlug() {
   type Data = {
     posts: {
       edges: {
-        node: Post
-      }[]
-    }
-  }
+        node: Post;
+      }[];
+    };
+  };
 
-  const data: Data = await fetchAPI(`
-    {
-      posts(first: 10000) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `);
+  const data: Data = await fetchAPI(GET_ALL_POSTS_WITH_SLUG);
 
   return data?.posts;
 }
@@ -77,48 +58,17 @@ export async function getAllPostsForHome(preview: boolean) {
   type Data = {
     posts: {
       edges: {
-        node: Post
-      }[]
-    }
-  }
+        node: Post;
+      }[];
+    };
+  };
 
-  const data: Data = await fetchAPI(
-    `
-    query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
-          node {
-            title
-            excerpt
-            slug
-            date
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
-            author {
-              node {
-                name
-                firstName
-                lastName
-                avatar {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `,
-    {
-      variables: {
-        onlyEnabled: !preview,
-        preview,
-      },
-    }
-  );
+  const data: Data = await fetchAPI(GET_ALL_POSTS_FOR_HOME, {
+    variables: {
+      onlyEnabled: !preview,
+      preview,
+    },
+  });
 
   return data?.posts;
 }
@@ -132,96 +82,20 @@ export async function getPostAndMorePosts(slug: string, preview: boolean, previe
   const isRevision = isSamePost && postPreview?.status === 'publish';
 
   type Data = {
-    post: Post,
+    post: Post;
     posts: {
       edges: {
-        node: Post
-      }[]
+        node: Post;
+      }[];
     };
-  }
+  };
 
-  const data: Data = await fetchAPI(
-    `
-    fragment AuthorFields on User {
-      name
-      firstName
-      lastName
-      avatar {
-        url
-      }
-    }
-    fragment PostFields on Post {
-      title
-      excerpt
-      slug
-      date
-      featuredImage {
-        node {
-          sourceUrl
-        }
-      }
-      author {
-        node {
-          ...AuthorFields
-        }
-      }
-      categories {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-      tags {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-    }
-    query PostBySlug($id: ID!, $idType: PostIdType!) {
-      post(id: $id, idType: $idType) {
-        ...PostFields
-        content
-        ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
-        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
-          edges {
-            node {
-              title
-              excerpt
-              content
-              author {
-                node {
-                  ...AuthorFields
-                }
-              }
-            }
-          }
-        }
-        `
-            : ''
-        }
-      }
-      posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
-          node {
-            ...PostFields
-          }
-        }
-      }
-    }
-  `,
-    {
-      variables: {
-        id: isDraft ? postPreview.id : slug,
-        idType: isDraft ? 'DATABASE_ID' : 'SLUG',
-      },
-    }
-  );
+  const data: Data = await fetchAPI(GET_POST_AND_MORE_POSTS(isRevision), {
+    variables: {
+      id: isDraft ? postPreview.id : slug,
+      idType: isDraft ? 'DATABASE_ID' : 'SLUG',
+    },
+  });
 
   // Draft posts may not have an slug
   if (isDraft) data.post.slug = postPreview.id;
