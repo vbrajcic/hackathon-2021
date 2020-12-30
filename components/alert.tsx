@@ -1,18 +1,23 @@
 import Container from './container';
 
-export default function Alert({ preview }) {
-  if (!preview) return null;
+type AlertProps = {
+  preview?: boolean;
+};
+
+export default function Alert({ preview }: AlertProps) {
+  if (!preview) {
+    return null;
+  }
+
   return (
     <div className="border-b bg-accent-7 border-accent-7 text-white">
       <Container>
         <div className="py-2 text-center text-sm">
-          This page is a preview.
-          {' '}
+          This page is a preview.&nbsp;
           <a href="/api/exit-preview" className="underline hover:text-cyan duration-200 transition-colors">
             Click here
           </a>
-          {' '}
-          to exit preview mode.
+          &nbsp; to exit preview mode.
         </div>
       </Container>
     </div>

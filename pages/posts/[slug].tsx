@@ -2,18 +2,23 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import Container from '../../components/container';
-import PostBody from '../../components/post-body';
-import MoreStories from '../../components/more-stories';
-import Header from '../../components/header';
-import PostHeader from '../../components/post-header';
-import SectionSeparator from '../../components/section-separator';
-import Layout from '../../components/layout';
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
-import PostTitle from '../../components/post-title';
-import Tags from '../../components/tags';
+import Container from 'components/container';
+import PostBody from 'components/postBody';
+import MoreStories from 'components/moreStories';
+import Header from 'components/header';
+import PostHeader from 'components/postHeader';
+import SectionSeparator from 'components/sectionSeparator';
+import Layout from 'components/layout';
+import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
+import PostTitle from 'components/postTitle';
+import Tags from 'components/tags';
+import { GetPostAndMorePostsResult } from 'lib/queries';
 
-export default function Post({ post, posts, preview }) {
+type BlogPostProps = GetPostAndMorePostsResult & {
+  preview: boolean;
+};
+
+export default function BlogPost({ post, posts, preview }: BlogPostProps) {
   const router = useRouter();
   const morePosts = posts?.edges;
 
@@ -31,11 +36,7 @@ export default function Post({ post, posts, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title}
-                  {' '}
-                  | Profico
-                </title>
+                <title>{`${post.title} | Profico`}</title>
                 <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
               </Head>
               <PostHeader
@@ -45,8 +46,8 @@ export default function Post({ post, posts, preview }) {
                 author={post.author?.node}
                 categories={post.categories}
               />
-              <PostBody content={post.content} />
-              <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>
+              {post.content && <PostBody content={post.content} />}
+              {post.tags && <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>}
             </article>
 
             <SectionSeparator />
@@ -58,7 +59,21 @@ export default function Post({ post, posts, preview }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  if (!params) {
+    return {
+      props: {
+        preview,
+        post: undefined,
+        posts: undefined,
+      },
+    };
+  }
+
   const data = await getPostAndMorePosts(params.slug, preview, previewData);
 
   return {
