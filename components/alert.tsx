@@ -1,6 +1,10 @@
 import Container from './container';
 
-export default function Alert({ preview }) {
+type Props = {
+  preview?: boolean
+}
+
+export default function Alert({ preview }: Props) {
   if (!preview) return null;
   return (
     <div className="border-b bg-accent-7 border-accent-7 text-white">

@@ -6,8 +6,18 @@ import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
+import Post from '../types/post'
 
-export default function Index({ allPosts: { edges }, preview }) {
+type Props = {
+  allPosts: {
+    edges: {
+      node: Post
+    }[]
+  }, 
+  preview: boolean;
+}
+
+export default function Index({ allPosts: { edges }, preview }: Props) {
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
 
@@ -37,7 +47,13 @@ export default function Index({ allPosts: { edges }, preview }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const allPosts = await getAllPostsForHome(preview)
+  type Data = {
+    edges: {
+      node: Post
+    }[]
+  }
+
+  const allPosts: Data = await getAllPostsForHome(preview)
   return {
     props: { allPosts, preview },
   }

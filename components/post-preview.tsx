@@ -1,9 +1,20 @@
+import Author from 'types/author';
+import FeaturedImage from 'types/featuredImage';
 import Link from 'next/link';
 import Avatar from './avatar';
 import Date from './date';
 import CoverImage from './cover-image';
 
-export default function PostPreview({ title, coverImage, date, excerpt, author, slug }) {
+type Props = { 
+  title: string, 
+  coverImage: FeaturedImage, 
+  date: string, 
+  excerpt: string, 
+  author: Author, 
+  slug : string
+}
+
+export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: Props) {
   return (
     <div>
       <div className="mb-5">

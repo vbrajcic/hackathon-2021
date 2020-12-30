@@ -1,6 +1,13 @@
+import Post from 'types/post';
 import PostPreview from './post-preview';
 
-export default function MoreStories({ posts }) {
+type Props = {
+  posts: {
+    node: Post
+  }[]
+}
+
+export default function MoreStories({ posts }: Props) {
   return (
     <section>
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">More Stories</h2>

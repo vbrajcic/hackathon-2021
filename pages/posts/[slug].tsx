@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
+import PostType from 'types/post';
 import Container from '../../components/container';
 import PostBody from '../../components/post-body';
 import MoreStories from '../../components/more-stories';
@@ -13,7 +14,17 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Tags from '../../components/tags';
 
-export default function Post({ post, posts, preview }) {
+type Props = {
+  post: PostType;
+  posts: {
+    edges: {
+      node: PostType
+    }[]
+  };
+  preview: boolean;
+}
+
+export default function Post({ post, posts, preview }: Props) {
   const router = useRouter();
   const morePosts = posts?.edges;
 
@@ -52,7 +63,7 @@ export default function Post({ post, posts, preview }) {
             <SectionSeparator />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
-        )}
+          )}
       </Container>
     </Layout>
   );

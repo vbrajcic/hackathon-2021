@@ -1,7 +1,14 @@
 import cn from 'classnames'
 import Link from 'next/link'
+import FeaturedImage from 'types/featuredImage'
 
-export default function CoverImage({ title, coverImage, slug = null }) {
+type Props = {
+  title: string
+  coverImage: FeaturedImage
+  slug?: string
+}
+
+export default function CoverImage({ title, coverImage, slug }: Props) {
   const image = (
     <img
       src={coverImage?.sourceUrl}

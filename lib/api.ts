@@ -1,7 +1,15 @@
+import Draft from 'types/draft';
+import Post from 'types/post';
+
 const API_URL = process.env.WORDPRESS_API_URL;
 
-async function fetchAPI(query, { variables = {} } = {}) {
-  const headers = { 'Content-Type': 'application/json' };
+async function fetchAPI(query: string, { variables = {} } = {}) {
+  type Headers = {
+    'Content-Type': string,
+    Authorization?: string,
+  }
+
+  const headers: Headers = { 'Content-Type': 'application/json' };
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
     headers.Authorization = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
@@ -18,13 +26,13 @@ async function fetchAPI(query, { variables = {} } = {}) {
 
   const json = await res.json();
   if (json.errors) {
-    console.error(json.errors);
+    // console.error(json.errors);
     throw new Error('Failed to fetch API');
   }
   return json.data;
 }
 
-export async function getPreviewPost(id, idType = 'DATABASE_ID') {
+export async function getPreviewPost(id: string | string[], idType = 'DATABASE_ID') {
   const data = await fetchAPI(
     `
     query PreviewPost($id: ID!, $idType: PostIdType!) {
@@ -42,7 +50,15 @@ export async function getPreviewPost(id, idType = 'DATABASE_ID') {
 }
 
 export async function getAllPostsWithSlug() {
-  const data = await fetchAPI(`
+  type Data = {
+    posts: {
+      edges: {
+        node: Post
+      }[]
+    }
+  }
+
+  const data: Data = await fetchAPI(`
     {
       posts(first: 10000) {
         edges {
@@ -53,11 +69,20 @@ export async function getAllPostsWithSlug() {
       }
     }
   `);
+
   return data?.posts;
 }
 
 export async function getAllPostsForHome(preview: boolean) {
-  const data = await fetchAPI(
+  type Data = {
+    posts: {
+      edges: {
+        node: Post
+      }[]
+    }
+  }
+
+  const data: Data = await fetchAPI(
     `
     query AllPosts {
       posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
@@ -98,14 +123,24 @@ export async function getAllPostsForHome(preview: boolean) {
   return data?.posts;
 }
 
-export async function getPostAndMorePosts(slug, preview, previewData) {
-  const postPreview = preview && previewData?.post;
+export async function getPostAndMorePosts(slug: string, preview: boolean, previewData) {
+  const postPreview: boolean | Draft = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
   const isSamePost = isId ? Number(slug) === postPreview.id : slug === postPreview.slug;
   const isDraft = isSamePost && postPreview?.status === 'draft';
   const isRevision = isSamePost && postPreview?.status === 'publish';
-  const data = await fetchAPI(
+
+  type Data = {
+    post: Post,
+    posts: {
+      edges: {
+        node: Post
+      }[]
+    };
+  }
+
+  const data: Data = await fetchAPI(
     `
     fragment AuthorFields on User {
       name
