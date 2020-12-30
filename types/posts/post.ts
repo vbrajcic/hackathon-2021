@@ -1,6 +1,9 @@
+import { Edges, Node } from 'types/common';
+
 import Author from './author';
 import Category from './category';
 import FeaturedImage from './featuredImage';
+import Revision from './revision';
 import Tag from './tag';
 
 type Post = {
@@ -8,23 +11,12 @@ type Post = {
   excerpt: string;
   slug: string;
   date: string;
-  featuredImage: {
-    node: FeaturedImage;
-  };
-  author: {
-    node: Author;
-  };
-  categories?: {
-    edges: {
-      node: Category;
-    }[];
-  };
-  tags?: {
-    edges: {
-      node: Tag;
-    }[];
-  };
+  featuredImage: Node<FeaturedImage>;
+  author: Node<Author>;
+  categories?: Edges<Category>;
+  tags?: Edges<Tag>;
   content?: string;
+  revisions?: Edges<Revision>;
 };
 
 export default Post;

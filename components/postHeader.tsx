@@ -1,21 +1,22 @@
 import Author from 'types/posts/author';
-import { Categories as CategoriesProp } from 'types/common';
 import FeaturedImage from 'types/posts/featuredImage';
+import { Edges } from 'types/common';
+import Category from 'types/posts/category';
 import Avatar from './avatar';
 import Date from './date';
 import CoverImage from './coverImage';
 import PostTitle from './postTitle';
 import Categories from './categories';
 
-type Props = {
+type PostHeaderProps = {
   title: string;
   coverImage: FeaturedImage;
   date: string;
   author: Author;
-  categories: CategoriesProp;
+  categories?: Edges<Category>;
 };
 
-export default function PostHeader({ title, coverImage, date, author, categories }: Props) {
+export default function PostHeader({ title, coverImage, date, author, categories }: PostHeaderProps) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -30,8 +31,9 @@ export default function PostHeader({ title, coverImage, date, author, categories
           <Avatar author={author} />
         </div>
         <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
-          <Categories categories={categories} />
+          Posted
+          <Date dateString={date} />
+          {categories && <Categories categories={categories} />}
         </div>
       </div>
     </>

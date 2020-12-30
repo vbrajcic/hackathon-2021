@@ -1,3 +1,10 @@
+import Post from 'types/posts/post';
+
+import { Edges, QueryEdgesResult } from 'types/common';
+import { PreviewData } from 'types/posts/preview';
+
+export type GetPreviewPostResult = PreviewData;
+
 export const GET_PREVIEW_POST = `
   query PreviewPost($id: ID!, $idType: PostIdType!) {
     post(id: $id, idType: $idType) {
@@ -6,6 +13,8 @@ export const GET_PREVIEW_POST = `
       status
     }
   }`;
+
+export type GetAllPostsWithSlugResult = QueryEdgesResult<'posts', Post>;
 
 export const GET_ALL_POSTS_WITH_SLUG = `
   {
@@ -17,6 +26,8 @@ export const GET_ALL_POSTS_WITH_SLUG = `
       }
     }
   }`;
+
+export type GetAllPostsForHomeResult = QueryEdgesResult<'posts', Post>;
 
 export const GET_ALL_POSTS_FOR_HOME = `
   query AllPosts {
@@ -46,6 +57,11 @@ export const GET_ALL_POSTS_FOR_HOME = `
       }
     }
   }`;
+
+export type GetPostAndMorePostsResult = {
+  post: Post;
+  posts: Edges<Post>;
+};
 
 export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => `
   fragment AuthorFields on User {

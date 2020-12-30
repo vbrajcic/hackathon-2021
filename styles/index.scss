@@ -4,12 +4,14 @@
 
 /* Start purging... */
 @tailwind components;
+
 /* Stop purging. */
 
 /* Write you own custom component styles here */
 
 /* Start purging... */
 @tailwind utilities;
+
 /* Stop purging. */
 
 /* Your own custom utilities */
@@ -33,6 +35,7 @@
 .alignfull {
   @apply w-screen;
   @apply relative;
+
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
@@ -68,6 +71,7 @@
 .wp-block-image .aligncenter > figcaption,
 .wp-block-image.is-resized > figcaption {
   @apply table-caption;
+
   caption-side: bottom;
 }
 
@@ -112,6 +116,7 @@
   @apply bg-cover;
   @apply bg-center;
   @apply overflow-hidden;
+
   min-height: 430px;
 }
 

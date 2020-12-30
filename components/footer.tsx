@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Container from './container';
+import Hyperlink from './Hyperlink';
 
 export default function Footer() {
   return (
@@ -10,10 +10,10 @@ export default function Footer() {
             &copy; 2020 Profico. All rights reserved.
           </h4>
           <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <Link href="/privacy-policy">
-              <a className="mx-6 font-bold hover:underline">Privacy Policy</a>
-            </Link>
-            <a href="https://profi.co/" className="mx-3 font-bold hover:underline">
+            <Hyperlink href="/privacy-policy" AnchorProps={{ className: 'mx-6 font-bold hover:underline' }}>
+              Privacy policy
+            </Hyperlink>
+            <a href="https://profi.co/" target="_blank" rel="noreferrer" className="mx-3 font-bold hover:underline">
               View old site
             </a>
           </div>
