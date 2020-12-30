@@ -5,7 +5,7 @@ import Date from './date';
 import CoverImage from './coverImage';
 import Hyperlink from './Hyperlink';
 
-type PostPreviewProps = {
+type TeaserProps = {
   title: string;
   coverImage: FeaturedImage;
   date: string;
@@ -14,7 +14,7 @@ type PostPreviewProps = {
   slug: string;
 };
 
-export default function PostPreview({ title, coverImage, date, excerpt, author, slug }: PostPreviewProps) {
+export default function Teaser({ title, coverImage, date, excerpt, author, slug }: TeaserProps) {
   return (
     <div>
       <div className="mb-5">
@@ -22,8 +22,8 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Hyperlink
-          as={`/posts/${slug}`}
-          href="/posts/[slug]"
+          as={slug}
+          href={slug}
           AnchorProps={{
             className: 'hover:underline',
             dangerouslySetInnerHTML: { __html: title },

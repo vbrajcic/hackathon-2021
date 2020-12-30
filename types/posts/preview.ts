@@ -1,5 +1,5 @@
 import Draft from './draft';
 
-export type PreviewData = {
+export type Preview = {
   post: Draft;
 };

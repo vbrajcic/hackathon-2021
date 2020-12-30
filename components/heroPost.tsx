@@ -24,8 +24,8 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
         <div>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Hyperlink
-              as={`/posts/${slug}`}
-              href="/posts/[slug]"
+              as={slug}
+              href={slug}
               AnchorProps={{
                 className: 'hover:underline',
                 dangerouslySetInnerHTML: { __html: title },

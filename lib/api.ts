@@ -1,4 +1,4 @@
-import { PreviewData } from 'types/posts/preview';
+import { Preview } from 'types/posts/preview';
 import { fetchAPI } from './fetchAPI';
 
 import {
@@ -37,7 +37,7 @@ export async function getAllPostsForHome(preview: boolean) {
   return data.posts;
 }
 
-export async function getPostAndMorePosts(slug: string, preview: boolean, previewData?: PreviewData) {
+export async function getPostAndMorePosts(slug: string, preview: boolean, previewData?: Preview) {
   const postPreview = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
