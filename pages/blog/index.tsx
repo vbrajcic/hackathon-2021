@@ -2,11 +2,11 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Edges } from 'types/common';
 import Post from 'types/posts/post';
-import Container from 'components/container';
-import RelatedPosts from 'components/relatedPosts';
-import HeroPost from 'components/heroPost';
-import Intro from 'components/intro';
-import Layout from 'components/layout';
+import Container from 'components/Container';
+import RelatedPosts from 'components/RelatedPosts';
+import HeroPost from 'components/HeroPost';
+import Intro from 'components/Intro';
+import Layout from 'components/Layout';
 import { getAllPostsForHome } from 'lib/api';
 
 type BlogPageProps = {

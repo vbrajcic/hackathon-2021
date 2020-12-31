@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import FeaturedImage from 'types/posts/featuredImage';
-import Hyperlink from './Hyperlink';
+import Hyperlink from 'components/Hyperlink';
 
 type CoverImageProps = {
   title: string;

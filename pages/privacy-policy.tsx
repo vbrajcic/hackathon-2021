@@ -1,6 +1,6 @@
-import Container from 'components/container';
-import Header from 'components/header';
-import Layout from 'components/layout';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Layout from 'components/Layout';
 
 export default function PrivacPolicy() {
   return (

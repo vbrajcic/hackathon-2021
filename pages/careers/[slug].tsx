@@ -2,15 +2,15 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import Container from 'components/container';
-import PostBody from 'components/postBody';
-import RelatedPosts from 'components/relatedPosts';
-import PostHeader from 'components/postHeader';
-import SectionSeparator from 'components/sectionSeparator';
-import Layout from 'components/layout';
+import Container from 'components/Container';
+import PostBody from 'components/PostBody';
+import RelatedPosts from 'components/RelatedPosts';
+import PostHeader from 'components/PostHeader';
+import SectionSeparator from 'components/SectionSeparator';
+import Layout from 'components/Layout';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
-import PostTitle from 'components/postTitle';
-import Tags from 'components/tags';
+import PostTitle from 'components/PostTitle';
+import Tags from 'components/Tags';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 
 type CareerPostProps = GetPostAndMorePostsResult & {

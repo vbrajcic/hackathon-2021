@@ -1,5 +1,5 @@
-import Container from './container';
-import Hyperlink from './Hyperlink';
+import Container from 'components/Container';
+import Hyperlink from 'components/Hyperlink';
 
 export default function Footer() {
   return (

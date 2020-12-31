@@ -1,6 +1,6 @@
 import { Node } from 'types/common';
 import Post from 'types/posts/post';
-import Teaser from './teaser';
+import Teaser from 'components/Teaser';
 
 type RelatedPostsProps = {
   posts: Node<Post>[];

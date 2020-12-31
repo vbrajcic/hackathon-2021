@@ -1,4 +1,4 @@
-import Hyperlink from './Hyperlink';
+import Hyperlink from 'components/Hyperlink';
 
 export default function Header() {
   return (

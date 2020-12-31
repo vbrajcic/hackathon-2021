@@ -1,9 +1,9 @@
 import Author from 'types/posts/author';
 import FeaturedImage from 'types/posts/featuredImage';
-import Avatar from './avatar';
-import Date from './date';
-import CoverImage from './coverImage';
-import Hyperlink from './Hyperlink';
+import Avatar from 'components/Avatar';
+import Date from 'components/Date';
+import CoverImage from 'components/CoverImage';
+import Hyperlink from 'components/Hyperlink';
 
 type HeroPostProps = {
   title: string;

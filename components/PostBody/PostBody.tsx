@@ -1,4 +1,4 @@
-import styles from './postBody.module.scss';
+import styles from './PostBody.module.scss';
 
 type PostBodyProps = {
   content: string;

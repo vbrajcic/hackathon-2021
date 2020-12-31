@@ -1,4 +1,4 @@
-import Container from './container';
+import Container from 'components/Container';
 
 type AlertProps = {
   preview?: boolean;

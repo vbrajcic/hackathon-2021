@@ -2,11 +2,11 @@ import Author from 'types/posts/author';
 import FeaturedImage from 'types/posts/featuredImage';
 import { Edges } from 'types/common';
 import Category from 'types/posts/category';
-import Avatar from './avatar';
-import Date from './date';
-import CoverImage from './coverImage';
-import PostTitle from './postTitle';
-import Categories from './categories';
+import Avatar from 'components/Avatar';
+import Date from 'components/Date';
+import CoverImage from 'components/CoverImage';
+import PostTitle from 'components/PostTitle';
+import Categories from 'components/Categories';
 
 type PostHeaderProps = {
   title: string;
