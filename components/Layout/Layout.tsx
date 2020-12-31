@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import Alert from './alert';
-import Container from './container';
-import Header from './header';
-import Footer from './footer';
-import Meta from './meta';
+import Alert from 'components/Alert';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import Meta from 'components/Meta';
 
 interface LayoutProps {
   preview?: boolean;

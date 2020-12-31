@@ -1,17 +1,17 @@
 import Head from 'next/head';
-import Intro from 'components/intro';
-import Container from 'components/container';
-import Layout from 'components/layout';
+import Intro from 'components/Intro';
+import Container from 'components/Container';
+import Layout from 'components/Layout';
 
-export default function ServicesPage() {
-  return (
-    <Layout>
-      <Head>
-        <title>Our services | Profico</title>
-      </Head>
-      <Container>
-        <Intro text="Our services" />
-      </Container>
-    </Layout>
-  );
-}
+const ServicesPage = () => (
+  <Layout>
+    <Head>
+      <title>Our services | Profico</title>
+    </Head>
+    <Container>
+      <Intro text="Our services" />
+    </Container>
+  </Layout>
+);
+
+export default ServicesPage;

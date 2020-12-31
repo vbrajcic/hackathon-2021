@@ -1,17 +1,17 @@
 import Head from 'next/head';
-import Intro from 'components/intro';
-import Container from 'components/container';
-import Layout from 'components/layout';
+import Intro from 'components/Intro';
+import Container from 'components/Container';
+import Layout from 'components/Layout';
 
-export default function ContactPage() {
-  return (
-    <Layout>
-      <Head>
-        <title>Contact us | Profico</title>
-      </Head>
-      <Container>
-        <Intro text="Contact us" />
-      </Container>
-    </Layout>
-  );
-}
+const ContactPage = () => (
+  <Layout>
+    <Head>
+      <title>Contact us | Profico</title>
+    </Head>
+    <Container>
+      <Intro text="Contact us" />
+    </Container>
+  </Layout>
+);
+
+export default ContactPage;
