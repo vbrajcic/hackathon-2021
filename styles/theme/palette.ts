@@ -10,6 +10,10 @@ const palette: ThemeOptions['palette'] = {
     main: Colors.secondary,
     contrastText: Colors.white,
   },
+  text: {
+    disabled: Colors.muted,
+    hint: Colors.muted,
+  },
 };
 
 export default palette;

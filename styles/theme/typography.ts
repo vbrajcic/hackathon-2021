@@ -15,6 +15,16 @@ const typography: ThemeOptions['typography'] = {
     fontWeight: 'bold',
     letterSpacing: '-3px',
   },
+  h4: {
+    fontSize: '28px',
+    lineHeight: '41px',
+    letterSpacing: 0,
+  },
+  subtitle1: {
+    fontSize: '18px',
+    lineHeight: '28px',
+    letterSpacing: 0,
+  },
   body1: {
     fontSize: '20px',
     lineHeight: '24px',
@@ -40,6 +50,7 @@ const typography: ThemeOptions['typography'] = {
     lineHeight: '24px',
     letterSpacing: 0,
     fontWeight: 'bold',
+    textTransform: 'none',
   },
   fontWeightRegular: 400,
   fontWeightMedium: 500,
