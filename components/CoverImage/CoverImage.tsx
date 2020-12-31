@@ -1,14 +1,15 @@
+import React from 'react';
 import cn from 'classnames';
 import FeaturedImage from 'types/posts/featuredImage';
 import Hyperlink from 'components/Hyperlink';
 
-type CoverImageProps = {
+interface CoverImageProps {
   title: string;
   coverImage?: FeaturedImage;
   slug?: string;
-};
+}
 
-export default function CoverImage({ title, coverImage, slug }: CoverImageProps) {
+const CoverImage: React.FC<CoverImageProps> = ({ title, coverImage, slug }) => {
   if (!coverImage) {
     return null;
   }
@@ -34,4 +35,6 @@ export default function CoverImage({ title, coverImage, slug }: CoverImageProps)
       )}
     </div>
   );
-}
+};
+
+export default CoverImage;

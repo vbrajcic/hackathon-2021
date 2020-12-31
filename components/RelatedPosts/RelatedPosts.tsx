@@ -1,13 +1,14 @@
+import React from 'react';
 import { Node } from 'types/common';
 import Post from 'types/posts/post';
 import Teaser from 'components/Teaser';
 
-type RelatedPostsProps = {
+interface RelatedPostsProps {
   posts: Node<Post>[];
   page: string;
-};
+}
 
-export default function RelatedPosts({ posts, page }: RelatedPostsProps) {
+const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts, page }) => {
   if (!posts.length) return null;
   return (
     <section>
@@ -27,4 +28,6 @@ export default function RelatedPosts({ posts, page }: RelatedPostsProps) {
       </div>
     </section>
   );
-}
+};
+
+export default RelatedPosts;

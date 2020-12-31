@@ -1,10 +1,11 @@
+import React from 'react';
 import Container from 'components/Container';
 
-type AlertProps = {
+interface AlertProps {
   preview?: boolean;
-};
+}
 
-export default function Alert({ preview }: AlertProps) {
+const Alert: React.FC<AlertProps> = ({ preview }) => {
   if (!preview) {
     return null;
   }
@@ -22,4 +23,6 @@ export default function Alert({ preview }: AlertProps) {
       </Container>
     </div>
   );
-}
+};
+
+export default Alert;

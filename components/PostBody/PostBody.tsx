@@ -1,13 +1,14 @@
+import React from 'react';
 import styles from './PostBody.module.scss';
 
-type PostBodyProps = {
+interface PostBodyProps {
   content: string;
-};
-
-export default function PostBody({ content }: PostBodyProps) {
-  return (
-    <div className="max-w-2xl mx-auto">
-      <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
-  );
 }
+
+const PostBody: React.FC<PostBodyProps> = ({ content }) => (
+  <div className="max-w-2xl mx-auto">
+    <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
+  </div>
+);
+
+export default PostBody;

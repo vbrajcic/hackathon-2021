@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Edges } from 'types/common';
@@ -9,12 +10,12 @@ import Intro from 'components/Intro';
 import Layout from 'components/Layout';
 import { getAllPostsForHome } from 'lib/api';
 
-type CareersPageProps = {
+interface CareersPageProps {
   allPosts: Edges<Post>;
   preview: boolean;
-};
+}
 
-export default function CareersPage({ allPosts: { edges }, preview }: CareersPageProps) {
+const CareersPage: React.FC<CareersPageProps> = ({ allPosts: { edges }, preview }) => {
   const heroPost = edges[0]?.node;
   const morePosts = edges.slice(1);
 
@@ -39,7 +40,9 @@ export default function CareersPage({ allPosts: { edges }, preview }: CareersPag
       </Container>
     </Layout>
   );
-}
+};
+
+export default CareersPage;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   type Data = {

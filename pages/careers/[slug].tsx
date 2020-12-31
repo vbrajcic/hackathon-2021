@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
@@ -17,7 +18,7 @@ type CareerPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
 };
 
-export default function CareerPost({ post, posts, preview }: CareerPostProps) {
+const CareerPost: React.FC<CareerPostProps> = ({ post, posts, preview }) => {
   const router = useRouter();
   const morePosts = posts?.edges;
 
@@ -55,7 +56,9 @@ export default function CareerPost({ post, posts, preview }: CareerPostProps) {
       </Container>
     </Layout>
   );
-}
+};
+
+export default CareerPost;
 
 export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
   params,

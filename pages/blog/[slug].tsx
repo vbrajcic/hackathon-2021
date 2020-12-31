@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
@@ -17,7 +18,7 @@ type BlogPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
 };
 
-export default function BlogPost({ post, posts, preview }: BlogPostProps) {
+const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   const router = useRouter();
   const morePosts = posts?.edges;
 
@@ -55,7 +56,9 @@ export default function BlogPost({ post, posts, preview }: BlogPostProps) {
       </Container>
     </Layout>
   );
-}
+};
+
+export default BlogPost;
 
 export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
   params,
