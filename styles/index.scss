@@ -16,6 +16,9 @@
 
 /* Your own custom utilities */
 
+// Fonts
+@import './settings/fonts';
+
 .has-text-align-left {
   @apply text-left;
 }
