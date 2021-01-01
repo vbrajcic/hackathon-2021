@@ -3,6 +3,7 @@ import Intro from 'components/Intro';
 import Container from 'components/Container';
 import Layout from 'components/Layout';
 import Hyperlink from 'components/Hyperlink';
+import links from 'config/links';
 
 const HomePage = () => (
   <Layout>
@@ -11,47 +12,9 @@ const HomePage = () => (
     </Head>
     <Container>
       <Intro text="Home" />
-      <Hyperlink
-        href="/work"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'Work' },
-        }}
-      />
-      {' | '}
-      <Hyperlink
-        href="/services"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'Services' },
-        }}
-      />
-      {' | '}
-      <Hyperlink
-        href="/about"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'About us' },
-        }}
-      />
-      {' | '}
-      <Hyperlink
-        href="/careers"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'Careers' },
-        }}
-      />
-      {' | '}
-      <Hyperlink
-        href="/blog"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'Blog' },
-        }}
-      />
-      {' | '}
-      <Hyperlink
-        href="/contact"
-        AnchorProps={{
-          dangerouslySetInnerHTML: { __html: 'Contact us' },
-        }}
-      />
+      {links.map(({ text, url }, index) => (
+        <Hyperlink key={url} href={url}>{`${text}${index !== links.length - 1 ? ' | ' : ''}`}</Hyperlink>
+      ))}
     </Container>
   </Layout>
 );
