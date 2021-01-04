@@ -20,7 +20,6 @@
 @import './settings/fonts';
 @import './settings/variables';
 @import './utils/rem-calc';
-@import './utils/mixins';
 
 .has-text-align-left {
   @apply text-left;

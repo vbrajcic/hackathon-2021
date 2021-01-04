@@ -5,18 +5,20 @@ export default async function contact(req: NextApiRequest, res: NextApiResponse)
   const { email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
       user: process.env.GMAIL_USERNAME,
       pass: process.env.GMAIL_PASSWORD,
     },
   });
 
+  // proficotest@gmail.com just for testing purposes - should be info@profico.hr
   const mailOption = {
-    from: email,
-    to: 'vana.brajcic@gmail.com',
-    subject: `New mail from Contact form`,
-    text: `New message from ${email}: \n ${message}`,
+    from: `Profico Web <${email}>`,
+    to: 'proficotest@gmail.com',
+    subject: `New inquiry from Profico web`,
+    text: `FROM: ${email} MESSAGE: ${message}`,
+    html: `<h2>Mail From Contact Form</h2><p>From: <a href="mailto:${email}">${email}</a></p><p>${message}</p>`,
     replyTo: email,
   };
 

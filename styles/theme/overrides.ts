@@ -11,6 +11,9 @@ const overrides: ThemeOptions['overrides'] = {
         backgroundColor: Colors.muted,
         cursor: 'not-allowed',
       },
+      '&:focus': {
+        outline: 'none',
+      },
     },
     contained: {
       boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
