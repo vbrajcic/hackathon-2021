@@ -1,0 +1,40 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+
+.contactForm {
+  background-color: $white;
+  padding: rem-calc(67 18);
+  margin: rem-calc(0 -16);
+  border-radius: 0;
+  box-shadow: none;
+  h2 {
+    margin-bottom: rem-calc(45);
+  }
+  @media screen and (min-width: 414px) {
+    margin: 0;
+    border-radius: rem-calc(60);
+    box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.08);
+  }
+  @media screen and (min-width: 768px) {
+    padding: rem-calc(67 30 67 80);
+  }
+  @media screen and (min-width: 1024px) {
+    padding: rem-calc(75 30 75 160);
+  }
+}
+
+.form {
+  margin-top: rem-calc(50);
+  max-width: rem-calc(445);
+  textarea,
+  input {
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
+  }
+  button {
+    margin: rem-calc(15 0 90 0);
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+}

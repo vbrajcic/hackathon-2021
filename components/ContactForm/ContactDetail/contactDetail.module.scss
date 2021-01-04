@@ -1,0 +1,24 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+
+.contactDetail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem-calc(45);
+  width: 50%;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  b {
+    color: $primary;
+  }
+}
+
+.icon {
+  margin-bottom: rem-calc(13);
+}
+
+.text span {
+  display: block;
+  margin-top: rem-calc(20);
+}

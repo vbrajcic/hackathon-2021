@@ -11,6 +11,7 @@ const palette: ThemeOptions['palette'] = {
     contrastText: Colors.white,
   },
   text: {
+    primary: Colors.textPrimary,
     disabled: Colors.muted,
     hint: Colors.muted,
   },

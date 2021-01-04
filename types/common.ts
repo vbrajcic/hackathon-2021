@@ -15,3 +15,9 @@ type QueryEdgesKeys = 'posts' | 'categories';
 export type QueryEdgesResult<TKey extends QueryEdgesKeys, TData extends {} = {}> = {
   [key in TKey]: Edges<TData>;
 };
+
+export type SvgIcon = {
+  width?: string;
+  height?: string;
+  className?: string;
+};
