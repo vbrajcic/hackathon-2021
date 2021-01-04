@@ -10,7 +10,9 @@ COPY . .
 
 RUN yarn build
 
-RUN npm prune --production
+RUN rm -rf node_modules
+
+RUN yarn install --production --frozen-lockfile
 
 FROM node:14.15-alpine
 
