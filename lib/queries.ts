@@ -2,6 +2,7 @@ import Post from 'types/posts/post';
 
 import { Edges, QueryEdgesResult } from 'types/common';
 import { Preview } from 'types/posts/preview';
+import { CAREERS_CATEGORY_ID } from './constants';
 
 export type GetPreviewPostResult = Preview;
 
@@ -27,11 +28,40 @@ export const GET_ALL_POSTS_WITH_SLUG = `
     }
   }`;
 
-export type GetAllPostsForHomeResult = QueryEdgesResult<'posts', Post>;
+export type GetAllCategoryPostsResult = QueryEdgesResult<'posts', Post>;
 
-export const GET_ALL_POSTS_FOR_HOME = `
+export const GET_ALL_CAREER_POSTS = `
   query AllPosts {
-    posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+    posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryIn: "${CAREERS_CATEGORY_ID}" }) {
+      edges {
+        node {
+          title
+          excerpt
+          slug
+          date
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+          author {
+            node {
+              name
+              firstName
+              lastName
+              avatar {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+export const GET_ALL_BLOG_POSTS = `
+  query AllPosts {
+    posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
         node {
           title
