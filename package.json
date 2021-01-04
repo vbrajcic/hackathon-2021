@@ -1,6 +1,11 @@
 {
   "name": "@profico/web",
   "version": "1.0.0",
+  "config": {
+    "docker_reg": "",
+    "docker_reg_dev": "docker.proficodev.com/profico-web",
+    "dir_dev": "/etc/profico-web"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -9,6 +14,8 @@
     "start:local": "NODE_ENV=development next start",
     "lint:base": "eslint --ext .ts,.tsx ./",
     "lint:styles": "stylelint '**/*.scss' --fix",
+    "docker:build:dev": "docker build . -t $npm_package_config_docker_reg_dev/users:$npm_package_version",
+    "version:set:dev": "echo \"VERSION=$npm_package_version\"> $npm_package_config_dir_dev/.env",
     "lint": "yarn lint:base --fix --cache --cache-location=./node_modules/.cache/ && yarn lint:styles"
   },
   "dependencies": {
