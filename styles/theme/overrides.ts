@@ -17,6 +17,9 @@ const overrides: ThemeOptions['overrides'] = {
     },
     contained: {
       boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
+      '&:hover': {
+        boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
+      },
     },
   },
   MuiPaper: {

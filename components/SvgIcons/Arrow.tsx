@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
-import { SvgIcon } from 'types/common';
+import React, { FC, SVGProps } from 'react';
 
-const Arrow: FC<SvgIcon> = props => (
+const Arrow: FC<SVGProps<SVGSVGElement>> = props => (
   <svg width="7" height="14" {...props}>
     <path
       d="M.657 1.343l4.95 4.95a1 1 0 010 1.414l-4.95 4.95h0"

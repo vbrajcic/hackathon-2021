@@ -82,7 +82,6 @@
     "@typescript-eslint/no-var-requires": "off",
     "global-require": "off",
     "no-use-before-define": "off",
-    "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/ban-types": "off",
     "no-shadow": "off",

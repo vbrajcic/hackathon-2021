@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
-import { SvgIcon } from 'types/common';
+import React, { FC, SVGProps } from 'react';
 
-const Snowman: FC<SvgIcon> = props => (
+const Snowman: FC<SVGProps<SVGSVGElement>> = props => (
   <svg width="36" height="36" viewBox="0 0 36 36" {...props}>
     <g
       transform="translate(1 1)"

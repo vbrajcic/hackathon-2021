@@ -11,19 +11,20 @@ import Snowman from 'components/SvgIcons/Snowman';
 import Sailing from 'components/SvgIcons/Sailing';
 import ContactDetail from './ContactDetail';
 
-import style from './contactForm.module.scss';
+import style from './ContactForm.module.scss';
 
 type ContactFields = {
   email: string;
   message?: string;
 };
 
+const defaultValues: ContactFields = {
+  email: '',
+  message: '',
+};
+
 const ContactForm: FC<{}> = () => {
-  const defaultValues: ContactFields = {
-    email: '',
-    message: '',
-  };
-  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
 
   const resetForm = (): void => {
@@ -42,7 +43,7 @@ const ContactForm: FC<{}> = () => {
     });
     const json = await res.json();
     setSnackbarMessage(json.message);
-    setTimeout(() => resetForm(), 2000);
+    setTimeout(() => resetForm(), 3000);
   };
 
   const emailError = errors.email ? errors.email.message : '';
@@ -50,8 +51,11 @@ const ContactForm: FC<{}> = () => {
 
   return (
     <div className={style.contactForm}>
+      <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2">
-        Got a project? <br /> Let&apos;s have a chat!
+        Got a project?
+        <br />
+        Let&apos;s have a chat!
       </Typography>
       <Grid container spacing={3} justify="space-between">
         <Grid item sm={12} md={7} lg={7}>
@@ -91,12 +95,13 @@ const ContactForm: FC<{}> = () => {
             Makarska 26A
           </ContactDetail>
           <ContactDetail title="Contact info">
-            Split+Zagreb, Croatia <br /> +385 91 322 1274
+            Split+Zagreb, Croatia
+            <br />
+            +385 91 322 1274
             <span>info@profico.hr</span>
           </ContactDetail>
         </Grid>
       </Grid>
-      <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
     </div>
   );
 };
