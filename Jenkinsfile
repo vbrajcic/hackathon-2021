@@ -33,9 +33,7 @@ pipeline {
             steps {
                 nodejs(nodeJSInstallationName: 'node:12') {
                     sh 'yarn version:set:dev'
-                }
-                dir('/etc/profico-web/') {
-                    sh 'docker-compose up -d'
+                    sh 'yarn docker:run:dev'
                 }
             }
         }
