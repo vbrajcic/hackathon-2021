@@ -6,7 +6,7 @@ interface PostBodyProps {
 }
 
 const PostBody: React.FC<PostBodyProps> = ({ content }) => (
-  <div className="max-w-2xl mx-auto">
+  <div className={styles.article}>
     <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
   </div>
 );

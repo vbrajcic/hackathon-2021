@@ -5,6 +5,7 @@ import Avatar from 'components/Avatar';
 import Date from 'components/Date';
 import CoverImage from 'components/CoverImage';
 import Hyperlink from 'components/Hyperlink';
+import styles from './HeroPost.module.scss';
 
 interface HeroPostProps {
   title: string;
@@ -17,27 +18,25 @@ interface HeroPostProps {
 
 const HeroPost: React.FC<HeroPostProps> = ({ title, coverImage, date, excerpt, author, slug }) => (
   <section>
-    <div className="mb-8 md:mb-16">
-      {coverImage && <CoverImage title={title} coverImage={coverImage} slug={slug} />}
-    </div>
-    <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
+    <div className={styles.cover}>{coverImage && <CoverImage title={title} coverImage={coverImage} slug={slug} />}</div>
+    <div className={styles.container}>
       <div>
-        <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+        <h3 className={styles.title}>
           <Hyperlink
             as={slug}
             href={slug}
             AnchorProps={{
-              className: 'hover:underline',
+              className: styles.link,
               dangerouslySetInnerHTML: { __html: title },
             }}
           />
         </h3>
-        <div className="mb-4 md:mb-0 text-lg">
+        <div className={styles.date}>
           <Date dateString={date} />
         </div>
       </div>
       <div>
-        <div className="text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <div className={styles.text} dangerouslySetInnerHTML={{ __html: excerpt }} />
         <Avatar author={author} />
       </div>
     </div>

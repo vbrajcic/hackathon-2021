@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from 'components/Container';
+import styles from './Alert.module.scss';
 
 interface AlertProps {
   preview?: boolean;
@@ -11,11 +12,11 @@ const Alert: React.FC<AlertProps> = ({ preview }) => {
   }
 
   return (
-    <div className="border-b bg-accent-7 border-accent-7 text-white">
+    <div className={styles.container}>
       <Container>
-        <div className="py-2 text-center text-sm">
+        <div className={styles.text}>
           This page is a preview.&nbsp;
-          <a href="/api/exit-preview" className="underline hover:text-cyan duration-200 transition-colors">
+          <a href="/api/exit-preview" className={styles.link}>
             Click here
           </a>
           &nbsp; to exit preview mode.
