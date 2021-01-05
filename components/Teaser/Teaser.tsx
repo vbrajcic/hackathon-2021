@@ -5,6 +5,7 @@ import Avatar from 'components/Avatar';
 import Date from 'components/Date';
 import CoverImage from 'components/CoverImage';
 import Hyperlink from 'components/Hyperlink';
+import styles from './Teaser.module.scss';
 
 interface TeaserProps {
   title: string;
@@ -17,23 +18,23 @@ interface TeaserProps {
 
 const Teaser: React.FC<TeaserProps> = ({ title, coverImage, date, excerpt, author, slug }) => (
   <div>
-    <div className="mb-5">
+    <div className={styles.marginBottom}>
       <CoverImage title={title} coverImage={coverImage} slug={slug} />
     </div>
-    <h3 className="text-3xl mb-3 leading-snug">
+    <h3 className={styles.title}>
       <Hyperlink
         as={slug}
         href={slug}
         AnchorProps={{
-          className: 'hover:underline',
+          className: styles.link,
           dangerouslySetInnerHTML: { __html: title },
         }}
       />
     </h3>
-    <div className="text-lg mb-4">
+    <div className={styles.date}>
       <Date dateString={date} />
     </div>
-    <div className="text-lg leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
+    <div className={styles.author} dangerouslySetInnerHTML={{ __html: excerpt }} />
     <Avatar author={author} />
   </div>
 );

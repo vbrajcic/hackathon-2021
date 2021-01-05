@@ -8,6 +8,7 @@ import Date from 'components/Date';
 import CoverImage from 'components/CoverImage';
 import PostTitle from 'components/PostTitle';
 import Categories from 'components/Categories';
+import styles from './PostHeader.module.scss';
 
 interface PostHeaderProps {
   title: string;
@@ -20,17 +21,17 @@ interface PostHeaderProps {
 const PostHeader: React.FC<PostHeaderProps> = ({ title, coverImage, date, author, categories }) => (
   <>
     <PostTitle>{title}</PostTitle>
-    <div className="hidden md:block md:mb-12">
+    <div className={styles.author}>
       <Avatar author={author} />
     </div>
-    <div className="mb-8 md:mb-16 sm:mx-0">
+    <div className={styles.coverImage}>
       <CoverImage title={title} coverImage={coverImage} />
     </div>
-    <div className="max-w-2xl mx-auto">
-      <div className="block md:hidden mb-6">
+    <div className={styles.container}>
+      <div className={styles.author}>
         <Avatar author={author} />
       </div>
-      <div className="mb-6 text-lg">
+      <div className={styles.byline}>
         Posted&nbsp;
         <Date dateString={date} />
         {categories && <Categories categories={categories} />}
