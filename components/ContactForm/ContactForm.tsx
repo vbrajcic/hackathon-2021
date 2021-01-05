@@ -6,9 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
+import Paper from '@material-ui/core/Paper';
 
 import Snowman from 'components/SvgIcons/Snowman';
 import Sailing from 'components/SvgIcons/Sailing';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
 import ContactDetail from './ContactDetail';
 
 import style from './ContactForm.module.scss';
@@ -49,8 +51,10 @@ const ContactForm: FC<{}> = () => {
   const emailError = errors.email ? errors.email.message : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Get in touch';
 
+  const isMobile: boolean = useBreakpoint().isBelow('SM');
+
   return (
-    <div className={style.contactForm}>
+    <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2">
         Got a project?
@@ -102,7 +106,7 @@ const ContactForm: FC<{}> = () => {
           </ContactDetail>
         </Grid>
       </Grid>
-    </div>
+    </Paper>
   );
 };
 

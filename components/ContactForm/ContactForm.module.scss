@@ -1,24 +1,20 @@
 @import 'styles/settings/variables.scss';
 @import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
 
-.contactForm {
-  background-color: $white;
+.container {
   padding: rem-calc(67 18);
   margin: rem-calc(0 -16);
-  border-radius: 0;
-  box-shadow: none;
   h2 {
     margin-bottom: rem-calc(45);
   }
-  @media screen and (min-width: 414px) {
+  @include media('sm') {
     margin: 0;
-    border-radius: rem-calc(60);
-    box-shadow: $box-shadow__paper;
   }
-  @media screen and (min-width: 768px) {
+  @include media('md') {
     padding: rem-calc(67 30 67 80);
   }
-  @media screen and (min-width: 1024px) {
+  @include media('lg') {
     padding: rem-calc(75 30 75 160);
   }
 }
@@ -33,7 +29,7 @@
   }
   button {
     margin: rem-calc(15 0 90 0);
-    @media screen and (min-width: 768px) {
+    @include media('md') {
       margin-bottom: 0;
     }
   }

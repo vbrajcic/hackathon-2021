@@ -9,7 +9,7 @@ type ContactDetailProps = {
 };
 
 const ContactDetail: FC<ContactDetailProps> = ({ title, icon: Icon, children }) => (
-  <div className={style.contactDetail}>
+  <div className={style.container}>
     {Icon && <Icon className={style.icon} />}
     {title && (
       <Typography variant="body2">

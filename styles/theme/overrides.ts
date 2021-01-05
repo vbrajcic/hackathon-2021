@@ -27,7 +27,7 @@ const overrides: ThemeOptions['overrides'] = {
       backgroundColor: Colors.white,
     },
     rounded: {
-      borderRadius: 32,
+      borderRadius: 60,
     },
     elevation1: {
       boxShadow: '0 2px 29px 0 rgba(63, 62, 74, 0.05), 19px 67px 102px 0 rgba(63, 62, 74, 0.13)',

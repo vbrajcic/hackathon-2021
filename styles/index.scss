@@ -20,6 +20,7 @@
 @import './settings/fonts';
 @import './settings/variables';
 @import './utils/rem-calc';
+@import './mixins/breakpoints';
 
 .has-text-align-left {
   @apply text-left;
