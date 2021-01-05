@@ -1,96 +1,32 @@
-import React, { useState } from 'react';
-import useWindowSize from 'react-use/lib/useWindowSize';
-
-import { Breakpoint, UtilsContext } from '../Context';
-
-const Validation = {
-  isBetween: (target: number, lower: number, upper: number, granularity: '()' | '[)' | '[]' | '(]' = '()') => {
-    switch (granularity) {
-      case '[)':
-        return target >= lower && target < upper;
-      case '(]':
-        return target > lower && target <= upper;
-      case '[]':
-        return target >= lower && target <= upper;
-      case '()':
-      default:
-        return target > lower && target < upper;
-    }
-  },
-  isGreaterThan: (target: number, compareTo: number, operator: '>=' | '>' = '>') => {
-    if (operator === '>=') {
-      return target >= compareTo;
-    }
-
-    return target > compareTo;
-  },
-  isLessThan: (target: number, compareTo: number, operator: '<=' | '<' = '<') => {
-    if (operator === '<=') {
-      return target <= compareTo;
-    }
-
-    return target < compareTo;
-  },
-};
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Theme } from '@material-ui/core/styles';
 
 interface UseBreakpointPayload {
-  width: number;
-  current: Breakpoint;
-  isBelow: (limit: Breakpoint, operator?: '<=' | '<') => boolean;
+  isBelow: (limit: Breakpoint) => boolean;
   isBetween: (lower: Breakpoint, upper: Breakpoint) => boolean;
-  isAbove: (limit: Breakpoint, operator?: '>=' | '>') => boolean;
+  isAbove: (limit: Breakpoint) => boolean;
+  isOnly: (limit: Breakpoint) => boolean;
 }
 type UseBreakpointHook = () => UseBreakpointPayload;
+type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-const getCurrentBreakpoint = (width: number, Breakpoints: { [key in Breakpoint]: number }): Breakpoint => {
-  if (Validation.isBetween(width, 0, Breakpoints.XS)) {
-    return 'XS';
-  }
-  if (Validation.isBetween(width, Breakpoints.XS, Breakpoints.SM, '[)')) {
-    return 'SM';
-  }
-  if (Validation.isBetween(width, Breakpoints.SM, Breakpoints.MD, '[)')) {
-    return 'MD';
-  }
-  if (Validation.isBetween(width, Breakpoints.MD, Breakpoints.LG, '[)')) {
-    return 'LG';
-  }
-
-  return 'XL';
-};
+const BetweenLimits = (upper: Breakpoint, lower: Breakpoint): boolean =>
+  useMediaQuery((theme: Theme) => theme.breakpoints.between(upper, lower));
+const BelowLimit = (limit: Breakpoint): boolean => useMediaQuery((theme: Theme) => theme.breakpoints.down(limit));
+const AboveLimit = (limit: Breakpoint): boolean => useMediaQuery((theme: Theme) => theme.breakpoints.up(limit));
+const OnlyLimit = (limit: Breakpoint): boolean => useMediaQuery((theme: Theme) => theme.breakpoints.only(limit));
 
 const useBreakpoint: UseBreakpointHook = () => {
-  const { width } = useWindowSize();
-  const { Breakpoints } = React.useContext(UtilsContext);
-  const [current, setCurrentBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint(width, Breakpoints));
-
-  React.useEffect(() => {
-    const newBreakpoint = getCurrentBreakpoint(width, Breakpoints);
-
-    setCurrentBreakpoint(newBreakpoint);
-  }, [width, Breakpoints]);
-
-  const isBelow = React.useCallback(
-    (limit: Breakpoint, operator: '<=' | '<' = '<') => Validation.isLessThan(width, Breakpoints[limit], operator),
-    [width, Breakpoints]
-  );
-
-  const isAbove = React.useCallback(
-    (limit: Breakpoint, operator: '>=' | '>' = '>=') => Validation.isGreaterThan(width, Breakpoints[limit], operator),
-    [width, Breakpoints]
-  );
-
-  const isBetween = React.useCallback(
-    (lower: Breakpoint, upper: Breakpoint) => Validation.isBetween(width, Breakpoints[lower], Breakpoints[upper]),
-    [width, Breakpoints]
-  );
+  const isBetween = (lower: Breakpoint, upper: Breakpoint) => BetweenLimits(lower, upper);
+  const isBelow = (limit: Breakpoint) => BelowLimit(limit);
+  const isAbove = (limit: Breakpoint) => AboveLimit(limit);
+  const isOnly = (limit: Breakpoint) => OnlyLimit(limit);
 
   return {
-    current,
-    isAbove,
-    isBelow,
     isBetween,
-    width,
+    isBelow,
+    isAbove,
+    isOnly,
   };
 };
 

@@ -51,7 +51,7 @@ const ContactForm: FC<{}> = () => {
   const emailError = errors.email ? errors.email.message : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Get in touch';
 
-  const isMobile: boolean = useBreakpoint().isBelow('SM');
+  const isMobile: boolean = useBreakpoint().isBelow('xs');
 
   return (
     <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
