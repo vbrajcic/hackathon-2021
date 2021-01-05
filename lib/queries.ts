@@ -3,6 +3,7 @@ import Post from 'types/posts/post';
 import { Edges, QueryEdgesResult } from 'types/common';
 import { Preview } from 'types/posts/preview';
 import { CAREERS_CATEGORY_ID } from './constants';
+import { AUTHOR_FIELDS_ON_USER, POST, POST_FIELDS_ON_POST, REVISION_POST } from './fragments';
 
 export type GetPreviewPostResult = Preview;
 
@@ -34,27 +35,7 @@ export const GET_ALL_CAREER_POSTS = `
   query AllPosts {
     posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
-        node {
-          title
-          excerpt
-          slug
-          date
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          author {
-            node {
-              name
-              firstName
-              lastName
-              avatar {
-                url
-              }
-            }
-          }
-        }
+        ${POST}
       }
     }
   }`;
@@ -63,27 +44,7 @@ export const GET_ALL_BLOG_POSTS = `
   query AllPosts {
     posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
-        node {
-          title
-          excerpt
-          slug
-          date
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          author {
-            node {
-              name
-              firstName
-              lastName
-              avatar {
-                url
-              }
-            }
-          }
-        }
+        ${POST}
       }
     }
   }`;
@@ -94,44 +55,8 @@ export type GetPostAndMorePostsResult = {
 };
 
 export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => `
-  fragment AuthorFields on User {
-    name
-    firstName
-    lastName
-    avatar {
-      url
-    }
-  }
-  fragment PostFields on Post {
-    title
-    excerpt
-    slug
-    date
-    featuredImage {
-      node {
-        sourceUrl
-      }
-    }
-    author {
-      node {
-        ...AuthorFields
-      }
-    }
-    categories {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-    tags {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-  }
+  ${AUTHOR_FIELDS_ON_USER}
+  ${POST_FIELDS_ON_POST}
   query PostBySlug($id: ID!, $idType: PostIdType!) {
     post(id: $id, idType: $idType) {
       ...PostFields
@@ -142,16 +67,7 @@ export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => `
           ? `
       revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
         edges {
-          node {
-            title
-            excerpt
-            content
-            author {
-              node {
-                ...AuthorFields
-              }
-            }
-          }
+          ${REVISION_POST}
         }
       }
       `
