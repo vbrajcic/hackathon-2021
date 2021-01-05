@@ -1,6 +1,7 @@
 import React from 'react';
 import Author from 'types/posts/author';
 import useFactory from 'utils/hooks/useFactory';
+import styles from './Avatar.module.scss';
 
 interface AvatarProps {
   author?: Author;
@@ -22,9 +23,9 @@ const Avatar: React.FC<AvatarProps> = ({ author }) => {
   return (
     <>
       {author && name && (
-        <div className="flex items-center">
-          <img src={author.avatar.url} className="w-12 h-12 rounded-full mr-4" alt={name} />
-          <div className="text-xl font-bold">{name}</div>
+        <div className={styles.container}>
+          <img src={author.avatar.url} className={styles.image} alt={name} />
+          <div className={styles.name}>{name}</div>
         </div>
       )}
     </>
