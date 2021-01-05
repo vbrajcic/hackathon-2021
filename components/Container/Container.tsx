@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
+import styles from './Container.module.scss';
 
 interface ContainerProps {
   children?: ReactNode;
 }
 
-const Container: React.FC<ContainerProps> = ({ children }) => <div className="container mx-auto px-5">{children}</div>;
+const Container: React.FC<ContainerProps> = ({ children }) => <div className={styles.container}>{children}</div>;
 
 export default Container;
