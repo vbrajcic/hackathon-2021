@@ -12,11 +12,11 @@ const Alert: React.FC<AlertProps> = ({ preview }) => {
   }
 
   return (
-    <div className={styles.containerWrapper}>
+    <div className={styles.container}>
       <Container>
-        <div className={styles.containerText}>
+        <div className={styles.text}>
           This page is a preview.&nbsp;
-          <a href="/api/exit-preview" className={styles.containerLink}>
+          <a href="/api/exit-preview" className={styles.link}>
             Click here
           </a>
           &nbsp; to exit preview mode.
