@@ -4,6 +4,7 @@ import Container from 'components/Container';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Meta from 'components/Meta';
+import styles from './Layout.module.scss';
 
 interface LayoutProps {
   preview?: boolean;
@@ -13,7 +14,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ preview, children }) => (
   <>
     <Meta />
-    <div className="min-h-screen">
+    <div className={styles.container}>
       <Alert preview={preview} />
       <Container>
         <Header />
