@@ -1,51 +1,4 @@
-const AUTHOR = `
-  author {
-    node {
-      name
-      firstName
-      lastName
-      avatar {
-        url
-      }
-    }
-  }`;
-
-const FEATURED_IMAGE = `
-  featuredImage {
-    node {
-      sourceUrl
-    }
-  }`;
-
-const CATEGORIES = `
-  categories {
-    edges {
-      node {
-        name
-      }
-    }
-  }`;
-
-const TAGS = `
-  tags {
-    edges {
-      node {
-        name
-      }
-    }
-  }`;
-
-export const POST = `
-  node {
-    title
-    excerpt
-    slug
-    date
-    ${FEATURED_IMAGE}
-    ${AUTHOR}
-  }`;
-
-export const AUTHOR_FIELDS_ON_USER = `
+export const AUTHOR_FIELDS_FRAGMENT = `
   fragment AuthorFields on User {
     name
     firstName
@@ -55,24 +8,42 @@ export const AUTHOR_FIELDS_ON_USER = `
     }
   }`;
 
-export const POST_FIELDS_ON_POST = `
-  fragment PostFields on Post {
+export const REGULAR_POST_FIELDS_FRAGMENT = `
+  ${AUTHOR_FIELDS_FRAGMENT}
+  
+  fragment RegularPostFields on Post {
     title
     excerpt
     slug
     date
-    ${FEATURED_IMAGE}
+    featuredImage {
+      node {
+        sourceUrl
+      }
+    }
     author {
       node {
         ...AuthorFields
       }
     }
-    ${CATEGORIES}
-    ${TAGS}
+    categories {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    tags {
+      edges {
+        node {
+          name
+        }
+      }
+    }
   }`;
 
-export const REVISION_POST = `
-  node {
+export const REVISION_POST_FIELDS_FRAGMENT = `
+  fragment RevisionPostFields on Post {
     title
     excerpt
     content

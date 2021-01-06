@@ -5,6 +5,7 @@ import Avatar from 'components/Avatar';
 import Date from 'components/Date';
 import CoverImage from 'components/CoverImage';
 import Hyperlink from 'components/Hyperlink';
+
 import styles from './HeroPost.module.scss';
 
 interface HeroPostProps {
@@ -22,14 +23,9 @@ const HeroPost: React.FC<HeroPostProps> = ({ title, coverImage, date, excerpt, a
     <div className={styles.container}>
       <div>
         <h3 className={styles.title}>
-          <Hyperlink
-            as={slug}
-            href={slug}
-            AnchorProps={{
-              className: styles.link,
-              dangerouslySetInnerHTML: { __html: title },
-            }}
-          />
+          <Hyperlink as={slug} href={slug}>
+            {title}
+          </Hyperlink>
         </h3>
         <div className={styles.date}>
           <Date dateString={date} />
