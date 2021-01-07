@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

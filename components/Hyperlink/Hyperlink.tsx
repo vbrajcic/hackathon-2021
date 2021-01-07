@@ -7,8 +7,8 @@ interface HyperlinkProps extends LinkProps {
 }
 
 const Hyperlink: React.FC<HyperlinkProps> = ({ href, children, AnchorProps, ...props }) => (
-  <Link href={href} {...props}>
-    <MuiLink {...AnchorProps}>{children}</MuiLink>
+  <Link href={href} passHref {...props}>
+    <MuiLink {...AnchorProps}>{children || AnchorProps?.children}</MuiLink>
   </Link>
 );
 

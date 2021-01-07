@@ -4,11 +4,12 @@ import { fetchAPI } from './fetchAPI';
 import {
   GET_PREVIEW_POST,
   GET_ALL_POSTS_WITH_SLUG,
-  GET_ALL_POSTS_FOR_HOME,
+  GET_ALL_CAREER_POSTS,
+  GET_ALL_BLOG_POSTS,
   GET_POST_AND_MORE_POSTS,
   GetPostAndMorePostsResult,
   GetAllPostsWithSlugResult,
-  GetAllPostsForHomeResult,
+  GetAllCategoryPostsResult,
   GetPreviewPostResult,
 } from './queries';
 
@@ -26,8 +27,19 @@ export async function getAllPostsWithSlug() {
   return data.posts;
 }
 
-export async function getAllPostsForHome(preview: boolean) {
-  const data = await fetchAPI<GetAllPostsForHomeResult>(GET_ALL_POSTS_FOR_HOME, {
+export async function getAllCareerPosts(preview: boolean) {
+  const data = await fetchAPI<GetAllCategoryPostsResult>(GET_ALL_CAREER_POSTS, {
+    variables: {
+      onlyEnabled: !preview,
+      preview,
+    },
+  });
+
+  return data.posts;
+}
+
+export async function getAllBlogPosts(preview: boolean) {
+  const data = await fetchAPI<GetAllCategoryPostsResult>(GET_ALL_BLOG_POSTS, {
     variables: {
       onlyEnabled: !preview,
       preview,

@@ -1,15 +1,16 @@
 // Fonts
 @import './settings/fonts';
 @import './settings/variables';
+
+// Settings
+@import './settings/variables';
+
+// Globals - reset and base styling of HTML elements
+@import './globals/reset';
+@import './globals/base';
+
+// Utils
 @import './utils/rem-calc';
+
+// Mixins
 @import './mixins/breakpoints';
-
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-}

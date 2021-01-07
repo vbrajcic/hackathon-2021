@@ -8,7 +8,7 @@ import RelatedPosts from 'components/RelatedPosts';
 import HeroPost from 'components/HeroPost';
 import Intro from 'components/Intro';
 import Layout from 'components/Layout';
-import { getAllPostsForHome } from 'lib/api';
+import { getAllCareerPosts } from 'lib/api';
 
 interface CareersPageProps {
   allPosts: Edges<Post>;
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     }[];
   };
 
-  const allPosts: Data = await getAllPostsForHome(preview);
+  const allPosts: Data = await getAllCareerPosts(preview);
   return {
     props: { allPosts, preview },
   };
