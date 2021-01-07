@@ -50,12 +50,12 @@ const ContactForm: FC<{}> = () => {
   };
 
   const emailError = errors.email ? errors.email.message : '';
-  const submitText = formState.isSubmitting ? 'Sending...' : 'Get in touch';
+  const submitText = formState.isSubmitting ? 'Sending...' : 'Contact us';
 
   const isMobile = Breakpoint.isBelow('xs');
 
   return (
-    <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper id="contact-form" classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2">
         Got a project?

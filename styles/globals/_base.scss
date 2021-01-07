@@ -14,9 +14,10 @@ video {
 }
 
 a {
-  color: inherit;
+  color: $primary;
+  transition: color 125ms $timing-function;
 
   &:hover {
-    text-decoration: underline;
+    color: $secondary;
   }
 }

@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
 import Alert from 'components/Alert';
-import Container from 'components/Container';
-import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Meta from 'components/Meta';
+import Navbar from 'components/Navbar';
 import styles from './Layout.module.scss';
 
 interface LayoutProps {
@@ -16,9 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ preview, children }) => (
     <Meta />
     <div className={styles.container}>
       <Alert preview={preview} />
-      <Container>
-        <Header />
-      </Container>
+      <Navbar />
       <main>{children}</main>
     </div>
     <Footer />
