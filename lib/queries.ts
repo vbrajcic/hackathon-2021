@@ -2,6 +2,8 @@ import Post from 'types/posts/post';
 
 import { Edges, QueryEdgesResult } from 'types/common';
 import { Preview } from 'types/posts/preview';
+import { CAREERS_CATEGORY_ID } from './constants';
+import { REGULAR_POST_FIELDS_FRAGMENT, REVISION_POST_FIELDS_FRAGMENT } from './fragments';
 
 export type GetPreviewPostResult = Preview;
 
@@ -27,32 +29,29 @@ export const GET_ALL_POSTS_WITH_SLUG = `
     }
   }`;
 
-export type GetAllPostsForHomeResult = QueryEdgesResult<'posts', Post>;
+export type GetAllCategoryPostsResult = QueryEdgesResult<'posts', Post>;
 
-export const GET_ALL_POSTS_FOR_HOME = `
+export const GET_ALL_CAREER_POSTS = `
+  ${REGULAR_POST_FIELDS_FRAGMENT}
+
   query AllPosts {
-    posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+    posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
         node {
-          title
-          excerpt
-          slug
-          date
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          author {
-            node {
-              name
-              firstName
-              lastName
-              avatar {
-                url
-              }
-            }
-          }
+          ...RegularPostFields
+        }
+      }
+    }
+  }`;
+
+export const GET_ALL_BLOG_POSTS = `
+  ${REGULAR_POST_FIELDS_FRAGMENT}
+
+  query AllPosts {
+    posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
+      edges {
+        node {
+          ...RegularPostFields
         }
       }
     }
@@ -63,76 +62,42 @@ export type GetPostAndMorePostsResult = {
   posts: Edges<Post>;
 };
 
-export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => `
-  fragment AuthorFields on User {
-    name
-    firstName
-    lastName
-    avatar {
-      url
-    }
-  }
-  fragment PostFields on Post {
-    title
-    excerpt
-    slug
-    date
-    featuredImage {
-      node {
-        sourceUrl
-      }
-    }
-    author {
-      node {
-        ...AuthorFields
-      }
-    }
-    categories {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-    tags {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-  }
-  query PostBySlug($id: ID!, $idType: PostIdType!) {
-    post(id: $id, idType: $idType) {
-      ...PostFields
-      content
-      ${
-        // Only some of the fields of a revision are considered as there are some inconsistencies
-        isRevision
-          ? `
-      revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
-        edges {
-          node {
-            title
-            excerpt
-            content
-            author {
-              node {
-                ...AuthorFields
-              }
+export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => {
+  const getRevisionsQuery = () => {
+    // Only some of the fields of a revision are considered as there are some inconsistencies
+    if (isRevision) {
+      return `
+        ${REVISION_POST_FIELDS_FRAGMENT}
+
+        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
+          edges {
+            node {
+              ...RevisionPostFields
             }
           }
         }
-      }
-      `
-          : ''
-      }
+      `;
     }
-    posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
-      edges {
-        node {
-          ...PostFields
+
+    return '';
+  };
+
+  return `
+    ${REGULAR_POST_FIELDS_FRAGMENT}
+  
+    query PostBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        ...RegularPostFields
+        content
+        ${getRevisionsQuery()}
+      }
+  
+      posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
+        edges {
+          node {
+            ...RegularPostFields
+          }
         }
       }
-    }
-  }`;
+    }`;
+};
