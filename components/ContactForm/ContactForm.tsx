@@ -28,6 +28,7 @@ const defaultValues: ContactFields = {
 const ContactForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
+  const Breakpoint = useBreakpoint();
 
   const resetForm = (): void => {
     reset();
@@ -51,7 +52,7 @@ const ContactForm: FC<{}> = () => {
   const emailError = errors.email ? errors.email.message : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Get in touch';
 
-  const isMobile: boolean = useBreakpoint().isBelow('xs');
+  const isMobile = Breakpoint.isBelow('xs');
 
   return (
     <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
