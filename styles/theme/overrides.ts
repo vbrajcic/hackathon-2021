@@ -54,6 +54,16 @@ const overrides: ThemeOptions['overrides'] = {
       '&::before': {
         borderColor: Colors.grey300,
       },
+      '&:hover:not(.Mui-disabled):before': {
+        borderColor: Colors.grey400,
+      },
+      '&.Mui-focused:hover:before': {
+        borderBottom: 0,
+      },
+      '&::after': {
+        transformOrigin: '0% 50%',
+        transition: 'transform 300ms cubic-bezier(0.5, 0.67, 0.2, 1) 0ms',
+      },
     },
   },
   MuiInputBase: {
