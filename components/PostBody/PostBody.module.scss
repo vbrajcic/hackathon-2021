@@ -1,5 +1,8 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+
 .article {
-  max-width: 42rem;
+  max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -7,8 +10,15 @@
 .content {
   font-size: 1.125rem;
   line-height: 1.625;
+  margin-bottom: rem-calc(169);
+
+  :not(h4) {
+    max-width: 38rem;
+    margin: 0 auto;
+  }
 
   p,
+  h4,
   ul,
   ol,
   blockquote {
@@ -18,7 +28,6 @@
 
   a {
     text-decoration: underline;
-    word-break: break-all;
   }
 
   ul,
@@ -28,10 +37,18 @@
 
   ul {
     list-style-type: disc;
+
+    li::marker {
+      color: $secondary;
+    }
   }
 
   ol {
     list-style-type: decimal;
+
+    li::marker {
+      color: $secondary;
+    }
   }
 
   ul > li > ul,
@@ -53,17 +70,19 @@
   }
 
   h3 {
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    line-height: 1.375;
+    color: $primary;
+    font-size: rem-calc(24);
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: rem-calc(28);
   }
 
   h4 {
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.375;
+    color: $primary;
+    font-size: rem-calc(28);
+    letter-spacing: 0;
+    line-height: rem-calc(41);
+    margin-bottom: rem-calc(63);
   }
 
   pre {
@@ -87,7 +106,7 @@
   }
 
   blockquote {
-    border-left-width: 4px;
+    border-left-width: rem-calc(4);
     border-color: #a0aec0;
     background-color: #edf2f7;
     font-style: italic;
