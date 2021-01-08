@@ -4,13 +4,16 @@
 @import 'styles/utils/rem-calc';
 
 .root {
-  &.container {
-    position: sticky;
-    top: 0;
-    left: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+
+  .container {
     transition: background-color $animation-duration__fast $timing-function;
-    z-index: 2000;
     padding: rem-calc(14 20);
+    z-index: 1500;
+    position: relative;
 
     &.painted {
       background-color: $white;
