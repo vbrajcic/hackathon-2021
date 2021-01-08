@@ -1,3 +1,4 @@
+@import 'styles/globals/animations';
 @import 'styles/settings/variables';
 @import 'styles/mixins/breakpoints';
 @import 'styles/utils/rem-calc';
@@ -7,7 +8,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    transition: all 150ms $timing-function;
+    transition: background-color $animation-duration__fast $timing-function;
     z-index: 2000;
     padding: rem-calc(14 20);
 
@@ -33,31 +34,34 @@
 
 .drawer {
   .navigation {
-    margin: rem-calc(120 auto 120 120);
+    max-width: map-get($breakpoints, 'xl');
+    width: 100%;
+    margin: rem-calc(120 auto);
 
     @include media(0, 'md') {
-      margin: rem-calc(120 auto 96 96);
+      margin: rem-calc(120 auto 96 auto);
     }
 
     @include media(0, 'sm') {
-      margin: rem-calc(96 auto 72 72);
+      margin: rem-calc(96 auto 72 auto);
+    }
+
+    .links {
+      margin-left: rem-calc(120);
+
+      @include media(0, 'md') {
+        margin-left: rem-calc(96);
+      }
+
+      @include media(0, 'sm') {
+        margin-left: rem-calc(72);
+      }
     }
 
     .link {
       margin: rem-calc(16 0);
-      animation: fadeInFromTop 0.25s $timing-function 225ms 1 forwards;
+      animation: fadeInFromTop 250ms $timing-function $animation-duration__normal 1 forwards;
       opacity: 0;
-
-      @keyframes fadeInFromTop {
-        from {
-          opacity: 0;
-          transform: translateY(-25%);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
     }
   }
 }

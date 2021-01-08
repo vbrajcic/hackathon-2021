@@ -4,6 +4,7 @@ import useToggleState from 'utils/hooks/useToggleState';
 import cn from 'classnames';
 import links from 'config/links';
 
+import { useRouter } from 'next/router';
 import { Button, Container, Grid, SwipeableDrawer } from '@material-ui/core';
 import { useWindowScroll } from 'react-use';
 
@@ -16,6 +17,7 @@ const filteredLinks = links.filter(({ url }) => !url.includes('work') && !url.in
 const Navbar: React.FC = () => {
   const [menuOpen, toggleMenu] = useToggleState();
   const { y } = useWindowScroll();
+  const router = useRouter();
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
@@ -63,12 +65,23 @@ const Navbar: React.FC = () => {
         onClose={toggleMenu}
         anchor="top"
       >
-        <Grid direction="column" component="nav" className={styles.navigation} container>
-          {filteredLinks.map(({ url, text }) => (
-            <Hyperlink key={url} href={url} AnchorProps={{ variant: 'h2', align: 'left', className: styles.link }}>
-              {text}
-            </Hyperlink>
-          ))}
+        <Grid className={styles.navigation} container>
+          <Grid direction="column" component="nav" className={styles.links} container>
+            {filteredLinks.map(({ url, text }) => (
+              <Hyperlink
+                key={url}
+                href={url}
+                AnchorProps={{
+                  variant: 'h2',
+                  align: 'left',
+                  className: styles.link,
+                  color: router.route === url ? 'secondary' : 'primary',
+                }}
+              >
+                {text}
+              </Hyperlink>
+            ))}
+          </Grid>
         </Grid>
       </SwipeableDrawer>
     </>

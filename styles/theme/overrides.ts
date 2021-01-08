@@ -66,7 +66,7 @@ const overrides: ThemeOptions['overrides'] = {
   },
   MuiGrid: {
     container: {
-      width: 'unset',
+      width: 'initial',
     },
   },
 };

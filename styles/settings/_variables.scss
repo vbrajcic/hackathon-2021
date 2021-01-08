@@ -15,6 +15,9 @@ $box-shadow__button: 2px 5px 14px 0 rgba(49, 50, 51, 0.2);
 
 $timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 
+$animation-duration__fast: 150ms;
+$animation-duration__normal: 225ms;
+
 $breakpoints: (
   xs: 0,
   sm: 500px,

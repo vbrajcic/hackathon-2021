@@ -15,7 +15,7 @@ video {
 
 a {
   color: $primary;
-  transition: color 125ms $timing-function;
+  transition: color $animation-duration__fast $timing-function;
 
   &:hover {
     color: $secondary;

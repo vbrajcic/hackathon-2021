@@ -14,7 +14,8 @@
         width: 100%;
         height: rem-calc(2);
         background-color: $black;
-        transition: all 225ms $timing-function;
+        transition: transform $animation-duration__normal $timing-function,
+          opacity $animation-duration__normal $timing-function;
 
         &:nth-child(2) {
           margin: auto;
