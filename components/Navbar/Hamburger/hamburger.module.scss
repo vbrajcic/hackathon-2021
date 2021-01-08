@@ -1,0 +1,44 @@
+@import 'styles/settings/variables';
+@import 'styles/utils/rem-calc';
+
+.root {
+  &.container {
+    border-radius: rem-calc(4);
+
+    .label {
+      flex-direction: column;
+      width: rem-calc(24);
+      height: rem-calc(14);
+
+      .bar {
+        width: 100%;
+        height: rem-calc(2);
+        background-color: $black;
+        transition: transform $animation-duration__normal $timing-function,
+          opacity $animation-duration__normal $timing-function;
+
+        &:nth-child(2) {
+          margin: auto;
+        }
+      }
+    }
+
+    &.open {
+      .label {
+        .bar {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 4px);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -4px);
+          }
+        }
+      }
+    }
+  }
+}
