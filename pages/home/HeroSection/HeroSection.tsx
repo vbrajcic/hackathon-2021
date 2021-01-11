@@ -21,13 +21,7 @@ const HeroSection: React.FC = () => (
       />
     </Intro>
     <Grid className={styles.imageWrapper}>
-      <Image
-        className={styles.image}
-        src="/images/hero-section-image.png"
-        layout="responsive"
-        height="579"
-        width="421"
-      />
+      <Image src="/images/hero-section-image.png" layout="responsive" height="579" width="421" />
     </Grid>
   </Grid>
 );
