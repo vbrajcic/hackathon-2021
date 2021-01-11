@@ -2,7 +2,8 @@ export default {
   primary: '#212529',
   secondary: '#1E8DE1',
   muted: '#424D56',
-  textPrimary: '#484D50',
+  textPrimary: '#212529',
+  textSecondary: '#484D50',
 
   white: '#FFF',
   black: '#000',

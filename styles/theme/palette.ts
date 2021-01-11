@@ -12,6 +12,7 @@ const palette: ThemeOptions['palette'] = {
   },
   text: {
     primary: Colors.textPrimary,
+    secondary: Colors.textSecondary,
     disabled: Colors.muted,
     hint: Colors.muted,
   },

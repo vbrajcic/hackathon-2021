@@ -1,11 +1,10 @@
 import Container from '@material-ui/core/Container';
-import Header from 'components/Header';
+
 import Layout from 'components/Layout';
 
 const PrivacyPolicy = () => (
   <Layout preview={false}>
     <Container>
-      <Header />
       <section>
         &nbsp;
         <h3>WHO WE ARE?</h3>

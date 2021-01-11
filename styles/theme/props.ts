@@ -8,11 +8,17 @@ const props: ThemeOptions['props'] = {
     color: 'secondary',
     startIcon: Arrow({}),
   },
+  MuiIconButton: {
+    disableRipple: true,
+  },
   MuiFab: {
     disableRipple: true,
   },
   MuiPaper: {
     elevation: 1,
+  },
+  MuiLink: {
+    underline: 'none',
   },
 };
 

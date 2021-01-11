@@ -1,16 +1,17 @@
 import React, { FC, useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
 import Paper from '@material-ui/core/Paper';
-
 import Snowman from 'components/SvgIcons/Snowman';
 import Sailing from 'components/SvgIcons/Sailing';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+
+import { useForm, Controller } from 'react-hook-form';
+import { Link } from '@material-ui/core';
+
 import ContactDetail from './ContactDetail';
 
 import style from './ContactForm.module.scss';
@@ -28,7 +29,7 @@ const defaultValues: ContactFields = {
 const ContactForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
-  const Breakpoint = useBreakpoint();
+  const { isMobile } = useBreakpoint();
 
   const resetForm = (): void => {
     reset();
@@ -50,12 +51,10 @@ const ContactForm: FC<{}> = () => {
   };
 
   const emailError = errors.email ? errors.email.message : '';
-  const submitText = formState.isSubmitting ? 'Sending...' : 'Get in touch';
-
-  const isMobile = Breakpoint.isBelow('xs');
+  const submitText = formState.isSubmitting ? 'Sending...' : 'Contact us';
 
   return (
-    <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper id="contact-form" classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2">
         Got a project?
@@ -102,8 +101,10 @@ const ContactForm: FC<{}> = () => {
           <ContactDetail title="Contact info">
             Split+Zagreb, Croatia
             <br />
-            +385 91 322 1274
-            <span>info@profico.hr</span>
+            {isMobile ? <Link href="tel:+385 91 322 1274">+385 91 322 1274</Link> : '+385 91 322 1274'}
+            <Link display="block" href="mailto:info@profico.hr">
+              info@profico.hr
+            </Link>
           </ContactDetail>
         </Grid>
       </Grid>

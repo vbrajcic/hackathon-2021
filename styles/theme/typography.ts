@@ -10,6 +10,12 @@ const typography: ThemeOptions['typography'] = {
     fontWeight: 'bold',
     letterSpacing: -3,
     color: Colors.primary,
+    '@media (max-width: 1024px)': {
+      fontSize: 64,
+    },
+    '@media (max-width: 768px)': {
+      fontSize: 60,
+    },
   },
   h2: {
     fontSize: 64,
@@ -17,7 +23,7 @@ const typography: ThemeOptions['typography'] = {
     fontWeight: 'bold',
     letterSpacing: -3,
     color: Colors.primary,
-    '@media (min-width:768px)': {
+    '@media (max-width: 768px)': {
       fontSize: 48,
     },
   },

@@ -3,30 +3,36 @@
 @import 'styles/mixins/breakpoints.scss';
 
 .container {
-  padding: rem-calc(67 18);
+  padding: rem-calc(64 20);
   margin: rem-calc(0 -16);
+
   h2 {
     margin-bottom: rem-calc(45);
   }
+
   @include media('sm') {
     margin: 0;
   }
+
   @include media('md') {
-    padding: rem-calc(67 30 67 80);
+    padding: rem-calc(64 80);
   }
+
   @include media('lg') {
-    padding: rem-calc(75 30 75 160);
+    padding: rem-calc(75 160);
   }
 }
 
 .form {
   margin-top: rem-calc(50);
   max-width: rem-calc(445);
+
   textarea,
   input {
     font-size: rem-calc(16);
     line-height: rem-calc(24);
   }
+
   button {
     margin: rem-calc(15 0 90 0);
     @include media('md') {

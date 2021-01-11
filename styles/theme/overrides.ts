@@ -74,6 +74,11 @@ const overrides: ThemeOptions['overrides'] = {
       paddingBottom: 19,
     },
   },
+  MuiGrid: {
+    container: {
+      width: 'initial',
+    },
+  },
 };
 
 export default overrides;

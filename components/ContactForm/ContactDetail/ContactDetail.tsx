@@ -16,7 +16,7 @@ const ContactDetail: FC<ContactDetailProps> = ({ title, icon: Icon, children }) 
         <b>{title}</b>
       </Typography>
     )}
-    <Typography variant="body2" className={style.text}>
+    <Typography variant="body2" className={style.text} color="textSecondary">
       {children}
     </Typography>
   </div>
