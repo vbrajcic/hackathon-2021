@@ -1,0 +1,40 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
+
+.root {
+  &.container {
+    background-color: $grey-800;
+    color: $white;
+    padding: rem-calc(67 18);
+    h2 {
+      margin-bottom: rem-calc(45);
+    }
+    @include media('sm') {
+      margin: 0;
+    }
+    @include media('md') {
+      padding: rem-calc(67 30 67 80);
+    }
+    @include media('lg') {
+      padding: rem-calc(65 30 81 160);
+    }
+
+    .form {
+      margin-top: rem-calc(50);
+      max-width: rem-calc(445);
+      textarea,
+      input {
+        color: $white;
+        font-size: rem-calc(16);
+        line-height: rem-calc(24);
+      }
+      button {
+        margin: rem-calc(15 0 90 0);
+        @include media('md') {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

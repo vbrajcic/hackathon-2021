@@ -1,4 +1,5 @@
-import Container from 'components/Container';
+import Container from '@material-ui/core/Container';
+
 import Layout from 'components/Layout';
 
 const PrivacyPolicy = () => (

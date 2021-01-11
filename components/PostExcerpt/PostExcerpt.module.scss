@@ -1,0 +1,12 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+
+.container {
+  display: block;
+  max-width: rem-calc(420);
+  color: $muted;
+  font-size: rem-calc(16);
+  letter-spacing: 0;
+  line-height: rem-calc(24);
+  padding-top: rem-calc(39);
+}

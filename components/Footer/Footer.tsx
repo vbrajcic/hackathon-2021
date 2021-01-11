@@ -1,12 +1,13 @@
 import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
-import SocialIcon from 'components/SocialIcon';
-import Container from 'components/Container';
 
+import Container from '@material-ui/core/Container';
+import { Typography, Grid } from '@material-ui/core';
 import Instagram from '@material-ui/icons/Instagram';
+import LinkedIn from '@material-ui/icons/LinkedIn';
+
+import SocialIcon from 'components/SocialIcon';
 import Dribble from 'components/SvgIcons/Dribble';
 import Behance from 'components/SvgIcons/Behance';
-import LinkedIn from '@material-ui/icons/LinkedIn';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 

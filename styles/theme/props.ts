@@ -11,6 +11,9 @@ const props: ThemeOptions['props'] = {
   MuiIconButton: {
     disableRipple: true,
   },
+  MuiFab: {
+    disableRipple: true,
+  },
   MuiPaper: {
     elevation: 1,
   },
