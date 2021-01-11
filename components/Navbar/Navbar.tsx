@@ -5,8 +5,7 @@ import cn from 'classnames';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';
-import { Button, Container, Grid, SwipeableDrawer } from '@material-ui/core';
-import { useWindowScroll } from 'react-use';
+import { Button, Container, Grid, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 
 import Hamburger from './Hamburger';
 
@@ -16,8 +15,11 @@ const filteredLinks = links.filter(({ url }) => !url.includes('work') && !url.in
 
 const Navbar: React.FC = () => {
   const [menuOpen, toggleMenu] = useToggleState();
-  const { y } = useWindowScroll();
   const router = useRouter();
+  const hasCrossedThreshold = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 20,
+  });
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
@@ -35,27 +37,21 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <>
-      <Container
-        className={cn(styles.container, { [styles.painted]: y > 20 || menuOpen })}
-        classes={{ root: styles.root }}
-        maxWidth="xl"
-      >
-        <Grid justify="space-between" container>
-          <Grid alignItems="center" container>
-            <Hamburger onToggle={toggleMenu} open={menuOpen} />
-            <Hyperlink
-              href="/"
-              AnchorProps={{
-                variant: 'body1',
-                className: styles.logo,
-              }}
-            >
-              Profico
-            </Hyperlink>
-          </Grid>
-          <Button onClick={handleGetInTouchClick}>Get in touch</Button>
+    <Grid className={cn(styles.root, { [styles.painted]: hasCrossedThreshold || menuOpen })}>
+      <Container className={styles.container} maxWidth="xl" disableGutters>
+        <Grid alignItems="center" container>
+          <Hamburger onToggle={toggleMenu} open={menuOpen} />
+          <Hyperlink
+            href="/"
+            AnchorProps={{
+              variant: 'body1',
+              className: styles.logo,
+            }}
+          >
+            Profico
+          </Hyperlink>
         </Grid>
+        <Button onClick={handleGetInTouchClick}>Get in touch</Button>
       </Container>
       <SwipeableDrawer
         className={styles.drawer}
@@ -64,6 +60,8 @@ const Navbar: React.FC = () => {
         onOpen={toggleMenu}
         onClose={toggleMenu}
         anchor="top"
+        keepMounted
+        disablePortal
       >
         <Grid className={styles.navigation} container>
           <Grid direction="column" component="nav" className={styles.links} container>
@@ -84,7 +82,7 @@ const Navbar: React.FC = () => {
           </Grid>
         </Grid>
       </SwipeableDrawer>
-    </>
+    </Grid>
   );
 };
 

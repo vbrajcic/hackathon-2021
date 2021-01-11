@@ -13,7 +13,7 @@
       .bar {
         width: 100%;
         height: rem-calc(2);
-        background-color: $black;
+        background-color: $primary;
         transition: transform $animation-duration__normal $timing-function,
           opacity $animation-duration__normal $timing-function;
 
