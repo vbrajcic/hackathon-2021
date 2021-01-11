@@ -1,0 +1,25 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
+
+.container {
+  padding-top: rem-calc(58);
+  padding-bottom: 3rem;
+
+  .textPrimary {
+    margin-bottom: rem-calc(40);
+  }
+
+  .textSecondary {
+    margin-bottom: rem-calc(96);
+  }
+
+  .translate {
+    transform-origin: bottom left;
+    transform: translateX(-10%);
+  }
+
+  .cardsContainer {
+    width: 100%;
+  }
+}

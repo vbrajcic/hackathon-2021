@@ -1,0 +1,19 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
+
+.container {
+  width: 10rem !important;
+  transform-origin: bottom right;
+  transform: translateX(-100%) rotate(-90deg);
+
+  .line {
+    width: rem-calc(30px);
+    margin-right: 0.5rem;
+    border-top: 1px solid #1e8de1;
+  }
+
+  .title {
+    text-transform: uppercase;
+  }
+}

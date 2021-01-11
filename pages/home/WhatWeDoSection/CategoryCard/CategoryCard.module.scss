@@ -1,0 +1,46 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
+
+.card {
+  width: rem-calc(300);
+  height: rem-calc(450);
+  border-radius: rem-calc(32);
+
+  .iconContainer {
+    height: rem-calc(200);
+    margin-bottom: rem-calc(48);
+    overflow: hidden;
+  }
+
+  .iconWithBackground {
+    &.left {
+      margin-left: rem-calc(40);
+    }
+
+    &.right {
+      margin-left: rem-calc(-40);
+    }
+  }
+
+  .icon {
+    margin-left: rem-calc(40);
+    margin-top: rem-calc(60);
+    margin-bottom: rem-calc(130);
+  }
+
+  .textContainer {
+    padding: 1rem 3rem;
+
+    .title {
+      font-weight: bold;
+      font-size: rem-calc(20);
+      color: black;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: rem-calc(14);
+    }
+  }
+}
