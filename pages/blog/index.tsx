@@ -3,7 +3,9 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Edges } from 'types/common';
 import Post from 'types/posts/post';
-import Container from 'components/Container';
+
+import Container from '@material-ui/core/Container';
+
 import RelatedPosts from 'components/RelatedPosts';
 import HeroPost from 'components/HeroPost';
 import Intro from 'components/Intro';

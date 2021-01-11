@@ -1,131 +1,160 @@
 @import 'styles/settings/variables.scss';
 @import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
 
 .article {
-  max-width: 50rem;
+  max-width: rem-calc(800);
   margin-left: auto;
   margin-right: auto;
-}
 
-.content {
-  font-size: 1.125rem;
-  line-height: 1.625;
-  margin-bottom: rem-calc(169);
-
-  :not(h4) {
-    max-width: 38rem;
-    margin: 0 auto;
+  @include media(0, 'sm') {
+    padding-left: rem-calc(20);
+    padding-right: rem-calc(20);
   }
 
-  p,
-  h4,
-  ul,
-  ol,
-  blockquote {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
+  .content {
+    font-size: rem-calc(18);
+    line-height: 1.625;
+    margin-bottom: rem-calc(169);
 
-  a {
-    text-decoration: underline;
-  }
+    > :first-child {
+      color: $primary;
+      font-size: rem-calc(28);
+      letter-spacing: 0;
+      line-height: rem-calc(41);
+      margin-bottom: rem-calc(63);
 
-  ul,
-  ol {
-    padding-left: 1rem;
-  }
-
-  ul {
-    list-style-type: disc;
-
-    li::marker {
-      color: $secondary;
+      @include media(0, 'sm') {
+        font-size: rem-calc(24);
+        line-height: rem-calc(39);
+      }
     }
-  }
 
-  ol {
-    list-style-type: decimal;
-
-    li::marker {
-      color: $secondary;
+    :not(:first-child) {
+      max-width: rem-calc(608);
+      margin-left: auto;
+      margin-right: auto;
     }
-  }
 
-  ul > li > ul,
-  ol > li > ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 1rem;
-  }
+    p,
+    ul,
+    ol,
+    blockquote {
+      margin-top: rem-calc(25);
+      margin-bottom: rem-calc(25);
+    }
 
-  ul > li > ul {
-    list-style: circle;
-  }
+    a {
+      text-decoration: underline;
+    }
 
-  h2 {
-    font-size: 1.875rem;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1.375;
-  }
+    ul,
+    ol {
+      padding-left: rem-calc(16);
+    }
 
-  h3 {
-    color: $primary;
-    font-size: rem-calc(24);
-    font-weight: bold;
-    letter-spacing: 0;
-    line-height: rem-calc(28);
-  }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
 
-  h4 {
-    color: $primary;
-    font-size: rem-calc(28);
-    letter-spacing: 0;
-    line-height: rem-calc(41);
-    margin-bottom: rem-calc(63);
-  }
+      li::before {
+        content: '\2015';
+        color: $secondary;
+        padding-right: rem-calc(12);
+      }
+    }
 
-  pre {
-    white-space: pre;
-    overflow-x: auto;
-    padding: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.2;
-    border-width: 1px;
-    border-color: #cbd5e0;
-    background-color: #f7fafc;
-  }
+    ol {
+      list-style-type: decimal;
 
-  code {
-    font-size: 0.875rem;
-  }
+      li::marker {
+        color: $secondary;
+      }
+    }
 
-  figcaption {
-    text-align: center;
-    font-size: 0.875rem;
-  }
+    ul > li > ul,
+    ol > li > ol {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: rem-calc(16);
+    }
 
-  blockquote {
-    border-left-width: rem-calc(4);
-    border-color: #a0aec0;
-    background-color: #edf2f7;
-    font-style: italic;
-    margin-left: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+    ul > li,
+    ol > li {
+      padding-bottom: rem-calc(16);
+      padding-left: rem-calc(30);
+      text-indent: rem-calc(-30);
 
-  blockquote p {
-    margin-top: 0;
-  }
+      &:last-child {
+        padding-bottom: unset;
+      }
+    }
 
-  blockquote cite {
-    font-style: normal;
-  }
+    ul > li > ul {
+      list-style: circle;
+    }
 
-  audio {
-    width: 100%;
+    h2 {
+      font-size: rem-calc(30);
+      margin-top: rem-calc(48);
+      margin-bottom: rem-calc(16);
+      line-height: 1.375;
+    }
+
+    h3 {
+      color: $primary;
+      font-size: rem-calc(24);
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: rem-calc(28);
+    }
+
+    pre {
+      white-space: pre;
+      overflow-x: auto;
+      padding: rem-calc(16);
+      font-size: rem-calc(14);
+      line-height: 1.2;
+      border-width: 1px;
+      border-color: #cbd5e0;
+      background-color: #f7fafc;
+    }
+
+    code {
+      font-size: rem-calc(14);
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: rem-calc(14);
+    }
+
+    blockquote {
+      border-left-width: rem-calc(4);
+      border-color: #a0aec0;
+      background-color: #edf2f7;
+      font-style: italic;
+      margin-left: 0;
+      padding-top: rem-calc(16);
+      padding-bottom: rem-calc(16);
+      padding-left: rem-calc(24);
+      padding-right: rem-calc(24);
+    }
+
+    blockquote p {
+      margin-top: 0;
+    }
+
+    blockquote cite {
+      font-style: normal;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    @include media(0, 'sm') {
+      margin-bottom: rem-calc(100);
+    }
   }
 }

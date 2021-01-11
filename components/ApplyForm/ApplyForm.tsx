@@ -54,7 +54,7 @@ const ApplyForm: FC<{}> = () => {
   const isMobile = Breakpoint.isBelow('xs');
 
   return (
-    <Paper classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper className={style.container} classes={{ root: style.root }} square={isMobile} elevation={Number(!isMobile)}>
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2" color="inherit">
         Apply for

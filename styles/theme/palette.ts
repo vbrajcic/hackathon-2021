@@ -15,6 +15,9 @@ const palette: ThemeOptions['palette'] = {
     disabled: Colors.muted,
     hint: Colors.muted,
   },
+  background: {
+    default: Colors.white,
+  },
 };
 
 export default palette;

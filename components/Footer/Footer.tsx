@@ -1,5 +1,7 @@
-import Container from 'components/Container';
+import Container from '@material-ui/core/Container';
+
 import Hyperlink from 'components/Hyperlink';
+
 import styles from './Footer.module.scss';
 
 const Footer = () => (

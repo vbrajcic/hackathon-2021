@@ -3,7 +3,9 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import Container from 'components/Container';
+
+import Container from '@material-ui/core/Container';
+
 import PostBody from 'components/PostBody';
 import RelatedPosts from 'components/RelatedPosts';
 import PostHeader from 'components/PostHeader';
@@ -38,14 +40,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
                 <title>{`${post.title} | Profico`}</title>
                 <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
               </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.featuredImage?.node}
-                date={post.date}
-                author={post.author?.node}
-                categories={post.categories}
-              />
-              {post.content && <PostBody content={post.content} />}
+              <PostHeader title={post.title} excerpt={post.excerpt} />
+              <PostBody content={post.content} />
               {post.tags && <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>}
             </article>
 

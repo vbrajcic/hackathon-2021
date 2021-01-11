@@ -9,7 +9,7 @@ interface PostExcerptProps {
 }
 
 const PostExcerpt: React.FC<PostExcerptProps> = ({ excerpt }) => (
-  <Typography classes={{ root: styles.excerpt }} variant="inherit">
+  <Typography className={styles.excerpt} variant="inherit">
     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
   </Typography>
 );

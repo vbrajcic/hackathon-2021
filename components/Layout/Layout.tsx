@@ -1,9 +1,12 @@
 import React, { ReactNode } from 'react';
+
+import Container from '@material-ui/core/Container';
+
 import Alert from 'components/Alert';
-import Container from 'components/Container';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Meta from 'components/Meta';
+
 import styles from './Layout.module.scss';
 
 interface LayoutProps {

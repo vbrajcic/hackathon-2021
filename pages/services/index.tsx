@@ -1,6 +1,8 @@
 import Head from 'next/head';
+
+import Container from '@material-ui/core/Container';
+
 import Intro from 'components/Intro';
-import Container from 'components/Container';
 import Layout from 'components/Layout';
 
 const ServicesPage = () => (

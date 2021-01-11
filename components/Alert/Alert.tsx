@@ -1,5 +1,7 @@
 import React from 'react';
-import Container from 'components/Container';
+
+import Container from '@material-ui/core/Container';
+
 import styles from './Alert.module.scss';
 
 interface AlertProps {

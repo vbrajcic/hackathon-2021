@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Intro from 'components/Intro';
-import Container from 'components/Container';
+import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
 
 const Work = () => (

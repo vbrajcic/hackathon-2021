@@ -2,11 +2,11 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 
-import styles from './PostTitle.module.scss';
-
 const PostTitle: React.FC = ({ children }) => (
   <Typography variant="h1">
-    <span className={styles.title}>We are hiring</span>
+    <Typography color="secondary" variant="h1" component="span">
+      We are hiring
+    </Typography>
     <br />
     {children}
   </Typography>

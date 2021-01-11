@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 
-import Container from 'components/Container';
+import Container from '@material-ui/core/Container';
+
 import PostBody from 'components/PostBody';
 import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
@@ -26,7 +27,7 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
 
   return (
     <Layout preview={preview}>
-      <Container>
+      <Container maxWidth="xl" disableGutters>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

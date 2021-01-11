@@ -1,4 +1,4 @@
-import Container from 'components/Container';
+import Container from '@material-ui/core/Container';
 import Header from 'components/Header';
 import Layout from 'components/Layout';
 
