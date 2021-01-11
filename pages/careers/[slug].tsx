@@ -1,18 +1,21 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-
 import Container from '@material-ui/core/Container';
-
 import PostBody from 'components/PostBody';
 import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
-import { GetPostAndMorePostsResult } from 'lib/queries';
 import ApplyForm from 'pages/careers/ApplyForm';
+
+import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
+import { GetPostAndMorePostsResult } from 'lib/queries';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
+
+import EasterEggPostButton from './EasterEggPostButton';
+
+import styles from './Careers.module.scss';
 
 type CareerPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
@@ -39,8 +42,9 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
             <PostHeader title={post.title} excerpt={post.excerpt} />
-            <Container maxWidth="xl" disableGutters>
-              <PostBody content={post.content} />
+            <Container className={styles.container} maxWidth="xl" disableGutters>
+              <EasterEggPostButton slug={post.slug} />
+              <PostBody content={post.content} className={styles.body} />
               <ApplyForm />
             </Container>
           </article>

@@ -6,35 +6,10 @@
 $navHeight: rem-calc(84);
 
 .container {
-  position: relative;
   background-color: $grey-100;
   padding: rem-calc(169);
   padding-top: calc(#{$navHeight} + 169px);
   margin-top: -$navHeight;
-  margin-bottom: rem-calc(86);
-
-  .button {
-    position: absolute;
-    width: rem-calc(100);
-    height: rem-calc(100);
-    left: rem-calc(32);
-    bottom: rem-calc(-50);
-
-    .icon {
-      width: rem-calc(40);
-      height: rem-calc(40);
-    }
-
-    @include media(0, 'sm') {
-      width: rem-calc(94);
-      height: rem-calc(94);
-      left: rem-calc(20);
-    }
-
-    @include media('md', 'lg') {
-      left: rem-calc(140);
-    }
-  }
 
   @include media(0, 'sm') {
     padding: rem-calc(32 20 90 20);

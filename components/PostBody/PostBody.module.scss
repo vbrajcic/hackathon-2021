@@ -17,7 +17,7 @@
     line-height: 1.625;
     margin-bottom: rem-calc(169);
 
-    > :first-child {
+    & > :first-child {
       color: $primary;
       font-size: rem-calc(28);
       letter-spacing: 0;
