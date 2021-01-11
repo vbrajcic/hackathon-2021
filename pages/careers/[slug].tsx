@@ -12,7 +12,7 @@ import Layout from 'components/Layout';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
 import { GetPostAndMorePostsResult } from 'lib/queries';
-import ApplyForm from 'components/ApplyForm';
+import ApplyForm from 'pages/careers/ApplyForm';
 
 type CareerPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
