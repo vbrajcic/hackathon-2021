@@ -7,17 +7,16 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1200;
+  z-index: 1500;
+  transition: background-color $animation-duration__fast $timing-function;
 
   .container {
     transition: background-color $animation-duration__fast $timing-function;
+    display: flex;
+    justify-content: space-between;
     padding: rem-calc(14 20);
-    z-index: 1500;
     position: relative;
-
-    &.painted {
-      background-color: $white;
-    }
+    z-index: 1500;
 
     .logo {
       margin-left: calc(#{rem-calc(64)} - #{rem-calc(12)});
@@ -31,6 +30,14 @@
       @include media(0, 'sm') {
         margin-left: calc(#{rem-calc(24)} - #{rem-calc(12)});
       }
+    }
+  }
+
+  &.painted {
+    background-color: $white;
+
+    .container {
+      background-color: $white;
     }
   }
 }

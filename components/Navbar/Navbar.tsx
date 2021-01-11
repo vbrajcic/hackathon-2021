@@ -37,12 +37,8 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Container className={styles.root} maxWidth="xl" disableGutters>
-      <Grid
-        className={cn(styles.container, { [styles.painted]: hasCrossedThreshold || menuOpen })}
-        justify="space-between"
-        container
-      >
+    <Grid className={cn(styles.root, { [styles.painted]: hasCrossedThreshold || menuOpen })}>
+      <Container className={styles.container} maxWidth="xl" disableGutters>
         <Grid alignItems="center" container>
           <Hamburger onToggle={toggleMenu} open={menuOpen} />
           <Hyperlink
@@ -56,7 +52,7 @@ const Navbar: React.FC = () => {
           </Hyperlink>
         </Grid>
         <Button onClick={handleGetInTouchClick}>Get in touch</Button>
-      </Grid>
+      </Container>
       <SwipeableDrawer
         className={styles.drawer}
         elevation={0}
@@ -86,7 +82,7 @@ const Navbar: React.FC = () => {
           </Grid>
         </Grid>
       </SwipeableDrawer>
-    </Container>
+    </Grid>
   );
 };
 
