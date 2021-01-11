@@ -21,6 +21,11 @@ const overrides: ThemeOptions['overrides'] = {
         boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
       },
     },
+    containedPrimary: {
+      '&:hover': {
+        backgroundColor: Colors.black,
+      },
+    },
   },
   MuiPaper: {
     root: {

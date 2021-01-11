@@ -16,6 +16,9 @@ const typography: ThemeOptions['typography'] = {
     '@media (max-width: 768px)': {
       fontSize: 60,
     },
+    '@media (max-width: 400px)': {
+      fontSize: 48,
+    },
   },
   h2: {
     fontSize: 64,
@@ -25,6 +28,9 @@ const typography: ThemeOptions['typography'] = {
     color: Colors.primary,
     '@media (max-width: 768px)': {
       fontSize: 48,
+    },
+    '@media (max-width: 400px)': {
+      fontSize: 40,
     },
   },
   h4: {

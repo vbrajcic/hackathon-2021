@@ -1,13 +1,11 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+@import 'styles/mixins/breakpoints';
+@import 'styles/utils/rem-calc';
 
-  @media (min-width: 768px) {
-    margin-bottom: 3rem;
-    justify-content: space-between;
-    flex-direction: row;
+.container {
+  padding-top: rem-calc(64);
+  padding-bottom: rem-calc(64);
+
+  @include media('md') {
+    padding-bottom: rem-calc(48);
   }
 }
