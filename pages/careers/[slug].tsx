@@ -27,23 +27,25 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
 
   return (
     <Layout preview={preview}>
-      <Container maxWidth="xl" disableGutters>
-        {router.isFallback ? (
+      {router.isFallback ? (
+        <Container maxWidth="xl" disableGutters>
           <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>{`${post.title} | Profico`}</title>
-                <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
-              </Head>
-              <PostHeader title={post.title} excerpt={post.excerpt} />
+        </Container>
+      ) : (
+        <>
+          <article>
+            <Head>
+              <title>{`${post.title} | Profico`}</title>
+              <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
+            </Head>
+            <PostHeader title={post.title} excerpt={post.excerpt} />
+            <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <ApplyForm />
-            </article>
-          </>
-        )}
-      </Container>
+            </Container>
+          </article>
+        </>
+      )}
     </Layout>
   );
 };

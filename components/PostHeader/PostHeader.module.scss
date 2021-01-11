@@ -1,11 +1,16 @@
-@import 'styles/settings/variables.scss';
-@import 'styles/utils/rem-calc.scss';
-@import 'styles/mixins/breakpoints.scss';
+@import 'styles/settings/variables';
+@import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
+
+// @TODO: Import nav height from navbar.module.scss
+$navHeight: rem-calc(84);
 
 .container {
   position: relative;
   background-color: $grey-100;
   padding: rem-calc(169);
+  padding-top: calc(#{$navHeight} + 169px);
+  margin-top: -$navHeight;
   margin-bottom: rem-calc(86);
 
   .button {
