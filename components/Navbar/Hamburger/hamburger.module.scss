@@ -4,6 +4,7 @@
 .root {
   &.container {
     border-radius: rem-calc(4);
+    margin-left: rem-calc(-12);
 
     .label {
       flex-direction: column;

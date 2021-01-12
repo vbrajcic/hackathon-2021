@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Post from 'types/posts/post';
 import { Node } from 'types/common';
+import Hyperlink from 'components/Hyperlink';
 
 import styles from './BlogSection.module.scss';
 import BlogPosts from './BlogPosts';
@@ -24,7 +25,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => (
       We shape our core capabilities around lean product teams capable of delivering immense value to organisations
       worldwide
     </Typography>
-    <Button className={styles.button}>Go to our blog</Button>
+    <Hyperlink href="/blog" component={<Button className={styles.button}>Go to our blog</Button>} />
     <BlogPosts posts={posts} />
   </Grid>
 );
