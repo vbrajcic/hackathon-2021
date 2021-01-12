@@ -3,13 +3,13 @@ import Intro from 'components/Intro';
 import Button from '@material-ui/core/Button';
 import Image from 'next/image';
 import Hyperlink from 'components/Hyperlink';
-
-import { Grid } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 import styles from './HeroSection.module.scss';
 
 const HeroSection: React.FC = () => (
-  <Grid className={styles.container} container>
+  <Container component="section" classes={{ root: styles.root }} className={styles.container} maxWidth="xl">
     <Intro text="Mobile app and web development agency" className={styles.intro}>
       <Hyperlink
         href="/services"
@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => (
     <Grid className={styles.imageWrapper}>
       <Image src="/images/hero-section-image.png" layout="responsive" height="579" width="421" />
     </Grid>
-  </Grid>
+  </Container>
 );
 
 export default HeroSection;

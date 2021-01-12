@@ -17,7 +17,7 @@ a {
   color: $primary;
   transition: color $animation-duration__fast $timing-function;
 
-  &:hover {
+  &:not(.MuiButton-root):hover {
     color: $secondary;
   }
 }
