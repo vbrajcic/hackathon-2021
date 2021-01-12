@@ -9,14 +9,30 @@ import { Project, ProjectCategory } from 'config/projects';
 
 import styles from './CaseStudy.module.scss';
 
-type CaseStudyProps = Project;
+interface CaseStudyProps {
+  project: Project;
+}
 
 const categoryBadgeMap: { [key in ProjectCategory]: string } = {
   MOBILE_APPS: 'Mobile apps',
 };
 
-const CaseStudy: React.FC<CaseStudyProps> = ({ category, title, url, images }) => {
+const CaseStudy: React.FC<CaseStudyProps> = ({ project }) => {
   const { isMobile } = useBreakpoint();
+
+  /**
+   * This check fixes Next.js build error. Apart from that, it does nothing.
+   *
+   * ```
+   *  Error occurred prerendering page "/home/OurProjectsSection/CaseStudy".
+   *  TypeError: Cannot read property 'category' of undefined.
+   * ```
+   */
+  if (!project) {
+    return null;
+  }
+
+  const { category, title, url, images } = project;
 
   return (
     <Paper
