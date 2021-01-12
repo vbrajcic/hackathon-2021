@@ -51,7 +51,9 @@ const Navbar: React.FC = () => {
             Profico
           </Hyperlink>
         </Grid>
-        <Button onClick={handleGetInTouchClick}>Get in touch</Button>
+        <Button className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
+          Get in touch
+        </Button>
       </Container>
       <SwipeableDrawer
         className={styles.drawer}
