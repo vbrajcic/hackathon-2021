@@ -13,6 +13,7 @@ import Mobile from 'components/SvgIcons/Mobile';
 import ProductStrategy from 'components/SvgIcons/ProductStrategy';
 import Web from 'components/SvgIcons/Web';
 
+import { Typography } from '@material-ui/core';
 import styles from './CategoryCard.module.scss';
 
 interface CategoryCardProps {
@@ -21,11 +22,10 @@ interface CategoryCardProps {
   icon: string;
 }
 
-export enum CardType {}
 const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) => {
   const { isDesktop } = useBreakpoint();
   return (
-    <Card key={name} className={styles.card}>
+    <Card className={styles.card} classes={{ root: styles.root }}>
       {isDesktop && (
         <div className={styles.iconContainer}>
           {icon === 'Web' && (
@@ -48,7 +48,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) 
           )}
           {icon === 'Design' && (
             <DesignFull
-              className={cn(styles.iconWithBackground, styles.left)}
+              className={cn(styles.iconWithBackground, styles.design)}
               style={{ transform: 'translateY(-139px)' }}
             />
           )}
@@ -64,8 +64,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) 
         </div>
       )}
       <div className={styles.textContainer}>
-        <h3 className={styles.title}>{name}</h3>
-        <p className={styles.description}>{description}</p>
+        <Typography variant="body1" className={styles.title}>
+          {name}
+        </Typography>
+        <Typography variant="body2" className={styles.description}>
+          {description}
+        </Typography>
       </div>
     </Card>
   );

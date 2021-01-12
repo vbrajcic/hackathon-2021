@@ -17,9 +17,6 @@ const Home = () => (
     </Head>
     <Container className={styles.container} maxWidth="xl">
       <HeroSection />
-      {/* {links.map(({ text, url }, index) => (
-        <Hyperlink key={url} href={url}>{`${text}${index !== links.length - 1 ? ' | ' : ''}`}</Hyperlink>
-      ))} */}
       <WhatWeDoSection />
       <ContactForm />
     </Container>

@@ -10,10 +10,9 @@ import CategoryCard from './CategoryCard';
 
 const WhatWeDoSection: FC<{}> = () => {
   const { isDesktop } = useBreakpoint();
-  const sectionTitle = 'What we do';
 
   return (
-    <Container className={styles.container} maxWidth="xl" component="section">
+    <Container className={styles.container} maxWidth="xl" component="section" classes={{ root: styles.root }}>
       <Typography variant="h2" className={styles.textPrimary}>
         Like an agency,
         <br />
@@ -30,12 +29,12 @@ const WhatWeDoSection: FC<{}> = () => {
       <Grid container alignItems="flex-start">
         {isDesktop && (
           <div className={styles.translate}>
-            <SideTitle title={sectionTitle} />
+            <SideTitle title="What we do" />
           </div>
         )}
-        <Grid item container justify="space-between" className={styles.cardsContainer}>
+        <Grid container justify="space-between" className={styles.cardsContainer}>
           {expertiseCategories.map(({ name, description, icon }) => (
-            <CategoryCard name={name} description={description} icon={icon} />
+            <CategoryCard key={name} name={name} description={description} icon={icon} />
           ))}
         </Grid>
       </Grid>

@@ -2,29 +2,31 @@
 @import 'styles/utils/rem-calc.scss';
 @import 'styles/mixins/breakpoints.scss';
 
-.container {
-  padding-top: rem-calc(58);
-  padding-bottom: rem-calc(48);
+.root {
+  &.container {
+    padding-top: rem-calc(58);
+    padding-bottom: rem-calc(48);
 
-  @media (max-width: 1023px) {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
+    @media (max-width: 1023px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
 
-  .textPrimary {
-    margin-bottom: rem-calc(40);
-  }
+    .textPrimary {
+      margin-bottom: rem-calc(40);
+    }
 
-  .textSecondary {
-    margin-bottom: rem-calc(96);
-  }
+    .textSecondary {
+      margin-bottom: rem-calc(96);
+    }
 
-  .translate {
-    transform-origin: bottom left;
-    transform: translateX(-10%);
-  }
+    .translate {
+      transform-origin: bottom left;
+      transform: translateX(-10%);
+    }
 
-  .cardsContainer {
-    width: 100%;
+    .cardsContainer {
+      width: 100%;
+    }
   }
 }
