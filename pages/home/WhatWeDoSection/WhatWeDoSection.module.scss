@@ -1,0 +1,32 @@
+@import 'styles/settings/variables.scss';
+@import 'styles/utils/rem-calc.scss';
+@import 'styles/mixins/breakpoints.scss';
+
+.root {
+  &.container {
+    padding-top: rem-calc(58);
+    padding-bottom: rem-calc(48);
+
+    @media (max-width: 1023px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .textPrimary {
+      margin-bottom: rem-calc(40);
+    }
+
+    .textSecondary {
+      margin-bottom: rem-calc(96);
+    }
+
+    .translate {
+      transform-origin: bottom left;
+      transform: translateX(-10%);
+    }
+
+    .cardsContainer {
+      width: 100%;
+    }
+  }
+}
