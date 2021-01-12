@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import categories from 'config/categories';
+import expertiseCategories from 'config/expertiseCategories';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import { Container, Grid, Typography } from '@material-ui/core';
 
@@ -26,18 +26,19 @@ const WhatWeDoSection: FC<{}> = () => {
         <br />
         value to organisations worldwide
       </Typography>
-      {isDesktop && (
-        <Grid container alignItems="flex-start">
+
+      <Grid container alignItems="flex-start">
+        {isDesktop && (
           <div className={styles.translate}>
             <SideTitle title={sectionTitle} />
           </div>
-          <Grid item container className={styles.cardsContainer} justify="space-between">
-            {categories.map(({ name, description, icon }) => (
-              <CategoryCard name={name} description={description} icon={icon} />
-            ))}
-          </Grid>
+        )}
+        <Grid item container justify="space-between" className={styles.cardsContainer}>
+          {expertiseCategories.map(({ name, description, icon }) => (
+            <CategoryCard name={name} description={description} icon={icon} />
+          ))}
         </Grid>
-      )}
+      </Grid>
     </Container>
   );
 };

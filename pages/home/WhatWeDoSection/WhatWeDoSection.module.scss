@@ -4,7 +4,12 @@
 
 .container {
   padding-top: rem-calc(58);
-  padding-bottom: 3rem;
+  padding-bottom: rem-calc(48);
+
+  @media (max-width: 1023px) {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
 
   .textPrimary {
     margin-bottom: rem-calc(40);

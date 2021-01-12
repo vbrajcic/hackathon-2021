@@ -4,8 +4,25 @@
 
 .card {
   width: rem-calc(300);
-  height: rem-calc(450);
-  border-radius: rem-calc(32);
+  min-height: rem-calc(450);
+  border-radius: rem-calc(32) !important;
+  margin-bottom: rem-calc(32);
+  padding-bottom: rem-calc(16);
+
+  @media (max-width: 1359px) {
+    width: 48%;
+    min-height: rem-calc(400);
+  }
+
+  @media (max-width: 1023px) {
+    min-height: rem-calc(280);
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: rem-calc(280);
+    border-radius: rem-calc(16) !important;
+  }
 
   .iconContainer {
     height: rem-calc(200);
@@ -25,18 +42,26 @@
 
   .icon {
     margin-left: rem-calc(40);
-    margin-top: rem-calc(60);
-    margin-bottom: rem-calc(130);
+    margin-top: rem-calc(40);
+    margin-bottom: rem-calc(30);
+
+    @media (max-width: 767px) {
+      margin-left: rem-calc(16);
+    }
   }
 
   .textContainer {
-    padding: 1rem 3rem;
+    padding: rem-calc(0 48);
+
+    @media (max-width: 767px) {
+      padding: rem-calc(0 16);
+    }
 
     .title {
       font-weight: bold;
       font-size: rem-calc(20);
       color: black;
-      margin-bottom: 1rem;
+      margin-bottom: rem-calc(16);
     }
 
     .description {

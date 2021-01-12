@@ -7,6 +7,12 @@ import MobileFull from 'components/SvgIcons/MobileFull';
 import ProductStrategyFull from 'components/SvgIcons/ProductStrategyFull';
 import WebFull from 'components/SvgIcons/WebFull';
 
+import useBreakpoint from 'utils/hooks/useBreakpoint';
+import Design from 'components/SvgIcons/Design';
+import Mobile from 'components/SvgIcons/Mobile';
+import ProductStrategy from 'components/SvgIcons/ProductStrategy';
+import Web from 'components/SvgIcons/Web';
+
 import styles from './CategoryCard.module.scss';
 
 interface CategoryCardProps {
@@ -14,36 +20,55 @@ interface CategoryCardProps {
   description: string;
   icon: string;
 }
-const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) => (
-  <Card key={name} className={styles.card}>
-    <div className={styles.iconContainer}>
-      {icon === 'Web' && (
-        <WebFull className={cn(styles.iconWithBackground, styles.left)} style={{ transform: 'translateY(-47px)' }} />
+
+export enum CardType {}
+const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) => {
+  const { isDesktop } = useBreakpoint();
+  return (
+    <Card key={name} className={styles.card}>
+      {isDesktop && (
+        <div className={styles.iconContainer}>
+          {icon === 'Web' && (
+            <WebFull
+              className={cn(styles.iconWithBackground, styles.left)}
+              style={{ transform: 'translateY(-47px)' }}
+            />
+          )}
+          {icon === 'ProductStrategy' && (
+            <ProductStrategyFull
+              className={cn(styles.iconWithBackground, styles.right)}
+              style={{ transform: 'translateY(-44px)' }}
+            />
+          )}
+          {icon === 'Mobile' && (
+            <MobileFull
+              className={cn(styles.iconWithBackground, styles.left)}
+              style={{ transform: 'translateY(-113px)' }}
+            />
+          )}
+          {icon === 'Design' && (
+            <DesignFull
+              className={cn(styles.iconWithBackground, styles.left)}
+              style={{ transform: 'translateY(-139px)' }}
+            />
+          )}
+        </div>
       )}
-      {icon === 'ProductStrategy' && (
-        <ProductStrategyFull
-          className={cn(styles.iconWithBackground, styles.right)}
-          style={{ transform: 'translateY(-44px)' }}
-        />
+
+      {!isDesktop && (
+        <div>
+          {icon === 'Web' && <Web className={styles.icon} />}
+          {icon === 'ProductStrategy' && <ProductStrategy className={styles.icon} />}
+          {icon === 'Mobile' && <Mobile className={styles.icon} />}
+          {icon === 'Design' && <Design className={styles.icon} />}
+        </div>
       )}
-      {icon === 'Mobile' && (
-        <MobileFull
-          className={cn(styles.iconWithBackground, styles.left)}
-          style={{ transform: 'translateY(-113px)' }}
-        />
-      )}
-      {icon === 'Design' && (
-        <DesignFull
-          className={cn(styles.iconWithBackground, styles.left)}
-          style={{ transform: 'translateY(-139px)' }}
-        />
-      )}
-    </div>
-    <div className={styles.textContainer}>
-      <h3 className={styles.title}>{name}</h3>
-      <p className={styles.description}>{description}</p>
-    </div>
-  </Card>
-);
+      <div className={styles.textContainer}>
+        <h3 className={styles.title}>{name}</h3>
+        <p className={styles.description}>{description}</p>
+      </div>
+    </Card>
+  );
+};
 
 export default CategoryCard;

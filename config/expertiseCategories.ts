@@ -4,7 +4,7 @@ interface Category {
   icon: string;
 }
 
-const categories: Category[] = [
+const expertiseCategories: Category[] = [
   {
     name: 'Product Strategy',
     description: 'Hollistic understanding of what the user expects, wants and hates about digital products',
@@ -27,4 +27,4 @@ const categories: Category[] = [
   },
 ];
 
-export default categories;
+export default expertiseCategories;
