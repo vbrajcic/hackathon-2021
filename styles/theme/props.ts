@@ -20,6 +20,9 @@ const props: ThemeOptions['props'] = {
   MuiLink: {
     underline: 'none',
   },
+  MuiCardActionArea: {
+    disableRipple: true,
+  },
 };
 
 export default props;

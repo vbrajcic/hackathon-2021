@@ -1,0 +1,67 @@
+@import 'styles/mixins/breakpoints';
+@import 'styles/utils/rem-calc';
+
+.root {
+  &.container {
+    width: 100vw;
+    margin: rem-calc(40 -24 0 -24);
+
+    @include media('lg') {
+      width: 100%;
+      margin-top: rem-calc(50);
+    }
+
+    @include media('xl') {
+      width: 100%;
+      margin: rem-calc(50 -80 0 -80);
+    }
+  }
+  .slider {
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: rem-calc(20);
+    -webkit-overflow-scrolling: touch;
+    padding: rem-calc(0 24 80 24);
+
+    @include media('md') {
+      gap: rem-calc(30);
+      padding-bottom: rem-calc(160);
+    }
+    @include media('lg') {
+      width: 100%;
+      overflow-x: hidden;
+      scroll-snap-type: none;
+      padding: rem-calc(0 0 250 0);
+    }
+    @include media('xl') {
+      gap: 0;
+      padding: rem-calc(0 24 250 24);
+    }
+  }
+
+  .teaser {
+    max-width: rem-calc(400);
+    width: 83%;
+    flex: 0 0 83%;
+
+    @include media('sm') {
+      width: 70%;
+      flex: 0 0 70%;
+    }
+    @include media('md') {
+      width: 40%;
+      flex: 0 0 40%;
+    }
+    @include media('lg') {
+      width: 33.333%;
+      flex: unset;
+      margin: rem-calc(0 20);
+    }
+    @include media('xl') {
+      width: 33.3333%;
+      flex: unset;
+      margin: rem-calc(0 30);
+    }
+  }
+}
