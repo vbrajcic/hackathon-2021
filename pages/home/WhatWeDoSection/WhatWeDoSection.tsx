@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-
 import expertiseCategories from 'config/expertiseCategories';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+
 import { Container, Grid, Typography } from '@material-ui/core';
 
 import SideTitle from '../SideTitle';
-import styles from './WhatWeDoSection.module.scss';
 import CategoryCard from './CategoryCard';
+
+import styles from './WhatWeDoSection.module.scss';
 
 const WhatWeDoSection: FC<{}> = () => {
   const { isDesktop } = useBreakpoint();

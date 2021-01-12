@@ -1,25 +1,23 @@
-@import 'styles/settings/variables.scss';
-@import 'styles/utils/rem-calc.scss';
-@import 'styles/mixins/breakpoints.scss';
+@import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
 
 .root {
-  &.card {
+  &.container {
     width: rem-calc(300);
-    height: rem-calc(450);
     border-radius: rem-calc(32);
     margin-bottom: rem-calc(32);
-    padding-bottom: rem-calc(16);
+    padding-bottom: rem-calc(48);
 
-    @media (max-width: 1359px) {
+    @include media(0, 1400px) {
       width: 48%;
       min-height: rem-calc(400);
     }
 
-    @media (max-width: 1023px) {
+    @include media(0, 'lg') {
       min-height: rem-calc(280);
     }
 
-    @media (max-width: 767px) {
+    @include media(0, 'md') {
       width: 100%;
       height: rem-calc(280);
       border-radius: rem-calc(16);
@@ -49,7 +47,7 @@
       margin-top: rem-calc(40);
       margin-bottom: rem-calc(30);
 
-      @media (max-width: 767px) {
+      @include media(0, 'md') {
         margin-left: rem-calc(16);
       }
     }
@@ -57,7 +55,7 @@
     .textContainer {
       padding: rem-calc(0 20 0 40);
 
-      @media (max-width: 767px) {
+      @include media(0, 'md') {
         padding: rem-calc(0 16);
       }
 
