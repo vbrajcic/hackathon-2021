@@ -15,7 +15,7 @@ interface BlogSectionProps {
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => (
-  <Grid container direction="column" className={styles.container}>
+  <Grid container direction="column" component="section" className={styles.container}>
     <Typography variant="h2">
       Find out what we’ve been
       <br />
