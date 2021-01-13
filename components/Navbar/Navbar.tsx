@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
 
     if (contactForm) {
       window.scrollTo({
-        top: contactForm.offsetTop - 32,
+        top: contactForm.offsetTop - 64,
         behavior: 'smooth',
       });
 

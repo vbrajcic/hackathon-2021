@@ -1,0 +1,80 @@
+@import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
+
+.root {
+  &.container {
+    width: 100%;
+    margin-bottom: rem-calc(48);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: rem-calc(700);
+
+    @include media(0, 'lg') {
+      margin-bottom: rem-calc(20);
+      border-radius: 0;
+      min-height: rem-calc(600);
+      flex-direction: column;
+    }
+
+    @include media(0, 'md') {
+      background-position: right;
+    }
+
+    .wrapper {
+      padding-top: rem-calc(85);
+      padding-left: rem-calc(95);
+      height: 100%;
+
+      @include media(0, 'lg') {
+        padding-top: rem-calc(115);
+        padding-left: rem-calc(72);
+      }
+
+      @include media(0, 'md') {
+        padding: rem-calc(32 20 0 20);
+      }
+
+      .focusHighlight {
+        @include media('md') {
+          opacity: 0;
+        }
+      }
+
+      .category {
+        font-weight: 500;
+        margin-bottom: rem-calc(20);
+      }
+
+      .title {
+        color: $white;
+        margin-bottom: rem-calc(160);
+        max-width: 45%;
+
+        @include media(0, 'lg') {
+          margin-bottom: rem-calc(48);
+        }
+
+        @include media(0, 'md') {
+          max-width: 100%;
+        }
+      }
+
+      .button {
+        max-width: rem-calc(200);
+
+        @include media('lg') {
+          margin-bottom: rem-calc(120);
+        }
+
+        @include media('md', 'lg') {
+          margin-bottom: rem-calc(115);
+        }
+
+        @include media(0, 'md') {
+          display: none;
+        }
+      }
+    }
+  }
+}

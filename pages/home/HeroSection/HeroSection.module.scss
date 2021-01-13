@@ -1,47 +1,44 @@
 @import 'styles/mixins/breakpoints';
 @import 'styles/utils/rem-calc';
 
-.container {
-  justify-content: space-between;
-
-  @include media(0, 'md') {
-    flex-direction: column;
-  }
-
-  .intro {
-    max-width: 50%;
+.root {
+  &.container {
+    display: flex;
+    justify-content: space-between;
 
     @include media(0, 'md') {
-      max-width: 100%;
+      flex-direction: column;
     }
 
-    .button {
-      margin-top: rem-calc(96);
+    .intro {
+      max-width: 50%;
 
-      &:hover {
-        span {
-          color: $white;
-        }
+      @include media(0, 'md') {
+        max-width: 100%;
+      }
+
+      .button {
+        margin-top: rem-calc(96);
       }
     }
-  }
 
-  .imageWrapper {
-    max-width: 40%;
-    min-width: rem-calc(335);
-    width: 100%;
-    margin-top: 3rem;
+    .imageWrapper {
+      max-width: 40%;
+      min-width: rem-calc(335);
+      width: 100%;
+      margin-top: 3rem;
 
-    @include media('sm', 'md') {
-      display: none;
-    }
+      @include media('sm', 'md') {
+        display: none;
+      }
 
-    @include media(0, 'sm') {
-      margin-top: 0;
-    }
+      @include media(0, 'sm') {
+        margin-top: 0;
+      }
 
-    @include media(0, 350px) {
-      min-width: rem-calc(300);
+      @include media(0, 350px) {
+        min-width: rem-calc(300);
+      }
     }
   }
 }
