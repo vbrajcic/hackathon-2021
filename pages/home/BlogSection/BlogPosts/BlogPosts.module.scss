@@ -3,40 +3,39 @@
 
 .root {
   &.container {
-    width: 100vw;
+    min-width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
     margin: rem-calc(40 -24 0 -24);
 
     @include media('lg') {
-      width: 100%;
+      width: 100vw;
       margin-top: rem-calc(50);
     }
 
     @include media('xl') {
-      width: 100%;
+      width: 100vw;
       margin: rem-calc(50 -80 0 -80);
     }
   }
   .slider {
-    width: auto;
+    width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: rem-calc(20);
     -webkit-overflow-scrolling: touch;
-    padding: rem-calc(0 24 80 24);
+    padding-bottom: rem-calc(80);
 
     @include media('md') {
-      gap: rem-calc(30);
       padding-bottom: rem-calc(160);
     }
     @include media('lg') {
-      width: 100%;
       overflow-x: hidden;
       scroll-snap-type: none;
+      margin: 0;
       padding: rem-calc(0 0 250 0);
     }
     @include media('xl') {
-      gap: 0;
-      padding: rem-calc(0 24 250 24);
+      padding: rem-calc(0 0 250 0);
     }
   }
 
@@ -44,6 +43,13 @@
     max-width: rem-calc(400);
     width: 83%;
     flex: 0 0 83%;
+    margin: rem-calc(0 10);
+    &:first-of-type {
+      padding-left: rem-calc(14);
+    }
+    &:last-of-type {
+      padding-right: rem-calc(14);
+    }
 
     @include media('sm') {
       width: 70%;
@@ -52,15 +58,20 @@
     @include media('md') {
       width: 40%;
       flex: 0 0 40%;
+      margin: rem-calc(0 15);
+      &.expand {
+        width: auto;
+        flex: 1;
+      }
     }
     @include media('lg') {
-      width: 33.333%;
-      flex: unset;
+      width: auto;
+      flex: 1;
       margin: rem-calc(0 20);
+      padding: 0;
     }
     @include media('xl') {
-      width: 33.3333%;
-      flex: unset;
+      flex: 1;
       margin: rem-calc(0 30);
     }
   }

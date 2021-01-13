@@ -32,6 +32,14 @@ const overrides: ThemeOptions['overrides'] = {
       boxShadow: '12px 31px 85px 0 rgba(0,0,0,0.08)',
     },
   },
+  MuiCardActionArea: {
+    focusHighlight: {
+      borderRadius: 60,
+      '@media (max-width: 768px)': {
+        borderRadius: 40,
+      },
+    },
+  },
   MuiPaper: {
     root: {
       backgroundColor: Colors.white,

@@ -12,13 +12,14 @@ interface BlogPostsProps {
 }
 
 const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
-  if (!posts.length) return null;
+  if (!posts || !posts.length) return null;
   const blogPosts: Post[] = posts.map(({ node }: Node<Post>) => node).slice(0, 3);
+  const expandCards = blogPosts.length < 3;
   return (
-    <Grid container classes={{ root: styles.root }} className={styles.container}>
+    <Grid container classes={{ root: styles.root }} className={`${styles.container}`}>
       <Grid container wrap="nowrap" className={styles.slider}>
         {blogPosts.map((post: Post) => (
-          <Grid item className={styles.teaser} key={post.slug}>
+          <Grid item className={`${styles.teaser} ${expandCards ? styles.expand : ''}`} key={post.slug}>
             <Teaser
               title={post.title}
               excerpt={post.excerpt}
