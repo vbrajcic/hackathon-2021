@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import styles from './Intro.module.scss';
 
@@ -11,10 +11,10 @@ interface IntroProps {
 }
 
 const Intro: React.FC<IntroProps> = ({ text, className, children }) => (
-  <section className={cn(styles.container, className)}>
+  <Grid className={cn(styles.container, className)}>
     <Typography variant="h1">{text}</Typography>
     {children}
-  </section>
+  </Grid>
 );
 
 export default Intro;

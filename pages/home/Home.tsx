@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
-// import Hyperlink from 'components/Hyperlink';
 import ContactForm from 'components/ContactForm';
-// import links from 'config/links';
 
 import HeroSection from './HeroSection';
 import WhatWeDoSection from './WhatWeDoSection';
+import OurProjectsSection from './OurProjectsSection';
 
 import styles from './Home.module.scss';
 
@@ -15,9 +14,10 @@ const Home = () => (
     <Head>
       <title>Profico</title>
     </Head>
-    <Container className={styles.container} maxWidth="xl">
+    <Container className={styles.container} maxWidth="xl" disableGutters>
       <HeroSection />
       <WhatWeDoSection />
+      <OurProjectsSection />
       <ContactForm />
     </Container>
   </Layout>
