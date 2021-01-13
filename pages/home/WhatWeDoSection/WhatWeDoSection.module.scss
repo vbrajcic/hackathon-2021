@@ -1,4 +1,5 @@
-@import 'styles/utils/rem-calc.scss';
+@import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
 
 .root {
   &.container {
@@ -13,13 +14,12 @@
       margin-bottom: rem-calc(96);
     }
 
-    .translate {
-      transform-origin: bottom left;
-      transform: translateX(-10%);
-    }
-
     .cardsContainer {
       width: 100%;
+
+      @include media('lg') {
+        padding-left: rem-calc(20);
+      }
     }
   }
 }

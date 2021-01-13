@@ -36,7 +36,7 @@ $topBarHeight: rem-calc(84);
     }
 
     .getInTouchButton {
-      @include media(0, 375px) {
+      @include media(0, 'xs') {
         display: none;
       }
     }

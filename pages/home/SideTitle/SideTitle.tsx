@@ -1,5 +1,6 @@
-import { Grid, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
+
+import { Grid, Typography } from '@material-ui/core';
 
 import styles from './SideTitle.module.scss';
 
@@ -8,7 +9,7 @@ interface SideTitleProps {
 }
 
 const SideTitle: FC<SideTitleProps> = ({ title }) => (
-  <Grid container alignItems="center" justify="flex-end" className={styles.container}>
+  <Grid container alignItems="center" justify="flex-end" classes={{ root: styles.root }} className={styles.container}>
     <div className={styles.line} />
     <Typography variant="caption" className={styles.title}>
       {title}

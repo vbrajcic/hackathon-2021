@@ -1,7 +1,8 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Hyperlink from 'components/Hyperlink';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
@@ -35,26 +36,28 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ project }) => {
   const { category, title, url, images } = project;
 
   return (
-    <Paper
+    <Card
       classes={{ root: styles.root }}
       className={styles.container}
       style={{ backgroundImage: `url(${isMobile ? images.small : images.large})` }}
     >
-      <Typography variant="overline" className={styles.category}>
-        {categoryBadgeMap[category]}
-      </Typography>
-      <Typography variant="h1" className={styles.title}>
-        {title}
-      </Typography>
       <Hyperlink
         href={url}
         component={
-          <Button className={styles.button} color="primary">
-            View case study
-          </Button>
+          <CardActionArea classes={{ focusHighlight: styles.focusHighlight }} className={styles.wrapper}>
+            <Typography variant="overline" className={styles.category}>
+              {categoryBadgeMap[category]}
+            </Typography>
+            <Typography variant="h1" className={styles.title}>
+              {title}
+            </Typography>
+            <Button className={styles.button} color="primary">
+              View case study
+            </Button>
+          </CardActionArea>
         }
       />
-    </Paper>
+    </Card>
   );
 };
 

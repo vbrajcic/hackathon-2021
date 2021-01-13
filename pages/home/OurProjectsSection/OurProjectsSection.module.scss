@@ -1,5 +1,12 @@
 @import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
 
 .container {
   margin: rem-calc(50 0);
+
+  .projects {
+    @include media('lg') {
+      padding-left: rem-calc(20);
+    }
+  }
 }
