@@ -1,0 +1,38 @@
+// Import post body top margin
+@use '../Careers.module.scss' as Careers;
+
+@import 'styles/mixins/breakpoints';
+@import 'styles/utils/rem-calc';
+
+$buttonSize: rem-calc(100);
+
+.root {
+  &.container {
+    position: absolute;
+    width: $buttonSize;
+    height: $buttonSize;
+    left: rem-calc(32);
+    top: calc(-#{Careers.$bodyTopMargin} - calc(#{$buttonSize} / 2));
+
+    @include media(0, 'sm') {
+      width: rem-calc(94);
+      height: rem-calc(94);
+      left: rem-calc(20);
+    }
+
+    @include media('md', 'lg') {
+      left: rem-calc(140);
+    }
+  }
+}
+
+.snackbarRoot {
+  .snackbarContent {
+    background-color: $muted;
+
+    .closeBtn {
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+}

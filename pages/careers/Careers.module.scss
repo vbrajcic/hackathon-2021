@@ -1,0 +1,11 @@
+@import 'styles/utils/rem-calc';
+
+$bodyTopMargin: rem-calc(86);
+
+.container {
+  position: relative;
+
+  .body {
+    margin-top: $bodyTopMargin;
+  }
+}
