@@ -1,16 +1,16 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Edges } from 'types/common';
 import Post from 'types/posts/post';
-
 import Container from '@material-ui/core/Container';
-
 import RelatedPosts from 'components/RelatedPosts';
 import HeroPost from 'components/HeroPost';
 import Intro from 'components/Intro';
 import Layout from 'components/Layout';
+import useFactory from 'utils/hooks/useFactory';
+
 import { getAllBlogPosts } from 'lib/api';
+import { GetServerSideProps } from 'next';
+import { Edges } from 'types/common';
 
 interface BlogPageProps {
   allPosts: Edges<Post>;
@@ -18,8 +18,11 @@ interface BlogPageProps {
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => {
-  const heroPost = edges[0]?.node;
-  const morePosts = edges.slice(1);
+  const { heroPost, morePosts } = useFactory(() => {
+    const [hero, ...more] = edges;
+
+    return { heroPost: hero ? hero.node : undefined, morePosts: more };
+  });
 
   return (
     <Layout preview={preview}>
@@ -46,15 +49,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => 
 
 export default BlogPage;
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  type Data = {
-    edges: {
-      node: Post;
-    }[];
-  };
+export const getServerSideProps: GetServerSideProps<BlogPageProps> = async ({ preview = false }) => {
+  const allPosts = await getAllBlogPosts(preview);
 
-  const allPosts: Data = await getAllBlogPosts(preview);
   return {
-    props: { allPosts, preview },
+    props: {
+      allPosts,
+      preview,
+    },
   };
 };

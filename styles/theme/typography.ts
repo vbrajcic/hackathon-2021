@@ -26,17 +26,24 @@ const typography: ThemeOptions['typography'] = {
     fontWeight: 'bold',
     letterSpacing: -3,
     color: Colors.primary,
-    '@media (max-width: 768px)': {
+    '@media (max-width: 1024px)': {
       fontSize: 48,
     },
     '@media (max-width: 400px)': {
       fontSize: 40,
     },
   },
-  h4: {
+  h3: {
     fontSize: 28,
     lineHeight: 1.46,
     letterSpacing: 0,
+    color: Colors.primary,
+  },
+  h4: {
+    fontSize: 20,
+    lineHeight: 1.2,
+    letterSpacing: 0,
+    fontWeight: 'bold',
     color: Colors.primary,
   },
   subtitle1: {

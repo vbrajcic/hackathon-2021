@@ -1,0 +1,31 @@
+@import 'styles/mixins/breakpoints';
+@import 'styles/utils/rem-calc';
+
+.container {
+  align-items: flex-start;
+  margin-top: rem-calc(108);
+
+  @include media('md') {
+    margin-top: rem-calc(148);
+  }
+
+  @include media('lg') {
+    margin-top: rem-calc(150);
+  }
+
+  .wrapper {
+    @include media('lg') {
+      padding-left: rem-calc(20);
+    }
+
+    .subtitle {
+      max-width: 90%;
+      margin: rem-calc(32 0 40 0);
+
+      @include media('md') {
+        max-width: rem-calc(343);
+        margin: rem-calc(45 0 50 0);
+      }
+    }
+  }
+}

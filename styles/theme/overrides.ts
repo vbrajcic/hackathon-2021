@@ -27,12 +27,28 @@ const overrides: ThemeOptions['overrides'] = {
       },
     },
   },
+  MuiCard: {
+    root: {
+      boxShadow: '12px 31px 85px 0 rgba(0,0,0,0.08)',
+    },
+  },
+  MuiCardActionArea: {
+    focusHighlight: {
+      borderRadius: 60,
+      '@media (max-width: 768px)': {
+        borderRadius: 40,
+      },
+    },
+  },
   MuiPaper: {
     root: {
       backgroundColor: Colors.white,
     },
     rounded: {
       borderRadius: 60,
+      '@media (max-width: 768px)': {
+        borderRadius: 40,
+      },
     },
     elevation1: {
       boxShadow: '0 2px 29px 0 rgba(63, 62, 74, 0.05), 19px 67px 102px 0 rgba(63, 62, 74, 0.13)',

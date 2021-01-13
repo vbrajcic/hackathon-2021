@@ -7,7 +7,6 @@ const props: ThemeOptions['props'] = {
   },
   MuiButton: {
     variant: 'contained',
-    disableRipple: true,
     color: 'secondary',
     startIcon: Arrow({}),
   },

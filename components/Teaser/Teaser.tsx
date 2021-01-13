@@ -1,42 +1,43 @@
 import React from 'react';
-import Author from 'types/posts/author';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import FeaturedImage from 'types/posts/featuredImage';
-import Avatar from 'components/Avatar';
-import Date from 'components/Date';
-import CoverImage from 'components/CoverImage';
-import Hyperlink from 'components/Hyperlink';
+import cn from 'classnames';
+
 import styles from './Teaser.module.scss';
 
 interface TeaserProps {
   title: string;
-  coverImage: FeaturedImage;
-  date: string;
+  coverImage?: FeaturedImage;
   excerpt: string;
-  author: Author;
-  slug: string;
+  url: string;
 }
 
-const Teaser: React.FC<TeaserProps> = ({ title, coverImage, date, excerpt, author, slug }) => (
-  <div>
-    <div className={styles.marginBottom}>
-      <CoverImage title={title} coverImage={coverImage} slug={slug} />
-    </div>
-    <h3 className={styles.title}>
-      <Hyperlink
-        as={slug}
-        href={slug}
-        AnchorProps={{
-          className: styles.link,
-          dangerouslySetInnerHTML: { __html: title },
-        }}
-      />
-    </h3>
-    <div className={styles.date}>
-      <Date dateString={date} />
-    </div>
-    <div className={styles.author} dangerouslySetInnerHTML={{ __html: excerpt }} />
-    <Avatar author={author} />
-  </div>
+const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url }) => (
+  <Card className={cn(styles.container, { [styles.noImage]: !coverImage })} classes={{ root: styles.root }}>
+    <CardActionArea href={url} className={styles.cardArea}>
+      {coverImage && <CardMedia image={coverImage?.sourceUrl} title={url} className={styles.image} />}
+      <CardContent className={styles.content}>
+        <Typography variant="h4">{title}</Typography>
+        <Typography
+          variant="body2"
+          component="div"
+          dangerouslySetInnerHTML={{ __html: excerpt }}
+          className={styles.excerpt}
+        />
+        <CardActions className={styles.actions}>
+          <Button className={styles.button} color="primary" variant="text" classes={{ label: styles.label }} fullWidth>
+            Read more
+          </Button>
+        </CardActions>
+      </CardContent>
+    </CardActionArea>
+  </Card>
 );
 
 export default Teaser;
