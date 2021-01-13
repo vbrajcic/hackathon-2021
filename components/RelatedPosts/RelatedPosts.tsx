@@ -20,7 +20,7 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts, page }) => {
             key={node.slug}
             title={node.title}
             coverImage={node.featuredImage?.node}
-            slug={`/${page}/${node.slug}`}
+            url={`/${page}/${node.slug}`}
             excerpt={node.excerpt}
           />
         ))}

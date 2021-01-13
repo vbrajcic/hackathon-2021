@@ -3,19 +3,18 @@
 
 .root {
   &.container {
-    min-width: 100vw;
+    min-width: calc(100vw + 18px);
     width: 100%;
     overflow-x: hidden;
     margin: rem-calc(40 -24 0 -24);
 
+    @include media('sm') {
+      min-width: calc(100vw);
+    }
+
     @include media('lg') {
       width: 100vw;
       margin-top: rem-calc(50);
-    }
-
-    @include media('xl') {
-      width: 100vw;
-      margin: rem-calc(50 -80 0 -80);
     }
   }
   .slider {

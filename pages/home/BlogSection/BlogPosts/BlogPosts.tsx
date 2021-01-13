@@ -8,11 +8,13 @@ import Teaser from 'components/Teaser';
 import styles from './BlogPosts.module.scss';
 
 interface BlogPostsProps {
-  posts: Node<Post>[];
+  posts?: Node<Post>[];
 }
 
 const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
-  if (!posts || !posts.length) return null;
+  if (!posts || !posts.length) {
+    return null;
+  }
   const blogPosts: Post[] = posts.map(({ node }: Node<Post>) => node).slice(0, 3);
   const expandCards = blogPosts.length < 3;
   return (
@@ -24,7 +26,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
               title={post.title}
               excerpt={post.excerpt}
               coverImage={post.featuredImage?.node}
-              slug={`/blog/${post.slug}`}
+              url={`/blog/${post.slug}`}
             />
           </Grid>
         ))}
