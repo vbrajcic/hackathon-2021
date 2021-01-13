@@ -4,14 +4,9 @@
 
 .container {
   padding: rem-calc(64 20);
-  margin: rem-calc(0 -16);
 
   h2 {
     margin-bottom: rem-calc(45);
-  }
-
-  @include media('sm') {
-    margin: 0;
   }
 
   @include media('md') {
