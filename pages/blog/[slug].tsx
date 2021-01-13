@@ -40,7 +40,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
                 <title>{`${post.title} | Profico`}</title>
                 <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
               </Head>
-              <PostHeader title={post.title} excerpt={post.excerpt} />
+              <PostHeader title={post.title} excerpt={post.excerpt} slug={post.slug} />
               <PostBody content={post.content} />
               {post.tags && <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>}
             </article>
