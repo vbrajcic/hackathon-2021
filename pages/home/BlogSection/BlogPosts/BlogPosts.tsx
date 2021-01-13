@@ -4,20 +4,20 @@ import cn from 'classnames';
 import Post from 'types/posts/post';
 import Teaser from 'components/Teaser';
 
-import { Node } from 'types/common';
+import { useBlogPosts } from 'utils/context/BlogPostsContext';
 
 import styles from './BlogPosts.module.scss';
 
-interface BlogPostsProps {
-  posts?: Node<Post>[];
-}
+const BlogPosts: React.FC = () => {
+  const {
+    posts: { edges: posts },
+  } = useBlogPosts();
 
-const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   if (!posts || !posts.length) {
     return null;
   }
 
-  const blogPosts: Post[] = posts.map(({ node }: Node<Post>) => node).slice(0, 3);
+  const blogPosts = posts.map(({ node }) => node).slice(0, 3);
   const expandCards = blogPosts.length < 3;
 
   return (

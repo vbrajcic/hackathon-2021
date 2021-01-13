@@ -9,7 +9,7 @@ import Layout from 'components/Layout';
 import useFactory from 'utils/hooks/useFactory';
 
 import { getAllBlogPosts } from 'lib/api';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 
 interface BlogPageProps {
@@ -49,15 +49,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => 
 
 export default BlogPage;
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  type Data = {
-    edges: {
-      node: Post;
-    }[];
-  };
+export const getServerSideProps: GetServerSideProps<BlogPageProps> = async ({ preview = false }) => {
+  const allPosts = await getAllBlogPosts(preview);
 
-  const allPosts: Data = await getAllBlogPosts(preview);
   return {
-    props: { allPosts, preview },
+    props: {
+      allPosts,
+      preview,
+    },
   };
 };

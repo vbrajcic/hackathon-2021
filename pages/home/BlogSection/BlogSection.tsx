@@ -2,19 +2,13 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
-import Post from 'types/posts/post';
-import { Node } from 'types/common';
 import Hyperlink from 'components/Hyperlink';
 
-import styles from './BlogSection.module.scss';
 import BlogPosts from './BlogPosts';
 
-interface BlogSectionProps {
-  posts: Node<Post>[];
-}
+import styles from './BlogSection.module.scss';
 
-const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => (
+const BlogSection: React.FC = () => (
   <Grid container direction="column" component="section" className={styles.container}>
     <Typography variant="h2">
       Find out what we’ve been
@@ -26,7 +20,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => (
       worldwide
     </Typography>
     <Hyperlink href="/blog" component={<Button className={styles.button}>Go to our blog</Button>} />
-    <BlogPosts posts={posts} />
+    <BlogPosts />
   </Grid>
 );
 
