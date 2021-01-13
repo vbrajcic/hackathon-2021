@@ -11,16 +11,11 @@
   &.noImage {
     padding-top: rem-calc(55);
   }
+
   .cardArea {
     height: 100%;
     display: flex;
     flex-direction: column;
-
-    &:hover {
-      .focusHighlight {
-        opacity: 0.02;
-      }
-    }
 
     .image {
       width: 100%;
