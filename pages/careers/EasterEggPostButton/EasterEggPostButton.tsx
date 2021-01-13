@@ -43,10 +43,13 @@ const EasterEggPostButton: React.FC<EasterEggPostButtonProps> = ({ slug }) => {
       <Snackbar
         open={snackbarOpen && !error}
         autoHideDuration={3000}
+        resumeHideDuration={3000}
         ClickAwayListenerProps={{ onClickAway: noop }}
+        classes={{ root: styles.snackbarRoot }}
+        ContentProps={{ className: styles.snackbarContent }}
         action={
-          <Button onClick={toggleSnackbar} size="small" startIcon={null} variant="text">
-            CLOSE
+          <Button onClick={toggleSnackbar} size="small" className={styles.closeBtn} startIcon={null} variant="text">
+            Close
           </Button>
         }
         onClose={toggleSnackbar}
