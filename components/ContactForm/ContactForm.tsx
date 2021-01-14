@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Snowman from 'components/SvgIcons/Snowman';
 import Sailing from 'components/SvgIcons/Sailing';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import cn from 'classnames';
 
 import { useForm, Controller } from 'react-hook-form';
 import { Link } from '@material-ui/core';
@@ -21,12 +22,20 @@ type ContactFields = {
   message?: string;
 };
 
+interface ContactFormProps {
+  className?: string;
+  classes?: {
+    root?: string;
+    form?: string;
+  };
+}
+
 const defaultValues: ContactFields = {
   email: '',
   message: '',
 };
 
-const ContactForm: FC<{}> = () => {
+const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
   const { isMobile } = useBreakpoint();
@@ -54,7 +63,13 @@ const ContactForm: FC<{}> = () => {
   const submitText = formState.isSubmitting ? 'Sending...' : 'Contact us';
 
   return (
-    <Paper id="contact-form" classes={{ root: style.container }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper
+      id="contact-form"
+      classes={{ root: style.container }}
+      className={cn(className, classes?.root)}
+      square={isMobile}
+      elevation={Number(!isMobile)}
+    >
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2">
         Got a project?
@@ -63,7 +78,7 @@ const ContactForm: FC<{}> = () => {
       </Typography>
       <Grid container spacing={3} justify="space-between">
         <Grid item sm={12} md={7} lg={7}>
-          <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+          <form onSubmit={handleSubmit(onSubmit)} className={cn(style.form, classes?.form)}>
             <Controller
               name="email"
               as={

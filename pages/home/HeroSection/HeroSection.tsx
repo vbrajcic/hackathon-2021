@@ -9,21 +9,23 @@ import Grid from '@material-ui/core/Grid';
 import styles from './HeroSection.module.scss';
 
 const HeroSection: React.FC = () => (
-  <Container component="section" classes={{ root: styles.root }} className={styles.container} maxWidth="xl">
-    <Intro text="Mobile app and web development agency" className={styles.intro}>
-      <Hyperlink
-        href="/services"
-        component={
-          <Button className={styles.button} color="primary">
-            Find out what we do
-          </Button>
-        }
-      />
-    </Intro>
-    <Grid className={styles.imageWrapper}>
-      <Image src="/images/hero-section-image.png" layout="responsive" height="579" width="421" />
-    </Grid>
-  </Container>
+  <Grid component="section" className={styles.root}>
+    <Container className={styles.container} maxWidth="xl">
+      <Intro text="Mobile app and web development agency" className={styles.intro}>
+        <Hyperlink
+          href="/services"
+          component={
+            <Button className={styles.button} color="primary">
+              Find out what we do
+            </Button>
+          }
+        />
+      </Intro>
+      <Grid className={styles.imageWrapper}>
+        <Image src="/images/hero-section-image.png" layout="responsive" height="579" width="421" />
+      </Grid>
+    </Container>
+  </Grid>
 );
 
 export default HeroSection;
