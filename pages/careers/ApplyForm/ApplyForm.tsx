@@ -7,21 +7,27 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
 import Paper from '@material-ui/core/Paper';
+import { FormControl, FormHelperText, Input } from '@material-ui/core';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import File from 'components/SvgIcons/File';
 
 import style from './ApplyForm.module.scss';
 
 type ContactFields = {
   name: string;
+  phone: string;
   email: string;
   message?: string;
+  cv?: File;
 };
 
 const defaultValues: ContactFields = {
   name: '',
+  phone: '',
   email: '',
   message: '',
+  cv: undefined,
 };
 
 const ApplyForm: FC<{}> = () => {
@@ -48,7 +54,10 @@ const ApplyForm: FC<{}> = () => {
     setTimeout(() => resetForm(), 3000);
   };
 
+  const nameError = errors.name ? errors.name.message : '';
+  const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
+  const cvError = errors.cv ? errors.cv.name : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
@@ -59,22 +68,36 @@ const ApplyForm: FC<{}> = () => {
         <br />
         this job
       </Typography>
-      <Grid container spacing={3} justify="space-between">
-        <Grid item sm={12} md={7} lg={7}>
-          <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+        <Grid container justify="space-between">
+          <Grid item sm={12} md={5} lg={5}>
             <Controller
               name="name"
               as={
-                <TextField
-                  type="name"
-                  placeholder="Name"
-                  fullWidth
-                  helperText={emailError}
-                  error={Boolean(emailError)}
-                />
+                <TextField type="name" placeholder="Name" fullWidth helperText={nameError} error={Boolean(nameError)} />
               }
               control={control}
             />
+            <Controller
+              name="phone"
+              as={
+                <TextField
+                  type="tel"
+                  placeholder="Phone"
+                  fullWidth
+                  helperText={phoneError}
+                  error={Boolean(phoneError)}
+                />
+              }
+              rules={{
+                required: { value: true, message: 'Phone is required' },
+                minLength: 9,
+                maxLength: 13,
+              }}
+              control={control}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={6}>
             <Controller
               name="email"
               as={
@@ -93,16 +116,45 @@ const ApplyForm: FC<{}> = () => {
               control={control}
             />
             <Controller
+              name="cv"
+              type="file"
+              as={
+                <FormControl fullWidth>
+                  <Input
+                    id="file-input"
+                    type="file"
+                    inputProps={{ multiple: true }}
+                    className={style.input}
+                    style={{ display: 'none' }}
+                  />
+                  <label htmlFor="file-input">
+                    <Button variant="outlined" startIcon={<File />} component="span" className={style.uploadButton}>
+                      Upload CV / Resume
+                    </Button>
+                  </label>
+                  {cvError && <FormHelperText error>{cvError.message}</FormHelperText>}
+                </FormControl>
+              }
+              control={control}
+            />
+          </Grid>
+          <Grid item sm={12} md={12} lg={12}>
+            <Controller
+              name="repo"
+              as={<TextField placeholder="Links to your Website/Github/Bitbucket" fullWidth multiline rowsMax={3} />}
+              control={control}
+            />
+            <Controller
               name="message"
               as={<TextField placeholder="Tell us something about yourself" fullWidth multiline rowsMax={3} />}
               control={control}
             />
-            <Button type="submit" disabled={formState.isSubmitting}>
+            <Button type="submit" disabled={formState.isSubmitting} className={style.submitButton}>
               {submitText}
             </Button>
-          </form>
+          </Grid>
         </Grid>
-      </Grid>
+      </form>
     </Paper>
   );
 };
