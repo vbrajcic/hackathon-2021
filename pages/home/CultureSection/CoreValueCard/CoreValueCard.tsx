@@ -10,7 +10,8 @@ import { CoreValue, CoreValueIcon } from 'config/coreValues';
 
 import styles from './CoreValueCard.module.scss';
 
-interface CoreValueCardProps extends CoreValue {
+interface CoreValueCardProps {
+  value: CoreValue;
   index: number;
 }
 
@@ -21,19 +22,23 @@ const IconMap: { [key in CoreValueIcon]: React.ComponentType<React.SVGProps<SVGS
   TEST_TUBE: TestTube,
 };
 
-const CoreValueCard: React.FC<CoreValueCardProps> = ({ icon, title, subtitle, index }) => {
+const CoreValueCard: React.FC<CoreValueCardProps> = ({ value, index }) => {
+  if (!value) {
+    return null;
+  }
+
+  const { title, subtitle, icon } = value;
   const Icon = IconMap[icon];
 
   return (
     <Paper elevation={0} classes={{ root: styles.root }} className={styles.container} data-index={`0${index}`}>
       <Icon className={styles.icon} />
       <div className={styles.titleWrapper}>
-        {title &&
-          title.split('\n').map(text => (
-            <Typography key={text} variant="h4" className={styles.title}>
-              {text}
-            </Typography>
-          ))}
+        {title.split('\n').map(text => (
+          <Typography key={text} variant="h4" className={styles.title}>
+            {text}
+          </Typography>
+        ))}
       </div>
       <Typography variant="body2" className={styles.subtitle}>
         {subtitle}

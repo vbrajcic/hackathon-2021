@@ -32,7 +32,7 @@ const CultureSection: React.FC = () => (
         </Typography>
         <Grid container>
           {coreValues.map((value, index) => (
-            <CoreValueCard key={value.title} {...value} index={index + 1} />
+            <CoreValueCard key={value.title} value={value} index={index + 1} />
           ))}
         </Grid>
         <ContactForm className={styles.form} />
