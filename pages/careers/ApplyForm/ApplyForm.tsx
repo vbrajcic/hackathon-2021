@@ -18,46 +18,57 @@ type ContactFields = {
   name: string;
   phone: string;
   email: string;
-  message?: string;
   cv?: File;
+  repo?: string;
+  message?: string;
 };
 
 const defaultValues: ContactFields = {
   name: '',
   phone: '',
   email: '',
-  message: '',
   cv: undefined,
+  repo: '',
+  message: '',
 };
 
 const ApplyForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
+  const [selectedFile, setSelectedFile] = useState<File | null>();
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
   const { isMobile } = useBreakpoint();
 
   const resetForm = (): void => {
     reset();
+    setSelectedFile(null);
     setSnackbarMessage('');
   };
 
+  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    if (files) {
+      setSelectedFile(files[0]);
+    }
+  };
+
   const onSubmit = async (data: ContactFields): Promise<void> => {
-    // const res = await fetch('/api/contact', {
-    //   method: 'post',
-    //   headers: {
-    //     Accept: 'application/json, text/plain, */*',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // });
-    // const json = await res.json();
-    setSnackbarMessage(JSON.stringify(data));
+    const res = await fetch('/api/career', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    setSnackbarMessage(json.message);
     setTimeout(() => resetForm(), 3000);
   };
 
   const nameError = errors.name ? errors.name.message : '';
   const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
-  const cvError = errors.cv ? errors.cv.name : '';
+  const cvError = errors.cv ? errors.cv : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
@@ -126,13 +137,15 @@ const ApplyForm: FC<{}> = () => {
                     inputProps={{ multiple: true }}
                     className={style.input}
                     style={{ display: 'none' }}
+                    onChange={handleUpload}
                   />
                   <label htmlFor="file-input">
                     <Button variant="outlined" startIcon={<File />} component="span" className={style.uploadButton}>
                       Upload CV / Resume
                     </Button>
                   </label>
-                  {cvError && <FormHelperText error>{cvError.message}</FormHelperText>}
+                  <FormHelperText>{selectedFile?.name}</FormHelperText>
+                  {cvError && <FormHelperText error>{cvError.name}</FormHelperText>}
                 </FormControl>
               }
               control={control}

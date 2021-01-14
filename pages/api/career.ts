@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
 export default async function career(req: NextApiRequest, res: NextApiResponse) {
-  const { email, message } = req.body;
+  const { name, phone, email, repo, message } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -15,10 +15,15 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
   // proficotest@gmail.com just for testing purposes - should be info@profico.hr
   const mailOption = {
     from: `Profico Web <${email}>`,
-    to: 'proficotest@gmail.com',
-    subject: `New inquiry from Profico web`,
+    to: 'careers@profico.hr',
+    subject: `New career apply from Profico web`,
     text: `FROM: ${email} MESSAGE: ${message}`,
-    html: `<h2>Mail From Contact Form</h2><p>From: <a href="mailto:${email}">${email}</a></p><p>${message}</p>`,
+    html: `<h2>Career Apply</h2><p><strong>From: </strong> <a href="mailto:${email}">${email}</a></p><p><strong>Name: </strong>${name}</p><p><strong>Phone: </strong>${phone}</p><p><strong>Links to your Website/Github/Bitbucket: </strong>${repo}</p><p><strong>Tell us something about yourself: </strong>${message}</p>`,
+    // attachments: [
+    //   {
+    //     path: 'link-to-cv-goes-here',
+    //   },
+    // ],
     replyTo: email,
   };
 
@@ -30,7 +35,7 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
         res.status(500).json({ message: 'There was an error. Please try again!', status: 500 });
         resolve();
       } else {
-        res.status(200).json({ message: 'Thanks for contacting us!', status: 200 });
+        res.status(200).json({ message: 'Thanks for applying for this job!', status: 200 });
         resolve();
       }
     });
