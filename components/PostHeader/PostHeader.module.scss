@@ -6,7 +6,6 @@
 @import 'styles/mixins/breakpoints';
 
 .container {
-  position: relative;
   background-color: $grey-100;
   padding: rem-calc(169);
   padding-top: calc(#{nav.$topBarHeight} + 169px);

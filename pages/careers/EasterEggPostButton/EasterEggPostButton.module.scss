@@ -1,7 +1,10 @@
+// Import post body top margin
+@use '../Careers.module.scss' as Careers;
+
 @import 'styles/mixins/breakpoints';
 @import 'styles/utils/rem-calc';
 
-$buttonSize: 100px; //rem-calc(100);
+$buttonSize: rem-calc(100);
 
 .root {
   &.container {
@@ -9,7 +12,7 @@ $buttonSize: 100px; //rem-calc(100);
     width: $buttonSize;
     height: $buttonSize;
     left: rem-calc(32);
-    bottom: calc(-#{$buttonSize} / 2);
+    top: calc(-#{Careers.$bodyTopMargin} - calc(#{$buttonSize} / 2));
 
     @include media(0, 'sm') {
       width: rem-calc(94);

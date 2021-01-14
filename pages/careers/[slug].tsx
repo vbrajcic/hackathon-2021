@@ -1,20 +1,19 @@
 import React from 'react';
-import Head from 'next/head';
 import ErrorPage from 'next/error';
-import { useRouter } from 'next/router';
-import { GetStaticProps, GetStaticPaths } from 'next';
-
+import Head from 'next/head';
 import Container from '@material-ui/core/Container';
-
 import PostBody from 'components/PostBody';
 import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
 import PostTitle from 'components/PostTitle';
-
 import ApplyForm from 'pages/careers/ApplyForm';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
+
+import EasterEggPostButton from './EasterEggPostButton';
 
 import styles from './Careers.module.scss';
 
@@ -42,8 +41,9 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
               <title>{`${post.title} | Profico`}</title>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
+            <PostHeader title={post.title} excerpt={post.excerpt} />
             <Container className={styles.container} maxWidth="xl" disableGutters>
-              <PostHeader title={post.title} excerpt={post.excerpt} slug={post.slug} />
+              <EasterEggPostButton slug={post.slug} />
               <PostBody content={post.content} className={styles.body} />
               <ApplyForm />
             </Container>
