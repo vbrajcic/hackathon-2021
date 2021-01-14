@@ -65,9 +65,10 @@
       color: $white;
     }
 
-    .titleWrapper {
+    .title {
       margin-bottom: rem-calc(24);
       max-height: rem-calc(48);
+      white-space: pre-wrap;
     }
   }
 }
