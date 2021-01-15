@@ -12,10 +12,9 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
     },
   });
 
-  // proficotest@gmail.com just for testing purposes - should be info@profico.hr
   const mailOption = {
     from: `Profico Web <${email}>`,
-    to: 'ilovric@profico.hr',
+    to: 'careers@profico.hr',
     subject: `New career apply from Profico web`,
     text: `FROM: ${email} MESSAGE: ${message}`,
     html: `<h2>Career Apply</h2><p><strong>From: </strong> <a href="mailto:${email}">${email}</a></p><p><strong>Name: </strong>${name}</p><p><strong>Phone: </strong>${phone}</p><p><strong>Links to your Website/Github/Bitbucket: </strong>${repo}</p><p><strong>Tell us something about yourself: </strong>${message}</p>`,

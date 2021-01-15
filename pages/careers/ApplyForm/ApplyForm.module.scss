@@ -25,13 +25,6 @@
     .form {
       margin-top: rem-calc(50);
 
-      textarea,
-      input {
-        color: $grey-200;
-        font-size: rem-calc(16);
-        line-height: rem-calc(24);
-      }
-
       .uploadButton {
         width: 100%;
         color: $grey-200;
@@ -41,6 +34,10 @@
         height: rem-calc(59);
         border: 1px solid $grey-200;
         border-radius: rem-calc(20);
+      }
+
+      .selectedFileName {
+        color: $grey-200;
       }
 
       .submitButton {

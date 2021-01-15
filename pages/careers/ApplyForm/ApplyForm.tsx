@@ -18,7 +18,7 @@ type ContactFields = {
   name: string;
   phone: string;
   email: string;
-  cv?: File;
+  cv?: File | string;
   repo?: string;
   message?: string;
 };
@@ -27,33 +27,40 @@ const defaultValues: ContactFields = {
   name: '',
   phone: '',
   email: '',
-  cv: undefined,
+  cv: '',
   repo: '',
   message: '',
 };
+const acceptedMimeTypes =
+  '.pdf,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+
+const toBase64 = (file?: File) =>
+  new Promise<string | null | ArrayBuffer>((resolve, reject) => {
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    } else {
+      resolve(null);
+    }
+  });
 
 const ApplyForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
-  const [selectedFile, setSelectedFile] = useState<File | null>();
+  const [selectedFile, setSelectedFile] = useState<File>();
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
   const { isMobile } = useBreakpoint();
 
   const resetForm = (): void => {
     reset();
-    setSelectedFile(null);
+    setSelectedFile(undefined);
     setSnackbarMessage('');
   };
 
-  const toBase64 = (file: File) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
-    });
-
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
+
     if (files) {
       setSelectedFile(files[0]);
     }
@@ -68,10 +75,11 @@ const ApplyForm: FC<{}> = () => {
       },
       body: JSON.stringify({
         ...data,
-        cv: await toBase64(selectedFile as File),
+        ...(data.cv ? { cv: await toBase64(selectedFile) } : {}),
       }),
     });
     const json = await res.json();
+
     setSnackbarMessage(json.message);
     setTimeout(() => resetForm(), 3000);
   };
@@ -79,7 +87,6 @@ const ApplyForm: FC<{}> = () => {
   const nameError = errors.name ? errors.name.message : '';
   const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
-  const cvError = errors.cv ? errors.cv : '';
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
@@ -95,6 +102,9 @@ const ApplyForm: FC<{}> = () => {
           <Grid item sm={12} md={5} lg={5}>
             <Controller
               name="name"
+              rules={{
+                required: { value: true, message: 'Name is required' },
+              }}
               as={
                 <TextField type="name" placeholder="Name" fullWidth helperText={nameError} error={Boolean(nameError)} />
               }
@@ -145,7 +155,7 @@ const ApplyForm: FC<{}> = () => {
                   <Input
                     id="file-input"
                     type="file"
-                    inputProps={{ multiple: true }}
+                    inputProps={{ accept: acceptedMimeTypes }}
                     className={style.input}
                     style={{ display: 'none' }}
                     onChange={handleUpload}
@@ -155,8 +165,9 @@ const ApplyForm: FC<{}> = () => {
                       Upload CV / Resume
                     </Button>
                   </label>
-                  <FormHelperText>{selectedFile?.name}</FormHelperText>
-                  {cvError && <FormHelperText error>{cvError.name}</FormHelperText>}
+                  {selectedFile && (
+                    <FormHelperText className={style.selectedFileName}>{selectedFile.name}</FormHelperText>
+                  )}
                 </FormControl>
               }
               control={control}
