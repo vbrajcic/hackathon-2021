@@ -44,6 +44,14 @@ const ApplyForm: FC<{}> = () => {
     setSnackbarMessage('');
   };
 
+  const toBase64 = (file: File) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
     if (files) {
@@ -58,7 +66,10 @@ const ApplyForm: FC<{}> = () => {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        ...data,
+        cv: await toBase64(selectedFile as File),
+      }),
     });
     const json = await res.json();
     setSnackbarMessage(json.message);
