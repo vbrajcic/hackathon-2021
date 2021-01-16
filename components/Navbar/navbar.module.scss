@@ -1,9 +1,6 @@
 @import 'styles/globals/animations';
-@import 'styles/settings/variables';
-@import 'styles/mixins/breakpoints';
-@import 'styles/utils/rem-calc';
 
-$topBarHeight: rem-calc(84);
+$navBarHeight: rem-calc(84);
 
 .root {
   position: sticky;
@@ -13,13 +10,13 @@ $topBarHeight: rem-calc(84);
   transition: background-color $animation-duration__fast $timing-function;
 
   .container {
+    @include flex($justify: space-between);
+
     transition: background-color $animation-duration__fast $timing-function;
-    display: flex;
-    justify-content: space-between;
     padding: rem-calc(14 20);
     position: relative;
     z-index: 1500;
-    height: $topBarHeight;
+    height: $navBarHeight;
 
     .logo {
       margin-left: calc(#{rem-calc(64)} - #{rem-calc(12)});

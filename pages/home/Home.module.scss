@@ -1,16 +1,11 @@
-// Import top bar height
-@use 'components/Navbar/navbar.module.scss' as nav;
-
-@import 'styles/mixins/breakpoints';
-@import 'styles/settings/variables';
-@import 'styles/utils/rem-calc';
+@import 'components/Navbar/navbar.module.scss';
 
 .container {
   @include media('md') {
     &::after {
       content: '';
       position: absolute;
-      top: -(nav.$topBarHeight);
+      top: -($navBarHeight);
       right: 0;
       max-height: rem-calc(730);
       height: 100%;

@@ -1,5 +1,3 @@
-@import 'styles/settings/variables.scss';
-
 @mixin media($fromBr: 0, $toBr: 0) {
   $from: if(map-has-key($breakpoints, $fromBr), map-get($breakpoints, $fromBr), $fromBr);
   $to: if(map-has-key($breakpoints, $toBr), map-get($breakpoints, $toBr), $toBr);

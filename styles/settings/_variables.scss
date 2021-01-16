@@ -33,3 +33,6 @@ $breakpoints: (
   xl: 1440px,
 );
 $max-width: map-get($breakpoints, 'xl');
+
+// Custom variables
+$topBarHeight: rem-calc(84);

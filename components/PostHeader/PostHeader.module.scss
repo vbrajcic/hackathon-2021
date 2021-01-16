@@ -1,15 +1,10 @@
-// Import nav height
-@use '../Navbar/navbar.module.scss' as nav;
-
-@import 'styles/settings/variables';
-@import 'styles/utils/rem-calc';
-@import 'styles/mixins/breakpoints';
+@import 'components/Navbar/navbar.module.scss';
 
 .container {
   background-color: $grey-100;
   padding: rem-calc(169);
-  padding-top: calc(#{nav.$topBarHeight} + 169px);
-  margin-top: -(nav.$topBarHeight);
+  padding-top: calc(#{$navBarHeight} + 169px);
+  margin-top: -($navBarHeight);
 
   @include media(0, 'sm') {
     padding: rem-calc(32 20 90 20);
