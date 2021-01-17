@@ -6,20 +6,16 @@
     padding-top: rem-calc(58);
     padding-bottom: rem-calc(48);
 
-    .textPrimary {
+    .title {
       margin-bottom: rem-calc(40);
     }
 
-    .textSecondary {
+    .subtitle {
       margin-bottom: rem-calc(96);
     }
 
     .cardsContainer {
       width: 100%;
-
-      @include media('lg') {
-        padding-left: rem-calc(20);
-      }
     }
   }
 }
