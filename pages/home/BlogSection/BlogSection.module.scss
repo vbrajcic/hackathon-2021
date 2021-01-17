@@ -13,13 +13,19 @@
     margin-top: rem-calc(150);
   }
 
-  .subtitle {
-    max-width: 90%;
-    margin: rem-calc(32 0 40 0);
+  .main {
+    @include media('lg') {
+      margin-left: rem-calc(60);
+    }
 
-    @include media('md') {
-      max-width: rem-calc(343);
-      margin: rem-calc(45 0 50 0);
+    .subtitle {
+      max-width: 90%;
+      margin: rem-calc(32 0 40 0);
+
+      @include media('md') {
+        max-width: rem-calc(343);
+        margin: rem-calc(45 0 50 0);
+      }
     }
   }
 }

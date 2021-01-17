@@ -4,35 +4,50 @@
 .container {
   margin: rem-calc(50 0 100 0);
   padding-top: rem-calc(90);
+  padding-bottom: rem-calc(100);
   background-color: $primary;
 
-  .label {
-    font-weight: 500;
-    text-transform: uppercase;
+  @include media(0, 'lg') {
+    padding-bottom: 0;
   }
 
-  .title,
-  .subtitle {
-    color: $white;
-  }
+  .textWrapper {
+    @include media('lg') {
+      margin-left: rem-calc(60);
+    }
 
-  .title {
-    margin-top: rem-calc(16);
-    max-width: rem-calc(600);
-    margin-bottom: rem-calc(32);
-  }
+    .label {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
 
-  .subtitle {
-    max-width: rem-calc(450);
-    margin-bottom: rem-calc(48);
+    .title,
+    .subtitle {
+      color: $white;
+    }
+
+    .title {
+      margin-top: rem-calc(16);
+      max-width: rem-calc(600);
+      margin-bottom: rem-calc(32);
+    }
+
+    .subtitle {
+      max-width: rem-calc(450);
+      margin-bottom: rem-calc(48);
+    }
   }
 
   .form {
     position: relative;
-    bottom: rem-calc(-100);
+    bottom: rem-calc(-200);
 
     @include media(0, 'md') {
       margin: rem-calc(0 -24);
+    }
+
+    @include media(0, 'lg') {
+      bottom: rem-calc(-100);
     }
   }
 }

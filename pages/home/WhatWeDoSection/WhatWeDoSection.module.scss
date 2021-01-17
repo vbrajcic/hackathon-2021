@@ -6,12 +6,18 @@
     padding-top: rem-calc(58);
     padding-bottom: rem-calc(48);
 
-    .title {
-      margin-bottom: rem-calc(40);
-    }
+    .textWrapper {
+      @include media('lg') {
+        margin-left: rem-calc(60);
+      }
 
-    .subtitle {
-      margin-bottom: rem-calc(96);
+      .title {
+        margin-bottom: rem-calc(40);
+      }
+
+      .subtitle {
+        margin-bottom: rem-calc(96);
+      }
     }
 
     .cardsContainer {

@@ -9,18 +9,20 @@ import styles from './WhatWeDoSection.module.scss';
 
 const WhatWeDoSection: FC = () => (
   <Container className={styles.container} maxWidth="xl" component="section" classes={{ root: styles.root }}>
-    <Typography variant="h2" className={styles.title}>
-      Like an agency,
-      <br />
-      unlike any agency
-    </Typography>
-    <Typography variant="body2" className={styles.subtitle}>
-      We shape our core capabilities around lean
-      <br />
-      product teams capable of delivering immense
-      <br />
-      value to organisations worldwide
-    </Typography>
+    <Grid className={styles.textWrapper}>
+      <Typography variant="h2" className={styles.title}>
+        Like an agency,
+        <br />
+        unlike any agency
+      </Typography>
+      <Typography variant="body2" className={styles.subtitle}>
+        We shape our core capabilities around lean
+        <br />
+        product teams capable of delivering immense
+        <br />
+        value to organisations worldwide
+      </Typography>
+    </Grid>
 
     <Grid container justify="space-between" className={styles.cardsContainer}>
       {expertiseCategories.map(({ name, description, icon }) => (
