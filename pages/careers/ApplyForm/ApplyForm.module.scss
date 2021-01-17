@@ -6,33 +6,45 @@
   &.container {
     background-color: $grey-800;
     color: $white;
-    padding: rem-calc(67 18);
+    padding: rem-calc(67 21);
+
     h2 {
-      margin-bottom: rem-calc(45);
+      margin-bottom: rem-calc(69);
     }
-    @include media('sm') {
-      margin: 0;
-    }
+
     @include media('md') {
       padding: rem-calc(67 30 67 80);
+      margin: 0 rem-calc(32);
     }
+
     @include media('lg') {
-      padding: rem-calc(65 30 81 160);
+      padding: rem-calc(65 128 81 160);
+      margin: 0;
     }
 
     .form {
       margin-top: rem-calc(50);
-      max-width: rem-calc(445);
-      textarea,
-      input {
-        color: $white;
-        font-size: rem-calc(16);
-        line-height: rem-calc(24);
+
+      .uploadButton {
+        width: 100%;
+        color: $grey-200;
+        justify-content: left;
+        font-weight: normal;
+        box-sizing: border-box;
+        height: rem-calc(59);
+        border: 1px solid $grey-200;
+        border-radius: rem-calc(20);
       }
-      button {
-        margin: rem-calc(15 0 90 0);
-        @include media('md') {
-          margin-bottom: 0;
+
+      .selectedFileName {
+        color: $grey-200;
+      }
+
+      .submitButton {
+        margin-top: rem-calc(14);
+
+        @include media('lg') {
+          margin-top: rem-calc(25);
         }
       }
     }

@@ -8,13 +8,15 @@
   padding-top: calc(#{$navTopBarHeight} + 169px);
   margin-top: -($navTopBarHeight);
 
-  @include media(0, 'sm') {
+  @include media(0, 'md') {
     padding: rem-calc(32 20 90 20);
+    padding-top: calc(#{nav.$topBarHeight} + 32px);
     margin-bottom: rem-calc(91);
   }
 
   @include media('md', 'lg') {
     padding: rem-calc(74 20 156 20);
+    padding-top: calc(#{nav.$topBarHeight} + 74px);
     margin-bottom: rem-calc(145);
   }
 }

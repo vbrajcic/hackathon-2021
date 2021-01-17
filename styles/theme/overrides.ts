@@ -10,6 +10,7 @@ const overrides: ThemeOptions['overrides'] = {
       '&$disabled': {
         backgroundColor: Colors.muted,
         cursor: 'not-allowed',
+        color: 'inherit',
       },
       '&:focus': {
         outline: 'none',
@@ -19,6 +20,9 @@ const overrides: ThemeOptions['overrides'] = {
       boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
       '&:hover': {
         boxShadow: '2px 5px 14px 0 rgba(49, 50, 51, 0.2)',
+      },
+      '&$disabled': {
+        color: 'inherit',
       },
     },
     containedPrimary: {
@@ -66,6 +70,9 @@ const overrides: ThemeOptions['overrides'] = {
     },
   },
   MuiInput: {
+    root: {
+      color: Colors.grey200,
+    },
     input: {
       '&::-webkit-input-placeholder': {
         opacity: 1,
@@ -88,6 +95,10 @@ const overrides: ThemeOptions['overrides'] = {
     },
   },
   MuiInputBase: {
+    root: {
+      fontSize: 16,
+      lineHeight: 1.5,
+    },
     multiline: {
       paddingBottom: 19,
     },
@@ -98,6 +109,11 @@ const overrides: ThemeOptions['overrides'] = {
   MuiGrid: {
     container: {
       width: 'initial',
+    },
+  },
+  MuiSnackbarContent: {
+    root: {
+      backgroundColor: Colors.muted,
     },
   },
 };
