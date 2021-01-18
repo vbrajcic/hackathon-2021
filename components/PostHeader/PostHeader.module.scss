@@ -1,18 +1,16 @@
-@import 'components/Navbar/navbar.module.scss';
-
 .container {
   background-color: $grey-100;
   padding: rem-calc(169);
-  padding-top: calc(#{$navBarHeight} + 169px);
-  margin-top: -($navBarHeight);
+  padding-top: calc(#{$navTopBarHeight} + 169px);
+  margin-top: -($navTopBarHeight);
 
-  @include media(0, 'sm') {
+  @include media(0, 'md') {
     padding: rem-calc(32 20 90 20);
-    margin-bottom: rem-calc(91);
+    padding-top: calc(#{$navTopBarHeight} + 32px);
   }
 
   @include media('md', 'lg') {
     padding: rem-calc(74 20 156 20);
-    margin-bottom: rem-calc(145);
+    padding-top: calc(#{$navTopBarHeight} + 74px);
   }
 }

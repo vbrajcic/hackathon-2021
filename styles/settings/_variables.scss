@@ -5,6 +5,7 @@ $muted: #424d56;
 $text-primary: #484d50;
 $border-color: #e1e1e2;
 $grey-100: #f7f8f8;
+$grey-200: #c6c9cc;
 $grey-800: #212529;
 
 $white: #fff;
@@ -33,6 +34,4 @@ $breakpoints: (
   xl: 1440px,
 );
 $max-width: map-get($breakpoints, 'xl');
-
-// Custom variables
-$topBarHeight: rem-calc(84);
+$navTopBarHeight: rem-calc(84);

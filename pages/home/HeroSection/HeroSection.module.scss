@@ -1,6 +1,22 @@
 .root {
-  &.container {
-    @include flex($justify: space-between);
+  @include media('md') {
+    &::before {
+      content: '';
+      position: absolute;
+      margin-top: -($navTopBarHeight);
+      top: 0;
+      right: 0;
+      max-height: rem-calc(730);
+      height: 100%;
+      width: 65%;
+      background-color: $grey-100;
+      z-index: -1;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
 
     @include media(0, 'md') {
       flex-direction: column;
