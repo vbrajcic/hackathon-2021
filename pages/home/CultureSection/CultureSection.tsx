@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import ContactForm from 'components/ContactForm';
 import coreValues from 'config/coreValues';
 
-import SideTitle from '../SideTitle';
 import CoreValueCard from './CoreValueCard';
 
 import styles from './CultureSection.module.scss';
@@ -14,8 +13,7 @@ import styles from './CultureSection.module.scss';
 const CultureSection: React.FC = () => (
   <Grid component="section" className={styles.container}>
     <Container maxWidth="xl">
-      <SideTitle title="Culture" />
-      <Grid className={styles.wrapper}>
+      <Grid className={styles.textWrapper}>
         <Chip
           label={
             <Typography variant="overline" className={styles.label}>
@@ -30,13 +28,13 @@ const CultureSection: React.FC = () => (
         <Typography variant="body2" className={styles.subtitle}>
           Successful project relationships transform us from suppliers to partners and beyond.
         </Typography>
-        <Grid container>
-          {coreValues.map((value, index) => (
-            <CoreValueCard key={value.title} value={value} index={index + 1} />
-          ))}
-        </Grid>
-        <ContactForm className={styles.form} />
       </Grid>
+      <Grid container>
+        {coreValues.map((value, index) => (
+          <CoreValueCard key={value.title} value={value} index={index + 1} />
+        ))}
+      </Grid>
+      <ContactForm className={styles.form} />
     </Container>
   </Grid>
 );

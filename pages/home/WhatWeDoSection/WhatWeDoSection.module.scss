@@ -6,20 +6,22 @@
     padding-top: rem-calc(58);
     padding-bottom: rem-calc(48);
 
-    .textPrimary {
-      margin-bottom: rem-calc(40);
-    }
+    .textWrapper {
+      @include media('lg') {
+        margin-left: rem-calc(60);
+      }
 
-    .textSecondary {
-      margin-bottom: rem-calc(96);
+      .title {
+        margin-bottom: rem-calc(40);
+      }
+
+      .subtitle {
+        margin-bottom: rem-calc(96);
+      }
     }
 
     .cardsContainer {
       width: 100%;
-
-      @include media('lg') {
-        padding-left: rem-calc(20);
-      }
     }
   }
 }
