@@ -3,40 +3,6 @@
 @import 'styles/mixins/breakpoints';
 @import 'styles/utils/rem-calc';
 
-.drawer {
-  .navigation {
-    max-width: map-get($breakpoints, 'xl');
-    width: 100%;
-    margin: rem-calc(120 auto);
-
-    @include media(0, 'md') {
-      margin: rem-calc(120 auto 96 auto);
-    }
-
-    @include media(0, 'sm') {
-      margin: rem-calc(96 auto 72 auto);
-    }
-
-    .links {
-      margin-left: rem-calc(108);
-
-      @include media(0, 'md') {
-        margin-left: rem-calc(96);
-      }
-
-      @include media(0, 'sm') {
-        margin-left: rem-calc(72);
-      }
-    }
-
-    .link {
-      margin: rem-calc(16 0);
-      animation: fadeInFromTop 250ms $timing-function $animation-duration__normal 1 forwards;
-      opacity: 0;
-    }
-  }
-}
-
 .root {
   position: sticky;
   top: 0;
