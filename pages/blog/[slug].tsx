@@ -14,7 +14,6 @@ import Layout from 'components/Layout';
 import ContactForm from 'components/ContactForm';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
-import Tags from 'components/Tags';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
@@ -45,7 +44,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
-              {post.tags && <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>}
               <SectionSeparator />
               <RelatedPosts posts={morePosts} page="blog" />
               <ContactForm />
