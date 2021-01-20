@@ -6,7 +6,7 @@ const breakpoints: ThemeOptions['breakpoints'] = {
     sm: 500,
     md: 768,
     lg: 1024,
-    xl: 1440,
+    xl: 1680,
   },
 };
 
