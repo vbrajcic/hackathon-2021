@@ -1,6 +1,7 @@
 import React from 'react';
 import Hyperlink from 'components/Hyperlink';
 import useToggleState from 'utils/hooks/useToggleState';
+import { useTheme } from 'utils/context/ThemeContext';
 import cn from 'classnames';
 import links from 'config/links';
 
@@ -14,6 +15,7 @@ import styles from './navbar.module.scss';
 const filteredLinks = links.filter(({ url }) => !url.includes('work') && !url.includes('contact'));
 
 const Navbar: React.FC = () => {
+  const { theme } = useTheme();
   const [menuOpen, toggleMenu] = useToggleState();
   const router = useRouter();
   const hasCrossedThreshold = useScrollTrigger({
@@ -37,10 +39,15 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Grid className={cn(styles.root, { [styles.painted]: hasCrossedThreshold || menuOpen })}>
+    <Grid
+      className={cn(styles.root, {
+        [styles.painted]: hasCrossedThreshold || menuOpen,
+        [styles.darkTheme]: theme === 'dark',
+      })}
+    >
       <Container className={styles.container} maxWidth="xl" disableGutters>
         <Grid alignItems="center" container>
-          <Hamburger onToggle={toggleMenu} open={menuOpen} />
+          <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
           <Hyperlink
             href="/"
             AnchorProps={{

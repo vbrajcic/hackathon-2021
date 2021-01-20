@@ -11,6 +11,7 @@ import RelatedPosts from 'components/RelatedPosts';
 import PostHeader from 'components/PostHeader';
 import SectionSeparator from 'components/SectionSeparator';
 import Layout from 'components/Layout';
+import ContactForm from 'components/ContactForm';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
 import Tags from 'components/Tags';
@@ -29,27 +30,29 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   }
 
   return (
-    <Layout preview={preview}>
-      <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>{`${post.title} | Profico`}</title>
-                <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
-              </Head>
-              <PostHeader title={post.title} excerpt={post.excerpt} />
+    <Layout preview={preview} theme="dark">
+      {router.isFallback ? (
+        <Container maxWidth="xl" disableGutters>
+          <PostTitle title="Loading…" />
+        </Container>
+      ) : (
+        <>
+          <article>
+            <Head>
+              <title>{`${post.title} | Profico`}</title>
+              <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
+            </Head>
+            <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />
+            <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               {post.tags && <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>}
-            </article>
-
-            <SectionSeparator />
-            <RelatedPosts posts={morePosts} page="blog" />
-          </>
-        )}
-      </Container>
+              <SectionSeparator />
+              <RelatedPosts posts={morePosts} page="blog" />
+              <ContactForm />
+            </Container>
+          </article>
+        </>
+      )}
     </Layout>
   );
 };
