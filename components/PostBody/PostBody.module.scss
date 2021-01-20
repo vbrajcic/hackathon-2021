@@ -165,12 +165,20 @@ $content-width: rem-calc(600);
         background-repeat: no-repeat;
         height: rem-calc(18);
         width: rem-calc(20);
+
+        @include media(0, 'sm') {
+          display: none;
+        }
       }
 
       > p {
         max-width: $content-width;
         margin-left: auto;
         margin-right: auto;
+
+        @include media(0, 'sm') {
+          padding-left: rem-calc(20);
+        }
       }
     }
 
