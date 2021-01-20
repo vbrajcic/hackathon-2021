@@ -17,6 +17,10 @@
 
       .subtitle {
         margin-bottom: rem-calc(96);
+
+        @include media(0, 'md') {
+          margin-bottom: rem-calc(32);
+        }
       }
     }
 
