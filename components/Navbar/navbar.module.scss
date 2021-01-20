@@ -59,6 +59,18 @@
     }
   }
 
+  &.darkTheme {
+    &:not(.painted) {
+      a {
+        color: $white;
+      }
+
+      .bar {
+        background-color: $white;
+      }
+    }
+  }
+
   &.painted {
     background-color: $white;
 

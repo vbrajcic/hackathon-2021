@@ -6,6 +6,7 @@ import links from 'config/links';
 
 import { useRouter } from 'next/router';
 import { Button, Container, Grid, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { useTheme } from 'utils/context/ThemeContext';
 
 import Hamburger from './Hamburger';
 import MenuDrawer from './MenuDrawer';
@@ -15,13 +16,14 @@ import styles from './navbar.module.scss';
 const filteredLinks = links.filter(({ url }) => !url.includes('work') && !url.includes('contact'));
 
 const Navbar: React.FC = () => {
+  const { theme } = useTheme();
   const [menuOpen, toggleMenu] = useToggleState();
   const router = useRouter();
   const hasCrossedThreshold = useScrollTrigger({
     disableHysteresis: true,
     threshold: 20,
   });
-  const isAboveMd = useMediaQuery<Theme>(theme => theme.breakpoints.up('md'));
+  const isAboveMd = useMediaQuery<Theme>(t => t.breakpoints.up('md'));
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
@@ -39,10 +41,15 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Grid className={cn(styles.root, { [styles.painted]: hasCrossedThreshold || menuOpen })}>
+    <Grid
+      className={cn(styles.root, {
+        [styles.painted]: hasCrossedThreshold || menuOpen,
+        [styles.darkTheme]: theme === 'dark',
+      })}
+    >
       <Container className={styles.container} maxWidth="xl" disableGutters>
         <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
-          <Hamburger onToggle={toggleMenu} open={menuOpen} />
+          <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
           <Grid container justify="space-between" className={styles.inner}>
             <Hyperlink
               href="/"
