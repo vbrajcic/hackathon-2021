@@ -19,11 +19,16 @@
       flex-direction: row;
     }
 
+    @include media(0, 'md') {
+      text-align: center;
+    }
+
     .socialIcons {
       width: auto;
 
       @include media(0, 'md') {
         margin-bottom: rem-calc(44);
+        justify-content: center;
       }
 
       a {
