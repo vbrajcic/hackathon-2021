@@ -5,7 +5,7 @@ import cn from 'classnames';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';
-import { Button, Container, Grid, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
+import { Button, Container, Grid, SwipeableDrawer, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
 
 import Hamburger from './Hamburger';
 
@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     disableHysteresis: true,
     threshold: 20,
   });
+  const isAboveMd = useMediaQuery<Theme>(theme => theme.breakpoints.up('md'));
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
@@ -36,20 +37,39 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const renderLinks = (variant: 'menu' | 'nav') =>
+    filteredLinks.map(({ url, text }) => (
+      <Hyperlink
+        key={url}
+        href={url}
+        AnchorProps={{
+          variant: variant === 'nav' ? 'body2' : 'h2',
+          align: 'left',
+          className: styles.link,
+          color: router.route === url ? 'secondary' : 'primary',
+        }}
+      >
+        {text}
+      </Hyperlink>
+    ));
+
   return (
     <Grid className={cn(styles.root, { [styles.painted]: hasCrossedThreshold || menuOpen })}>
       <Container className={styles.container} maxWidth="xl" disableGutters>
-        <Grid alignItems="center" container>
+        <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
           <Hamburger onToggle={toggleMenu} open={menuOpen} />
-          <Hyperlink
-            href="/"
-            AnchorProps={{
-              variant: 'body1',
-              className: styles.logo,
-            }}
-          >
-            Profico
-          </Hyperlink>
+          <Grid container justify="space-between" className={styles.inner}>
+            <Hyperlink
+              href="/"
+              AnchorProps={{
+                variant: 'body1',
+                className: styles.logo,
+              }}
+            >
+              Profico
+            </Hyperlink>
+            {isAboveMd && <Grid>{renderLinks('nav')}</Grid>}
+          </Grid>
         </Grid>
         <Button className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
           Get in touch
@@ -67,20 +87,7 @@ const Navbar: React.FC = () => {
       >
         <Grid className={styles.navigation} container>
           <Grid direction="column" component="nav" className={styles.links} container>
-            {filteredLinks.map(({ url, text }) => (
-              <Hyperlink
-                key={url}
-                href={url}
-                AnchorProps={{
-                  variant: 'h2',
-                  align: 'left',
-                  className: styles.link,
-                  color: router.route === url ? 'secondary' : 'primary',
-                }}
-              >
-                {text}
-              </Hyperlink>
-            ))}
+            {renderLinks('menu')}
           </Grid>
         </Grid>
       </SwipeableDrawer>

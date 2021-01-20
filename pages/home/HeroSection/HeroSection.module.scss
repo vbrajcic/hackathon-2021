@@ -26,8 +26,12 @@
     }
 
     .intro {
-      max-width: 50%;
+      max-width: rem-calc(712);
       margin-top: rem-calc(40);
+
+      @include media('lg') {
+        margin-left: rem-calc(60);
+      }
 
       @include media(0, 'md') {
         max-width: 100%;
