@@ -1,7 +1,3 @@
-@import 'styles/settings/variables';
-@import 'styles/utils/rem-calc';
-@import 'styles/mixins/breakpoints';
-
 .container {
   background-color: $grey-100;
   padding: rem-calc(169);

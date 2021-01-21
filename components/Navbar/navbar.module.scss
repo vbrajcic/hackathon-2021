@@ -1,7 +1,5 @@
 @import 'styles/globals/animations';
-@import 'styles/settings/variables';
-@import 'styles/mixins/breakpoints';
-@import 'styles/utils/rem-calc';
+@import 'styles/mixins/flex';
 
 .root {
   position: sticky;
@@ -11,9 +9,9 @@
   transition: background-color $animation-duration__fast $timing-function;
 
   .container {
+    @include flex($justify: space-between);
+
     transition: background-color $animation-duration__fast $timing-function;
-    display: flex;
-    justify-content: space-between;
     padding: rem-calc(14 20);
     position: relative;
     z-index: 1500;
