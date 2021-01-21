@@ -1,0 +1,63 @@
+@import 'styles/mixins/ellipsis.scss';
+@import 'styles/utils/rem-calc';
+@import 'styles/mixins/breakpoints';
+
+.root {
+  &.container {
+    width: 100%;
+    border-radius: rem-calc(30);
+    box-shadow: 0 2px 8px 0 rgba(63, 62, 74, 0.05), 0 12px 33px 0 rgba(63, 62, 74, 0.07);
+    margin-bottom: rem-calc(20);
+
+    &:hover {
+      @include media('md') {
+        .button {
+          opacity: 1;
+        }
+        .subtitle {
+          max-width: rem-calc(540);
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: flex-start;
+      padding: rem-calc(21 18 19 18);
+      @include media(0, 'md') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .focusHighlight {
+      opacity: 0;
+    }
+
+    .textWrapper {
+      flex: 1;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 22px;
+      flex: 0 0 auto;
+      @include media(0, 'md') {
+        margin-bottom: rem-calc(12);
+      }
+    }
+
+    .subtitle {
+      @include ml-ellipsis(2, 16, 1.5);
+      color: $muted;
+      margin-right: rem-calc(10);
+    }
+
+    .button {
+      opacity: 0;
+      flex: 0 0 auto;
+      transition: opacity $animation-duration__normal $timing-function;
+    }
+  }
+}

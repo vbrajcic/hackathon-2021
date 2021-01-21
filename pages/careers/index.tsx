@@ -2,59 +2,32 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import Container from '@material-ui/core/Container';
-
 import { Edges } from 'types/common';
 import Post from 'types/posts/post';
-import RelatedPosts from 'components/RelatedPosts';
-import HeroPost from 'components/HeroPost';
-import Intro from 'components/Intro';
 import Layout from 'components/Layout';
 import { getAllCareerPosts } from 'lib/api';
 
+import OpenPositions from './OpenPositions';
+
 interface CareersPageProps {
-  allPosts: Edges<Post>;
+  posts: Edges<Post>;
   preview: boolean;
 }
 
-const CareersPage: React.FC<CareersPageProps> = ({ allPosts: { edges }, preview }) => {
-  const heroPost = edges[0]?.node;
-  const morePosts = edges.slice(1);
-
-  return (
-    <Layout preview={preview}>
-      <Head>
-        <title>Profico</title>
-      </Head>
-      <Container>
-        <Intro text="Careers" />
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.featuredImage?.node}
-            date={heroPost.date}
-            author={heroPost.author?.node}
-            slug={`/careers/${heroPost.slug}`}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        <RelatedPosts posts={morePosts} page="careers" />
-      </Container>
-    </Layout>
-  );
-};
+const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
+  <Layout preview={preview}>
+    <Head>
+      <title>Profico</title>
+    </Head>
+    <OpenPositions positions={posts.edges} />
+  </Layout>
+);
 
 export default CareersPage;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  type Data = {
-    edges: {
-      node: Post;
-    }[];
-  };
-
-  const allPosts: Data = await getAllCareerPosts(preview);
+  const allPosts: Edges<Post> = await getAllCareerPosts(preview);
   return {
-    props: { allPosts, preview },
+    props: { posts: allPosts, preview },
   };
 };
