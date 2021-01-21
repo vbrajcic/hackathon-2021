@@ -21,16 +21,19 @@
     .imageWrapper {
       white-space: nowrap;
       margin-bottom: rem-calc(70);
-      margin-bottom: 70px;
+      height: 400px;
+
+      .innerImageWrapper {
+        position: absolute;
+        overflow-x: scroll;
+      }
 
       @include media('lg') {
         margin-bottom: rem-calc(95);
-        margin-bottom: 95px;
       }
 
       @include media('xl') {
         margin-bottom: rem-calc(175);
-        margin-bottom: 175px;
       }
 
       .image {

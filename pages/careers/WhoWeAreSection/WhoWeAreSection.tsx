@@ -26,10 +26,12 @@ const WhoWeAreSection: FC = () => (
       </Typography>
     </Grid>
     <Grid className={styles.imageWrapper}>
-      <img src="images/careers/who-we-are-1.jpg" className={styles.image} alt="Who we are 01>" />
-      <img src="images/careers/who-we-are-2.jpg" className={styles.image} alt="Who we are 02>" />
-      <img src="images/careers/who-we-are-3.jpg" className={styles.image} alt="Who we are 03>" />
-      <img src="images/careers/who-we-are-4.jpg" className={styles.image} alt="Who we are 04>" />
+      <Grid className={styles.innerImageWrapper}>
+        <img src="images/careers/who-we-are-1.jpg" className={styles.image} alt="Who we are 01>" />
+        <img src="images/careers/who-we-are-2.jpg" className={styles.image} alt="Who we are 02>" />
+        <img src="images/careers/who-we-are-3.jpg" className={styles.image} alt="Who we are 03>" />
+        <img src="images/careers/who-we-are-4.jpg" className={styles.image} alt="Who we are 04>" />
+      </Grid>
     </Grid>
   </Container>
 );
