@@ -1,6 +1,3 @@
-@import 'styles/mixins/breakpoints';
-@import 'styles/utils/rem-calc';
-
 .root {
   @include media('md') {
     &::before {

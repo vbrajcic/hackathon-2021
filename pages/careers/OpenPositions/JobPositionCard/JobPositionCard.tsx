@@ -22,7 +22,7 @@ const JobPositionCard: React.FC<JobPositionCardProps> = ({ position }) => {
   return (
     <Card classes={{ root: styles.root }} className={styles.container}>
       <Hyperlink
-        href={`/career/${position.slug}`}
+        href={`/careers/${position.slug}`}
         component={
           <CardActionArea classes={{ focusHighlight: styles.focusHighlight }} className={styles.content}>
             <JobIcon className={styles.icon} />
@@ -30,6 +30,7 @@ const JobPositionCard: React.FC<JobPositionCardProps> = ({ position }) => {
               <Typography variant="h4">{position.title}</Typography>
               <Typography
                 variant="body2"
+                component="div"
                 dangerouslySetInnerHTML={{ __html: position.excerpt }}
                 className={styles.subtitle}
               />

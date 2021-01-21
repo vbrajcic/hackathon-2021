@@ -13,29 +13,25 @@ interface OpenPositionsProps {
   positions: Node<Post>[];
 }
 
-const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
-  const count = positions.length;
-
-  return (
-    <Grid component="section" className={styles.container}>
-      <Container maxWidth="xl">
-        <Grid className={styles.textWrapper}>
-          <Typography variant="h2" className={styles.title}>
-            Let’s create something great together
-          </Typography>
-        </Grid>
-        <Grid container>
-          <Typography variant="h4" className={styles.subtitle}>
-            Open positions
-            <b color={Colors.grey600}>{` (${count})`}</b>
-          </Typography>
-          {positions.map(position => (
-            <JobPositionCard key={position.node.slug} position={position.node} />
-          ))}
-        </Grid>
-      </Container>
-    </Grid>
-  );
-};
+const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => (
+  <Grid component="section" className={styles.container}>
+    <Container maxWidth="xl">
+      <Grid className={styles.textWrapper}>
+        <Typography variant="h2" className={styles.title}>
+          Let’s create something great together
+        </Typography>
+      </Grid>
+      <Grid container>
+        <Typography variant="h4" className={styles.subtitle}>
+          Open positions
+          <b color={Colors.grey600}>{` (${positions.length})`}</b>
+        </Typography>
+        {positions.map(position => (
+          <JobPositionCard key={position.node.slug} position={position.node} />
+        ))}
+      </Grid>
+    </Container>
+  </Grid>
+);
 
 export default OpenPositions;
