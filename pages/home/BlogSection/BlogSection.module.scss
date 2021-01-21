@@ -10,9 +10,9 @@
     margin-top: rem-calc(150);
   }
 
-  .wrapper {
+  .main {
     @include media('lg') {
-      padding-left: rem-calc(20);
+      margin-left: rem-calc(60);
     }
 
     .subtitle {

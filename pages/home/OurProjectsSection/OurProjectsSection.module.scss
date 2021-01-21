@@ -1,9 +1,7 @@
 .container {
   margin: rem-calc(50 0);
 
-  .projects {
-    @include media('lg') {
-      padding-left: rem-calc(20);
-    }
+  @include media(0, 'sm') {
+    margin-top: 0;
   }
 }

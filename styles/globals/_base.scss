@@ -15,9 +15,16 @@ video {
 
 a {
   color: $primary;
-  transition: color $animation-duration__fast $timing-function;
+  transition: color $animation-duration__fast $timing-function, fill $animation-duration__fast $timing-function;
 
-  &:not(.MuiButtonBase-root):hover {
-    color: $secondary;
+  &:not(.MuiButtonBase-root) {
+    &:hover,
+    &:focus {
+      color: $secondary;
+
+      path {
+        fill: $secondary;
+      }
+    }
   }
 }
