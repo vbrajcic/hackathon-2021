@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { Node } from 'types/common';
 import Post from 'types/posts/post';
+import useFactory from 'utils/hooks/useFactory';
 import JobPositionCard from './JobPositionCard';
 
 import styles from './OpenPositions.module.scss';
@@ -14,9 +15,8 @@ interface OpenPositionsProps {
 }
 
 const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
-  if (!positions) {
-    return null;
-  }
+  const positionsCount = useFactory(() => (positions ? positions.length : 0));
+
   return (
     <Grid component="section">
       <Container maxWidth="xl" className={styles.container}>
@@ -28,11 +28,10 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
         <Grid container>
           <Typography variant="h4" className={styles.subtitle}>
             Open positions
-            <b>{` (${positions.length})`}</b>
+            <b>{` (${positionsCount})`}</b>
           </Typography>
-          {positions.map(position => (
-            <JobPositionCard key={position.node.slug} position={position.node} />
-          ))}
+          {positionsCount &&
+            positions.map(position => <JobPositionCard key={position.node.slug} position={position.node} />)}
         </Grid>
       </Container>
     </Grid>
