@@ -1,13 +1,13 @@
 .container {
-  margin: rem-calc(50 60 100 60);
-  padding: rem-calc(90 0 100 0);
+  margin: rem-calc(50 0 100 0);
 
-  @include media(0, 'md') {
-    margin: rem-calc(50 0 100 0);
-  }
+  @include media('lg') {
+    padding-top: rem-calc(90);
+    padding-bottom: rem-calc(100);
 
-  @include media(0, 'lg') {
-    padding-bottom: 0;
+    & > div {
+      margin-left: rem-calc(60);
+    }
   }
 
   .title {
@@ -21,24 +21,6 @@
     margin-bottom: rem-calc(45);
     b {
       color: $grey-600;
-    }
-  }
-
-  .textWrapper {
-    .label {
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
-    .title {
-      margin-top: rem-calc(16);
-      max-width: rem-calc(640);
-      margin-bottom: rem-calc(75);
-    }
-
-    .subtitle {
-      font-weight: 700;
-      margin-bottom: rem-calc(45);
     }
   }
 }

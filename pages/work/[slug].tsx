@@ -1,13 +1,9 @@
-import Head from 'next/head';
 import Intro from 'components/Intro';
 import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
 
 const Work = () => (
-  <Layout>
-    <Head>
-      <title>Single case study | Profico</title>
-    </Head>
+  <Layout title="Single case study">
     <Container>
       <Intro text="Single case study" />
     </Container>

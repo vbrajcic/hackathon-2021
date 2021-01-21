@@ -1,9 +1,15 @@
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 import Post from 'types/posts/post';
-import { Button, Card, CardActionArea, Grid, Typography } from '@material-ui/core';
 import useJobPosition from 'utils/hooks/useJobPosition';
 import Hyperlink from 'components/Hyperlink';
+
 import styles from './JobPositionCard.module.scss';
 
 interface JobPositionCardProps {
