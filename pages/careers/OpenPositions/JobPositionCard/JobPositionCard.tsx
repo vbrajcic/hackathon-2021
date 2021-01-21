@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 
 import Post from 'types/posts/post';
@@ -12,8 +11,9 @@ interface JobPositionCardProps {
 }
 
 const JobPositionCard: React.FC<JobPositionCardProps> = ({ position }) => {
-  const jobPosition = useJobPosition(position.tags);
-  if (!jobPosition) {
+  const jobPosition = useJobPosition(position?.tags);
+
+  if (!position || !jobPosition) {
     return null;
   }
 

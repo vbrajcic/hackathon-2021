@@ -24,11 +24,10 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => (
       <Grid container>
         <Typography variant="h4" className={styles.subtitle}>
           Open positions
-          <b color={Colors.grey600}>{` (${positions.length})`}</b>
+          <b color={Colors.grey600}>{` (${positions?.length})`}</b>
         </Typography>
-        {positions.map(position => (
-          <JobPositionCard key={position.node.slug} position={position.node} />
-        ))}
+        {positions?.length &&
+          positions.map(position => <JobPositionCard key={position.node.slug} position={position.node} />)}
       </Grid>
     </Container>
   </Grid>
