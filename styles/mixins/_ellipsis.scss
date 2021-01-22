@@ -1,5 +1,3 @@
-@import 'styles/utils/rem-calc.scss';
-
 // multiline ellipsis (Chrome / Safari)
 // sass-lint:disable no-duplicate-properties
 @mixin ml-ellipsis($lines-to-show, $font-size, $line-height) {

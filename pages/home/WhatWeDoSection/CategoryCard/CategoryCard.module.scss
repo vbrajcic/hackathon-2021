@@ -1,6 +1,3 @@
-@import 'styles/utils/rem-calc';
-@import 'styles/mixins/breakpoints';
-
 .root {
   &.container {
     width: rem-calc(300);

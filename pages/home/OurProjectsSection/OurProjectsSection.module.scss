@@ -1,5 +1,7 @@
-@import 'styles/utils/rem-calc';
-
 .container {
   margin: rem-calc(50 0);
+
+  @include media(0, 'sm') {
+    margin-top: 0;
+  }
 }

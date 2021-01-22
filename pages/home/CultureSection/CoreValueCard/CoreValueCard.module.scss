@@ -1,12 +1,8 @@
-@import 'styles/utils/rem-calc';
-@import 'styles/settings/variables';
-@import 'styles/mixins/breakpoints';
-
 .root {
   &.container {
     max-width: 25%;
     background-color: transparent;
-    padding: rem-calc(72 60 94 50);
+    padding: rem-calc(72 60 94 60);
     position: relative;
     overflow: hidden;
 

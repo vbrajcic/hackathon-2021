@@ -31,7 +31,7 @@ $breakpoints: (
   sm: 500px,
   md: 768px,
   lg: 1024px,
-  xl: 1440px,
+  xl: 1680px,
 );
 $max-width: map-get($breakpoints, 'xl');
 $navTopBarHeight: rem-calc(84);

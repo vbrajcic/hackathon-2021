@@ -1,11 +1,12 @@
-@import 'styles/settings/variables.scss';
-@import 'styles/utils/rem-calc.scss';
-@import 'styles/mixins/breakpoints.scss';
+$full-width: rem-calc(1000);
+$intro-width: rem-calc(800);
+$content-width: rem-calc(600);
 
 .article {
-  max-width: rem-calc(800);
+  max-width: $full-width;
   margin-left: auto;
   margin-right: auto;
+  margin-top: rem-calc(86);
 
   @include media(0, 'md') {
     padding-left: rem-calc(20);
@@ -18,6 +19,9 @@
     margin-bottom: rem-calc(169);
 
     & > :first-child {
+      max-width: $intro-width;
+      margin-left: auto;
+      margin-right: auto;
       color: $primary;
       font-size: rem-calc(28);
       letter-spacing: 0;
@@ -30,8 +34,8 @@
       }
     }
 
-    :not(:first-child) {
-      max-width: rem-calc(608);
+    :not(:first-child):not(figure):not(blockquote) {
+      max-width: $content-width;
       margin-left: auto;
       margin-right: auto;
     }
@@ -125,20 +129,53 @@
     }
 
     figcaption {
+      color: $muted;
+      font-size: rem-calc(16);
       text-align: center;
-      font-size: rem-calc(14);
+      letter-spacing: 0;
+      line-height: rem-calc(24);
+
+      &::before {
+        content: '';
+        display: inline-flex;
+        vertical-align: middle;
+        height: rem-calc(20);
+        margin-right: rem-calc(15);
+        border-left: rem-calc(5) solid $secondary;
+      }
     }
 
     blockquote {
-      border-left-width: rem-calc(4);
-      border-color: #a0aec0;
-      background-color: #edf2f7;
+      position: relative;
+      color: $secondary;
+      font-size: rem-calc(24);
+      font-weight: 500;
       font-style: italic;
-      margin-left: 0;
-      padding-top: rem-calc(16);
-      padding-bottom: rem-calc(16);
-      padding-left: rem-calc(24);
-      padding-right: rem-calc(24);
+      border-left: rem-calc(10) solid #eeeeef;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: rem-calc(18);
+        background-image: url(/icons/quote.svg);
+        background-repeat: no-repeat;
+        height: rem-calc(18);
+        width: rem-calc(20);
+
+        @include media(0, 'sm') {
+          display: none;
+        }
+      }
+
+      > p {
+        max-width: $content-width;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media(0, 'sm') {
+          padding-left: rem-calc(20);
+        }
+      }
     }
 
     blockquote p {

@@ -44,6 +44,14 @@ const overrides: ThemeOptions['overrides'] = {
       },
     },
   },
+  MuiContainer: {
+    root: {
+      '@media (min-width: 1024px)': {
+        paddingLeft: 60,
+        paddingRight: 60,
+      },
+    },
+  },
   MuiPaper: {
     root: {
       backgroundColor: Colors.white,
