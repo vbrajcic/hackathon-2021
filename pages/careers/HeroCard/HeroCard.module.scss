@@ -1,31 +1,32 @@
+@import 'styles/mixins/flex';
+
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @include flex(column, $align: flex-start);
+
   background-color: white;
   border-radius: rem-calc(40px);
   box-shadow: 8px 22px 59px 0 rgba(0, 0, 0, 0.08);
   position: absolute;
-  width: 200px;
-  height: 210px;
+  width: rem-calc(200px);
+  height: rem-calc(210px);
 
   &.cardSpecial {
-    width: 300px;
-    height: 200px;
+    width: rem-calc(300px);
+    height: rem-calc(200px);
   }
 
   @include media(0, 'md') {
-    width: 151px;
-    height: 168px;
+    width: rem-calc(151px);
+    height: rem-calc(168px);
 
     &.cardSpecial {
-      width: 226px;
-      height: 160px;
+      width: rem-calc(226px);
+      height: rem-calc(160px);
     }
 
     .cardIcon {
-      width: 56px;
-      height: 56px;
+      width: rem-calc(56px);
+      height: rem-calc(56px);
     }
   }
 
@@ -53,30 +54,30 @@
   // applied on elements when screen size is larger than 'lg' - 1024px
 
   &:nth-of-type(2) {
-    top: 220px;
-    left: 300px;
+    top: rem-calc(220px);
+    left: rem-calc(300px);
   }
 
   &:nth-of-type(3) {
-    top: 300px;
-    left: -100px;
+    top: rem-calc(300px);
+    left: rem-calc(-100px);
   }
 
   // applied when screen size is smaller than 'lg' - 1024px
 
   @include media('md', 'lg') {
     &:nth-of-type(1) {
-      top: 30px;
+      top: rem-calc(30px);
     }
 
     &:nth-of-type(2) {
-      top: 280px;
-      left: 170px;
+      top: rem-calc(280px);
+      left: rem-calc(170px);
     }
 
     &:nth-of-type(3) {
-      top: 340px;
-      left: -100px;
+      top: rem-calc(340px);
+      left: rem-calc(-100px);
     }
   }
 
@@ -84,18 +85,18 @@
 
   @include media('sm', 'md') {
     &:nth-of-type(1) {
-      top: -140px;
-      left: 300px;
+      top: rem-calc(-140px);
+      left: rem-calc(300px);
     }
 
     &:nth-of-type(2) {
-      top: 50px;
-      left: 400px;
+      top: rem-calc(50px);
+      left: rem-calc(400px);
     }
 
     &:nth-of-type(3) {
-      top: 80px;
-      left: 200px;
+      top: rem-calc(80px);
+      left: rem-calc(200px);
     }
   }
 
@@ -103,12 +104,12 @@
 
   @include media('xs', 'sm') {
     &:nth-of-type(1) {
-      top: -90px;
+      top: rem-calc(-90px);
       left: 50%;
     }
 
     &:nth-of-type(2) {
-      top: 100px;
+      top: rem-calc(100px);
       left: 50%;
     }
 

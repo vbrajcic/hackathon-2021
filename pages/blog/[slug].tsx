@@ -29,7 +29,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   }
 
   return (
-    <Layout preview={preview} theme="dark">
+    <Layout preview={preview} theme="dark" title={post?.title}>
       {router.isFallback ? (
         <Container maxWidth="xl" disableGutters>
           <PostTitle title="Loading…" />
@@ -38,7 +38,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
         <>
           <article>
             <Head>
-              <title>{`${post.title} | Profico`}</title>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
             <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />

@@ -11,7 +11,7 @@ interface HeroCardProps {
 }
 
 const HeroCard: React.FC<HeroCardProps> = ({ color, text, isSpecial }) => (
-  <div className={cn(styles.card, isSpecial && styles.cardSpecial)}>
+  <div className={cn(styles.card, { [styles.cardSpecial]: isSpecial })}>
     <div className={styles.image}>
       <FingerTouch fill={color} className={styles.cardIcon} />
     </div>

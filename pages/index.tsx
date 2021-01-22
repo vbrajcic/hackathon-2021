@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
 
@@ -16,9 +15,6 @@ export type HomePageProps = {
 
 const Homepage: React.FC<HomePageProps> = ({ posts }) => (
   <Layout>
-    <Head>
-      <title>Profico</title>
-    </Head>
     <BlogPostsContextProvider value={{ posts }}>
       <Home />
     </BlogPostsContextProvider>

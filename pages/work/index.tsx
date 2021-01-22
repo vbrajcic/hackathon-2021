@@ -1,13 +1,9 @@
-import Head from 'next/head';
 import Intro from 'components/Intro';
 import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
 
 const WorkPage = () => (
-  <Layout>
-    <Head>
-      <title>Work | Profico</title>
-    </Head>
+  <Layout title="Work">
     <Container>
       <Intro text="Our work" />
     </Container>
