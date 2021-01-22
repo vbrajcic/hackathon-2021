@@ -10,6 +10,7 @@ import RelatedPosts from 'components/RelatedPosts';
 import HeroPost from 'components/HeroPost';
 import Intro from 'components/Intro';
 import Layout from 'components/Layout';
+import WhoWeAreSection from './WhoWeAreSection';
 import { getAllCareerPosts } from 'lib/api';
 
 interface CareersPageProps {
@@ -38,6 +39,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ allPosts: { edges }, preview 
             excerpt={heroPost.excerpt}
           />
         )}
+        <WhoWeAreSection />
         <RelatedPosts posts={morePosts} page="careers" />
       </Container>
     </Layout>
