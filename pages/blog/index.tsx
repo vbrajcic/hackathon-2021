@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Post from 'types/posts/post';
 import Container from '@material-ui/core/Container';
 import RelatedPosts from 'components/RelatedPosts';
@@ -25,10 +24,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => 
   });
 
   return (
-    <Layout preview={preview}>
-      <Head>
-        <title>Profico</title>
-      </Head>
+    <Layout preview={preview} title="Blog">
       <Container>
         <Intro text="Blog" />
         {heroPost && (

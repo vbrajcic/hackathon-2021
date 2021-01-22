@@ -29,7 +29,7 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} title={post?.title}>
       {router.isFallback ? (
         <Container maxWidth="xl" disableGutters>
           <PostTitle title="Loading…" />
@@ -38,7 +38,6 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
         <>
           <article>
             <Head>
-              <title>{`${post.title} | Profico`}</title>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
             <PostHeader intro="We are hiring" title={post.title} excerpt={post.excerpt} />

@@ -1,0 +1,26 @@
+.container {
+  margin: rem-calc(50 0 100 0);
+
+  @include media('lg') {
+    padding-top: rem-calc(90);
+    padding-bottom: rem-calc(100);
+
+    & > div {
+      margin-left: rem-calc(60);
+    }
+  }
+
+  .title {
+    margin-top: rem-calc(16);
+    max-width: rem-calc(640);
+    margin-bottom: rem-calc(75);
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-bottom: rem-calc(45);
+    b {
+      color: $grey-600;
+    }
+  }
+}
