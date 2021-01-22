@@ -1,0 +1,120 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  border-radius: rem-calc(40px);
+  box-shadow: 8px 22px 59px 0 rgba(0, 0, 0, 0.08);
+  position: absolute;
+  width: 200px;
+  height: 210px;
+
+  &.cardSpecial {
+    width: 300px;
+    height: 200px;
+  }
+
+  @include media(0, 'md') {
+    width: 151px;
+    height: 168px;
+
+    &.cardSpecial {
+      width: 226px;
+      height: 160px;
+    }
+
+    .cardIcon {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  .image {
+    padding: 2rem 0 1rem 2rem;
+    @include media(0, 'md') {
+      padding: 1.5rem 0 1rem 1.5rem;
+    }
+  }
+
+  .text {
+    padding-left: 2rem;
+    @include media(0, 'md') {
+      padding-left: 1.5rem;
+      font-size: rem-calc(16px);
+    }
+  }
+
+  &:first-of-type {
+    .text {
+      max-width: 1rem;
+    }
+  }
+
+  // applied on elements when screen size is larger than 'lg' - 1024px
+
+  &:nth-of-type(2) {
+    top: 220px;
+    left: 300px;
+  }
+
+  &:nth-of-type(3) {
+    top: 300px;
+    left: -100px;
+  }
+
+  // applied when screen size is smaller than 'lg' - 1024px
+
+  @include media('md', 'lg') {
+    &:nth-of-type(1) {
+      top: 30px;
+    }
+
+    &:nth-of-type(2) {
+      top: 280px;
+      left: 170px;
+    }
+
+    &:nth-of-type(3) {
+      top: 340px;
+      left: -100px;
+    }
+  }
+
+  // applied when screen size is small-medium
+
+  @include media('sm', 'md') {
+    &:nth-of-type(1) {
+      top: -140px;
+      left: 300px;
+    }
+
+    &:nth-of-type(2) {
+      top: 50px;
+      left: 400px;
+    }
+
+    &:nth-of-type(3) {
+      top: 80px;
+      left: 200px;
+    }
+  }
+
+  // applied when screen size is small mobile
+
+  @include media('xs', 'sm') {
+    &:nth-of-type(1) {
+      top: -90px;
+      left: 50%;
+    }
+
+    &:nth-of-type(2) {
+      top: 100px;
+      left: 50%;
+    }
+
+    &:nth-of-type(3) {
+      top: 0;
+      left: 0;
+    }
+  }
+}
