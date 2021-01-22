@@ -1,0 +1,56 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    max-width: rem-calc(1000);
+    width: 100%;
+    padding: rem-calc(78 160 74 60);
+    background-color: $grey-100;
+    margin: rem-calc(0 auto 100 auto);
+
+    @include media(0, 'lg') {
+      border-radius: 0;
+    }
+
+    @include media(0, 'sm') {
+      padding: rem-calc(40 32 40 20);
+    }
+
+    @include media('sm') {
+      @include flex($align: flex-start);
+    }
+
+    .avatarAndNameWrapper {
+      @include flex($align: center);
+
+      margin-bottom: rem-calc(20);
+    }
+
+    .avatar {
+      width: rem-calc(100);
+      height: rem-calc(100);
+      border-radius: rem-calc(30);
+      box-shadow: $box-shadow__card;
+      background-color: $white;
+      margin-right: rem-calc(40);
+
+      @include media(0, 'sm') {
+        width: rem-calc(80);
+        height: rem-calc(80);
+        margin-right: rem-calc(20);
+      }
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .description {
+      white-space: pre-line;
+
+      @include media('md') {
+        margin-top: rem-calc(8);
+      }
+    }
+  }
+}
