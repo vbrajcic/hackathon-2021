@@ -1,5 +1,9 @@
 .root {
   &.container {
+    @include media('lg') {
+      padding-left: rem-calc(120);
+    }
+
     .sectionTitle {
       font-weight: bold;
       color: $muted;
