@@ -7,13 +7,12 @@ import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
 import ContactForm from 'components/ContactForm';
 import PostTitle from 'components/PostTitle';
+import AuthorInfo from 'views/blog/AuthorInfo';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
-
-import AuthorInfo from './AuthorInfo';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
