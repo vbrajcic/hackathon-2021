@@ -6,8 +6,8 @@ import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
 
-import WhoWeAreSection from './WhoWeAreSection';
-import OpenPositions from './OpenPositions';
+import WhoWeAreSection from '../../views/careers/WhoWeAreSection';
+import OpenPositions from '../../views/careers/OpenPositions';
 
 interface CareersPageProps {
   posts: Edges<Post>;
