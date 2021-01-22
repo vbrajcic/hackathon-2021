@@ -2,16 +2,17 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-
-import { Node } from 'types/common';
 import Post from 'types/posts/post';
 import useFactory from 'utils/hooks/useFactory';
+
+import { Node } from 'types/common';
+
 import JobPositionCard from './JobPositionCard';
 
 import styles from './OpenPositions.module.scss';
 
 interface OpenPositionsProps {
-  positions: Node<Post>[];
+  positions?: Node<Post>[];
 }
 
 const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
@@ -30,7 +31,8 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
             Open positions
             <b>{` (${positionsCount})`}</b>
           </Typography>
-          {positionsCount &&
+          {positions &&
+            positionsCount > 0 &&
             positions.map(position => <JobPositionCard key={position.node.slug} position={position.node} />)}
         </Grid>
       </Container>
