@@ -1,0 +1,41 @@
+.root {
+  &.container {
+    .sectionTitle {
+      font-weight: bold;
+      color: $muted;
+    }
+
+    .title {
+      margin: rem-calc(20 0 40);
+    }
+
+    .subtitle {
+      color: $muted;
+      margin-bottom: rem-calc(96);
+    }
+
+    .imageWrapper {
+      white-space: nowrap;
+      margin-bottom: rem-calc(70);
+      height: 400px;
+
+      .innerImageWrapper {
+        position: absolute;
+        overflow-x: scroll;
+      }
+
+      @include media('lg') {
+        margin-bottom: rem-calc(95);
+      }
+
+      @include media('xl') {
+        margin-bottom: rem-calc(175);
+      }
+
+      .image {
+        vertical-align: top;
+        margin-right: rem-calc(40);
+      }
+    }
+  }
+}

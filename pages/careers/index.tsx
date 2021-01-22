@@ -1,11 +1,12 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
-
-import { Edges } from 'types/common';
 import Post from 'types/posts/post';
+import Layout from 'components/Layout';
+
+import { GetServerSideProps } from 'next';
+import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
 
-import Layout from 'components/Layout';
+import WhoWeAreSection from './WhoWeAreSection';
 import OpenPositions from './OpenPositions';
 
 interface CareersPageProps {
@@ -15,6 +16,7 @@ interface CareersPageProps {
 
 const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
   <Layout preview={preview} title="Careers">
+    <WhoWeAreSection />
     <OpenPositions positions={posts.edges} />
   </Layout>
 );
@@ -22,7 +24,8 @@ const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
 export default CareersPage;
 
 export const getServerSideProps: GetServerSideProps<CareersPageProps> = async ({ preview = false }) => {
-  const allPosts: Edges<Post> = await getAllCareerPosts(preview);
+  const allPosts = await getAllCareerPosts(preview);
+
   return {
     props: { posts: allPosts, preview },
   };
