@@ -4,11 +4,11 @@
       padding-left: rem-calc(120);
     }
 
-    @include media(0, 'md') {
+    @include media('xs') {
       margin-top: 20rem;
     }
 
-    @include media('md') {
+    @include media('lg') {
       margin-top: 10rem;
     }
 

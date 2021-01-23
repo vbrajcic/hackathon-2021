@@ -1,5 +1,6 @@
 @import 'styles/mixins/breakpoints';
 @import 'styles/utils/rem-calc';
+@import 'styles/mixins/flex';
 
 .root {
   @include media('md') {
@@ -32,11 +33,14 @@
   }
 
   .container {
-    display: flex;
-    justify-content: space-between;
+    @include flex($justify: space-between);
+
+    @include media('lg') {
+      padding-left: rem-calc(120);
+    }
 
     @include media(0, 'md') {
-      flex-direction: column;
+      @include flex(column);
     }
 
     .intro {
