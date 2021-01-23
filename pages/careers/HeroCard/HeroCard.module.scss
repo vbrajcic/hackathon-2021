@@ -102,20 +102,20 @@
 
   // applied when screen size is small mobile
 
-  @include media('xs', 'sm') {
+  @include media(0, 'sm') {
     &:nth-of-type(1) {
       top: rem-calc(-90px);
-      left: 50%;
+      left: 49%;
     }
 
     &:nth-of-type(2) {
       top: rem-calc(100px);
-      left: 50%;
+      left: 49%;
     }
 
     &:nth-of-type(3) {
       top: 0;
-      left: 0;
+      left: -3%;
     }
   }
 }
