@@ -25,7 +25,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ numberOfOpenPositions }) => {
     const openPositions = document.getElementById('open-positions-section');
 
     if (openPositions) {
-      const offsetTop = openPositions.offsetTop;
+      const { offsetTop } = openPositions;
       window.scrollTo({
         top: isMobile ? offsetTop - 80 : offsetTop,
         behavior: 'smooth',
