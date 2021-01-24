@@ -1,19 +1,18 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-
 import Container from '@material-ui/core/Container';
-
 import PostBody from 'components/PostBody';
 import RelatedPosts from 'components/RelatedPosts';
 import PostHeader from 'components/PostHeader';
 import SectionSeparator from 'components/SectionSeparator';
 import Layout from 'components/Layout';
 import ContactForm from 'components/ContactForm';
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
+import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
