@@ -24,7 +24,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => 
 
   return (
     <Layout preview={preview} title="Blog">
-      {heroPost && <FeaturedArticle post={heroPost} />}
+      <FeaturedArticle post={heroPost} />
       <RelatedPosts posts={morePosts} page="blog" />
     </Layout>
   );

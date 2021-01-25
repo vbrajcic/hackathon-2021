@@ -12,7 +12,7 @@ import FingerprintCard from './FingerprintCard';
 import styles from './FeaturedArticle.module.scss';
 
 interface FeaturedArticleProps {
-  post: Post;
+  post?: Post;
 }
 
 const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ post }) => {
