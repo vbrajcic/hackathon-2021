@@ -7,13 +7,12 @@ import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
 import PostTitle from 'components/PostTitle';
 import ApplyForm from 'views/careers/ApplyForm';
+import EasterEggPostButton from 'views/careers/EasterEggPostButton';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
-
-import EasterEggPostButton from '../../views/careers/EasterEggPostButton';
 
 import styles from './Careers.module.scss';
 
