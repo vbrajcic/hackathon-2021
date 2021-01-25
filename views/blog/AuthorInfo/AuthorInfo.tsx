@@ -20,38 +20,52 @@ const AuthorInfo: React.FC<AuthorInfoProps> = ({ author }) => {
     return author.name.charAt(0).toUpperCase();
   }, [author]);
 
+  const renderJobTitle = () =>
+    author.jobTitle && (
+      <Typography variant="subtitle1" color="textSecondary">
+        <div dangerouslySetInnerHTML={{ __html: author.jobTitle }} />
+      </Typography>
+    );
+
+  const renderName = () => (
+    <Typography variant="subtitle1" className={styles.name}>
+      {author.name}
+    </Typography>
+  );
+
+  const renderAvatar = () => (
+    <Avatar src={author.avatar.url} className={styles.avatar}>
+      {initials}
+    </Avatar>
+  );
+
+  const renderDescription = () =>
+    author.description && (
+      <Typography className={styles.description} variant="subtitle1">
+        <div dangerouslySetInnerHTML={{ __html: author.description }} />
+      </Typography>
+    );
+
   return (
     <Paper elevation={0} className={styles.container} classes={{ root: styles.root }}>
       {Breakpoint.isMobile ? (
         <Grid>
           <Grid className={styles.avatarAndNameWrapper}>
-            <Avatar src={author.avatar.url} className={styles.avatar}>
-              {initials}
-            </Avatar>
-            <Typography variant="subtitle1" className={styles.name}>
-              {author.name}
-            </Typography>
+            {renderAvatar()}
+            <Grid>
+              {renderName()}
+              {renderJobTitle()}
+            </Grid>
           </Grid>
-          {author.description && (
-            <Typography className={styles.description} variant="subtitle1">
-              {author.description}
-            </Typography>
-          )}
+          {renderDescription()}
         </Grid>
       ) : (
         <>
-          <Avatar src={author.avatar.url} className={styles.avatar}>
-            {initials}
-          </Avatar>
+          {renderAvatar()}
           <Grid>
-            <Typography variant="subtitle1" className={styles.name}>
-              {author.name}
-            </Typography>
-            {author.description && (
-              <Typography className={styles.description} variant="subtitle1">
-                {author.description}
-              </Typography>
-            )}
+            {renderName()}
+            {renderJobTitle()}
+            {renderDescription()}
           </Grid>
         </>
       )}

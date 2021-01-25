@@ -2,10 +2,11 @@ import Avatar from './avatar';
 
 type Author = {
   name: string;
-  firstName: string | null;
-  lastName: string | null;
   avatar: Avatar;
-  description: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  description?: string | null;
+  jobTitle?: string | null;
 };
 
 export default Author;
