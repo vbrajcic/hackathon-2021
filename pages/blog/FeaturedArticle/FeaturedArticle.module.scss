@@ -1,0 +1,72 @@
+.container {
+  margin-bottom: rem-calc(40);
+
+  @include media('md') {
+    margin-top: rem-calc(20);
+  }
+
+  .featuredImageWrapper {
+    position: relative;
+    z-index: -1;
+
+    .featuredImage {
+      width: 100%;
+    }
+  }
+
+  .heroWrapper {
+    position: relative;
+
+    .backgroundImgWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 50%;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .intro {
+      padding-top: rem-calc(40);
+
+      @include media('md') {
+        padding-top: rem-calc(52);
+        padding-bottom: rem-calc(86);
+      }
+
+      @include media('lg') {
+        margin-left: rem-calc(60);
+      }
+
+      .title {
+        @include media('md') {
+          max-width: 60%;
+        }
+      }
+
+      .subtitle {
+        margin-top: rem-calc(32);
+        margin-bottom: rem-calc(40);
+
+        @include media('md') {
+          max-width: 40%;
+        }
+      }
+
+      .bottomWrapper {
+        @include media('xl') {
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .fingerprintCardWrapper {
+          width: rem-calc(160);
+          height: rem-calc(160);
+        }
+      }
+    }
+  }
+}
