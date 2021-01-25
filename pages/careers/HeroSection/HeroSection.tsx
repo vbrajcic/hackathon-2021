@@ -13,13 +13,9 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ numberOfOpenPositions }) => {
-  const isButtonDisabled: boolean = numberOfOpenPositions === 0;
+  const noOpenPositions: boolean = numberOfOpenPositions === 0;
+  const buttonText = noOpenPositions ? 'No open positions' : `View ${numberOfOpenPositions} open positions`;
   const { isMobile } = useBreakpoint();
-  let buttonText: string = `View ${numberOfOpenPositions} open positions`;
-
-  if (isButtonDisabled) {
-    buttonText = 'No open positions';
-  }
 
   const handleButtonClick = (): void => {
     const openPositions = document.getElementById('open-positions-section');
@@ -37,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ numberOfOpenPositions }) => {
     <Grid component="section" className={styles.root}>
       <Container className={styles.container} maxWidth="xl">
         <Intro text="Join our team in building great products" className={styles.intro}>
-          <Button className={styles.button} onClick={handleButtonClick} color="primary" disabled={isButtonDisabled}>
+          <Button className={styles.button} onClick={handleButtonClick} color="primary" disabled={noOpenPositions}>
             {buttonText}
           </Button>
         </Intro>
