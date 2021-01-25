@@ -7,6 +7,7 @@ import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
 
 import WhoWeAreSection from './WhoWeAreSection';
+import WorkingPerksSection from './WorkingPerksSection';
 import OpenPositions from './OpenPositions';
 
 interface CareersPageProps {
@@ -17,6 +18,7 @@ interface CareersPageProps {
 const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
   <Layout preview={preview} title="Careers">
     <WhoWeAreSection />
+    <WorkingPerksSection />
     <OpenPositions positions={posts.edges} />
   </Layout>
 );
