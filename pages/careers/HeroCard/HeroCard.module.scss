@@ -1,0 +1,119 @@
+@import 'styles/mixins/flex';
+
+.card {
+  @include flex(column, $align: flex-start);
+
+  background-color: white;
+  border-radius: rem-calc(40);
+  box-shadow: 8px 22px 59px 0 rgba(0, 0, 0, 0.08);
+  position: absolute;
+  width: rem-calc(200);
+  height: rem-calc(210);
+
+  &.cardSpecial {
+    width: rem-calc(300);
+    height: rem-calc(200);
+  }
+
+  @include media(0, 'md') {
+    width: rem-calc(151);
+    height: rem-calc(168);
+
+    &.cardSpecial {
+      width: rem-calc(226);
+      height: rem-calc(160);
+    }
+
+    .cardIcon {
+      width: rem-calc(56);
+      height: rem-calc(56);
+    }
+  }
+
+  .image {
+    padding: 2rem 0 1rem 2rem;
+    @include media(0, 'md') {
+      padding: 1.5rem 0 1rem 1.5rem;
+    }
+  }
+
+  .text {
+    padding-left: 2rem;
+    @include media(0, 'md') {
+      padding-left: 1.5rem;
+      font-size: rem-calc(16);
+    }
+  }
+
+  &:first-of-type {
+    .text {
+      max-width: 1rem;
+    }
+  }
+
+  // applied on elements when screen size is larger than 'lg' - 1024px
+
+  &:nth-of-type(2) {
+    top: rem-calc(220);
+    left: rem-calc(300);
+  }
+
+  &:nth-of-type(3) {
+    top: rem-calc(300);
+    left: rem-calc(-100);
+  }
+
+  // applied when screen size is smaller than 'lg' - 1024px
+
+  @include media('md', 'lg') {
+    &:nth-of-type(1) {
+      top: rem-calc(30);
+    }
+
+    &:nth-of-type(2) {
+      top: rem-calc(280);
+      left: rem-calc(170);
+    }
+
+    &:nth-of-type(3) {
+      top: rem-calc(340);
+      left: rem-calc(-100);
+    }
+  }
+
+  @include media(0, 'md') {
+    &:nth-of-type(1) {
+      top: rem-calc(-140);
+      left: rem-calc(300);
+    }
+
+    &:nth-of-type(2) {
+      top: rem-calc(50);
+      left: rem-calc(400);
+    }
+
+    &:nth-of-type(3) {
+      top: rem-calc(80);
+      left: rem-calc(200);
+    }
+  }
+
+  // applied when screen size is small mobile
+
+  @include media(0, 'sm') {
+    &:nth-of-type(1) {
+      top: rem-calc(-90);
+      left: 49%;
+    }
+
+    &:nth-of-type(2) {
+      top: rem-calc(100);
+      left: 49%;
+    }
+
+    &:nth-of-type(3) {
+      top: 0;
+      left: -3%;
+    }
+  }
+}

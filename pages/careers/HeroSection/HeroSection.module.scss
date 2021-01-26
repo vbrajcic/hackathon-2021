@@ -1,3 +1,4 @@
+@import 'styles/utils/rem-calc';
 @import 'styles/mixins/flex';
 
 .root {
@@ -16,51 +17,69 @@
     }
   }
 
+  @include media(0, 'md') {
+    &::before {
+      content: '';
+      position: absolute;
+      margin-top: -($navTopBarHeight);
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $grey-100;
+      z-index: -1;
+    }
+  }
+
   .container {
     @include flex($justify: space-between);
+
+    @include media('lg') {
+      padding-left: rem-calc(120);
+    }
 
     @include media(0, 'md') {
       @include flex(column);
     }
 
     .intro {
-      max-width: rem-calc(712);
+      max-width: 50%;
       margin-top: rem-calc(40);
-
-      @include media('lg') {
-        margin-left: rem-calc(60);
-      }
-
-      @include media(0, 'lg') {
-        margin-top: 0;
-        padding-top: rem-calc(50);
-      }
 
       @include media(0, 'md') {
         max-width: 100%;
+        padding-top: 0;
       }
 
       .button {
         margin-top: rem-calc(96);
-
-        @include media(0, 'md') {
-          margin-top: rem-calc(64);
+        @include media('sm', 'md') {
+          margin-top: 2rem;
         }
       }
     }
 
-    .imageWrapper {
+    @include media(0, 'sm') {
+      .intro {
+        margin: 0;
+        padding: 0;
+
+        .button {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    .cardsContainer {
       max-width: 40%;
       min-width: rem-calc(335);
       width: 100%;
-      margin-top: rem-calc(50);
+      height: 100%;
+      margin-top: 7rem;
+      position: relative;
 
-      @include media('sm', 'md') {
-        display: none;
-      }
-
-      @include media(0, 'sm') {
-        margin-top: 0;
+      @include media('sm', 'lg') {
+        margin-top: 2rem;
       }
 
       @include media(0, 350px) {

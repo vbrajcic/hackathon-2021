@@ -19,7 +19,13 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
   const positionsCount = useFactory(() => (positions ? positions.length : 0));
 
   return (
-    <Container maxWidth="xl" component="section" className={styles.container} classes={{ root: styles.root }}>
+    <Container
+      id="open-positions-section"
+      maxWidth="xl"
+      component="section"
+      className={styles.container}
+      classes={{ root: styles.root }}
+    >
       <Grid>
         <Typography variant="h2" className={styles.title}>
           Let’s create something great together

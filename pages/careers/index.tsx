@@ -5,6 +5,7 @@ import Layout from 'components/Layout';
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
+import HeroSection from './HeroSection';
 
 import WhoWeAreSection from './WhoWeAreSection';
 import OpenPositions from './OpenPositions';
@@ -16,6 +17,7 @@ interface CareersPageProps {
 
 const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
   <Layout preview={preview} title="Careers">
+    <HeroSection numberOfOpenPositions={posts.edges.length} />
     <WhoWeAreSection />
     <OpenPositions positions={posts.edges} />
   </Layout>
