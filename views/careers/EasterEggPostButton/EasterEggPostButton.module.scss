@@ -1,7 +1,5 @@
-// Import post body top margin
-@import '../Careers.module.scss';
-
 $buttonSize: rem-calc(100);
+$bodyTopMargin: rem-calc(86);
 
 .root {
   &.container {

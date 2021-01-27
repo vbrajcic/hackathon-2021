@@ -1,13 +1,12 @@
 import React from 'react';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
+import Home from 'views/home';
 
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllBlogPosts } from 'lib/api';
 import { BlogPostsContextProvider } from 'utils/context/BlogPostsContext';
-
-import Home from './home';
 
 export type HomePageProps = {
   posts: Edges<Post>;

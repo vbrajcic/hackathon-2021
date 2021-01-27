@@ -1,14 +1,14 @@
 import React from 'react';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
+import WhoWeAreSection from 'pages/careers/WhoWeAreSection';
+import WorkingPerksSection from 'pages/careers/WorkingPerksSection';
+import OpenPositions from 'views/careers/OpenPositions';
 
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
-
-import WhoWeAreSection from './WhoWeAreSection';
-import WorkingPerksSection from './WorkingPerksSection';
-import OpenPositions from './OpenPositions';
+import HeroSection from './HeroSection';
 
 interface CareersPageProps {
   posts: Edges<Post>;
@@ -17,6 +17,7 @@ interface CareersPageProps {
 
 const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
   <Layout preview={preview} title="Careers">
+    <HeroSection numberOfOpenPositions={posts.edges.length} />
     <WhoWeAreSection />
     <WorkingPerksSection />
     <OpenPositions positions={posts.edges} />

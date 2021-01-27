@@ -1,3 +1,5 @@
+@import 'styles/mixins/flex';
+
 .root {
   @include media('md') {
     &::before {
@@ -15,11 +17,10 @@
   }
 
   .container {
-    display: flex;
-    justify-content: space-between;
+    @include flex($justify: space-between);
 
     @include media(0, 'md') {
-      flex-direction: column;
+      @include flex(column);
     }
 
     .intro {

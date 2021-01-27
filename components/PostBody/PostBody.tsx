@@ -14,7 +14,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, className }) => {
   }
 
   return (
-    <div className={cn(styles.article, className)}>
+    <div className={cn(styles.container, className)}>
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );

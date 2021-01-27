@@ -1,28 +1,25 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-
 import Container from '@material-ui/core/Container';
-
 import PostBody from 'components/PostBody';
-import RelatedPosts from 'components/RelatedPosts';
 import PostHeader from 'components/PostHeader';
-import SectionSeparator from 'components/SectionSeparator';
 import Layout from 'components/Layout';
 import ContactForm from 'components/ContactForm';
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import PostTitle from 'components/PostTitle';
+import AuthorInfo from 'views/blog/AuthorInfo';
+
+import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
 };
 
-const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ post, preview }) => {
   const router = useRouter();
-  const morePosts = posts?.edges;
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -43,8 +40,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
-              <SectionSeparator />
-              <RelatedPosts posts={morePosts} page="blog" />
+              <AuthorInfo author={post.author.node} />
               <ContactForm />
             </Container>
           </article>
