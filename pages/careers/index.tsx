@@ -1,8 +1,8 @@
 import React from 'react';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
-import WhoWeAreSection from 'pages/careers/WhoWeAreSection';
-import WorkingPerksSection from 'pages/careers/WorkingPerksSection';
+import WhoWeAreSection from 'views/careers/WhoWeAreSection';
+import WorkingPerksSection from 'views/careers/WorkingPerksSection';
 import OpenPositions from 'views/careers/OpenPositions';
 
 import { GetServerSideProps } from 'next';
