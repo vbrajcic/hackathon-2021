@@ -1,14 +1,13 @@
 import React from 'react';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
+import WhoWeAreSection from 'views/careers/WhoWeAreSection';
+import OpenPositions from 'views/careers/OpenPositions';
 
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
 import HeroSection from './HeroSection';
-
-import WhoWeAreSection from './WhoWeAreSection';
-import OpenPositions from './OpenPositions';
 
 interface CareersPageProps {
   posts: Edges<Post>;

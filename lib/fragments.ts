@@ -6,6 +6,8 @@ export const AUTHOR_FIELDS_FRAGMENT = `
     avatar {
       url
     }
+    description
+    jobTitle
   }`;
 
 export const REGULAR_POST_FIELDS_FRAGMENT = `
