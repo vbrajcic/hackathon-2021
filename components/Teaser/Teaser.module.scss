@@ -19,6 +19,14 @@
       width: 100%;
       height: rem-calc(240);
     }
+
+    &.row {
+      @include flex(row-reverse);
+
+      .image {
+        height: rem-calc(510);
+      }
+    }
   }
 
   .content {

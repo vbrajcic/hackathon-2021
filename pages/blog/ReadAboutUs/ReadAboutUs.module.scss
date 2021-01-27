@@ -1,0 +1,12 @@
+.container {
+  align-items: flex-start;
+  margin-top: rem-calc(108);
+
+  @include media('md') {
+    margin-top: rem-calc(148);
+  }
+
+  @include media('lg') {
+    margin-top: rem-calc(150);
+  }
+}
