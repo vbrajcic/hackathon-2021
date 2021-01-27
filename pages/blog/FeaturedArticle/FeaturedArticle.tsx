@@ -50,7 +50,7 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ post }) => {
           </Typography>
           <Grid container className={styles.bottomWrapper}>
             <Grid item md={5} xl="auto">
-              <Hyperlink href={slug} component={<Button color="primary">Read more</Button>} />
+              <Hyperlink href={`blog/${slug}`} component={<Button color="primary">Read more</Button>} />
             </Grid>
             {!isMobile && (
               <Grid item md={7} xl="auto" className={styles.fingerprintCardWrapper}>

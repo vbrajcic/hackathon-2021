@@ -9,7 +9,8 @@ import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import ContactForm from 'components/ContactForm';
 import { BlogPostsContextProvider } from 'utils/context/BlogPostsContext';
-import ReadAboutUs from './ReadAboutUs';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
+import ReadAboutUsSection from './ReadAboutUsSection';
 
 import FeaturedArticle from './FeaturedArticle';
 
@@ -19,6 +20,7 @@ interface BlogPageProps {
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => {
+  const { isMobile } = useBreakpoint();
   const { heroPost, morePosts } = useFactory(() => {
     const [hero, ...more] = edges;
 
@@ -28,9 +30,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts: { edges }, preview }) => 
   return (
     <Layout preview={preview} title="Blog">
       <FeaturedArticle post={heroPost} />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" disableGutters={isMobile}>
         <BlogPostsContextProvider value={{ posts: { edges: morePosts } }}>
-          <ReadAboutUs />
+          <ReadAboutUsSection />
         </BlogPostsContextProvider>
         <ContactForm />
       </Container>

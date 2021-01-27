@@ -26,6 +26,14 @@
       .image {
         height: rem-calc(510);
       }
+
+      @include media(0, 'sm') {
+        @include flex(column);
+
+        .image {
+          height: rem-calc(240);
+        }
+      }
     }
   }
 

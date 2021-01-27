@@ -1,14 +1,15 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import BlogPosts from 'views/home/BlogSection/BlogPosts';
+import Teaser from 'components/Teaser';
 
 import { Grid, Typography } from '@material-ui/core';
-
 import { useBlogPosts } from 'utils/context/BlogPostsContext';
-import Teaser from 'components/Teaser';
-import styles from './ReadAboutUs.module.scss';
 
-const ReadAboutUs: React.FC = () => {
+import BlogPosts from './BlogPosts';
+
+import styles from './ReadAboutUsSection.module.scss';
+
+const ReadAboutUsSection: React.FC = () => {
   const {
     posts: { edges: posts },
   } = useBlogPosts();
@@ -19,7 +20,9 @@ const ReadAboutUs: React.FC = () => {
 
   return (
     <Container maxWidth="xl" component="section" className={styles.container} disableGutters>
-      <Typography variant="h2">Read about us</Typography>
+      <Typography variant="h2" className={styles.title}>
+        Read about us
+      </Typography>
       <BlogPosts posts={topPosts} />
       {featuredPost && (
         <Grid className={styles.teaser}>
@@ -37,4 +40,4 @@ const ReadAboutUs: React.FC = () => {
   );
 };
 
-export default ReadAboutUs;
+export default ReadAboutUsSection;
