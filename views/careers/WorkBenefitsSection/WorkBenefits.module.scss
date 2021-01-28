@@ -1,0 +1,56 @@
+.root {
+  &.container {
+    @include media('lg') {
+      padding-left: rem-calc(120);
+    }
+
+    .sectionTitle {
+      font-weight: bold;
+      color: $muted;
+    }
+
+    .title {
+      margin: rem-calc(20 0 40);
+
+      @include media(0, 'md') {
+        margin: rem-calc(20 0 35);
+      }
+    }
+
+    .subtitle {
+      color: $muted;
+      margin-bottom: rem-calc(96);
+
+      @include media(0, 800px) {
+        margin-bottom: rem-calc(55);
+      }
+    }
+
+    .cardsContainer {
+      display: grid;
+      max-width: 80%;
+      width: 100%;
+      margin-left: auto;
+      grid-column-gap: 2.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      @include media(0, 800px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+
+      @include media(0, 'lg') {
+        max-width: rem-calc(800);
+      }
+
+      @include media('lg') {
+        margin-left: rem-calc(300);
+        max-width: rem-calc(900);
+        width: 100%;
+      }
+
+      @include media('lg', 1360px) {
+        margin-left: auto;
+      }
+    }
+  }
+}
