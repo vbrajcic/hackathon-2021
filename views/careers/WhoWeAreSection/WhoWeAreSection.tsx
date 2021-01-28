@@ -16,13 +16,8 @@ const WhoWeAreSection: FC = () => (
         busy since 2012
       </Typography>
       <Typography variant="body2" className={styles.subtitle}>
-        With offices in two of the largest cities in Croatia
-        <br />
-        (Zagreb & Split), we’re always looking for talented
-        <br />
-        people that want to make something they’re proud of
-        <br />
-        across all experience levels.
+        With offices in two of the largest cities in Croatia (Zagreb & Split), we’re always looking for talented people
+        that want to make something they’re proud of across all experience levels.
       </Typography>
     </Grid>
     <Grid className={styles.imageWrapper}>

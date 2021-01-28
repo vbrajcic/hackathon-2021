@@ -17,8 +17,13 @@
     }
 
     .subtitle {
+      max-width: rem-calc(400);
       color: $muted;
       margin-bottom: rem-calc(96);
+
+      @include media(0, 'sm') {
+        max-width: rem-calc(315);
+      }
     }
 
     .imageWrapper {
