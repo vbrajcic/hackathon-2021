@@ -41,7 +41,7 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
             </Head>
             <PostHeader intro="We are hiring" title={post.title} excerpt={post.excerpt} />
             <Container className={styles.container} maxWidth="xl" disableGutters>
-              <EasterEggPostButton slug={post.slug} />
+              <EasterEggPostButton slug={post.slug} tags={post.tags} />
               <PostBody content={post.content} className={styles.body} />
               <ApplyForm />
             </Container>

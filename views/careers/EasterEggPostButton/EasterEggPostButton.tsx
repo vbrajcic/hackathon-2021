@@ -1,15 +1,18 @@
 import React from 'react';
 import Fab from '@material-ui/core/Fab/Fab';
-import Coding from 'components/SvgIcons/Coding';
 import useToggleState from 'utils/hooks/useToggleState';
+import useJobPosition from 'utils/hooks/useJobPosition';
+import Tag from 'types/posts/tag';
 
 import { Button, Snackbar } from '@material-ui/core';
 import { useCopyToClipboard } from 'react-use';
+import { Edges } from 'types/common';
 
 import styles from './EasterEggPostButton.module.scss';
 
 interface EasterEggPostButtonProps {
   slug: string;
+  tags?: Edges<Tag>;
 }
 
 const getUrl = (slug: string) => {
@@ -26,10 +29,17 @@ const getUrl = (slug: string) => {
 
 const noop = () => {};
 
-// @TODO: Render a different button depending on the job position
-const EasterEggPostButton: React.FC<EasterEggPostButtonProps> = ({ slug }) => {
+const EasterEggPostButton: React.FC<EasterEggPostButtonProps> = ({ slug, tags }) => {
   const [snackbarOpen, toggleSnackbar] = useToggleState();
   const [{ error }, copyToClipboard] = useCopyToClipboard();
+
+  const jobPosition = useJobPosition(tags);
+
+  if (!jobPosition) {
+    return null;
+  }
+
+  const JobIcon = jobPosition.icon;
 
   const handleCopyToClipboard = () => {
     if (!snackbarOpen) {
@@ -62,7 +72,7 @@ const EasterEggPostButton: React.FC<EasterEggPostButtonProps> = ({ slug }) => {
         classes={{ root: styles.root }}
         className={styles.container}
       >
-        <Coding />
+        <JobIcon />
       </Fab>
     </>
   );
