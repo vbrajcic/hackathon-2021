@@ -1,0 +1,35 @@
+.root {
+  &.container {
+    width: 100%;
+
+    @include media(0, 'sm') {
+      flex-direction: column;
+    }
+
+    .teaser {
+      flex: 1;
+      margin: rem-calc(100 8);
+      padding: 0;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      @include media(0, 'sm') {
+        margin: rem-calc(10 0);
+
+        :first-of-type {
+          border-radius: 0;
+        }
+      }
+
+      @include media('xl') {
+        margin: rem-calc(100 20);
+      }
+    }
+  }
+}

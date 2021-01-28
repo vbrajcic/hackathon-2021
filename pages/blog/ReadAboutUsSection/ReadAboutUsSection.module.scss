@@ -1,0 +1,36 @@
+.container {
+  align-items: flex-start;
+  margin-top: rem-calc(108);
+
+  @include media('md') {
+    margin-top: rem-calc(148);
+  }
+
+  @include media('lg') {
+    margin-top: rem-calc(150);
+  }
+
+  .title {
+    @include media(0, 'sm') {
+      margin: rem-calc(16);
+    }
+  }
+
+  .teaser {
+    h4 {
+      font-size: rem-calc(48);
+    }
+
+    @include media(0, 'sm') {
+      margin: rem-calc(10 0);
+
+      h4 {
+        font-size: rem-calc(32);
+      }
+
+      :first-of-type {
+        border-radius: 0;
+      }
+    }
+  }
+}

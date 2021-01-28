@@ -3,10 +3,10 @@ import Intro from 'components/Intro';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import HeroCard from '../HeroCard';
-import styles from './HeroSection.module.scss';
 import Colors from 'styles/Colors';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import HeroCard from '../HeroCard';
+import styles from './HeroSection.module.scss';
 
 interface HeroSectionProps {
   numberOfOpenPositions: number;
