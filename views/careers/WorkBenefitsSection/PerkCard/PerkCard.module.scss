@@ -53,6 +53,11 @@
           right: rem-calc(20);
         }
       }
+
+      .title {
+        font-weight: bold;
+        font-size: rem-calc(20);
+      }
     }
   }
 }

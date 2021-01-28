@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import workingPerks from 'config/workingPerks';
+import workingBenefits from 'config/workingBenefits';
 import PerkCard from './PerkCard';
 
 import { Container, Grid, Typography } from '@material-ui/core';
 
-import styles from './WorkingPerks.module.scss';
+import styles from './WorkBenefits.module.scss';
 
-const WorkingPerks: FC = () => (
+const WorkBenefits: FC = () => (
   <Container className={styles.container} maxWidth="xl" component="section" classes={{ root: styles.root }}>
     <Grid>
       <Typography variant="overline" className={styles.sectionTitle}>
@@ -24,11 +24,11 @@ const WorkingPerks: FC = () => (
       </Typography>
     </Grid>
     <Grid className={styles.cardsContainer}>
-      {workingPerks.map(({ name, description, icon, image }) => (
-        <PerkCard key={name} name={name} description={description} icon={icon} image={image} />
+      {workingBenefits.map(({ name, description, icon, image }) => (
+        <PerkCard key={name} {...{ name, description, icon, image }} />
       ))}
     </Grid>
   </Container>
 );
 
-export default WorkingPerks;
+export default WorkBenefits;

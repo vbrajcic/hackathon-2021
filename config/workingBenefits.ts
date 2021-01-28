@@ -1,61 +1,63 @@
-export type WorkingPerkIcon = 'TIME' | 'COFFEE' | 'BRAIN' | 'STAR' | 'LAPTOP' | 'DRINKS' | 'PALM_TREE' | 'TRAVEL';
+import { ElementType } from 'react';
 
-interface WorkingPerks {
+import { Brain, Coffee, Drinks, Laptop, PalmTree, Star, Time, Travel } from 'components/SvgIcons/Careers';
+
+export interface WorkBenefit {
   name: string;
   description: string;
-  icon: WorkingPerkIcon;
+  icon: ElementType;
   image: string;
 }
 
-const workingPerks: WorkingPerks[] = [
+const workingBenefits: WorkBenefit[] = [
   {
     name: 'Flexible working hours',
     description: 'Feeling like a late starter? Tailor your own work schedule.',
-    icon: 'TIME',
+    icon: Time,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Work from home',
     description: 'Get all the work done while enjoying the comfortness of your home.',
-    icon: 'COFFEE',
+    icon: Coffee,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Constant learning',
     description: 'The easiest way to unlock your full potential is to constantly learn.',
-    icon: 'BRAIN',
+    icon: Brain,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Best team ever',
     description: 'Calling it any differently would be an understatement.',
-    icon: 'STAR',
+    icon: Star,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Top equipment',
     description: '94% of us are irrational Apple brand disciples, the remaining part comes down to backend developers.',
-    icon: 'LAPTOP',
+    icon: Laptop,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Legendary office parties',
     description: 'They probably happen more often than we’d like to confess in front our management board.',
-    icon: 'DRINKS',
+    icon: Drinks,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Team building',
     description: 'Everyone from Split and Zagreb offices gets together at least once a year.',
-    icon: 'PALM_TREE',
+    icon: PalmTree,
     image: '/images/careers/who-we-are-3.jpg',
   },
   {
     name: 'Travel opportunities',
     description: 'You’ll get to work with clients and projects from all over the world.',
-    icon: 'TRAVEL',
+    icon: Travel,
     image: '/images/careers/who-we-are-3.jpg',
   },
 ];
 
-export default workingPerks;
+export default workingBenefits;
