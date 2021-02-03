@@ -7,14 +7,15 @@ import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import useTheme from '@material-ui/core/styles/useTheme';
 
+import { useWindowSize } from 'react-use';
+
 import QuoteCard from './QuoteCard';
-import useClientWidth from './useClientWidth';
 
 import styles from './QuoteCards.module.scss';
 
 const QuoteCards: React.FC = () => {
   const innerWrapperRef = useRef<HTMLDivElement | null>(null);
-  const clientWidth = useClientWidth();
+  const { width: clientWidth } = useWindowSize();
 
   const [innerWrapperWidth, setInnerWrapperWidth] = useState<number>(0);
 
