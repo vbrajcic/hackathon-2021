@@ -1,0 +1,28 @@
+.container {
+  padding-top: rem-calc(56);
+
+  @include media('md') {
+    padding-top: rem-calc(0);
+    padding-bottom: rem-calc(50);
+  }
+
+  @include media('lg') {
+    padding-bottom: rem-calc(80);
+  }
+
+  .partnerImg {
+    max-width: rem-calc(60);
+
+    @include media('sm') {
+      max-width: rem-calc(80);
+    }
+
+    @include media('md') {
+      max-width: rem-calc(100);
+    }
+
+    @include media('lg') {
+      max-width: rem-calc(120);
+    }
+  }
+}

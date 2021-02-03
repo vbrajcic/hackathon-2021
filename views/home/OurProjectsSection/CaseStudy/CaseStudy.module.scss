@@ -12,6 +12,10 @@
       border-radius: 0;
       min-height: rem-calc(600);
       flex-direction: column;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
 
     @include media(0, 'md') {

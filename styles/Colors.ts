@@ -14,4 +14,5 @@ export default {
   grey400: '#d7d7d8',
   grey600: '#8c8e90',
   grey800: '#212529',
+  purple500: '#463AB8',
 };

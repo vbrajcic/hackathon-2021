@@ -1,0 +1,74 @@
+.root {
+  &.container {
+    padding: rem-calc(20 0 50 25);
+    display: inline-block;
+    max-width: 80%;
+    margin-right: rem-calc(32);
+    white-space: normal;
+    overflow: visible;
+
+    @include media('md') {
+      padding: rem-calc(40 0 60 80);
+      max-width: 70%;
+      margin-right: 6rem;
+    }
+
+    @include media('lg') {
+      padding: rem-calc(50 0 80 120);
+      max-width: 70%;
+    }
+
+    .textWrapper {
+      max-width: 90%;
+
+      @include media('md') {
+        max-width: 80%;
+      }
+
+      .quotesIcon {
+        @include media('md') {
+          margin: 0 auto;
+        }
+
+        transform: rotate(180deg);
+        height: rem-calc(50);
+        width: rem-calc(50);
+
+        path {
+          fill: $purple-500;
+        }
+      }
+
+      .quoteText {
+        margin: rem-calc(30 0 30);
+      }
+    }
+
+    .footer {
+      width: 100%;
+
+      .companyImg {
+        width: rem-calc(40);
+      }
+
+      .authorNameAndTitleWrapper {
+        margin: rem-calc(8 0 0 8);
+
+        .authorName {
+          font-weight: 700;
+        }
+      }
+    }
+
+    .authorImg {
+      z-index: 1;
+      margin-right: rem-calc(-60);
+      width: rem-calc(120);
+      height: rem-calc(120);
+      border-radius: rem-calc(32);
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
