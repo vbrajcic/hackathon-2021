@@ -10,23 +10,19 @@
     padding-bottom: rem-calc(80);
   }
 
-  .partnerImgWrapper {
-    width: 100%;
+  .partnerImg {
+    max-width: rem-calc(60);
 
-    .partnerImg {
-      max-width: rem-calc(60);
+    @include media('sm') {
+      max-width: rem-calc(80);
+    }
 
-      @include media('sm') {
-        max-width: rem-calc(80);
-      }
+    @include media('md') {
+      max-width: rem-calc(100);
+    }
 
-      @include media('md') {
-        max-width: rem-calc(100);
-      }
-
-      @include media('lg') {
-        max-width: rem-calc(120);
-      }
+    @include media('lg') {
+      max-width: rem-calc(120);
     }
   }
 }

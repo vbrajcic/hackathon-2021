@@ -18,21 +18,13 @@ const Partners: React.FC = () => {
 
   return (
     <Container className={styles.container}>
-      <Grid container item spacing={isMobile ? 4 : 10} alignItems="center" justify="space-around">
+      <Grid container spacing={isMobile ? 4 : 10} alignItems="center" justify="space-around">
         {partners.map(partner =>
-          showTwoColumns && partner === 'tcom' ? undefined : (
-            <Grid
-              item
-              container
-              key={partner}
-              justify="center"
-              lg={4}
-              md={6}
-              sm={4}
-              xs={4}
-              className={styles.partnerImgWrapper}
-            >
-              <img src={`images/partners/${partner}.png`} alt={`${partner}`} className={styles.partnerImg} />
+          showTwoColumns && partner === 'tcom' ? null : (
+            <Grid item key={partner} justify="center" lg={4} md={6} sm={4} xs={4}>
+              <Grid container justify="center">
+                <img src={`images/partners/${partner}.png`} alt={partner} className={styles.partnerImg} />
+              </Grid>
             </Grid>
           )
         )}

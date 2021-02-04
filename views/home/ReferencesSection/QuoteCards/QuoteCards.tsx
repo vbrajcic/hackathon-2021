@@ -22,26 +22,24 @@ const QuoteCards: React.FC = () => {
   const { isMobile, isDesktop } = useBreakpoint();
   const {
     breakpoints: {
-      values: { xl, lg },
+      values: { xl },
     },
   } = useTheme();
 
   useEffect(() => {
-    let width = clientWidth;
-
     /**
      * ReferencesSection > Container > padding-left: 120px
      * QuoteCards > .scrollBtnWrapper > width: 160px
      * ReferencesSection > Container > margin-left: (clientWidth - xl) / 2
      */
+    let width = clientWidth - 280;
+
     if (clientWidth > xl) {
-      width = clientWidth - 120 - 160 - (clientWidth - xl) / 2;
-    } else if (clientWidth > lg) {
-      width = clientWidth - 120 - 160;
+      width -= (clientWidth - xl) / 2;
     }
 
     setInnerWrapperWidth(width);
-  }, [clientWidth, xl, lg]);
+  }, [clientWidth, xl]);
 
   const handleScrollBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const {
@@ -50,9 +48,9 @@ const QuoteCards: React.FC = () => {
 
     if (innerWrapperRef && innerWrapperRef.current) {
       if (value === 'right') {
-        innerWrapperRef.current.scrollLeft += isDesktop ? 800 : 730;
+        innerWrapperRef.current.scrollLeft += isDesktop ? 796 : 736;
       } else {
-        innerWrapperRef.current.scrollLeft -= isDesktop ? 800 : 730;
+        innerWrapperRef.current.scrollLeft -= isDesktop ? 796 : 736;
       }
     }
   };
@@ -70,7 +68,11 @@ const QuoteCards: React.FC = () => {
         </Grid>
       )}
       <Grid item className={styles.quotesWrapper}>
-        <Grid className={styles.innerQuotesWrapper} style={{ width: innerWrapperWidth }} ref={innerWrapperRef}>
+        <Grid
+          className={styles.innerQuotesWrapper}
+          style={{ width: isDesktop ? innerWrapperWidth : '100%' }}
+          ref={innerWrapperRef}
+        >
           {quotes.map(quote => (
             <QuoteCard key={quote.text} quote={quote} />
           ))}
