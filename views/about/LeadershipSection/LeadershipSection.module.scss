@@ -1,0 +1,40 @@
+.root {
+  &.container {
+    padding-top: rem-calc(58);
+    padding-bottom: rem-calc(48);
+
+    .textWrapper {
+      @include media('lg') {
+        margin-left: rem-calc(60);
+      }
+
+      .sectionTitle {
+        font-weight: bold;
+        color: $muted;
+      }
+
+      .title {
+        margin-bottom: rem-calc(40);
+        @include media(0, 'sm') {
+          width: 80%;
+        }
+      }
+
+      .subtitle {
+        margin-bottom: rem-calc(96);
+
+        @include media(0, 'md') {
+          margin-bottom: rem-calc(32);
+        }
+      }
+    }
+
+    .cardsContainer {
+      width: 100%;
+      flex-wrap: nowrap;
+      @include media(0, 'md') {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
