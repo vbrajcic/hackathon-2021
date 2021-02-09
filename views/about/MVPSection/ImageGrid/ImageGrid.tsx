@@ -25,18 +25,18 @@ const ImageGrid: React.FC = () => {
       </Grid>
       {!isMobile && (
         <Grid container className={styles.column} direction="column">
-          <ImageItem src="" />
+          <ImageItem />
           <ImageItem src="images/careers/who-we-are-1.jpg" />
-          <ImageItem src="" />
+          <ImageItem />
           <ImageItem src="images/careers/who-we-are-4.jpg" />
         </Grid>
       )}
       {isDesktop && (
         <Grid container className={styles.column} direction="column">
           <ImageItem src="images/careers/who-we-are-1.jpg" />
-          <ImageItem src="" />
+          <ImageItem />
           <ImageItem src="images/careers/who-we-are-4.jpg" />
-          <ImageItem src="" />
+          <ImageItem />
         </Grid>
       )}
       {!isMobile && (
