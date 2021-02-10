@@ -1,0 +1,179 @@
+.container {
+  position: relative;
+  background-color: $grey-100;
+
+  @include media('md') {
+    background-color: $white;
+  }
+
+  @include media('lg') {
+    margin-bottom: rem-calc(300);
+  }
+
+  .backgroundWrapper {
+    position: absolute;
+    bottom: rem-calc(-45);
+    right: 0;
+    height: rem-calc(800);
+    width: 65%;
+    background-color: $grey-100;
+
+    @include media('lg') {
+      width: 50%;
+      top: rem-calc(30);
+      bottom: auto;
+    }
+
+    @include media('xl') {
+      width: 48%;
+    }
+  }
+
+  .root {
+    padding: rem-calc(0 20 45 20);
+
+    @include media('md') {
+      padding: 0;
+    }
+
+    @include media('lg') {
+      padding: rem-calc(105 0 0 120);
+      margin-top: rem-calc(100);
+    }
+
+    .textWrapper {
+      padding: rem-calc(51 0 0 0);
+      width: 100%;
+
+      @include media('md') {
+        padding-left: rem-calc(32);
+      }
+
+      @include media('lg') {
+        padding: rem-calc(100 0 0 0);
+        width: 25%;
+      }
+
+      @include media('xl') {
+        width: 30%;
+      }
+
+      .sectionTitle {
+        font-weight: bold;
+        color: $muted;
+      }
+
+      .title {
+        margin-bottom: rem-calc(32);
+        max-width: 80%;
+
+        @include media('lg') {
+          margin-bottom: rem-calc(42);
+        }
+      }
+    }
+
+    .cardsWrapper {
+      width: 100%;
+      margin-top: rem-calc(77);
+
+      @include media('md') {
+        margin-top: rem-calc(158);
+      }
+
+      @include media('lg') {
+        width: 75%;
+        margin-top: 0;
+      }
+
+      @include media('xl') {
+        width: 70%;
+      }
+
+      .bigCard {
+        padding: 0;
+        margin-bottom: rem-calc(18);
+        width: 100%;
+        max-width: rem-calc(800);
+
+        @include media('md') {
+          padding-left: rem-calc(32);
+          margin-bottom: rem-calc(40);
+        }
+
+        @include media('lg') {
+          padding: rem-calc(0 40 0 52);
+          max-width: unset;
+        }
+
+        @include media('1280px') {
+          padding-right: rem-calc(120);
+        }
+
+        @include media('1440px') {
+          padding-left: rem-calc(90);
+          width: initial;
+        }
+
+        & > div {
+          @include media(0, '1439px') {
+            width: 100%;
+          }
+        }
+      }
+
+      .bottomCards {
+        width: 100%;
+        justify-content: flex-end;
+        padding: 0;
+
+        @include media('md') {
+          margin-right: rem-calc(12);
+        }
+
+        @include media('lg') {
+          justify-content: initial;
+          margin-right: rem-calc(20);
+        }
+
+        @include media('1280px') {
+          padding-left: rem-calc(152);
+        }
+
+        @include media('1440px') {
+          padding-left: rem-calc(192);
+          width: initial;
+        }
+
+        .card {
+          width: 100%;
+          padding: 0;
+          margin-bottom: rem-calc(18);
+
+          @include media('600px') {
+            padding: rem-calc(0 10);
+            max-width: rem-calc(360);
+            width: 50%;
+          }
+
+          @include media('md') {
+            padding: rem-calc(0 16);
+            margin-bottom: rem-calc(40);
+          }
+
+          @include media('lg') {
+            max-width: none;
+            padding: rem-calc(0 20);
+          }
+
+          & > div {
+            height: 100%;
+            @include media(0, '1439px') {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

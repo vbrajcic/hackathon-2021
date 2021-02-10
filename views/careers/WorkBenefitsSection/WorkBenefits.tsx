@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import workingBenefits from 'config/workingBenefits';
-import PerkCard from './PerkCard';
-
 import { Container, Grid, Typography } from '@material-ui/core';
+import PerkCard from './PerkCard';
 
 import styles from './WorkBenefits.module.scss';
 
