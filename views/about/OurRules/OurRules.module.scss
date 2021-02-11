@@ -8,33 +8,38 @@
 
     @include media('lg') {
       margin-top: rem-calc(76);
-      margin-left: rem-calc(60);
     }
 
-    .sectionTitle {
-      font-weight: bold;
-    }
-
-    .title {
-      margin-top: rem-calc(10);
-      margin-bottom: rem-calc(32);
-
+    .innerWrapper {
       @include media('lg') {
-        margin-bottom: rem-calc(41);
-      }
-    }
-
-    .subtitle {
-      max-width: rem-calc(350);
-      margin-bottom: rem-calc(47);
-
-      @include media('md') {
-        margin-bottom: rem-calc(67);
+        margin-left: rem-calc(60);
       }
 
-      @include media('lg') {
-        max-width: rem-calc(400);
-        margin-bottom: rem-calc(87);
+      .sectionTitle {
+        font-weight: bold;
+      }
+
+      .title {
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(32);
+
+        @include media('lg') {
+          margin-bottom: rem-calc(41);
+        }
+      }
+
+      .subtitle {
+        max-width: rem-calc(350);
+        margin-bottom: rem-calc(47);
+
+        @include media('md') {
+          margin-bottom: rem-calc(67);
+        }
+
+        @include media('lg') {
+          max-width: rem-calc(400);
+          margin-bottom: rem-calc(87);
+        }
       }
     }
   }

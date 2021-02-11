@@ -1,0 +1,21 @@
+.container {
+  .sectionTitle {
+    font-weight: bold;
+  }
+
+  .title {
+    margin-top: rem-calc(10);
+    margin-bottom: rem-calc(32);
+
+    @include media('lg') {
+      margin-top: rem-calc(15);
+      margin-bottom: rem-calc(42);
+    }
+  }
+
+  .description {
+    @include media(0, 'md') {
+      max-width: rem-calc(310);
+    }
+  }
+}

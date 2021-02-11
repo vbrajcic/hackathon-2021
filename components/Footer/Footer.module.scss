@@ -1,6 +1,10 @@
 .container {
   padding: rem-calc(95 2 61 2);
 
+  &.greyBackground {
+    background-color: $grey-100;
+  }
+
   @include media('lg') {
     padding: rem-calc(95 40);
   }

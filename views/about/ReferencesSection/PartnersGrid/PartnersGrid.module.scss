@@ -1,0 +1,70 @@
+.container {
+  padding-top: rem-calc(20);
+  margin-bottom: rem-calc(90);
+
+  @include media('md') {
+    margin-bottom: rem-calc(200);
+  }
+
+  @include media('lg') {
+    margin-left: rem-calc(60);
+  }
+
+  .cardItem {
+    flex-basis: 50%;
+
+    @include media(1300px) {
+      flex-basis: 40%;
+    }
+
+    .cardWrapper {
+      position: relative;
+      height: rem-calc(140);
+
+      .card {
+        position: absolute;
+        bottom: rem-calc(0);
+        height: rem-calc(400);
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 25%;
+        padding-top: rem-calc(52);
+        padding-bottom: rem-calc(50);
+
+        @include media('lg') {
+          height: rem-calc(464);
+          width: 100%;
+        }
+
+        @include media('xl') {
+          width: rem-calc(520);
+          padding: rem-calc(52 140 70 66);
+        }
+      }
+    }
+  }
+
+  .partnerItem {
+    margin-top: rem-calc(45);
+    margin-bottom: rem-calc(45);
+    flex-basis: 50%;
+
+    @include media('md') {
+      flex-basis: 25%;
+      margin-top: rem-calc(65);
+      margin-bottom: rem-calc(65);
+    }
+
+    @include media('lg') {
+      padding-left: rem-calc(40);
+    }
+
+    @include media(1300px) {
+      flex-basis: 20%;
+    }
+
+    .partnerImg {
+      max-width: rem-calc(100);
+    }
+  }
+}

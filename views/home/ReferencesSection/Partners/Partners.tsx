@@ -8,7 +8,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 import styles from './Partners.module.scss';
 
-const partners = ['allianz', 'cisco', 'deloitte', 'erricson', 'lav', 'sothebys', 'tcom', 'telenor', 'uhy'];
+const partners = ['allianz', 'cisco', 'deloitte', 'ericsson', 'leMeridien', 'sothebys', 'tcom', 'telenor', 'uhy'];
 
 const Partners: React.FC = () => {
   const { isMobile } = useBreakpoint();
