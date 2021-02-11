@@ -10,7 +10,7 @@ const AboutPage = () => {
   const { isMobile } = useBreakpoint();
 
   return (
-    <Layout title="About us" hasGreyBackground={!isMobile}>
+    <Layout title="About us" FooterProps={{ hasGreyBackground: !isMobile }}>
       <LeadershipSection />
       <MVPSection />
       <OurRules />
