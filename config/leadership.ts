@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 
 import Instagram from '@material-ui/icons/Instagram';
 import LinkedIn from '@material-ui/icons/LinkedIn';
-import Dribble from 'components/SvgIcons/Dribble';
+import Dribbble from 'components/SvgIcons/Dribbble/DribbbleIcon';
 import { GitHub } from '@material-ui/icons';
 
 export interface Leader {
@@ -32,7 +32,7 @@ const leadership: Leader[] = [
     socialMedia: [
       { url: 'https://www.instagram.com/antematijaca/', icon: Instagram },
       { url: 'https://www.linkedin.com/in/antematijaca', icon: LinkedIn },
-      { url: 'https://dribbble.com/antematijaca', icon: Dribble },
+      { url: 'https://dribbble.com/antematijaca', icon: Dribbble },
     ],
   },
   {
