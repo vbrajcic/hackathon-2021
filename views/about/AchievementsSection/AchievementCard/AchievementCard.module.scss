@@ -2,11 +2,11 @@
   &.container {
     position: relative;
     overflow: hidden;
-    padding: rem-calc(35);
+    padding: rem-calc(50);
     width: rem-calc(360);
 
-    @include media('1280px') {
-      padding: rem-calc(50);
+    @include media('lg', '1280px') {
+      padding: rem-calc(30);
     }
 
     &::before {
@@ -37,14 +37,14 @@
       background-image: url('/icons/dribbble.svg');
       height: rem-calc(250);
       width: rem-calc(250);
-      transform: translate(40%, -10%);
+      transform: translate(45%, -10%);
 
       @include media('lg') {
-        transform: translate(40%, -35%);
+        transform: translate(45%, -35%);
       }
 
       @include media('1280px') {
-        transform: translate(40%, -10%);
+        transform: translate(45%, -10%);
       }
     }
 
@@ -53,6 +53,7 @@
 
       @include media(0, 'md') {
         height: rem-calc(460);
+        padding: rem-calc(30);
       }
 
       &::before {
@@ -60,10 +61,6 @@
         height: rem-calc(571);
         width: rem-calc(566);
         transform: translate(40%, -42%);
-
-        @include media(0, '1280px') {
-          transform: translate(50%, -42%);
-        }
 
         @include media(0, 'md') {
           transform: translate(50%, 34%);
@@ -90,6 +87,9 @@
 
     .fastFifty {
       display: block;
+      width: 100%;
+      max-width: rem-calc(307);
+      height: rem-calc(81);
     }
 
     .number {

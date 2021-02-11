@@ -65,9 +65,10 @@
 
       .title {
         margin-bottom: rem-calc(32);
-        max-width: 80%;
+        max-width: 100%;
 
         @include media('lg') {
+          max-width: rem-calc(263);
           margin-bottom: rem-calc(42);
         }
       }
@@ -97,7 +98,7 @@
         max-width: rem-calc(800);
 
         @include media('md') {
-          padding-left: rem-calc(32);
+          padding: rem-calc(0 32);
           margin-bottom: rem-calc(40);
         }
 
@@ -150,7 +151,7 @@
           padding: 0;
           margin-bottom: rem-calc(18);
 
-          @include media('600px') {
+          @include media('651px') {
             padding: rem-calc(0 10);
             max-width: rem-calc(360);
             width: 50%;
