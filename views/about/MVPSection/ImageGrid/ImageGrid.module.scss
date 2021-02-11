@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  height: rem-calc(754);
+
+  @include media('md') {
+    height: rem-calc(1024);
+  }
+
+  @include media('lg') {
+    height: rem-calc(1056);
+  }
+
+  .column {
+    height: 100%;
+    width: 50%;
+
+    @include media('md') {
+      width: 25%;
+    }
+
+    @include media('lg') {
+      width: 20%;
+    }
+  }
+}
