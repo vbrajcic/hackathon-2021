@@ -6,7 +6,6 @@ export type AchievementLogo = 'DELOITTE' | 'BEHANCE' | 'DRIBBBLE';
 export interface Achievement {
   logo: AchievementLogo;
   name: string;
-  years?: string[];
   followers?: number;
   details?: {
     text: string;
@@ -18,7 +17,6 @@ const achievements: Achievement[] = [
   {
     logo: 'DELOITTE',
     name: 'deloitte',
-    years: ['2017', '2018'],
   },
   {
     logo: 'BEHANCE',

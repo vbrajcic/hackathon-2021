@@ -9,14 +9,14 @@ import styles from './AchievementsSection.module.scss';
 import AchievementCard from './AchievementCard';
 
 const AchievementsSection: React.FC = () => {
-  const { isMobile } = useBreakpoint();
+  const { isMobile, isDesktop } = useBreakpoint();
 
   return (
     <section className={styles.container}>
       <Container maxWidth="xl" classes={{ root: styles.root }}>
         {!isMobile && <div className={styles.backgroundWrapper} />}
         <Grid container>
-          <Grid item className={styles.textWrapper}>
+          <Grid item xs={12} lg={3} className={styles.textWrapper}>
             <Typography variant="overline" className={styles.sectionTitle}>
               Achievements
             </Typography>
@@ -29,11 +29,11 @@ const AchievementsSection: React.FC = () => {
               communities and organisations
             </Typography>
           </Grid>
-          <Grid container className={styles.cardsWrapper}>
-            <Grid container className={styles.bigCard}>
+          <Grid container item xs={12} lg={9}>
+            <Grid container item xs={12} className={styles.bigCard}>
               <AchievementCard achievement={achievements[0]} />
             </Grid>
-            <Grid container className={styles.bottomCards}>
+            <Grid container justify={isDesktop ? 'flex-start' : 'flex-end'} className={styles.bottomCards}>
               {achievements.slice(1).map(achievement => (
                 <Grid item className={styles.card} key={achievement.name}>
                   <AchievementCard achievement={achievement} />

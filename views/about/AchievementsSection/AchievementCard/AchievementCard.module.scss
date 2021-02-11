@@ -4,9 +4,14 @@
     overflow: hidden;
     padding: rem-calc(50);
     width: rem-calc(360);
+    height: 100%;
 
     @include media('lg', '1280px') {
-      padding: rem-calc(30);
+      padding: rem-calc(50 35);
+    }
+
+    @include media(0, '1439px') {
+      width: 100%;
     }
 
     &::before {
@@ -54,6 +59,10 @@
       @include media(0, 'md') {
         height: rem-calc(460);
         padding: rem-calc(30);
+      }
+
+      @include media(0, '1439px') {
+        width: 100%;
       }
 
       &::before {
