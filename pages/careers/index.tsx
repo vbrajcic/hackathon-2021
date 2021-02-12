@@ -4,11 +4,11 @@ import Layout from 'components/Layout';
 import WhoWeAreSection from 'views/careers/WhoWeAreSection';
 import WorkBenefitsSection from 'views/careers/WorkBenefitsSection';
 import OpenPositions from 'views/careers/OpenPositions';
+import HeroSection from 'views/careers/HeroSection';
 
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
 import { getAllCareerPosts } from 'lib/api';
-import HeroSection from './HeroSection';
 
 interface CareersPageProps {
   posts: Edges<Post>;
