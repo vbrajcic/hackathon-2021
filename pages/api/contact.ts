@@ -12,10 +12,10 @@ export default async function contact(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
-  // proficotest@gmail.com just for testing purposes - should be info@profico.hr
+  // PW-102: fvidak@profico.hr just for testing purposes - should be info@profico.hr
   const mailOption = {
     from: `Profico Web <${email}>`,
-    to: 'proficotest@gmail.com',
+    to: 'fvidak@profico.hr',
     subject: `New inquiry from Profico web`,
     text: `FROM: ${email} MESSAGE: ${message}`,
     html: `<h2>Mail From Contact Form</h2><p>From: <a href="mailto:${email}">${email}</a></p><p>${message}</p>`,
