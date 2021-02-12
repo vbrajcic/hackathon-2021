@@ -3,16 +3,15 @@ import Post from 'types/posts/post';
 import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
 import useFactory from 'utils/hooks/useFactory';
+import ContactForm from 'components/ContactForm';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
+import ReadAboutUsSection from 'views/blog/ReadAboutUsSection';
+import FeaturedArticle from 'views/blog/FeaturedArticle';
 
 import { getAllBlogPosts } from 'lib/api';
 import { GetServerSideProps } from 'next';
 import { Edges } from 'types/common';
-import ContactForm from 'components/ContactForm';
 import { BlogPostsContextProvider } from 'utils/context/BlogPostsContext';
-import useBreakpoint from 'utils/hooks/useBreakpoint';
-import ReadAboutUsSection from './ReadAboutUsSection';
-
-import FeaturedArticle from './FeaturedArticle';
 
 interface BlogPageProps {
   allPosts: Edges<Post>;
