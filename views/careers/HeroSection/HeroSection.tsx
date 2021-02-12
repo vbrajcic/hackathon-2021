@@ -5,7 +5,9 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Colors from 'styles/Colors';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
-import HeroCard from '../HeroCard';
+
+import HeroCard from './HeroCard';
+
 import styles from './HeroSection.module.scss';
 
 interface HeroSectionProps {
