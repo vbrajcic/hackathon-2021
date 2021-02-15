@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import theme from 'styles/theme';
+import QueryParamProvider from 'utils/context/QueryParamContext';
 
 import { AppProps } from 'next/app';
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
@@ -22,11 +23,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <QueryParamProvider>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </QueryParamProvider>
     </>
   );
 };

@@ -1,7 +1,5 @@
 import React from 'react';
-
-import { PaletteType } from '@material-ui/core';
-
+import cn from 'classnames';
 import Alert from 'components/Alert';
 import Footer, { FooterProps as BaseFooterProps } from 'components/Footer';
 import Meta from 'components/Meta';
@@ -9,6 +7,7 @@ import DocumentTitle from 'components/DocumentTitle';
 import Navbar from 'components/Navbar';
 
 import { ThemeContextProvider } from 'utils/context/ThemeContext';
+import { PaletteType } from '@material-ui/core';
 
 import styles from './Layout.module.scss';
 
@@ -17,13 +16,14 @@ interface LayoutProps {
   theme?: PaletteType;
   preview?: boolean;
   FooterProps?: BaseFooterProps;
+  ContainerProps?: React.HTMLProps<HTMLDivElement>;
 }
 
-const Layout: React.FC<LayoutProps> = ({ title, theme = 'light', preview, children, FooterProps }) => (
+const Layout: React.FC<LayoutProps> = ({ title, theme = 'light', preview, children, FooterProps, ContainerProps }) => (
   <ThemeContextProvider value={{ theme }}>
     <Meta />
     <DocumentTitle title={title} />
-    <div className={styles.container}>
+    <div {...ContainerProps} className={cn(styles.container, ContainerProps?.className)}>
       <Alert preview={preview} />
       <Navbar />
       <main>{children}</main>

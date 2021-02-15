@@ -20,7 +20,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   return (
     <Grid container classes={{ root: styles.root }} className={styles.container}>
       {posts.map((post: Post) => (
-        <Grid item md={4} key={post.slug} className={cn(styles.teaser, { [styles.expand]: expandCards })}>
+        <Grid item key={post.slug} className={cn(styles.teaser, { [styles.expand]: expandCards })}>
           <Teaser
             title={post.title}
             excerpt={post.excerpt}

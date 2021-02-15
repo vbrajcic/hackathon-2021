@@ -14,11 +14,11 @@
     "start": "next start",
     "start:local": "NODE_ENV=development next start",
     "lint:base": "eslint --ext .ts,.tsx ./",
-    "lint:styles": "stylelint '**/*.scss' --fix",
+    "lint:styles": "stylelint '**/*.scss' --fix --cache --cache-location=./node_modules/.cache/",
+    "lint": "yarn lint:base --fix --cache --cache-location=./node_modules/.cache/ && yarn lint:styles",
     "docker:build:dev": "docker build . -t $npm_package_config_docker_reg_dev/$npm_package_config_docker_image_name:$npm_package_version",
     "docker:run:dev": "cd $npm_package_config_dir_dev && docker-compose up -d",
-    "version:set:dev": "echo \"VERSION=$npm_package_version\"> $npm_package_config_dir_dev/.env",
-    "lint": "yarn lint:base --fix --cache --cache-location=./node_modules/.cache/ && yarn lint:styles"
+    "version:set:dev": "echo \"VERSION=$npm_package_version\"> $npm_package_config_dir_dev/.env"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -27,11 +27,13 @@
     "date-fns": "2.14.0",
     "next": "latest",
     "nodemailer": "^6.4.17",
+    "query-string": "^6.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.14.0",
     "react-use": "^15.3.6",
-    "sass": "^1.30.0"
+    "sass": "^1.30.0",
+    "use-query-params": "^1.1.9"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
