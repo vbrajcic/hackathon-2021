@@ -1,0 +1,40 @@
+.root {
+  &.container {
+    display: inline-block;
+    border-radius: 0;
+    vertical-align: top;
+    box-shadow: none;
+    width: rem-calc(560);
+    margin-top: 0;
+
+    @include media(0, 'sm') {
+      width: calc(100% + 3rem);
+      margin-left: -1.5rem;
+      &:first-of-type {
+        margin-top: rem-calc(15);
+      }
+    }
+
+    @include media('sm') {
+      margin-right: rem-calc(20);
+
+      &:last-of-type {
+        margin-right: 5rem;
+      }
+    }
+
+    .content {
+      padding-left: rem-calc(24);
+      padding-right: rem-calc(30);
+      white-space: normal;
+      @include media('md') {
+        padding-left: rem-calc(50);
+      }
+      .title {
+        font-weight: bold;
+        padding-top: rem-calc(25);
+        padding-bottom: rem-calc(20);
+      }
+    }
+  }
+}

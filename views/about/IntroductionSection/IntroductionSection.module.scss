@@ -1,0 +1,71 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    position: relative;
+    padding-top: rem-calc(58);
+
+    @include media(0, 'sm') {
+      padding-top: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      margin-top: -($navTopBarHeight);
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $grey-100;
+      z-index: -1;
+
+      @include media('md') {
+        height: 60%;
+      }
+    }
+
+    .textWrapper {
+      @include media('lg') {
+        margin-top: 2.5rem;
+        margin-left: rem-calc(60);
+      }
+
+      .introText {
+        padding-bottom: rem-calc(24);
+      }
+
+      .descriptionText {
+        @include media(0, 'sm') {
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .imageWrapper {
+      height: rem-calc(650);
+      margin-top: rem-calc(150);
+      white-space: nowrap;
+
+      @include media(0, 'sm') {
+        margin-top: rem-calc(50);
+        height: unset;
+      }
+
+      .innerImageWrapper {
+        width: 100%;
+        position: absolute;
+        overflow-x: scroll;
+
+        @include media(0, 'sm') {
+          @include flex(column);
+
+          position: relative;
+          overflow: visible;
+        }
+      }
+    }
+  }
+}
