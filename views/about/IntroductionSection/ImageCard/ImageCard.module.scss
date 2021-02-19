@@ -6,6 +6,7 @@
     box-shadow: none;
     width: rem-calc(560);
     margin-top: 0;
+    margin-right: rem-calc(20);
 
     @include media(0, 'sm') {
       width: calc(100% + 3rem);
@@ -16,10 +17,15 @@
     }
 
     @include media('sm') {
-      margin-right: rem-calc(20);
-
       &:last-of-type {
         margin-right: 5rem;
+      }
+    }
+
+    @include media('xl') {
+      width: rem-calc(900);
+      &:last-of-type {
+        margin-right: 35rem;
       }
     }
 
