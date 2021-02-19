@@ -9,7 +9,7 @@ interface ImageCardProps {
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ heading, text, image }) => (
-  <Card classes={{ root: styles.root }} className={styles.container}>
+  <Card classes={{ root: styles.root }} className={styles.container} square>
     <CardMedia component="img" image={image} alt="Our Home" />
     <CardContent className={styles.content}>
       <Typography className={styles.title}>{heading}</Typography>

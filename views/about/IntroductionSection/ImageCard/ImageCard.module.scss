@@ -1,16 +1,15 @@
 .root {
   &.container {
     display: inline-block;
-    border-radius: 0;
     vertical-align: top;
     box-shadow: none;
     width: rem-calc(560);
     margin-top: 0;
-    margin-right: rem-calc(20);
+    margin-right: rem-calc(40);
 
     @include media(0, 'sm') {
-      width: calc(100% + 3rem);
-      margin-left: -1.5rem;
+      width: calc(100% + #{rem-calc(64)});
+      margin-left: rem-calc(-24);
       &:first-of-type {
         margin-top: rem-calc(15);
       }
@@ -22,10 +21,10 @@
       }
     }
 
-    @include media('xl') {
-      width: rem-calc(900);
+    @include media('lg') {
+      width: rem-calc(600);
       &:last-of-type {
-        margin-right: 35rem;
+        margin-right: 10rem;
       }
     }
 
