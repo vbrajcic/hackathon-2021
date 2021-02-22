@@ -33,7 +33,7 @@
 
       .innerImageWrapper {
         position: absolute;
-        overflow-x: scroll;
+        overflow-x: auto;
       }
 
       @include media('lg') {

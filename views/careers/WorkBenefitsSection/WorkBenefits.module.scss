@@ -48,6 +48,11 @@
         width: 100%;
       }
 
+      @include media('xl') {
+        grid-column-gap: 6rem;
+        margin-left: rem-calc(320);
+      }
+
       @include media('lg', 1360px) {
         margin-left: auto;
       }
