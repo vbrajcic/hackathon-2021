@@ -35,8 +35,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts, preview }) => {
 
   return (
     <Layout preview={preview} title="Blog" FooterProps={{ hasGreyBackground: true }}>
-      <Container maxWidth={false} className={styles.container}>
-        <HeroSection activeCategory={postCategoryFilter} onCategoryChange={setPostCategoryFilter} />
+      <HeroSection activeCategory={postCategoryFilter} onCategoryChange={setPostCategoryFilter} />
+      <Container maxWidth={false} className={styles.container} disableGutters>
         <Container maxWidth="xl" disableGutters={isMobile}>
           <BlogPostsContextProvider value={{ posts: allPosts }}>
             <ReadAboutUsSection activeCategory={postCategoryFilter} />

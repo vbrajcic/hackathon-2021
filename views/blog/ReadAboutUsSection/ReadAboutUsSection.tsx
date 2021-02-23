@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Container from '@material-ui/core/Container';
 import Teaser from 'components/Teaser';
 import StringUtils from 'utils/static/StringUtils';
@@ -9,6 +9,7 @@ import { useBlogPosts } from 'utils/context/BlogPostsContext';
 import { Node } from 'types/common';
 
 import BlogPosts from './BlogPosts';
+import Pagination from './Pagination';
 
 import { PostCategoryFilter } from '../HeroSection';
 
@@ -30,12 +31,17 @@ const filterPostsByCategory = (category: PostCategoryFilter, posts: Node<Post>[]
     .map(({ node }) => node);
 };
 
+const PAGE_SIZE = 6;
+
 const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({ activeCategory }) => {
+  const [page, setPage] = useState<number>(1);
   const {
     posts: { edges: posts },
   } = useBlogPosts();
 
   const filteredPosts = useMemo(() => {
+    setPage(1);
+
     if (activeCategory === 'ALL_POSTS') {
       return posts.map(({ node }) => node);
     }
@@ -45,11 +51,15 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({ activeCategory 
 
   const { featuredPost, restOfPosts } = useMemo(
     () => ({
-      featuredPost: filteredPosts[0] ? filteredPosts[0] : undefined,
-      restOfPosts: filteredPosts.slice(1, 7),
+      featuredPost: page === 1 && filteredPosts[0] ? filteredPosts[0] : undefined,
+      restOfPosts: filteredPosts.slice((page - 1) * PAGE_SIZE + 1, page * PAGE_SIZE + 1),
     }),
-    [filteredPosts]
+    [page, filteredPosts]
   );
+
+  const handlePaginationChange = (value: number) => {
+    setPage(value);
+  };
 
   return (
     <Container maxWidth="xl" component="section" className={styles.container} disableGutters>
@@ -65,6 +75,7 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({ activeCategory 
         </Grid>
       )}
       <BlogPosts posts={restOfPosts} />
+      <Pagination count={Math.ceil(filteredPosts.length / PAGE_SIZE)} page={page} onChange={handlePaginationChange} />
     </Container>
   );
 };
