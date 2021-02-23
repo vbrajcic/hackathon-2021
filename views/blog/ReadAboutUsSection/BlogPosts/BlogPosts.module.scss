@@ -1,14 +1,22 @@
 .root {
   &.container {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(rem-calc(400), rem-calc(400)));
+    justify-content: space-between;
+    margin-bottom: rem-calc(60);
 
     @include media(0, 'sm') {
       flex-direction: column;
     }
 
+    @include media('md') {
+      grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
+    }
+
     .teaser {
       flex: 1;
-      margin: rem-calc(100 8);
+      margin: rem-calc(20 8);
       padding: 0;
 
       &:first-of-type {
@@ -25,10 +33,6 @@
         :first-of-type {
           border-radius: 0;
         }
-      }
-
-      @include media('xl') {
-        margin: rem-calc(100 20);
       }
     }
   }

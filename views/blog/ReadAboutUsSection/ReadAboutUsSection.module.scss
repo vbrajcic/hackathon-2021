@@ -1,13 +1,23 @@
 .container {
   align-items: flex-start;
-  margin-top: rem-calc(108);
+  margin-top: rem-calc(52);
+
+  @include media(0, 'sm') {
+    margin-bottom: rem-calc(111);
+  }
 
   @include media('md') {
     margin-top: rem-calc(148);
+    margin-bottom: rem-calc(100);
+    padding-top: rem-calc(60);
   }
 
   @include media('lg') {
-    margin-top: rem-calc(150);
+    margin-top: rem-calc(74);
+  }
+
+  @include media('xl') {
+    margin-top: rem-calc(87);
   }
 
   .title {
@@ -17,6 +27,8 @@
   }
 
   .teaser {
+    margin-bottom: rem-calc(20);
+
     h4 {
       font-size: rem-calc(48);
     }

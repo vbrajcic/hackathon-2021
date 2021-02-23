@@ -48,7 +48,7 @@ export const GET_ALL_BLOG_POSTS = `
   ${REGULAR_POST_FIELDS_FRAGMENT}
 
   query AllPosts {
-    posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
+    posts(first: 100, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: [${CAREERS_CATEGORY_ID}] }) {
       edges {
         node {
           ...RegularPostFields
