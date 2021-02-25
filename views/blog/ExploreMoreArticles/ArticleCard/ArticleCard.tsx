@@ -8,31 +8,29 @@ import styles from './ArticleCard.module.scss';
 interface ArticleCardProps {
   post: Post;
 }
-const ArticleCard: React.FC<ArticleCardProps> = ({ post }) => {
-  return (
-    <Card classes={{ root: styles.root }} className={styles.container}>
-      <CardMedia component="img" image={post.featuredImage.node.sourceUrl} alt="Our Home" />
-      <CardContent className={styles.content}>
-        <Typography variant="h4" className={styles.title}>
-          {post.title}
+const ArticleCard: React.FC<ArticleCardProps> = ({ post }) => (
+  <Card classes={{ root: styles.root }} className={styles.container}>
+    <CardMedia component="img" image={post.featuredImage.node.sourceUrl} alt="Our Home" />
+    <CardContent className={styles.content}>
+      <Typography variant="h4" className={styles.title}>
+        {post.title}
+      </Typography>
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        component="div"
+        dangerouslySetInnerHTML={{ __html: post.excerpt }}
+      />
+      <Grid className={styles.readMoreContainer}>
+        <Typography component="p" className={styles.text}>
+          Read more
         </Typography>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="div"
-          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-        />
-        <Grid className={styles.readMoreContainer}>
-          <Typography component="p" className={styles.text}>
-            Read more
-          </Typography>
-          <IconButton value="right" className={styles.openArticleBtn}>
-            <ChevronRightIcon className={styles.icon} />
-          </IconButton>
-        </Grid>
-      </CardContent>
-    </Card>
-  );
-};
+        <IconButton value="right" className={styles.openArticleBtn}>
+          <ChevronRightIcon className={styles.icon} />
+        </IconButton>
+      </Grid>
+    </CardContent>
+  </Card>
+);
 
 export default ArticleCard;
