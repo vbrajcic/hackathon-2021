@@ -13,12 +13,13 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
+import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
 };
 
-const BlogPost: React.FC<BlogPostProps> = ({ post, preview }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -41,6 +42,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, preview }) => {
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <AuthorInfo author={post.author.node} />
+              <ExploreMoreArticles posts={posts} />
               <Container maxWidth="xl">
                 <ContactForm />
               </Container>
@@ -82,7 +84,6 @@ export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
-
   return {
     paths: allPosts.edges.map(({ node }) => `/blog/${node.slug}`) || [],
     fallback: true,

@@ -1,0 +1,101 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    position: relative;
+    height: rem-calc(650);
+    padding-left: rem-calc(120);
+    margin-bottom: 5rem;
+    @include flex(row);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 375px;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $grey-100;
+      z-index: -1;
+    }
+
+    @include media('sm', 'md') {
+      margin-bottom: 10rem;
+    }
+
+    @include media(0, 'md') {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+      @include flex(column);
+    }
+
+    @include media(0, 'xs') {
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
+    }
+
+    .scrollBtnWrapper {
+      padding-left: rem-calc(24);
+      margin-top: rem-calc(30);
+
+      @include media('lg') {
+        margin-top: rem-calc(100);
+        padding-left: rem-calc(0);
+      }
+
+      @include media(0, 'lg') {
+        display: none;
+      }
+
+      .scrollBtn {
+        box-shadow: $box-shadow__button;
+        border-radius: 50%;
+        width: rem-calc(60);
+        height: rem-calc(60);
+        margin-right: rem-calc(20);
+        background-color: white;
+
+        .icon {
+          width: 2rem;
+          height: 2rem;
+
+          path {
+            fill: $primary;
+          }
+        }
+      }
+    }
+
+    .exploreMore {
+      flex: 1;
+      padding-right: rem-calc(100);
+      margin-right: 2rem;
+
+      @include media(0, 'sm') {
+        padding: 0;
+        margin: 0;
+        padding-bottom: 2rem;
+      }
+
+      .text {
+        padding-top: rem-calc(44);
+      }
+    }
+
+    .cardsWrapper {
+      flex: 2;
+      white-space: nowrap;
+
+      .innerCardsWrapper {
+        // width: rem-calc(800);
+        position: absolute;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}

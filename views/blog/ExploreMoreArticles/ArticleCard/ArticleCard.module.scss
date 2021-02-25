@@ -1,0 +1,99 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    width: rem-calc(400);
+    height: rem-calc(500);
+    box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.06);
+    white-space: normal;
+    display: inline-block;
+    margin: 2rem 0;
+    margin-right: 2.5rem;
+
+    &:first-of-type {
+      margin-left: 2.5rem;
+    }
+
+    @include media('xl') {
+      &:last-of-type {
+        margin-right: 10rem;
+      }
+    }
+
+    @include media(0, 'sm') {
+      width: rem-calc(300);
+      height: rem-calc(440);
+      margin-right: 2rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+
+    @include media(0, 'xs') {
+      width: rem-calc(260);
+      height: rem-calc(400);
+      margin-right: 1.5rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+
+    .content {
+      padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+
+      @include media(0, 'sm') {
+        width: rem-calc(260);
+        margin-right: 1.5rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+
+      .title {
+        padding-bottom: 2rem;
+        font-weight: bold;
+
+        @include media(0, 'sm') {
+          padding-bottom: 1.5rem;
+        }
+      }
+
+      .readMoreContainer {
+        position: absolute;
+        bottom: 3rem;
+        padding: 1rem 0;
+        @include flex($align: center);
+
+        width: rem-calc(320);
+
+        @include media(0, 'sm') {
+          width: rem-calc(230);
+          bottom: 2.5rem;
+        }
+
+        .text {
+          transition: 0.2s ease-out;
+          font-size: rem-calc(16);
+          font-weight: bold;
+          white-space: nowrap;
+          margin-right: auto;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.03);
+          }
+        }
+
+        .openArticleBtn {
+          .icon {
+            width: rem-calc(35);
+            height: rem-calc(30);
+          }
+        }
+      }
+    }
+  }
+}
