@@ -1,11 +1,11 @@
-interface AboutUS {
+interface AboutUs {
   heading: string;
   text: string;
   image: string;
   key: string;
 }
 
-const ourHome: AboutUS[] = [
+const ourHome: AboutUs[] = [
   {
     heading: 'Transparency and professionalism',
     text:
