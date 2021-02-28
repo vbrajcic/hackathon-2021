@@ -22,6 +22,14 @@
   input {
     font-size: rem-calc(16);
     line-height: rem-calc(24);
+    color: $black;
+    &::placeholder {
+      color: $text-primary;
+    }
+  }
+
+  .input > div:after {
+    border-bottom-color: $primary;
   }
 
   button {

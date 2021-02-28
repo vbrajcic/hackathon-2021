@@ -88,6 +88,7 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
                   fullWidth
                   helperText={emailError}
                   error={Boolean(emailError)}
+                  className={style.input}
                 />
               }
               rules={{
@@ -98,7 +99,15 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
             />
             <Controller
               name="message"
-              as={<TextField placeholder="Tell us more about your project" fullWidth multiline rowsMax={3} />}
+              as={
+                <TextField
+                  placeholder="Tell us more about your project"
+                  fullWidth
+                  multiline
+                  rowsMax={3}
+                  className={style.input}
+                />
+              }
               control={control}
             />
             <Button type="submit" disabled={formState.isSubmitting}>

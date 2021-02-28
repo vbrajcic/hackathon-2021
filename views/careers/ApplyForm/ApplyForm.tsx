@@ -11,7 +11,9 @@ import { FormControl, FormHelperText, Input } from '@material-ui/core';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import File from 'components/SvgIcons/File';
+import FormValidation from 'utils/static/FormValidation';
 
+import StringUtils from 'utils/static/StringUtils';
 import style from './ApplyForm.module.scss';
 
 type ContactFields = {
@@ -31,8 +33,6 @@ const defaultValues: ContactFields = {
   repo: '',
   message: '',
 };
-const acceptedMimeTypes =
-  '.pdf,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
 const toBase64 = (file?: File) =>
   new Promise<string | null | ArrayBuffer>((resolve, reject) => {
@@ -45,6 +45,9 @@ const toBase64 = (file?: File) =>
       resolve(null);
     }
   });
+
+const splitLongName = (fileName: string) =>
+  fileName.length > 60 ? StringUtils.truncStringPortion(fileName, fileName.length / 3, 12) : fileName;
 
 const ApplyForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
@@ -87,6 +90,7 @@ const ApplyForm: FC<{}> = () => {
   const nameError = errors.name ? errors.name.message : '';
   const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
+  const cvError = FormValidation.file(selectedFile);
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
@@ -102,9 +106,7 @@ const ApplyForm: FC<{}> = () => {
           <Grid item sm={12} md={5} lg={5}>
             <Controller
               name="name"
-              rules={{
-                required: { value: true, message: 'Name is required' },
-              }}
+              rules={FormValidation.name()}
               as={
                 <TextField type="name" placeholder="Name" fullWidth helperText={nameError} error={Boolean(nameError)} />
               }
@@ -121,11 +123,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(phoneError)}
                 />
               }
-              rules={{
-                required: { value: true, message: 'Phone is required' },
-                minLength: 9,
-                maxLength: 13,
-              }}
+              rules={FormValidation.phone()}
               control={control}
             />
           </Grid>
@@ -141,10 +139,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(emailError)}
                 />
               }
-              rules={{
-                required: { value: true, message: 'Email is required' },
-                pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid email address' },
-              }}
+              rules={FormValidation.email()}
               control={control}
             />
             <Controller
@@ -155,7 +150,7 @@ const ApplyForm: FC<{}> = () => {
                   <Input
                     id="file-input"
                     type="file"
-                    inputProps={{ accept: acceptedMimeTypes }}
+                    inputProps={{ accept: FormValidation.acceptedMimeTypes }}
                     className={style.input}
                     style={{ display: 'none' }}
                     onChange={handleUpload}
@@ -165,8 +160,15 @@ const ApplyForm: FC<{}> = () => {
                       Upload CV / Resume
                     </Button>
                   </label>
-                  {selectedFile && (
-                    <FormHelperText className={style.selectedFileName}>{selectedFile.name}</FormHelperText>
+                  {cvError && (
+                    <FormHelperText id="cv-error" className={style.cvError} error>
+                      {cvError}
+                    </FormHelperText>
+                  )}
+                  {selectedFile && !cvError && (
+                    <FormHelperText className={style.selectedFileName}>
+                      {splitLongName(selectedFile.name)}
+                    </FormHelperText>
                   )}
                 </FormControl>
               }
