@@ -1,6 +1,8 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import Post from 'types/posts/post';
 import Layout from 'components/Layout';
+import ContactForm from 'components/ContactForm';
 import WhoWeAreSection from 'views/careers/WhoWeAreSection';
 import WorkBenefitsSection from 'views/careers/WorkBenefitsSection';
 import OpenPositions from 'views/careers/OpenPositions';
@@ -21,6 +23,9 @@ const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
     <WhoWeAreSection />
     <WorkBenefitsSection />
     <OpenPositions positions={posts.edges} />
+    <Container maxWidth="xl">
+      <ContactForm />
+    </Container>
   </Layout>
 );
 

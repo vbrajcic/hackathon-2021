@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
-import ContactForm from 'components/ContactForm';
 
 import Heading from './Heading';
 import PartnersGrid from './PartnersGrid';
@@ -17,7 +16,6 @@ const ReferencesSection: React.FC = () => {
       <Container maxWidth="xl">
         {isMobile && <Heading />}
         <PartnersGrid />
-        <ContactForm />
       </Container>
     </section>
   );

@@ -126,7 +126,7 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
             Split+Zagreb, Croatia
             <br />
             {isMobile ? <Link href="tel:+385 91 322 1274">+385 91 322 1274</Link> : '+385 91 322 1274'}
-            <Link display="block" href="mailto:info@profico.hr">
+            <Link display="block" href="mailto:info@profico.hr" className={style.email}>
               info@profico.hr
             </Link>
           </ContactDetail>

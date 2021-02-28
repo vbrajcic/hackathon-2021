@@ -12,8 +12,8 @@ import { FormControl, FormHelperText, Input } from '@material-ui/core';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import File from 'components/SvgIcons/File';
 import FormValidation from 'utils/static/FormValidation';
-
 import StringUtils from 'utils/static/StringUtils';
+
 import style from './ApplyForm.module.scss';
 
 type ContactFields = {
