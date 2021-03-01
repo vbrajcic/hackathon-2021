@@ -1,78 +1,99 @@
 .root {
   &.container {
-    padding: rem-calc(20 0 50 25);
     display: inline-block;
-    max-width: rem-calc(340);
     margin-right: rem-calc(32);
     white-space: normal;
-    overflow: visible;
+    vertical-align: top;
+    width: rem-calc(280);
+    height: rem-calc(380);
 
     @include media('sm') {
-      max-width: rem-calc(450);
+      width: rem-calc(450);
+      height: rem-calc(340);
     }
 
     @include media('md') {
-      padding: rem-calc(40 0 60 80);
-      max-width: rem-calc(640);
+      overflow: visible;
+      width: rem-calc(640);
+      height: rem-calc(400);
       margin-right: 6rem;
     }
 
     @include media('lg') {
-      padding: rem-calc(50 0 80 120);
-      max-width: rem-calc(700);
+      width: rem-calc(660);
     }
 
-    .textWrapper {
-      max-width: 90%;
+    .content {
+      padding: rem-calc(30 0 0 30);
+
+      @include media('sm') {
+        padding: rem-calc(20 0 0 25);
+      }
 
       @include media('md') {
-        max-width: 85%;
+        padding: rem-calc(40 0 0 80);
       }
 
-      .quotesIcon {
+      .textWrapper {
+        max-width: 90%;
+        height: rem-calc(250);
+        overflow: hidden;
+
+        @include media('sm') {
+          height: rem-calc(210);
+        }
+
         @include media('md') {
-          margin: 0 auto;
+          height: rem-calc(180);
+          max-width: 85%;
         }
 
-        transform: rotate(180deg);
-        height: rem-calc(50);
-        width: rem-calc(50);
+        .quotesIcon {
+          @include media('md') {
+            margin: 0 auto;
+          }
 
-        path {
-          fill: $purple-500;
+          transform: rotate(180deg);
+          height: rem-calc(50);
+          width: rem-calc(50);
+
+          path {
+            fill: $purple-500;
+          }
+        }
+
+        .quoteText {
+          margin-top: rem-calc(30);
         }
       }
 
-      .quoteText {
-        margin: rem-calc(30 0 30);
-      }
-    }
+      .footer {
+        width: 100%;
+        margin-top: rem-calc(15);
 
-    .footer {
-      width: 100%;
+        .companyImg {
+          width: rem-calc(40);
+        }
 
-      .companyImg {
-        width: rem-calc(40);
-      }
+        .authorNameAndTitleWrapper {
+          margin: rem-calc(8 0 0 8);
 
-      .authorNameAndTitleWrapper {
-        margin: rem-calc(8 0 0 8);
-
-        .authorName {
-          font-weight: 700;
+          .authorName {
+            font-weight: 700;
+          }
         }
       }
-    }
 
-    .authorImg {
-      z-index: 1;
-      margin-right: rem-calc(-60);
-      width: rem-calc(120);
-      height: rem-calc(120);
-      border-radius: rem-calc(32);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      .authorImg {
+        z-index: 1;
+        margin-right: rem-calc(-60);
+        width: rem-calc(120);
+        height: rem-calc(120);
+        border-radius: rem-calc(32);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
 }
