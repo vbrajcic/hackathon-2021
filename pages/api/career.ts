@@ -27,7 +27,7 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
     replyTo: email,
   };
 
-  return new Promise<void>(resolve =>
+  return new Promise<void>(resolve => {
     transporter.sendMail(mailOption, err => {
       if (err) {
         // eslint-disable-next-line no-console
@@ -38,6 +38,6 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
         res.status(200).json({ message: 'Thanks for applying for this job!', status: 200 });
         resolve();
       }
-    })
-  );
+    });
+  });
 }
