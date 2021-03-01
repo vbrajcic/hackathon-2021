@@ -20,7 +20,7 @@ const QuoteCard: React.FC<QuoteProps> = ({ quote: { text, companyImgSrc, author 
   return (
     <Card className={styles.container} classes={{ root: styles.root }}>
       <CardContent className={styles.content}>
-        <Grid container className={styles.textWrapper}>
+        <Grid container alignItems="flex-start" className={styles.textWrapper}>
           <FormatQuoteIcon className={styles.quotesIcon} />
           <Typography variant="body1" className={styles.quoteText}>
             {text}

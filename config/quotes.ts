@@ -21,7 +21,7 @@ const quotes: Quote[] = [
   },
   {
     text:
-      'Profico exceeded my expectations from design to development, and I love how I can trust them with product strategy too',
+      "Thanks to Profico’s work, the client's ranking metrics have gone up. The team demonstrated a great workflow and excellent technical.",
     companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
     author: {
       name: 'Tim Cook',
@@ -31,7 +31,7 @@ const quotes: Quote[] = [
   },
   {
     text:
-      'Profico has exceeded my expectations from design to development, I love how I can trust them with product strategy too.',
+      "Thanks to Profico’s work, the client's ranking metrics have gone up. The team demonstrated a great workflow and excellent technical.",
     companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
     author: {
       name: 'Tim Cook',
@@ -41,7 +41,7 @@ const quotes: Quote[] = [
   },
   {
     text:
-      'Profico exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
+      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
     companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
     author: {
       name: 'Tim Cook',
@@ -51,7 +51,7 @@ const quotes: Quote[] = [
   },
   {
     text:
-      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy.',
+      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
     companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
     author: {
       name: 'Tim Cook',

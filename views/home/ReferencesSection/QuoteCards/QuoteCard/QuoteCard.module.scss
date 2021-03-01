@@ -36,8 +36,15 @@
 
       .textWrapper {
         max-width: 90%;
+        height: rem-calc(250);
+        overflow: hidden;
+
+        @include media('sm') {
+          height: rem-calc(210);
+        }
 
         @include media('md') {
+          height: rem-calc(180);
           max-width: 85%;
         }
 
@@ -56,12 +63,13 @@
         }
 
         .quoteText {
-          margin: rem-calc(30 0 30);
+          margin-top: rem-calc(30);
         }
       }
 
       .footer {
         width: 100%;
+        margin-top: rem-calc(15);
 
         .companyImg {
           width: rem-calc(40);
