@@ -11,8 +11,7 @@ import { FormControl, FormHelperText, Input } from '@material-ui/core';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import File from 'components/SvgIcons/File';
-import FormValidation from 'utils/static/FormValidation';
-import StringUtils from 'utils/static/StringUtils';
+import { validationSchemas, fileValidation, acceptedMimeTypes } from 'utils/static/FormValidation';
 
 import style from './ApplyForm.module.scss';
 
@@ -45,9 +44,6 @@ const toBase64 = (file?: File) =>
       resolve(null);
     }
   });
-
-const splitLongName = (fileName: string) =>
-  fileName.length > 60 ? StringUtils.truncStringPortion(fileName, fileName.length / 3, 12) : fileName;
 
 const ApplyForm: FC<{}> = () => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
@@ -90,7 +86,7 @@ const ApplyForm: FC<{}> = () => {
   const nameError = errors.name ? errors.name.message : '';
   const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
-  const cvError = FormValidation.file(selectedFile);
+  const cvError = selectedFile && fileValidation(selectedFile);
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
@@ -106,7 +102,7 @@ const ApplyForm: FC<{}> = () => {
           <Grid item sm={12} md={5} lg={5}>
             <Controller
               name="name"
-              rules={FormValidation.name()}
+              rules={validationSchemas.name}
               as={
                 <TextField type="name" placeholder="Name" fullWidth helperText={nameError} error={Boolean(nameError)} />
               }
@@ -123,7 +119,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(phoneError)}
                 />
               }
-              rules={FormValidation.phone()}
+              rules={validationSchemas.phone}
               control={control}
             />
           </Grid>
@@ -139,7 +135,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(emailError)}
                 />
               }
-              rules={FormValidation.email()}
+              rules={validationSchemas.email}
               control={control}
             />
             <Controller
@@ -150,7 +146,7 @@ const ApplyForm: FC<{}> = () => {
                   <Input
                     id="file-input"
                     type="file"
-                    inputProps={{ accept: FormValidation.acceptedMimeTypes }}
+                    inputProps={{ accept: acceptedMimeTypes }}
                     className={style.input}
                     style={{ display: 'none' }}
                     onChange={handleUpload}
@@ -160,14 +156,13 @@ const ApplyForm: FC<{}> = () => {
                       Upload CV / Resume
                     </Button>
                   </label>
-                  {cvError && (
+                  {cvError ? (
                     <FormHelperText id="cv-error" className={style.cvError} error>
                       {cvError}
                     </FormHelperText>
-                  )}
-                  {selectedFile && !cvError && (
+                  ) : (
                     <FormHelperText className={style.selectedFileName}>
-                      {splitLongName(selectedFile.name)}
+                      {selectedFile ? selectedFile.name : 'Maximum file size is 5MB'}
                     </FormHelperText>
                   )}
                 </FormControl>
