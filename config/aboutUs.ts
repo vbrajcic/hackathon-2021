@@ -1,11 +1,11 @@
-interface AboutUs {
+interface About {
   heading: string;
   text: string;
   image: string;
   key: string;
 }
 
-const ourHome: AboutUs[] = [
+const aboutUs: About[] = [
   {
     heading: 'Transparency and professionalism',
     text:
@@ -29,4 +29,4 @@ const ourHome: AboutUs[] = [
   },
 ];
 
-export default ourHome;
+export default aboutUs;
