@@ -5,12 +5,14 @@ import AchievementsSection from 'views/about/AchievementsSection';
 import MVPSection from 'views/about/MVPSection';
 import OurRules from 'views/about/OurRules';
 import ReferencesSection from 'views/about/ReferencesSection';
+import IntroductionSection from 'views/about/IntroductionSection';
 
 const AboutPage = () => {
   const { isMobile } = useBreakpoint();
 
   return (
     <Layout title="About us" FooterProps={{ hasGreyBackground: !isMobile }}>
+      <IntroductionSection />
       <LeadershipSection />
       <MVPSection />
       <OurRules />
