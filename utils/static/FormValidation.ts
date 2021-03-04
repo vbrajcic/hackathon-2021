@@ -1,9 +1,10 @@
 import { isPossiblePhoneNumber } from 'libphonenumber-js';
+import { RegisterOptions } from 'react-hook-form';
 
 export const acceptedMimeTypes =
   '.pdf,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
-export const validationSchemas = {
+export const validationSchemas: { [key: string]: RegisterOptions } = {
   email: {
     required: { value: true, message: 'Email is required' },
     pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid email address' },
