@@ -90,7 +90,13 @@ const ApplyForm: FC<{}> = () => {
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
-    <Paper className={style.container} classes={{ root: style.root }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper
+      id="apply-form"
+      className={style.container}
+      classes={{ root: style.root }}
+      square={isMobile}
+      elevation={Number(!isMobile)}
+    >
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2" color="inherit">
         Apply for

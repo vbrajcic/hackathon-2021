@@ -48,9 +48,9 @@ const QuoteCards: React.FC = () => {
 
     if (innerWrapperRef && innerWrapperRef.current) {
       if (value === 'right') {
-        innerWrapperRef.current.scrollLeft += isDesktop ? 796 : 736;
+        innerWrapperRef.current.scrollLeft += isDesktop ? 760 : 740;
       } else {
-        innerWrapperRef.current.scrollLeft -= isDesktop ? 796 : 736;
+        innerWrapperRef.current.scrollLeft -= isDesktop ? 760 : 740;
       }
     }
   };

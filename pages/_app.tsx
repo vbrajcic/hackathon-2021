@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import theme from 'styles/theme';
+import smoothscroll from 'smoothscroll-polyfill';
 import QueryParamProvider from 'utils/context/QueryParamContext';
 
 import { AppProps } from 'next/app';
@@ -12,6 +13,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
+    smoothscroll.polyfill();
 
     if (jssStyles && jssStyles.parentElement) {
       jssStyles.parentElement.removeChild(jssStyles);

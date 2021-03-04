@@ -1,6 +1,6 @@
 .container {
   background-color: $grey-100;
-  padding: rem-calc(169);
+  padding: rem-calc(0 5 169 5);
   padding-top: calc(#{$navTopBarHeight} + 169px);
   margin-top: -($navTopBarHeight);
 
@@ -17,7 +17,7 @@
 
   .wrapper {
     width: 100%;
-    max-width: rem-calc(800);
+    max-width: rem-calc(1000);
   }
 
   @include media(0, 'md') {

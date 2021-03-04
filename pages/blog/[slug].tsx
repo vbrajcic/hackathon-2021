@@ -41,7 +41,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, preview }) => {
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <AuthorInfo author={post.author.node} />
-              <ContactForm />
+              <Container maxWidth="xl">
+                <ContactForm />
+              </Container>
             </Container>
           </article>
         </>
