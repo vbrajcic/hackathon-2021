@@ -11,10 +11,6 @@ interface BlogPostsProps {
 }
 
 const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
-  if (!posts || !posts.length) {
-    return null;
-  }
-
   const expandCards = posts.length < 3;
 
   return (
