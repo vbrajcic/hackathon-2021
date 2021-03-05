@@ -11,6 +11,7 @@ import { FormControl, FormHelperText, Input } from '@material-ui/core';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import File from 'components/SvgIcons/File';
+import { validationSchemas, fileValidation, acceptedMimeTypes } from 'utils/static/FormValidation';
 
 import style from './ApplyForm.module.scss';
 
@@ -31,8 +32,6 @@ const defaultValues: ContactFields = {
   repo: '',
   message: '',
 };
-const acceptedMimeTypes =
-  '.pdf,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
 const toBase64 = (file?: File) =>
   new Promise<string | null | ArrayBuffer>((resolve, reject) => {
@@ -87,10 +86,17 @@ const ApplyForm: FC<{}> = () => {
   const nameError = errors.name ? errors.name.message : '';
   const phoneError = errors.phone ? errors.phone.message : '';
   const emailError = errors.email ? errors.email.message : '';
+  const cvError = selectedFile && fileValidation(selectedFile);
   const submitText = formState.isSubmitting ? 'Sending...' : 'Apply';
 
   return (
-    <Paper className={style.container} classes={{ root: style.root }} square={isMobile} elevation={Number(!isMobile)}>
+    <Paper
+      id="apply-form"
+      className={style.container}
+      classes={{ root: style.root }}
+      square={isMobile}
+      elevation={Number(!isMobile)}
+    >
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Typography variant="h2" color="inherit">
         Apply for
@@ -102,9 +108,7 @@ const ApplyForm: FC<{}> = () => {
           <Grid item sm={12} md={5} lg={5}>
             <Controller
               name="name"
-              rules={{
-                required: { value: true, message: 'Name is required' },
-              }}
+              rules={validationSchemas.name}
               as={
                 <TextField type="name" placeholder="Name" fullWidth helperText={nameError} error={Boolean(nameError)} />
               }
@@ -121,11 +125,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(phoneError)}
                 />
               }
-              rules={{
-                required: { value: true, message: 'Phone is required' },
-                minLength: 9,
-                maxLength: 13,
-              }}
+              rules={validationSchemas.phone}
               control={control}
             />
           </Grid>
@@ -141,10 +141,7 @@ const ApplyForm: FC<{}> = () => {
                   error={Boolean(emailError)}
                 />
               }
-              rules={{
-                required: { value: true, message: 'Email is required' },
-                pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid email address' },
-              }}
+              rules={validationSchemas.email}
               control={control}
             />
             <Controller
@@ -165,8 +162,14 @@ const ApplyForm: FC<{}> = () => {
                       Upload CV / Resume
                     </Button>
                   </label>
-                  {selectedFile && (
-                    <FormHelperText className={style.selectedFileName}>{selectedFile.name}</FormHelperText>
+                  {cvError ? (
+                    <FormHelperText id="cv-error" className={style.cvError} error>
+                      {cvError}
+                    </FormHelperText>
+                  ) : (
+                    <FormHelperText className={style.selectedFileName}>
+                      {selectedFile ? selectedFile.name : 'Maximum file size is 5MB'}
+                    </FormHelperText>
                   )}
                 </FormControl>
               }

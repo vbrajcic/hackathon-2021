@@ -27,10 +27,14 @@ const Navbar: React.FC = () => {
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
+    const applyForm = document.getElementById('apply-form');
 
-    if (contactForm) {
+    const form = contactForm || applyForm;
+
+    if (form) {
+      const position = form.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
       window.scrollTo({
-        top: contactForm.offsetTop - 64,
+        top: position - 90,
         behavior: 'smooth',
       });
 

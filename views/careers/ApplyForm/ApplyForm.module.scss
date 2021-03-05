@@ -31,8 +31,25 @@
         border-radius: rem-calc(20);
       }
 
+      .input {
+        color: red;
+      }
+
       .selectedFileName {
         color: $grey-200;
+        margin-top: rem-calc(10);
+      }
+
+      .cvError {
+        margin-top: rem-calc(10);
+      }
+
+      textarea,
+      input {
+        color: $white;
+        &::placeholder {
+          color: rgb(198, 201, 204);
+        }
       }
 
       .submitButton {

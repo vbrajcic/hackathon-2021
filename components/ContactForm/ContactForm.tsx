@@ -88,6 +88,7 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
                   fullWidth
                   helperText={emailError}
                   error={Boolean(emailError)}
+                  className={style.input}
                 />
               }
               rules={{
@@ -98,7 +99,15 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
             />
             <Controller
               name="message"
-              as={<TextField placeholder="Tell us more about your project" fullWidth multiline rowsMax={3} />}
+              as={
+                <TextField
+                  placeholder="Tell us more about your project"
+                  fullWidth
+                  multiline
+                  rowsMax={3}
+                  className={style.input}
+                />
+              }
               control={control}
             />
             <Button type="submit" disabled={formState.isSubmitting}>
@@ -117,7 +126,7 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
             Split+Zagreb, Croatia
             <br />
             {isMobile ? <Link href="tel:+385 91 322 1274">+385 91 322 1274</Link> : '+385 91 322 1274'}
-            <Link display="block" href="mailto:info@profico.hr">
+            <Link display="block" href="mailto:info@profico.hr" className={style.email}>
               info@profico.hr
             </Link>
           </ContactDetail>
