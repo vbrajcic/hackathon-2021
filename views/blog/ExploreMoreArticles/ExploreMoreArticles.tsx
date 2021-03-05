@@ -2,21 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Container, Grid, IconButton, Typography, useTheme } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
-import { Edges } from 'types/common';
 import Post from 'types/posts/post';
+import Teaser from 'components/Teaser';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import { useWindowSize } from 'react-use';
+import { Edges } from 'types/common';
 import styles from './ExploreMoreArticles.module.scss';
-import ArticleCard from './ArticleCard';
 
 interface ExploreMoreArticlesProps {
   posts: Edges<Post>;
 }
 
 const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
-  const ourPosts = posts.edges.map(({ node }) => node);
-  const newPosts = [...ourPosts, ...ourPosts];
   const innerWrapperRef = useRef<HTMLDivElement | null>(null);
   const { width: clientWidth } = useWindowSize();
 
@@ -35,7 +32,7 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
      * QuoteCards > .scrollBtnWrapper > width: 160px
      * ReferencesSection > Container > margin-left: (clientWidth - xl) / 2
      */
-    let width = clientWidth - 610;
+    let width = window.innerWidth === 1024 ? 1000 : clientWidth - 560;
 
     if (clientWidth > xl) {
       width -= (clientWidth - xl) / 2;
@@ -63,7 +60,7 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
       <Grid className={styles.exploreMore}>
         <Typography variant="h2" className={styles.title}>
           {' '}
-          Explore more articles{' '}
+          Explore more <br /> articles
         </Typography>
         <Typography variant="body2" className={styles.text}>
           We shape our core capabilities around lean product teams capable of delivering immense value to organisations
@@ -84,8 +81,16 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
           style={{ width: isDesktop ? innerWrapperWidth : '100%' }}
           ref={innerWrapperRef}
         >
-          {newPosts.map(post => (
-            <ArticleCard key={post.slug} post={post} />
+          {posts.edges.map(({ node }) => (
+            <Grid className={styles.teaser}>
+              <Teaser
+                key={node.slug}
+                title={node.title}
+                coverImage={node.featuredImage?.node}
+                url={`/blog/${node.slug}`}
+                excerpt={node.excerpt}
+              />
+            </Grid>
           ))}
         </Grid>
       </Grid>

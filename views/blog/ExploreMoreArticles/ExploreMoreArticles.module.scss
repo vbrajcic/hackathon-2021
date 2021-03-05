@@ -1,17 +1,17 @@
 @import 'styles/mixins/flex';
+@import 'styles/mixins/ellipsis';
 
 .root {
   &.container {
     position: relative;
     height: rem-calc(650);
-    padding-left: rem-calc(120);
-    margin-bottom: 5rem;
+    margin-bottom: 15rem;
     @include flex(row);
 
     &::before {
       content: '';
       position: absolute;
-      top: 375px;
+      top: rem-calc(375);
       left: 0;
       height: 100%;
       width: 100%;
@@ -19,19 +19,20 @@
       z-index: -1;
     }
 
-    @include media('sm', 'md') {
+    @include media(0, 'sm') {
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
       margin-bottom: 10rem;
     }
 
-    @include media(0, 'md') {
+    @include media(0, 'lg') {
       padding-left: rem-calc(20);
       padding-right: rem-calc(20);
       @include flex(column);
     }
 
-    @include media(0, 'xs') {
-      padding-left: rem-calc(10);
-      padding-right: rem-calc(10);
+    @include media('lg') {
+      padding-left: rem-calc(120);
     }
 
     .scrollBtnWrapper {
@@ -71,13 +72,18 @@
       padding-right: rem-calc(100);
       margin-right: 2rem;
 
-      @include media(0, 'sm') {
+      @include media(0, 'lg') {
         padding: 0;
         margin: 0;
         padding-bottom: 2rem;
       }
 
+      @include media(0, 'sm') {
+        padding-bottom: 3.5rem;
+      }
+
       .text {
+        width: rem-calc(320);
         padding-top: rem-calc(44);
       }
     }
@@ -87,13 +93,75 @@
       white-space: nowrap;
 
       .innerCardsWrapper {
-        // width: rem-calc(800);
-        position: absolute;
         overflow-x: scroll;
         scroll-behavior: smooth;
+        margin-left: -5rem;
+        position: absolute;
+
+        @include media(0, 'md') {
+          margin-left: -0.5rem;
+        }
+
+        @include media('md', 'lg') {
+          margin-left: -2rem;
+        }
 
         &::-webkit-scrollbar {
           display: none;
+        }
+
+        .teaser {
+          width: rem-calc(400);
+          height: rem-calc(513);
+          box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.06);
+          white-space: normal;
+          display: inline-block;
+          margin: 2rem 0;
+          margin-right: 2.5rem;
+          overflow: hidden;
+
+          h4 {
+            @include ml-ellipsis(2, 20, 1.2);
+          }
+
+          &:first-of-type {
+            margin-left: 2.5rem;
+          }
+
+          @include media('lg') {
+            &:last-of-type {
+              margin-right: 5rem;
+            }
+          }
+
+          @include media('xl') {
+            &:last-of-type {
+              margin-right: 10rem;
+            }
+          }
+
+          @include media('sm', 'md') {
+            width: rem-calc(330);
+            margin-right: 1.5rem;
+          }
+
+          @include media(0, 'sm') {
+            width: rem-calc(300);
+            margin-right: 2rem;
+            margin-top: 0;
+
+            &:first-of-type {
+              margin-left: 0;
+            }
+
+            &:last-of-type {
+              margin-right: 2rem;
+            }
+          }
+
+          @include media(0, 'xs') {
+            margin-right: 1.5rem;
+          }
         }
       }
     }
