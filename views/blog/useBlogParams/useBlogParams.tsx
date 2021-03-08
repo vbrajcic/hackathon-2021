@@ -67,10 +67,10 @@ const useBlogParams = (allPosts: Edges<Post>) => {
   });
 
   const handleCategoryChange = (category: PostCategory) => {
-    setParams({ category, page: null });
+    setParams({ category, page: undefined });
   };
 
-  const handlePageChange = (newPage: number) => setParams({ page: newPage === 1 ? null : newPage });
+  const handlePageChange = (newPage: number) => setParams({ page: newPage === 1 ? undefined : newPage });
 
   return {
     filteredPosts,
