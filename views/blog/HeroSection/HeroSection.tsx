@@ -16,6 +16,12 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ filteredPosts, activeCategory, onCategoryChange }) => {
   const handleCategoryChange = React.useCallback(
     (_: React.ChangeEvent<{}>, newValue: PostCategory) => {
+      const readAboutUsSection = document.getElementById('readAboutUs');
+
+      if (readAboutUsSection) {
+        readAboutUsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
       onCategoryChange(newValue);
     },
     [onCategoryChange]

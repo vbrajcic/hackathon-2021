@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Container from '@material-ui/core/Container';
 import useFactory from 'utils/hooks/useFactory';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
@@ -27,8 +27,6 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
   page,
   onPageChange,
 }) => {
-  const readAboutUsSectionRef = useRef<HTMLDivElement | null>(null);
-
   const { isMobile } = useBreakpoint();
 
   const featuredPost = useFactory(() => {
@@ -48,21 +46,17 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
   });
 
   const handlePageChange = (value: number) => {
-    if (readAboutUsSectionRef.current) {
-      readAboutUsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    const readAboutUsSection = document.getElementById('readAboutUs');
+
+    if (readAboutUsSection) {
+      readAboutUsSection.scrollIntoView({ behavior: 'smooth' });
     }
 
     onPageChange(value);
   };
 
   return (
-    <Container
-      maxWidth="xl"
-      component="section"
-      className={styles.container}
-      disableGutters
-      ref={readAboutUsSectionRef}
-    >
+    <Container maxWidth="xl" component="section" className={styles.container} disableGutters id="readAboutUs">
       {featuredPost && (
         <Grid className={styles.teaser}>
           <Teaser
