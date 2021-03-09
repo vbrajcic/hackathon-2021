@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from '@material-ui/core/Container';
 import useFactory from 'utils/hooks/useFactory';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import Teaser from 'components/Teaser';
 
+import { useUpdateEffect } from 'react-use';
 import { Grid } from '@material-ui/core';
 import { FilteredPosts, PostCategory } from 'views/blog/useBlogParams';
 
@@ -27,7 +28,15 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
   page,
   onPageChange,
 }) => {
+  const readAboutUsSectionRef = useRef<HTMLDivElement | null>(null);
+
   const { isMobile } = useBreakpoint();
+
+  useUpdateEffect(() => {
+    if (readAboutUsSectionRef.current) {
+      readAboutUsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [activeCategory, page]);
 
   const featuredPost = useFactory(() => {
     if (activeCategory === 'allPosts' && page === 1 && filteredPosts.allPosts[0]) {
@@ -45,18 +54,14 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
     return filteredPosts[activeCategory].slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   });
 
-  const handlePageChange = (value: number) => {
-    const readAboutUsSection = document.getElementById('readAboutUs');
-
-    if (readAboutUsSection) {
-      readAboutUsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    onPageChange(value);
-  };
-
   return (
-    <Container maxWidth="xl" component="section" className={styles.container} disableGutters id="readAboutUs">
+    <Container
+      maxWidth="xl"
+      component="section"
+      className={styles.container}
+      disableGutters
+      ref={readAboutUsSectionRef}
+    >
       {featuredPost && (
         <Grid className={styles.teaser}>
           <Teaser
@@ -72,7 +77,7 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
       <Pagination
         count={Math.ceil(filteredPosts[activeCategory].length / PAGE_SIZE)}
         page={page}
-        onChange={handlePageChange}
+        onChange={onPageChange}
       />
     </Container>
   );
