@@ -1,28 +1,44 @@
 @import 'styles/mixins/flex';
 @import 'styles/mixins/ellipsis';
 
-.root {
-  &.container {
+.container {
+  position: relative;
+  height: rem-calc(650);
+  margin-top: rem-calc(200);
+  margin-bottom: rem-calc(100);
+
+  @include media(0, 'md') {
+    margin-top: rem-calc(80);
+    margin-bottom: rem-calc(170);
+  }
+
+  @include media('md', 'lg') {
+    margin-top: rem-calc(100);
+    margin-bottom: rem-calc(250);
+  }
+
+  .backgroundWrapper {
+    position: absolute;
+    top: rem-calc(400);
+    left: 0;
+    height: rem-calc(515);
+    width: 100%;
+    background-color: $grey-100;
+    z-index: -1;
+
+    @include media(0, 1424px) {
+      top: rem-calc(400);
+    }
+  }
+
+  .root {
     position: relative;
     height: rem-calc(650);
-    margin-bottom: 15rem;
     @include flex(row);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: rem-calc(375);
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: $grey-100;
-      z-index: -1;
-    }
 
     @include media(0, 'sm') {
       padding-left: rem-calc(10);
       padding-right: rem-calc(10);
-      margin-bottom: 10rem;
     }
 
     @include media(0, 'lg') {
@@ -68,42 +84,39 @@
     }
 
     .exploreMore {
-      flex: 1;
-      padding-right: rem-calc(100);
-      margin-right: 2rem;
+      width: rem-calc(400);
 
       @include media(0, 'lg') {
-        padding: 0;
         margin: 0;
-        padding-bottom: 2rem;
-      }
-
-      @include media(0, 'sm') {
-        padding-bottom: 3.5rem;
+        padding-right: rem-calc(0 16 0 0);
       }
 
       .text {
-        width: rem-calc(320);
+        width: rem-calc(280);
         padding-top: rem-calc(44);
+
+        @include media('md') {
+          width: rem-calc(340);
+        }
+
+        @include media('lg') {
+          width: rem-calc(310);
+        }
       }
     }
 
     .cardsWrapper {
-      flex: 2;
       white-space: nowrap;
 
       .innerCardsWrapper {
         overflow-x: scroll;
         scroll-behavior: smooth;
-        margin-left: -5rem;
         position: absolute;
+        padding: rem-calc(0 0 100 40);
 
-        @include media(0, 'md') {
-          margin-left: -0.5rem;
-        }
-
-        @include media('md', 'lg') {
-          margin-left: -2rem;
+        @include media(0, 'lg') {
+          padding: rem-calc(40 0 100 20);
+          margin-left: rem-calc(-20);
         }
 
         &::-webkit-scrollbar {
@@ -116,51 +129,26 @@
           box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.06);
           white-space: normal;
           display: inline-block;
-          margin: 2rem 0;
-          margin-right: 2.5rem;
+          margin-right: rem-calc(40);
           overflow: hidden;
 
           h4 {
             @include ml-ellipsis(2, 20, 1.2);
           }
 
-          &:first-of-type {
-            margin-left: 2.5rem;
-          }
-
-          @include media('lg') {
-            &:last-of-type {
-              margin-right: 5rem;
-            }
-          }
-
-          @include media('xl') {
-            &:last-of-type {
-              margin-right: 10rem;
-            }
-          }
-
           @include media('sm', 'md') {
             width: rem-calc(330);
-            margin-right: 1.5rem;
+            margin-right: rem-calc(24);
           }
 
           @include media(0, 'sm') {
             width: rem-calc(300);
-            margin-right: 2rem;
+            margin-right: rem-calc(32);
             margin-top: 0;
-
-            &:first-of-type {
-              margin-left: 0;
-            }
-
-            &:last-of-type {
-              margin-right: 2rem;
-            }
           }
 
           @include media(0, 'xs') {
-            margin-right: 1.5rem;
+            margin-right: rem-calc(24);
           }
         }
       }

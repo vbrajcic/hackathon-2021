@@ -5,15 +5,16 @@ import Container from '@material-ui/core/Container';
 import PostBody from 'components/PostBody';
 import PostHeader from 'components/PostHeader';
 import Layout from 'components/Layout';
-import ContactForm from 'components/ContactForm';
 import PostTitle from 'components/PostTitle';
 import AuthorInfo from 'views/blog/AuthorInfo';
+import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
+import BlogPostContactForm from 'views/blog/BlogPostContactForm';
 
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
-import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
   preview: boolean;
@@ -22,12 +23,14 @@ type BlogPostProps = GetPostAndMorePostsResult & {
 const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   const router = useRouter();
 
+  const { isMobile } = useBreakpoint();
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview} theme="dark" title={post?.title}>
+    <Layout preview={preview} theme="dark" title={post?.title} FooterProps={{ hasGreyBackground: !isMobile }}>
       {router.isFallback ? (
         <Container maxWidth="xl" disableGutters>
           <PostTitle title="Loading…" />
@@ -42,11 +45,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <AuthorInfo author={post.author.node} />
-              <ExploreMoreArticles posts={posts} />
-              <Container maxWidth="xl">
-                <ContactForm />
-              </Container>
             </Container>
+            <ExploreMoreArticles posts={posts} />
+            <BlogPostContactForm />
           </article>
         </>
       )}
@@ -71,7 +72,7 @@ export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
     };
   }
 
-  const data = await getPostAndMorePosts(params.slug, preview, previewData);
+  const data = await getPostAndMorePosts(params.slug, preview, previewData, true);
 
   return {
     props: {
