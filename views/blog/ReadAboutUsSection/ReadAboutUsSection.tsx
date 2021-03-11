@@ -36,7 +36,7 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
     if (readAboutUsSectionRef.current) {
       readAboutUsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [activeCategory, page]);
+  }, [page]);
 
   const featuredPost = useFactory(() => {
     if (activeCategory === 'allPosts' && page === 1 && filteredPosts.allPosts[0]) {
