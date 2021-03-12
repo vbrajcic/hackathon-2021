@@ -62,37 +62,36 @@ export type GetPostAndMorePostsResult = {
   posts: Edges<Post>;
 };
 
-export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => {
-  const getRevisionsQuery = () => {
-    // Only some of the fields of a revision are considered as there are some inconsistencies
-    if (isRevision) {
-      return `
-        ${REVISION_POST_FIELDS_FRAGMENT}
+const getRevisionsQuery = (isRevision: boolean) => {
+  // Only some of the fields of a revision are considered as there are some inconsistencies
+  if (isRevision) {
+    return `
+      ${REVISION_POST_FIELDS_FRAGMENT}
 
-        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
-          edges {
-            node {
-              ...RevisionPostFields
-            }
+      revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
+        edges {
+          node {
+            ...RevisionPostFields
           }
         }
-      `;
-    }
+      }
+    `;
+  }
 
-    return '';
-  };
+  return '';
+};
 
-  return `
+export const GET_CAREER_POST_AND_MORE_POSTS = (isRevision: boolean) => `
     ${REGULAR_POST_FIELDS_FRAGMENT}
   
     query PostBySlug($id: ID!, $idType: PostIdType!) {
       post(id: $id, idType: $idType) {
         ...RegularPostFields
         content
-        ${getRevisionsQuery()}
+        ${getRevisionsQuery(isRevision)}
       }
   
-      posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: 3, where: { orderby: { field: DATE, order: DESC }, categoryIn: "${CAREERS_CATEGORY_ID}" }) {
         edges {
           node {
             ...RegularPostFields
@@ -100,4 +99,22 @@ export const GET_POST_AND_MORE_POSTS = (isRevision: boolean) => {
         }
       }
     }`;
-};
+
+export const GET_BLOG_POST_AND_MORE_POSTS = (isRevision: boolean) => `
+    ${REGULAR_POST_FIELDS_FRAGMENT}
+  
+    query PostBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        ...RegularPostFields
+        content
+        ${getRevisionsQuery(isRevision)}
+      }
+  
+      posts(first: 10, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: [${CAREERS_CATEGORY_ID}] }) {
+        edges {
+          node {
+            ...RegularPostFields
+          }
+        }
+      }
+    }`;

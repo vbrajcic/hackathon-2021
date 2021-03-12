@@ -6,11 +6,12 @@ import {
   GET_ALL_POSTS_WITH_SLUG,
   GET_ALL_CAREER_POSTS,
   GET_ALL_BLOG_POSTS,
-  GET_POST_AND_MORE_POSTS,
   GetPostAndMorePostsResult,
   GetAllPostsWithSlugResult,
   GetAllCategoryPostsResult,
   GetPreviewPostResult,
+  GET_BLOG_POST_AND_MORE_POSTS,
+  GET_CAREER_POST_AND_MORE_POSTS,
 } from './queries';
 
 export async function getPreviewPost(id: string | string[], idType = 'DATABASE_ID') {
@@ -49,7 +50,7 @@ export async function getAllBlogPosts(preview: boolean) {
   return data.posts;
 }
 
-export async function getPostAndMorePosts(slug: string, preview: boolean, previewData?: Preview) {
+export async function getPostAndMorePosts(slug: string, preview: boolean, previewData?: Preview, isBlog?: boolean) {
   const postPreview = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
@@ -57,12 +58,15 @@ export async function getPostAndMorePosts(slug: string, preview: boolean, previe
   const isDraft = Boolean(isSamePost && postPreview && postPreview.status === 'draft');
   const isRevision = Boolean(isSamePost && postPreview && postPreview.status === 'publish');
 
-  const data = await fetchAPI<GetPostAndMorePostsResult>(GET_POST_AND_MORE_POSTS(isRevision), {
-    variables: {
-      id: isDraft && postPreview ? postPreview.id : slug,
-      idType: isDraft ? 'DATABASE_ID' : 'SLUG',
-    },
-  });
+  const data = await fetchAPI<GetPostAndMorePostsResult>(
+    isBlog ? GET_BLOG_POST_AND_MORE_POSTS(isRevision) : GET_CAREER_POST_AND_MORE_POSTS(isRevision),
+    {
+      variables: {
+        id: isDraft && postPreview ? postPreview.id : slug,
+        idType: isDraft ? 'DATABASE_ID' : 'SLUG',
+      },
+    }
+  );
 
   // Draft posts may not have an slug
   if (isDraft && postPreview) {
@@ -83,7 +87,7 @@ export async function getPostAndMorePosts(slug: string, preview: boolean, previe
   // Filter out the main post
   data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug);
   // If there are still 3 posts, remove the last one
-  if (data.posts.edges.length > 2) {
+  if (!isBlog && data.posts.edges.length > 2) {
     data.posts.edges.pop();
   }
 
