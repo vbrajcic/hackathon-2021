@@ -5,18 +5,17 @@ import StringUtils from 'utils/static/StringUtils';
 import { Tab, Tabs, Container } from '@material-ui/core';
 
 import styles from './HeroSection.module.scss';
-
-export type PostCategoryFilter = 'ALL_POSTS' | 'COMPANY' | 'DESIGN' | 'DEVELOPMENT' | 'TECHNOLOGY';
-const allCategories: PostCategoryFilter[] = ['ALL_POSTS', 'COMPANY', 'DESIGN', 'DEVELOPMENT', 'TECHNOLOGY'];
+import { FilteredPosts, PostCategory } from '../useBlogParams';
 
 interface HeroSectionProps {
-  activeCategory: PostCategoryFilter;
-  onCategoryChange: (category: PostCategoryFilter) => void;
+  filteredPosts: FilteredPosts;
+  activeCategory: PostCategory;
+  onCategoryChange: (category: PostCategory) => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ activeCategory, onCategoryChange }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ filteredPosts, activeCategory, onCategoryChange }) => {
   const handleCategoryChange = React.useCallback(
-    (_: React.ChangeEvent<{}>, newValue: PostCategoryFilter) => {
+    (_: React.ChangeEvent<{}>, newValue: PostCategory) => {
       onCategoryChange(newValue);
     },
     [onCategoryChange]
@@ -34,8 +33,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ activeCategory, onCategoryCha
         className={styles.tabs}
         variant="scrollable"
       >
-        {allCategories.map(category => {
-          const label = StringUtils.capitalise(StringUtils.snakeCaseToSentenceCase(category).toLowerCase());
+        {Object.entries(filteredPosts).map(([category, posts]) => {
+          if (posts.length === 0) {
+            return null;
+          }
+
+          const label = StringUtils.capitalise(StringUtils.camelCaseToSentenceCase(category).toLowerCase());
 
           return (
             <Tab

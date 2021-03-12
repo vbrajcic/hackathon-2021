@@ -2,16 +2,21 @@
   &.container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(rem-calc(400), rem-calc(400)));
     justify-content: space-between;
     margin-bottom: rem-calc(60);
 
-    @include media(0, 'sm') {
+    @include media(0, 'md') {
       flex-direction: column;
     }
 
-    @include media('md') {
+    @include media('md', 'lg') {
+      grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(400)));
+    }
+
+    @include media('lg') {
       grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
+      padding-left: rem-calc(60);
+      padding-right: rem-calc(60);
     }
 
     .teaser {
@@ -27,7 +32,7 @@
         margin-right: 0;
       }
 
-      @include media(0, 'sm') {
+      @include media(0, 'md') {
         margin: rem-calc(10 0);
 
         :first-of-type {

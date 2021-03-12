@@ -1,68 +1,67 @@
-import React, { useMemo, useState } from 'react';
+import React, { useRef } from 'react';
 import Container from '@material-ui/core/Container';
+import useFactory from 'utils/hooks/useFactory';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
 import Teaser from 'components/Teaser';
-import StringUtils from 'utils/static/StringUtils';
-import Post from 'types/posts/post';
 
+import { useUpdateEffect } from 'react-use';
 import { Grid } from '@material-ui/core';
-import { useBlogPosts } from 'utils/context/BlogPostsContext';
-import { Node } from 'types/common';
+import { FilteredPosts, PostCategory } from 'views/blog/useBlogParams';
 
 import BlogPosts from './BlogPosts';
 import Pagination from './Pagination';
 
-import { PostCategoryFilter } from '../HeroSection';
-
 import styles from './ReadAboutUsSection.module.scss';
 
 interface ReadAboutUsSectionProps {
-  activeCategory: PostCategoryFilter;
+  activeCategory: PostCategory;
+  filteredPosts: FilteredPosts;
+  page: number;
+  onPageChange: (newValue: number) => void;
 }
-
-const filterPostsByCategory = (category: PostCategoryFilter, posts: Node<Post>[]): Post[] => {
-  const name = StringUtils.capitalise(StringUtils.snakeCaseToSentenceCase(category).toLowerCase());
-
-  return posts
-    .filter(({ node: { tags } }) => {
-      const tagNames = tags ? tags.edges.map(({ node }) => node.name) : [];
-
-      return tagNames.includes(name);
-    })
-    .map(({ node }) => node);
-};
 
 const PAGE_SIZE = 6;
 
-const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({ activeCategory }) => {
-  const [page, setPage] = useState<number>(1);
-  const {
-    posts: { edges: posts },
-  } = useBlogPosts();
+const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
+  activeCategory,
+  filteredPosts,
+  page,
+  onPageChange,
+}) => {
+  const readAboutUsSectionRef = useRef<HTMLDivElement | null>(null);
 
-  const filteredPosts = useMemo(() => {
-    setPage(1);
+  const { isMobile } = useBreakpoint();
 
-    if (activeCategory === 'ALL_POSTS') {
-      return posts.map(({ node }) => node);
+  useUpdateEffect(() => {
+    if (readAboutUsSectionRef.current) {
+      readAboutUsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [page]);
+
+  const featuredPost = useFactory(() => {
+    if (activeCategory === 'allPosts' && page === 1 && filteredPosts.allPosts[0]) {
+      return filteredPosts.allPosts[0];
     }
 
-    return filterPostsByCategory(activeCategory, posts);
-  }, [activeCategory, posts]);
+    return undefined;
+  });
 
-  const { featuredPost, restOfPosts } = useMemo(
-    () => ({
-      featuredPost: page === 1 && filteredPosts[0] ? filteredPosts[0] : undefined,
-      restOfPosts: filteredPosts.slice((page - 1) * PAGE_SIZE + 1, page * PAGE_SIZE + 1),
-    }),
-    [page, filteredPosts]
-  );
+  const posts = useFactory(() => {
+    if (activeCategory === 'allPosts') {
+      return filteredPosts[activeCategory].slice((page - 1) * PAGE_SIZE + 1, page * PAGE_SIZE + 1);
+    }
 
-  const handlePaginationChange = (value: number) => {
-    setPage(value);
-  };
+    return filteredPosts[activeCategory].slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  });
 
   return (
-    <Container maxWidth="xl" component="section" className={styles.container} disableGutters>
+    <Container
+      maxWidth="xl"
+      component="section"
+      className={styles.container}
+      disableGutters
+      ref={readAboutUsSectionRef}
+    >
       {featuredPost && (
         <Grid className={styles.teaser}>
           <Teaser
@@ -70,12 +69,16 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({ activeCategory 
             excerpt={featuredPost.excerpt}
             coverImage={featuredPost.featuredImage?.node}
             url={`/blog/${featuredPost.slug}`}
-            direction="row"
+            direction={isMobile ? 'column' : 'row'}
           />
         </Grid>
       )}
-      <BlogPosts posts={restOfPosts} />
-      <Pagination count={Math.ceil(filteredPosts.length / PAGE_SIZE)} page={page} onChange={handlePaginationChange} />
+      <BlogPosts posts={posts} />
+      <Pagination
+        count={Math.ceil(filteredPosts[activeCategory].length / PAGE_SIZE)}
+        page={page}
+        onChange={onPageChange}
+      />
     </Container>
   );
 };

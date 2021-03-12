@@ -1,31 +1,34 @@
 .container {
-  @include media('lg') {
-    padding-left: rem-calc(60);
-  }
-
   .intro {
     max-width: rem-calc(700);
     width: 100%;
-    margin: rem-calc(104 0 94 0);
+    margin: rem-calc(34 0 54 0);
     padding: 0;
 
-    @include media(0, 'lg') {
+    @include media('md', 'lg') {
+      max-width: rem-calc(550);
       margin: rem-calc(74 0 64 0);
     }
 
-    @include media(0, 'md') {
-      margin: rem-calc(34 0 54 0);
+    @include media('lg') {
+      margin: rem-calc(104 0 94 60);
     }
   }
 
   .tabs {
-    margin-left: rem-calc(-16);
+    @include media('lg') {
+      margin-left: rem-calc(60);
+    }
 
     .tab {
       min-width: 0;
       padding: rem-calc(4 0);
       margin: rem-calc(0 18);
       color: $grey-600;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
 
       &.selected {
         color: $text-primary;
