@@ -5,6 +5,10 @@
     margin-bottom: rem-calc(32);
     padding-bottom: rem-calc(48);
 
+    @include media(1400px) {
+      flex-basis: 22.5%;
+    }
+
     @include media(0, 1400px) {
       width: 48%;
       min-height: rem-calc(400);
