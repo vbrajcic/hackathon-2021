@@ -11,11 +11,11 @@ const IntroductionSection: FC = () => (
   <Container className={styles.container} component="section" maxWidth="xl" classes={{ root: styles.root }}>
     <Grid className={styles.textWrapper}>
       <Typography variant="h1" className={styles.introText} color="textPrimary">
-        European agency <br /> with a global impact
+        {`European agency\nwith a global impact`}
       </Typography>
       <Typography variant="body2" color="textSecondary" className={styles.descriptionText}>
-        Profico is a progressive full service agency, that focuses <br /> on building successful and award-winning
-        webistes <br /> and mobile apps.
+        Profico is a progressive full service agency, that focuses on building successful and award-winning websites and
+        mobile apps.
       </Typography>
     </Grid>
     <Grid className={styles.imageWrapper}>
