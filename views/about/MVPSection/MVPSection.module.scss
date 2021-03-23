@@ -25,7 +25,6 @@
       }
 
       @include media('md', 'lg') {
-        padding-left: rem-calc(24);
         padding-right: rem-calc(24);
         margin-bottom: rem-calc(87);
       }

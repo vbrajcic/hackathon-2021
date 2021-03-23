@@ -14,11 +14,11 @@
     height: 100%;
     width: 50%;
 
-    @include media('md') {
+    @include media('lg') {
       width: 25%;
     }
 
-    @include media('lg') {
+    @include media(1400px) {
       width: 20%;
     }
   }
