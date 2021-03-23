@@ -119,6 +119,8 @@
           margin-left: rem-calc(-20);
         }
 
+        -ms-overflow-style: none;
+        scrollbar-width: none;
         &::-webkit-scrollbar {
           display: none;
         }
