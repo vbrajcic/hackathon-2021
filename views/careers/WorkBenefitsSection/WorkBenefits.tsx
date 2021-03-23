@@ -22,10 +22,12 @@ const WorkBenefits: FC = () => (
         suppliers to partners and beyond.
       </Typography>
     </Grid>
-    <Grid className={styles.cardsContainer}>
-      {workingBenefits.map(({ name, description, icon, image }) => (
-        <PerkCard key={name} {...{ name, description, icon, image }} />
-      ))}
+    <Grid container justify="flex-end" className={styles.cardsOuterContainer}>
+      <Grid item className={styles.cardsContainer}>
+        {workingBenefits.map(({ name, description, icon, image }) => (
+          <PerkCard key={name} {...{ name, description, icon, image }} />
+        ))}
+      </Grid>
     </Grid>
   </Container>
 );

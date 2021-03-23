@@ -56,7 +56,7 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
 
   return (
     <Container
-      maxWidth="xl"
+      maxWidth={false}
       component="section"
       className={styles.container}
       disableGutters

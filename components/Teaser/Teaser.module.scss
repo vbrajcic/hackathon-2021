@@ -2,6 +2,8 @@
 @import 'styles/mixins/flex';
 
 .root {
+  max-width: rem-calc(1320);
+
   &.container {
     height: 100%;
   }
