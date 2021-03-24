@@ -21,8 +21,8 @@ const CareersPage: React.FC<CareersPageProps> = ({ posts, preview }) => (
   <Layout preview={preview} title="Careers">
     <HeroSection numberOfOpenPositions={posts.edges.length} />
     <WhoWeAreSection />
-    <WorkBenefitsSection />
     <OpenPositions positions={posts.edges} />
+    <WorkBenefitsSection />
     <Container maxWidth="xl">
       <ContactForm />
     </Container>
