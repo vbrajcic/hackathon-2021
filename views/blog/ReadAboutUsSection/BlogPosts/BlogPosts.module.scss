@@ -9,14 +9,17 @@
       flex-direction: column;
     }
 
-    @include media('md', 'lg') {
-      grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(400)));
+    @include media('md', 1250px) {
+      grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(500)));
     }
 
     @include media('lg') {
-      grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
       padding-left: rem-calc(60);
       padding-right: rem-calc(60);
+    }
+
+    @include media(1250px) {
+      grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
     }
 
     .teaser {
