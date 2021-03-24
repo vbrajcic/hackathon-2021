@@ -1,5 +1,6 @@
 @import 'styles/utils/rem-calc';
 @import 'styles/mixins/flex';
+@import 'styles/globals/animations';
 
 .root {
   @include media('md') {
@@ -53,6 +54,9 @@
 
       .button {
         margin-top: rem-calc(96);
+        box-shadow: $box-shadow__button;
+        animation: pulse 1.25s infinite;
+
         @include media('sm', 'md') {
           margin-top: 2rem;
         }
