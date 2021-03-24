@@ -25,36 +25,36 @@
         margin-bottom: rem-calc(55);
       }
     }
-    .cardsOuterContainer {
-      max-width: rem-calc(1320);
 
-      .cardsContainer {
-        display: grid;
-        max-width: 80%;
+    .cardsContainer {
+      display: grid;
+      max-width: 80%;
+      width: 100%;
+      margin-left: auto;
+      grid-column-gap: 2.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      @include media(0, 800px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+
+      @include media(0, 'lg') {
+        max-width: rem-calc(800);
+      }
+
+      @include media('lg') {
+        margin-left: rem-calc(300);
+        max-width: rem-calc(900);
+        width: 100%;
+      }
+
+      @include media('xl') {
+        grid-column-gap: 6rem;
+        margin-left: rem-calc(320);
+      }
+
+      @include media('lg', 1360px) {
         margin-left: auto;
-        grid-column-gap: 2.5rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        @include media(0, 800px) {
-          grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-
-        @include media(0, 'lg') {
-          max-width: rem-calc(800);
-        }
-
-        @include media('lg') {
-          margin-left: rem-calc(300);
-        }
-
-        @include media('xl') {
-          grid-column-gap: 6rem;
-          margin-left: rem-calc(320);
-        }
-
-        @include media('lg', 1360px) {
-          margin-left: auto;
-        }
       }
     }
   }

@@ -3,7 +3,7 @@
 
 .root {
   &.container {
-    max-width: rem-calc(1320);
+    max-width: $max-grid-width;
     width: 100%;
     border-radius: rem-calc(30);
     box-shadow: 0 2px 8px 0 rgba(63, 62, 74, 0.05), 0 12px 33px 0 rgba(63, 62, 74, 0.07);
