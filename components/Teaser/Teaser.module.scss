@@ -2,6 +2,8 @@
 @import 'styles/mixins/flex';
 
 .root {
+  max-width: $max-grid-width;
+
   &.container {
     height: 100%;
   }

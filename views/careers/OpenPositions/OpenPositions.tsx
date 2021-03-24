@@ -31,7 +31,7 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
           Let’s create something great together
         </Typography>
       </Grid>
-      <Grid container>
+      <Grid container direction="column">
         <Typography variant="h4" className={styles.subtitle}>
           Open positions
           <b>{` (${positionsCount})`}</b>

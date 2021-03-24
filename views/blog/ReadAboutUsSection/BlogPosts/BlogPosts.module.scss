@@ -1,45 +1,48 @@
 .root {
   &.container {
-    width: 100%;
-    display: grid;
-    justify-content: space-between;
     margin-bottom: rem-calc(60);
-
-    @include media(0, 'md') {
-      flex-direction: column;
-    }
-
-    @include media('md', 1250px) {
-      grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(500)));
-    }
 
     @include media('lg') {
       padding-left: rem-calc(60);
-      padding-right: rem-calc(60);
     }
 
-    @include media(1250px) {
-      grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
-    }
-
-    .teaser {
-      flex: 1;
-      margin: rem-calc(20 8);
-      padding: 0;
-
-      &:first-of-type {
-        margin-left: 0;
-      }
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+    .content {
+      width: 100%;
+      display: grid;
+      justify-content: space-between;
+      max-width: $max-grid-width;
 
       @include media(0, 'md') {
-        margin: rem-calc(10 0);
+        flex-direction: column;
+      }
 
-        :first-of-type {
-          border-radius: 0;
+      @include media('md', 1250px) {
+        grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(500)));
+      }
+
+      @include media(1250px) {
+        grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
+      }
+
+      .teaser {
+        flex: 1;
+        margin: rem-calc(20 8);
+        padding: 0;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        @include media(0, 'md') {
+          margin: rem-calc(10 0);
+
+          :first-of-type {
+            border-radius: 0;
+          }
         }
       }
     }

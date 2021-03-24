@@ -11,6 +11,8 @@
     }
 
     .innerWrapper {
+      max-width: rem-calc(1420);
+
       @include media('lg') {
         margin-left: rem-calc(60);
       }
