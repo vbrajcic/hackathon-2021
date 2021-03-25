@@ -55,20 +55,21 @@
       position: absolute;
       overflow-x: scroll;
       scroll-behavior: smooth;
-      padding: rem-calc(40 0 70 24);
+      padding: rem-calc(40 450 70 24);
       -ms-overflow-style: none;
       scrollbar-width: none;
+      scroll-snap-type: inline mandatory;
 
       &::-webkit-scrollbar {
         display: none;
       }
 
       @include media('md') {
-        padding: rem-calc(40 0 100 24);
+        padding: rem-calc(40 736 100 24);
       }
 
       @include media('lg') {
-        padding: rem-calc(40 0 100 24);
+        padding: rem-calc(40 804 100 50);
       }
     }
   }

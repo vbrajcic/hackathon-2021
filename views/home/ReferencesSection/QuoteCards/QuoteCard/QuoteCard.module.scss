@@ -1,11 +1,14 @@
 .root {
   &.container {
     display: inline-block;
-    margin-right: rem-calc(32);
+    margin-left: rem-calc(32);
     white-space: normal;
     vertical-align: top;
     width: rem-calc(280);
     height: rem-calc(380);
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    scroll-margin-left: rem-calc(20);
 
     @include media('sm') {
       width: rem-calc(450);
@@ -16,11 +19,13 @@
       overflow: visible;
       width: rem-calc(640);
       height: rem-calc(400);
-      margin-right: 6rem;
+      margin-left: rem-calc(96);
     }
 
     @include media('lg') {
       width: rem-calc(660);
+      margin-left: rem-calc(144);
+      scroll-margin-left: rem-calc(80);
     }
 
     .content {
