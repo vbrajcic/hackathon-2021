@@ -37,10 +37,10 @@
 
   .quotesWrapper {
     white-space: nowrap;
-    height: rem-calc(450);
+    height: rem-calc(590);
 
     @include media('sm') {
-      height: rem-calc(350);
+      height: rem-calc(470);
     }
 
     @include media('md') {
@@ -55,7 +55,7 @@
       position: absolute;
       overflow-x: scroll;
       scroll-behavior: smooth;
-      padding: rem-calc(40 450 70 24);
+      padding: rem-calc(40 450 90 24);
       -ms-overflow-style: none;
       scrollbar-width: none;
       scroll-snap-type: inline mandatory;

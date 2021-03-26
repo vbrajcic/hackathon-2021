@@ -5,62 +5,65 @@
     white-space: normal;
     vertical-align: top;
     width: rem-calc(280);
-    height: rem-calc(380);
+    height: rem-calc(550);
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     scroll-margin-left: rem-calc(20);
 
     @include media('sm') {
       width: rem-calc(450);
-      height: rem-calc(340);
+      height: rem-calc(430);
     }
 
     @include media('md') {
       overflow: visible;
       width: rem-calc(640);
-      height: rem-calc(400);
+      height: rem-calc(420);
       margin-left: rem-calc(96);
     }
 
-    @include media('lg') {
-      width: rem-calc(660);
+    @include media(1130px) {
+      width: rem-calc(690);
       margin-left: rem-calc(144);
       scroll-margin-left: rem-calc(80);
+      height: rem-calc(420);
     }
 
     .content {
-      padding: rem-calc(30 0 0 30);
+      padding: rem-calc(20 0 0 20);
 
       @include media('sm') {
         padding: rem-calc(20 0 0 25);
       }
 
       @include media('md') {
-        padding: rem-calc(40 0 0 80);
+        padding: rem-calc(30 0 0 40);
       }
 
       .textWrapper {
-        max-width: 90%;
-        height: rem-calc(250);
+        max-width: 95%;
+        height: rem-calc(400);
         overflow: hidden;
 
         @include media('sm') {
-          height: rem-calc(210);
+          height: rem-calc(300);
         }
 
         @include media('md') {
-          height: rem-calc(180);
-          max-width: 85%;
+          max-width: 90%;
+          height: rem-calc(220);
         }
 
         .quotesIcon {
+          height: rem-calc(40);
+          width: rem-calc(40);
+          transform: rotate(180deg);
+
           @include media('md') {
             margin: 0 auto;
+            height: rem-calc(50);
+            width: rem-calc(50);
           }
-
-          transform: rotate(180deg);
-          height: rem-calc(50);
-          width: rem-calc(50);
 
           path {
             fill: $purple-500;
@@ -68,7 +71,9 @@
         }
 
         .quoteText {
-          margin-top: rem-calc(30);
+          @include media('md') {
+            margin-top: rem-calc(20);
+          }
         }
       }
 
@@ -76,12 +81,23 @@
         width: 100%;
         margin-top: rem-calc(15);
 
+        @include media(0, 'sm') {
+          max-width: rem-calc(240);
+        }
+
         .companyImg {
-          width: rem-calc(40);
+          max-width: rem-calc(50);
+          max-height: rem-calc(50);
+
+          @include media('md') {
+            max-width: rem-calc(75);
+            max-height: rem-calc(75);
+          }
         }
 
         .authorNameAndTitleWrapper {
-          margin: rem-calc(8 0 0 8);
+          margin: rem-calc(0 0 0 8);
+          max-width: rem-calc(350);
 
           .authorName {
             font-weight: 700;

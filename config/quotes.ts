@@ -11,52 +11,62 @@ export interface Quote {
 const quotes: Quote[] = [
   {
     text:
-      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
-    companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
+      'I am impressed by the 360 degrees approach that Profico takes on any challenge we throw at them. As a result we have now integrated them fully into our organization and we no longer consider them as a company providing developers, but rather providing us with high quality business development throughout the entire process.',
+    companyImgSrc: 'images/testimonials/startsiden.png',
     author: {
-      name: 'Tim Cook',
-      title: 'CEO, Apple',
-      imgSrc: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MzM0OTc5MDg3/tim-cook-20967297-1-402.jpg',
+      name: 'Trygve Sørvaag',
+      title: 'director of products and business development at ABC Startsiden AS',
+      imgSrc: 'images/testimonials/trygve.jpeg',
     },
   },
   {
     text:
-      "Thanks to Profico’s work, the client's ranking metrics have gone up. The team demonstrated a great workflow and excellent technical.",
-    companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
+      'We are very happy with the willingness and ability that Profico brings to think about our business-needs and co-create solutions. We are developing big slices of our customer journeys together with Profico, and trust them to help us create something that works for our customers.',
+    companyImgSrc: 'images/testimonials/hyre.png',
     author: {
-      name: 'Tim Cook',
-      title: 'CEO, Apple',
-      imgSrc: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MzM0OTc5MDg3/tim-cook-20967297-1-402.jpg',
+      name: 'Ola Gjønnes',
+      title: 'Product Manager at Hyre AS',
+      imgSrc: 'images/testimonials/ola.jpeg',
     },
   },
   {
     text:
-      "Thanks to Profico’s work, the client's ranking metrics have gone up. The team demonstrated a great workflow and excellent technical.",
-    companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
+      'I am impressed by the 360 degrees approach that Profico takes on any challenge we throw at them. As a result we have now integrated them fully into our organization and we no longer consider them as a company providing developers, but rather providing us with high quality business development throughout the entire process.',
+    companyImgSrc: 'images/testimonials/startsiden.png',
     author: {
-      name: 'Tim Cook',
-      title: 'CEO, Apple',
-      imgSrc: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MzM0OTc5MDg3/tim-cook-20967297-1-402.jpg',
+      name: 'Trygve Sørvaag',
+      title: 'director of products and business development at ABC Startsiden AS',
+      imgSrc: 'images/testimonials/trygve.jpeg',
     },
   },
   {
     text:
-      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
-    companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
+      'We are very happy with the willingness and ability that Profico brings to think about our business-needs and co-create solutions. We are developing big slices of our customer journeys together with Profico, and trust them to help us create something that works for our customers.',
+    companyImgSrc: 'images/testimonials/hyre.png',
     author: {
-      name: 'Tim Cook',
-      title: 'CEO, Apple',
-      imgSrc: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MzM0OTc5MDg3/tim-cook-20967297-1-402.jpg',
+      name: 'Ola Gjønnes',
+      title: 'Product Manager at Hyre AS',
+      imgSrc: 'images/testimonials/ola.jpeg',
     },
   },
   {
     text:
-      'Profico has exceeded my expectations from design to development, and I love how I can trust them with product strategy too.',
-    companyImgSrc: 'https://cdn-0.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png',
+      'I am impressed by the 360 degrees approach that Profico takes on any challenge we throw at them. As a result we have now integrated them fully into our organization and we no longer consider them as a company providing developers, but rather providing us with high quality business development throughout the entire process.',
+    companyImgSrc: 'images/testimonials/startsiden.png',
     author: {
-      name: 'Tim Cook',
-      title: 'CEO, Apple',
-      imgSrc: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MzM0OTc5MDg3/tim-cook-20967297-1-402.jpg',
+      name: 'Trygve Sørvaag',
+      title: 'director of products and business development at ABC Startsiden AS',
+      imgSrc: 'images/testimonials/trygve.jpeg',
+    },
+  },
+  {
+    text:
+      'We are very happy with the willingness and ability that Profico brings to think about our business-needs and co-create solutions. We are developing big slices of our customer journeys together with Profico, and trust them to help us create something that works for our customers.',
+    companyImgSrc: 'images/testimonials/hyre.png',
+    author: {
+      name: 'Ola Gjønnes',
+      title: 'Product Manager at Hyre AS',
+      imgSrc: 'images/testimonials/ola.jpeg',
     },
   },
 ];
