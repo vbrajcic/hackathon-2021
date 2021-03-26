@@ -20,7 +20,7 @@ const BlogSection: React.FC = () => (
         We shape our core capabilities around lean product teams capable of delivering immense value to organisations
         worldwide
       </Typography>
-      <Hyperlink href="/blog" component={<Button>Go to our blog</Button>} />
+      <Hyperlink href="/blog" component={<Button color="primary">Go to our blog</Button>} />
     </div>
     <BlogPosts />
   </Container>
