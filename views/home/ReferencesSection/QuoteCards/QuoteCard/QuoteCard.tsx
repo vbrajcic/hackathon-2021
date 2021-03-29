@@ -27,7 +27,7 @@ const QuoteCard: React.FC<QuoteProps> = ({ quote: { text, companyImgSrc, author 
           </Typography>
         </Grid>
         <Grid container alignItems="center" justify="space-between" className={styles.footer}>
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" wrap="nowrap">
             <img src={companyImgSrc} alt="Partner's logo" className={styles.companyImg} />
             <Grid container direction="column" className={styles.authorNameAndTitleWrapper}>
               <Typography variant="body2" className={styles.authorName}>
