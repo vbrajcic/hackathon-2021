@@ -1,0 +1,29 @@
+.container {
+  padding: rem-calc(55 20 65);
+  margin-top: rem-calc(133);
+  max-width: $max-grid-width;
+
+  @include media(0, 'md') {
+    padding: rem-calc(15 20 25);
+  }
+
+  .categoryWrapper {
+    flex: 1;
+    padding-bottom: rem-calc(20);
+
+    @include media(0, 'md') {
+      padding-top: rem-calc(40);
+      padding-bottom: rem-calc(40);
+
+      &:not(:last-child) {
+        border-bottom: rem-calc(1) solid rgba(#979797, 0.2);
+      }
+    }
+
+    @include media('md') {
+      &:not(:last-child) {
+        border-right: rem-calc(1) solid rgba(#979797, 0.2);
+      }
+    }
+  }
+}
