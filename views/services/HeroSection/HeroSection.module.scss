@@ -35,16 +35,16 @@
 
       .flipText {
         animation: flip 2s infinite;
-        transform-origin: 50% 0;
+        transform-origin: 50% 100%;
         transform-style: preserve-3d;
 
         &::before {
           position: absolute;
-          top: 100%;
+          bottom: 100%;
           left: 0;
           content: attr(data-next);
-          transform: rotateX(-90deg);
-          transform-origin: 50% 0;
+          transform: rotateX(90deg);
+          transform-origin: 50% 100%;
         }
 
         @keyframes flip {
@@ -52,7 +52,7 @@
             transform: translateY(0);
           }
           100% {
-            transform: rotateX(90deg) translateY(-22px);
+            transform: rotateX(-90deg) translateY(22px);
           }
         }
       }

@@ -9,21 +9,16 @@ import styles from './HeroSection.module.scss';
 
 const words = ['Supporting', 'Creating', 'Implementing'];
 const lastIndex = words.length - 1;
-let index = 0;
 
 const HeroSection: React.FC = () => {
-  const [word, setWord] = useState<string>(words[0]);
-  const [nextWord, setNextWord] = useState<string>(words[1]);
+  const [index, setIndex] = useState<number>(0);
 
   const handleAnimationIteration = () => {
     if (index >= lastIndex) {
-      index = 0;
+      setIndex(0);
     } else {
-      index += 1;
+      setIndex(index + 1);
     }
-
-    setWord(words[index]);
-    setNextWord(words[index >= lastIndex ? 0 : index + 1]);
   };
 
   return (
@@ -32,11 +27,11 @@ const HeroSection: React.FC = () => {
         <Typography
           variant="h1"
           color="secondary"
-          data-next={nextWord}
+          data-next={words[index >= lastIndex ? 0 : index + 1]}
           onAnimationIteration={handleAnimationIteration}
           className={styles.flipText}
         >
-          {word}
+          {words[index]}
         </Typography>
         <Typography variant="h1" className={styles.introText} color="textPrimary">
           good ideas at any stage, platform, scale
