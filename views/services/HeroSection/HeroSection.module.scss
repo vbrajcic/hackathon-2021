@@ -22,6 +22,10 @@
       background-color: $grey-100;
       z-index: -1;
 
+      @include media(0, 'md') {
+        height: rem-calc(600);
+      }
+
       @include media('md', 'lg') {
         height: rem-calc(640);
       }
