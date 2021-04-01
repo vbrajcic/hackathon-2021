@@ -1,0 +1,71 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    padding-top: rem-calc(58);
+
+    @include media(0, 'sm') {
+      padding-top: rem-calc(25);
+    }
+
+    @include media('lg') {
+      padding-bottom: rem-calc(80);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: rem-calc(736);
+      width: 100%;
+      background-color: $grey-100;
+      z-index: -1;
+
+      @include media('md', 'lg') {
+        height: rem-calc(640);
+      }
+    }
+
+    .textWrapper {
+      @include media('lg') {
+        margin-top: rem-calc(40);
+        margin-left: rem-calc(60);
+      }
+
+      .flipText {
+        animation: flip 2s infinite;
+        transform-origin: 50% 100%;
+        transform-style: preserve-3d;
+
+        &::before {
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          content: attr(data-next);
+          transform: rotateX(90deg);
+          transform-origin: 50% 100%;
+        }
+
+        @keyframes flip {
+          75% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: rotateX(-90deg) translateY(22px);
+          }
+        }
+      }
+
+      .introText {
+        max-width: rem-calc(950);
+        white-space: pre-line;
+      }
+
+      .descriptionText {
+        margin-top: rem-calc(24);
+        max-width: rem-calc(420);
+      }
+    }
+  }
+}
