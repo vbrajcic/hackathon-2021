@@ -1,0 +1,7 @@
+.container {
+  margin-top: rem-calc(180);
+
+  @include media(0, 'lg') {
+    margin-top: rem-calc(100);
+  }
+}

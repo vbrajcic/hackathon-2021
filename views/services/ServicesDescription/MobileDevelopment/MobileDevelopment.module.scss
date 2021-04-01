@@ -1,0 +1,110 @@
+.container {
+  position: relative;
+  margin-top: rem-calc(70);
+
+  @include media('md') {
+    height: rem-calc(480);
+  }
+
+  @include media('lg') {
+    height: rem-calc(540);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -5%;
+    height: rem-calc(380);
+    width: 100%;
+    background-image: url('/images/services/mobile.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include media(0, 'sm') {
+      top: 0;
+      min-width: rem-calc(380);
+    }
+
+    @include media('sm', 'md') {
+      top: 0;
+      height: rem-calc(570);
+      width: 100%;
+      min-width: rem-calc(600);
+    }
+
+    @include media('md') {
+      bottom: rem-calc(20);
+      height: rem-calc(350);
+      width: 50%;
+    }
+
+    @include media('lg') {
+      left: 0;
+      bottom: 0;
+      width: 40%;
+      height: rem-calc(400);
+    }
+
+    @include media(1320px) {
+      height: rem-calc(500);
+    }
+
+    @include media('xl') {
+      height: rem-calc(550);
+    }
+
+    @include media(1800px) {
+      height: rem-calc(650);
+    }
+  }
+
+  .root {
+    &.content {
+      width: 100%;
+
+      .textWrapper {
+        @include media(0, 'sm') {
+          padding-top: rem-calc(430);
+        }
+
+        @include media('sm', 'md') {
+          padding-top: rem-calc(620);
+        }
+
+        @include media('md') {
+          width: rem-calc(360);
+        }
+
+        .title {
+          margin-bottom: rem-calc(32);
+          max-width: 100%;
+
+          @include media('lg') {
+            max-width: rem-calc(263);
+            margin-bottom: rem-calc(42);
+          }
+        }
+
+        .descripton {
+          max-width: 90%;
+
+          @include media('md') {
+            max-width: rem-calc(440);
+          }
+
+          @include media('lg') {
+            max-width: rem-calc(480);
+          }
+        }
+      }
+
+      .chipsWrapper {
+        max-width: rem-calc(550);
+
+        @include media('md', 'lg') {
+          max-width: rem-calc(400);
+        }
+      }
+    }
+  }
+}

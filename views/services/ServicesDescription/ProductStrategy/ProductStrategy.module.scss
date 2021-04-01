@@ -1,0 +1,107 @@
+.container {
+  position: relative;
+
+  @include media('md') {
+    height: rem-calc(534);
+  }
+  @include media('lg') {
+    height: rem-calc(734);
+  }
+  @include media(1200px) {
+    height: rem-calc(834);
+  }
+  @include media('xl') {
+    height: rem-calc(900);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: rem-calc(550);
+    background-image: url('/images/services/ProductStrategy.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include media('sm', 'md') {
+      width: 80%;
+      height: rem-calc(550);
+    }
+
+    @include media('md') {
+      height: rem-calc(534);
+      width: 46%;
+    }
+
+    @include media('lg') {
+      height: rem-calc(734);
+      width: 50%;
+    }
+
+    @include media(1200px) {
+      height: rem-calc(834);
+      width: 60%;
+      right: -10%;
+    }
+
+    @include media('xl') {
+      width: 55%;
+      height: rem-calc(900);
+    }
+  }
+
+  .root {
+    &.content {
+      padding-top: rem-calc(70);
+
+      @include media('lg') {
+        padding-top: rem-calc(150);
+      }
+
+      .textWrapper {
+        @include media(0, 'md') {
+          padding-top: rem-calc(500);
+        }
+
+        @include media('lg') {
+          margin-left: rem-calc(60);
+        }
+
+        .title {
+          margin-bottom: rem-calc(32);
+          max-width: 100%;
+
+          @include media('lg') {
+            max-width: rem-calc(263);
+            margin-bottom: rem-calc(42);
+          }
+        }
+
+        .descripton {
+          @include media('md') {
+            max-width: 90%;
+            max-width: rem-calc(440);
+          }
+
+          @include media('lg') {
+            max-width: rem-calc(480);
+          }
+        }
+      }
+
+      .chipsWrapper {
+        max-width: rem-calc(600);
+
+        @include media('md', 'lg') {
+          max-width: rem-calc(440);
+        }
+
+        @include media('lg') {
+          margin-left: rem-calc(60);
+        }
+      }
+    }
+  }
+}
