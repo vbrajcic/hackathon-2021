@@ -1,0 +1,39 @@
+.container {
+  padding-top: rem-calc(40);
+
+  @include media('md') {
+    padding-top: rem-calc(150);
+    background-color: $grey-100;
+  }
+
+  .textWrapper {
+    @include media('lg') {
+      margin-left: rem-calc(60);
+    }
+  }
+
+  .cheatsheatCardsWrapper {
+    overflow-x: scroll;
+    padding: rem-calc(90 0 100 120);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include media(0, 'lg') {
+      padding: rem-calc(90 0 100 24);
+    }
+  }
+
+  .contactFormWrapper {
+    @include media('md') {
+      padding-bottom: rem-calc(150);
+    }
+
+    .contactForm {
+      margin-top: rem-calc(140);
+    }
+  }
+}
