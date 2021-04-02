@@ -1,4 +1,8 @@
 .container {
+  @include media(0, 'lg') {
+    padding: rem-calc(20 20 40);
+  }
+
   .sectionTitle {
     font-weight: bold;
   }
@@ -6,6 +10,7 @@
   .title {
     margin-top: rem-calc(10);
     margin-bottom: rem-calc(32);
+    white-space: pre-wrap;
 
     @include media('lg') {
       margin-top: rem-calc(15);
