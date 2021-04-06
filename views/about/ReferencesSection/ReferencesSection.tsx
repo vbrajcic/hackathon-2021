@@ -27,7 +27,7 @@ const ReferencesSection: React.FC = () => (
     <IconsGrid
       mode="partners"
       icons={partners}
-      headingProps={{
+      HeadingProps={{
         title: 'These\ncompanies\ntrust us',
         description:
           'We shape our core capabilities around lean product teams capable of delivering immense value to organisations worldwide',

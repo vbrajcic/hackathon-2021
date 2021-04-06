@@ -25,7 +25,7 @@ const ToolboxSection: React.FC = () => (
     <IconsGrid
       mode="toolbox"
       icons={toolbox}
-      headingProps={{
+      HeadingProps={{
         title: 'Our\neveryday\ntoolbox',
         description:
           'We shape our core capabilities around lean product teams capable of delivering immense value to organisations worldwide',

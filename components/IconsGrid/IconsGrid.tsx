@@ -6,13 +6,13 @@ import Icons, { IconsProps } from './Icons';
 
 import styles from './IconsGrid.module.scss';
 
-const IconsGrid: React.FC<IconsProps> = ({ icons, mode, headingProps }) => {
+const IconsGrid: React.FC<IconsProps> = ({ icons, mode, HeadingProps }) => {
   const { isMobile } = useBreakpoint();
 
   return (
     <Container maxWidth="xl" disableGutters={isMobile} className={styles.container}>
-      {isMobile && <Heading {...headingProps} />}
-      <Icons icons={icons} mode={mode} headingProps={headingProps} />
+      {isMobile && <Heading {...HeadingProps} />}
+      <Icons icons={icons} mode={mode} HeadingProps={HeadingProps} />
     </Container>
   );
 };

@@ -7,17 +7,17 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import useFactory from 'utils/hooks/useFactory';
 
-import Heading, { HeadingProps } from '../Heading';
+import Heading, { HeadingProps as BaseHeadingProps } from '../Heading';
 
 import styles from './Icons.module.scss';
 
 export interface IconsProps {
   icons: string[];
   mode: 'partners' | 'toolbox';
-  headingProps: HeadingProps;
+  HeadingProps: BaseHeadingProps;
 }
 
-const Icons: React.FC<IconsProps> = ({ icons, mode, headingProps }) => {
+const Icons: React.FC<IconsProps> = ({ icons, mode, HeadingProps }) => {
   const { isMobile, isDesktop } = useBreakpoint();
   const { breakpoints } = useTheme();
 
@@ -33,12 +33,12 @@ const Icons: React.FC<IconsProps> = ({ icons, mode, headingProps }) => {
 
   return (
     <Grid container alignItems="center" className={styles.container}>
-      <Grid item className={cn(styles.iconWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
+      <Grid item className={cn(styles.logoWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
         <Grid container justify={isDesktop ? 'flex-start' : 'center'}>
           <img
             src={`images/${mode}/${icons[0]}${mode === 'partners' ? '.png' : '.svg'}`}
             alt={`${icons[0]}`}
-            className={styles.iconImg}
+            className={styles.logoImg}
           />
         </Grid>
       </Grid>
@@ -46,18 +46,18 @@ const Icons: React.FC<IconsProps> = ({ icons, mode, headingProps }) => {
         <Grid item className={styles.cardItem}>
           <Grid container className={styles.cardWrapper} justify={isDesktop ? 'flex-start' : 'center'}>
             <Card className={cn(styles.card, { [styles.toolbox]: mode === 'toolbox' })}>
-              <Heading {...headingProps} />
+              <Heading {...HeadingProps} />
             </Card>
           </Grid>
         </Grid>
       )}
       {icons.slice(1, lastIconIndex).map(icon => (
-        <Grid item key={icon} className={cn(styles.iconWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
+        <Grid item key={icon} className={cn(styles.logoWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
           <Grid container justify={isDesktop ? 'flex-start' : 'center'}>
             <img
               src={`images/${mode}/${icon}${mode === 'partners' ? '.png' : '.svg'}`}
               alt={icon}
-              className={styles.iconImg}
+              className={styles.logoImg}
             />
           </Grid>
         </Grid>

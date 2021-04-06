@@ -2,26 +2,24 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import processCheatsheat from 'config/processCheatsheat';
+import processCheatsheet from 'config/processCheatsheet';
 import useTheme from '@material-ui/core/styles/useTheme';
 import ContactForm from 'components/ContactForm';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { useWindowSize } from 'react-use';
 
-import CheatsheatCard from './CheatsheatCard';
+import CheatsheetCard from './CheatsheetCard';
 
-import styles from './CheatsheatSection.module.scss';
+import styles from './CheatsheetSection.module.scss';
 
-const CheatsheatSection: React.FC = () => {
+const CheatsheetSection: React.FC = () => {
   const { width: clientWidth } = useWindowSize();
   const { isMobile } = useBreakpoint();
+  const { breakpoints } = useTheme();
 
-  const {
-    breakpoints: {
-      values: { xl },
-    },
-  } = useTheme();
+  const hasMarginLeft = useMediaQuery(() => breakpoints.up('xl'));
 
   return (
     <Grid component="section" className={styles.container}>
@@ -31,20 +29,20 @@ const CheatsheatSection: React.FC = () => {
             <Typography variant="h2">
               Take a quick look at our
               <br />
-              process cheatsheat
+              process cheatsheet
             </Typography>
           </Grid>
         )}
       </Container>
       <Grid
         container
-        style={{ marginLeft: clientWidth > xl ? (clientWidth - xl) / 2 : 0 }}
-        className={styles.cheatsheatCardsWrapper}
+        style={{ marginLeft: hasMarginLeft ? (clientWidth - breakpoints.values.xl) / 2 : 0 }}
+        className={styles.cheatsheetCardsWrapper}
         wrap="nowrap"
       >
-        {processCheatsheat.map(cheatsheat => (
+        {processCheatsheet.map(cheatsheet => (
           <Grid item>
-            <CheatsheatCard key={cheatsheat.title} {...cheatsheat} />
+            <CheatsheetCard key={cheatsheet.title} {...cheatsheet} />
           </Grid>
         ))}
       </Grid>
@@ -55,4 +53,4 @@ const CheatsheatSection: React.FC = () => {
   );
 };
 
-export default CheatsheatSection;
+export default CheatsheetSection;

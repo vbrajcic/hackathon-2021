@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import CheatsheatSection from 'views/services/CheatsheatSection';
+import CheatsheetSection from 'views/services/CheatsheetSection';
 import HeroSection from 'views/services/HeroSection';
 import ServicesDescription from 'views/services/ServicesDescription';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
@@ -13,7 +13,7 @@ const ServicesPage = () => {
       <HeroSection />
       <ServicesDescription />
       <ToolboxSection />
-      <CheatsheatSection />
+      <CheatsheetSection />
     </Layout>
   );
 };

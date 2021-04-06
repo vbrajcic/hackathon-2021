@@ -2,13 +2,13 @@ import { ElementType } from 'react';
 import Alien from 'components/SvgIcons/Alien';
 import ReactOutlined from 'components/SvgIcons/ReactOutlined';
 
-export interface Cheatsheat {
+export interface Cheatsheet {
   icon: ElementType;
   title: string;
   subtitle: string;
 }
 
-const processCheatsheat: Cheatsheat[] = [
+const processCheatsheet: Cheatsheet[] = [
   {
     icon: ReactOutlined,
     title: 'Stakeholders over\nplaceholders',
@@ -31,4 +31,4 @@ const processCheatsheat: Cheatsheat[] = [
   },
 ];
 
-export default processCheatsheat;
+export default processCheatsheet;
