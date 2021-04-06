@@ -125,6 +125,7 @@ $content-width: rem-calc(600);
     }
 
     figcaption {
+      display: flex;
       color: $muted;
       font-size: rem-calc(16);
       text-align: center;
