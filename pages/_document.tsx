@@ -3,6 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import theme from 'styles/theme';
 
 import { ServerStyleSheets } from '@material-ui/core';
+import { GTMScriptHead, GTMScriptBody } from 'components/GTMScript';
 
 export default class MyDocument extends Document {
   render() {
@@ -14,8 +15,10 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content={primary.main} />
+          <GTMScriptHead />
         </Head>
         <body>
+          <GTMScriptBody />
           <Main />
           <NextScript />
         </body>
