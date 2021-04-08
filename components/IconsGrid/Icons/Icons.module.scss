@@ -1,11 +1,4 @@
 .container {
-  padding-top: rem-calc(20);
-  margin-bottom: rem-calc(90);
-
-  @include media('md') {
-    margin-bottom: rem-calc(200);
-  }
-
   @include media('lg') {
     margin-left: rem-calc(60);
   }
@@ -31,6 +24,10 @@
         padding-top: rem-calc(52);
         padding-bottom: rem-calc(50);
 
+        &.toolbox {
+          background-color: $black;
+        }
+
         @include media('lg') {
           height: rem-calc(464);
           width: 100%;
@@ -44,10 +41,16 @@
     }
   }
 
-  .partnerItem {
+  .logoWrapper {
     margin-top: rem-calc(45);
     margin-bottom: rem-calc(45);
     flex-basis: 50%;
+
+    &.toolbox {
+      @include media(0, 'md') {
+        flex-basis: 33%;
+      }
+    }
 
     @include media('md') {
       flex-basis: 25%;
@@ -63,7 +66,7 @@
       flex-basis: 20%;
     }
 
-    .partnerImg {
+    .logoImg {
       max-width: rem-calc(100);
     }
   }

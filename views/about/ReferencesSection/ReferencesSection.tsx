@@ -1,26 +1,43 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import useBreakpoint from 'utils/hooks/useBreakpoint';
-
 import ContactForm from 'components/ContactForm';
-import Heading from './Heading';
-import PartnersGrid from './PartnersGrid';
+import IconsGrid from 'components/IconsGrid';
 
 import styles from './ReferencesSection.module.scss';
 
-const ReferencesSection: React.FC = () => {
-  const { isMobile } = useBreakpoint();
+const partners = [
+  'ericsson',
+  'cisco',
+  'uhy',
+  'leMeridien',
+  'sothebys',
+  'amd',
+  'nvidia',
+  'telenor',
+  'deloitte',
+  'cnn',
+  'microsoft',
+  'tcom',
+  'allianz',
+];
 
-  return (
-    <section className={styles.container}>
-      <div className={styles.backgroundWrapper} />
-      <Container maxWidth="xl">
-        {isMobile && <Heading />}
-        <PartnersGrid />
-        <ContactForm />
-      </Container>
-    </section>
-  );
-};
+const ReferencesSection: React.FC = () => (
+  <section className={styles.container}>
+    <div className={styles.backgroundWrapper} />
+    <IconsGrid
+      mode="partners"
+      icons={partners}
+      HeadingProps={{
+        title: 'These\ncompanies\ntrust us',
+        description:
+          'We shape our core capabilities around lean product teams capable of delivering immense value to organisations worldwide',
+        sectionTitle: 'REFERENCES',
+      }}
+    />
+    <Container maxWidth="xl">
+      <ContactForm className={styles.contactForm} />
+    </Container>
+  </section>
+);
 
 export default ReferencesSection;
