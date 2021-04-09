@@ -7,6 +7,8 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import useFactory from 'utils/hooks/useFactory';
 
+import { addAssetPrefix } from 'utils/static/addAssetPrefix';
+
 import Heading, { HeadingProps as BaseHeadingProps } from '../Heading';
 
 import styles from './Icons.module.scss';
@@ -36,7 +38,7 @@ const Icons: React.FC<IconsProps> = ({ icons, mode, HeadingProps }) => {
       <Grid item className={cn(styles.logoWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
         <Grid container justify={isDesktop ? 'flex-start' : 'center'}>
           <img
-            src={`images/${mode}/${icons[0]}${mode === 'partners' ? '.png' : '.svg'}`}
+            src={addAssetPrefix(`images/${mode}/${icons[0]}${mode === 'partners' ? '.png' : '.svg'}`)}
             alt={`${icons[0]}`}
             className={styles.logoImg}
           />
@@ -55,7 +57,7 @@ const Icons: React.FC<IconsProps> = ({ icons, mode, HeadingProps }) => {
         <Grid item key={icon} className={cn(styles.logoWrapper, { [styles.toolbox]: mode === 'toolbox' })}>
           <Grid container justify={isDesktop ? 'flex-start' : 'center'}>
             <img
-              src={`images/${mode}/${icon}${mode === 'partners' ? '.png' : '.svg'}`}
+              src={addAssetPrefix(`images/${mode}/${icon}${mode === 'partners' ? '.png' : '.svg'}`)}
               alt={icon}
               className={styles.logoImg}
             />

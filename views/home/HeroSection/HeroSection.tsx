@@ -6,6 +6,8 @@ import Hyperlink from 'components/Hyperlink';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
+import { addAssetPrefix } from 'utils/static/addAssetPrefix';
+
 import styles from './HeroSection.module.scss';
 
 const HeroSection: React.FC = () => (
@@ -22,7 +24,7 @@ const HeroSection: React.FC = () => (
         />
       </Intro>
       <Grid className={styles.imageWrapper}>
-        <Image src="/images/hero-section-image.png" layout="responsive" height="579" width="421" />
+        <Image src={addAssetPrefix('/images/hero-section-image.png')} layout="responsive" height="579" width="421" />
       </Grid>
     </Container>
   </Grid>

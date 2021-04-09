@@ -1,0 +1,11 @@
+@function add-asset-prefix($path) {
+  @if $node-env == 'production' {
+    @if str-index($string: $path, $substring: '/') == 1 {
+      @return url('https://d3ddu43d9lttf7.cloudfront.net' + $path);
+    }
+
+    @return url('https://d3ddu43d9lttf7.cloudfront.net/' + $path);
+  }
+
+  @return url($path);
+}

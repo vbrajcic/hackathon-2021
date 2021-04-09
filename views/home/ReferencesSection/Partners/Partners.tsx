@@ -5,6 +5,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 import { useTheme } from '@material-ui/core/styles';
+import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
 import styles from './Partners.module.scss';
 
@@ -23,7 +24,11 @@ const Partners: React.FC = () => {
           showTwoColumns && partner === 'tcom' ? null : (
             <Grid item key={partner} lg={4} md={6} sm={4} xs={4}>
               <Grid container justify="center">
-                <img src={`images/partners/${partner}.png`} alt={partner} className={styles.partnerImg} />
+                <img
+                  src={addAssetPrefix(`images/partners/${partner}.png`)}
+                  alt={partner}
+                  className={styles.partnerImg}
+                />
               </Grid>
             </Grid>
           )

@@ -4,6 +4,7 @@ import Instagram from '@material-ui/icons/Instagram';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import Dribbble from 'components/SvgIcons/Dribbble/DribbbleIcon';
 import { GitHub } from '@material-ui/icons';
+import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
 export interface Leader {
   name: string;
@@ -19,7 +20,7 @@ const leadership: Leader[] = [
   {
     name: 'Mateo Perak',
     jobPosition: 'Founder, Managing Director',
-    image: '/images/leadership/team-member-1.jpg',
+    image: addAssetPrefix('/images/leadership/team-member-1.jpg'),
     socialMedia: [
       { url: 'https://www.instagram.com/mateoperak/', icon: Instagram },
       { url: 'https://www.linkedin.com/in/mateoperak', icon: LinkedIn },
@@ -28,7 +29,7 @@ const leadership: Leader[] = [
   {
     name: 'Ante Matijaca',
     jobPosition: 'Founder, Creative Director',
-    image: '/images/leadership/team-member-2.jpg',
+    image: addAssetPrefix('/images/leadership/team-member-2.jpg'),
     socialMedia: [
       { url: 'https://www.instagram.com/antematijaca/', icon: Instagram },
       { url: 'https://www.linkedin.com/in/antematijaca', icon: LinkedIn },
@@ -38,13 +39,13 @@ const leadership: Leader[] = [
   {
     name: 'Miro Marasović',
     jobPosition: 'Product Strategy Lead',
-    image: '/images/leadership/team-member-3.jpg',
+    image: addAssetPrefix('/images/leadership/team-member-3.jpg'),
     socialMedia: [{ url: 'https://www.linkedin.com/in/miromarasovic', icon: LinkedIn }],
   },
   {
     name: 'Ivan Ferenčak',
     jobPosition: 'Tech Lead',
-    image: '/images/leadership/team-member-4.jpg',
+    image: addAssetPrefix('/images/leadership/team-member-4.jpg'),
     socialMedia: [
       { url: 'https://www.instagram.com/ferencakivan', icon: Instagram },
       { url: 'https://www.linkedin.com/in/ivan-feren%C4%8Dak-12005a58', icon: LinkedIn },

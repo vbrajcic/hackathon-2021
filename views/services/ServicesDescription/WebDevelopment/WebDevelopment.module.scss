@@ -12,7 +12,7 @@
     height: rem-calc(780);
     width: 60%;
     left: -15%;
-    background-image: url('/images/services/webDevelopment.svg');
+    background-image: add-asset-prefix('/images/services/webDevelopment.svg');
     background-repeat: no-repeat;
     background-size: contain;
 
