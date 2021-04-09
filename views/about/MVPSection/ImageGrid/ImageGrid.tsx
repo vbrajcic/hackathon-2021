@@ -19,19 +19,19 @@ const ImageGrid: React.FC = () => {
   return (
     <Grid container className={styles.container} classes={{ root: styles.root }}>
       <Grid container className={styles.column} direction="column">
-        <ImageItem src={addAssetPrefix(!isDesktop ? 'images/careers/who-we-are-4.jpg' : '')} />
+        <ImageItem src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-4.jpg') : ''} />
         <ImageItem src={addAssetPrefix('images/careers/who-we-are-1.jpg')} />
         <ImageItem
-          src={addAssetPrefix(!isDesktop ? 'images/careers/who-we-are-2.jpg' : '')}
+          src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-2.jpg') : ''}
           doubleHeight={!isDesktop}
         />
-        {isDesktop && <ImageItem src={addAssetPrefix(!showFiveColumns ? 'images/careers/who-we-are-3.jpg' : '')} />}
+        {isDesktop && <ImageItem src={!showFiveColumns ? addAssetPrefix('images/careers/who-we-are-3.jpg') : ''} />}
       </Grid>
       <Grid container className={styles.column} direction="column">
         {isDesktop && <ImageItem src={addAssetPrefix('images/careers/who-we-are-4.jpg')} />}
         <ImageItem src={addAssetPrefix('images/careers/who-we-are-2.jpg')} doubleHeight />
         {!isDesktop && <ImageItem src={addAssetPrefix('images/careers/who-we-are-3.jpg')} />}
-        <ImageItem src={addAssetPrefix(!isDesktop ? 'images/careers/who-we-are-4.jpg' : '')} />
+        <ImageItem src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-4.jpg') : ''} />
       </Grid>
       {isDesktop && (
         <Grid container className={styles.column} direction="column">
@@ -51,7 +51,7 @@ const ImageGrid: React.FC = () => {
       )}
       {isDesktop && (
         <Grid container className={styles.column} direction="column">
-          <ImageItem src={addAssetPrefix(!showFiveColumns ? 'images/careers/who-we-are-3.jpg' : '')} />
+          <ImageItem src={!showFiveColumns ? addAssetPrefix('images/careers/who-we-are-3.jpg') : ''} />
           <ImageItem src={addAssetPrefix('images/careers/who-we-are-2.jpg')} doubleHeight />
         </Grid>
       )}
