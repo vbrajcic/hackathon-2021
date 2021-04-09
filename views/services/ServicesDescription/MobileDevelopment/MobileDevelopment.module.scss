@@ -16,7 +16,7 @@
     left: -5%;
     height: rem-calc(380);
     width: 100%;
-    background-image: url('/images/services/mobile.svg');
+    background-image: add-asset-prefix('/images/services/mobile.svg');
     background-repeat: no-repeat;
     background-size: cover;
 

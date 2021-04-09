@@ -66,7 +66,8 @@
       }
 
       &::before {
-        background-image: url('/images/deloitte-background.png');
+        background-image: add-asset-prefix('/images/deloitte-background.png');
+
         height: rem-calc(571);
         width: rem-calc(566);
         transform: translate(40%, -42%);
