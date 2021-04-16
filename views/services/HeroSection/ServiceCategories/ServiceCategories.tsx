@@ -15,7 +15,7 @@ const ServiceCategories: React.FC = () => {
   return (
     <Grid className={styles.container}>
       {isDesktop ? (
-        <Paper id="contact-form" classes={{ root: styles.paper }}>
+        <Paper classes={{ root: styles.paper }}>
           <Grid container direction="row" justify="space-between" wrap="nowrap">
             {serviceCategories.map(({ name, description, icon }) => (
               <Grid key={name} item className={styles.categoryWrapper}>
