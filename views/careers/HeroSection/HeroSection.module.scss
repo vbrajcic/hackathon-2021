@@ -55,7 +55,11 @@
       .button {
         margin-top: rem-calc(96);
         box-shadow: $box-shadow__button;
-        animation: pulse 1.25s infinite;
+        animation: pulse 2s infinite;
+
+        &:hover {
+          animation: none;
+        }
 
         @include media('sm', 'md') {
           margin-top: 2rem;
