@@ -6,19 +6,19 @@ import IconsGrid from 'components/IconsGrid';
 import styles from './ReferencesSection.module.scss';
 
 const partners = [
-  'ericsson',
-  'cisco',
-  'uhy',
-  'leMeridien',
-  'sothebys',
-  'amd',
-  'nvidia',
-  'telenor',
-  'deloitte',
-  'cnn',
-  'microsoft',
-  'tcom',
   'allianz',
+  'uhy',
+  'tcom',
+  'ericsson',
+  'deloitte',
+  'sothebys',
+  'telenor',
+  'leMeridien',
+  'radisson',
+  'International-Medical-Corps',
+  'hyre',
+  'hegnar-media',
+  'nedap',
 ];
 
 const ReferencesSection: React.FC = () => (

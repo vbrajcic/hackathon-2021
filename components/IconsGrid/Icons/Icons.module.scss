@@ -17,18 +17,20 @@
       .card {
         position: absolute;
         bottom: rem-calc(0);
-        height: rem-calc(400);
+        min-height: rem-calc(400);
         width: 100%;
         padding-left: 10%;
         padding-right: 25%;
-        padding-top: rem-calc(52);
-        padding-bottom: rem-calc(50);
+        padding-top: rem-calc(32);
+        padding-bottom: rem-calc(30);
 
         &.toolbox {
           background-color: $black;
         }
 
         @include media('lg') {
+          padding-top: rem-calc(52);
+          padding-bottom: rem-calc(50);
           height: rem-calc(464);
           width: 100%;
         }
@@ -68,6 +70,10 @@
 
     .logoImg {
       max-width: rem-calc(100);
+
+      &.hegnar-media {
+        max-width: rem-calc(130);
+      }
     }
   }
 }

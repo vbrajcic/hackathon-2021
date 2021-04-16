@@ -8,7 +8,10 @@ interface SocialIconProps {
 }
 
 const SocialIcon: React.FC<SocialIconProps> = ({ icon: Icon, url }) => (
-  <Hyperlink href={url} AnchorProps={{ target: '_blank', rel: 'noopener noreferrer', className: style.container }}>
+  <Hyperlink
+    href={url}
+    AnchorProps={{ 'aria-label': url, target: '_blank', rel: 'noopener noreferrer', className: style.container }}
+  >
     <Icon />
   </Hyperlink>
 );

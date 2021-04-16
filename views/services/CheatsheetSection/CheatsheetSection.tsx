@@ -41,8 +41,8 @@ const CheatsheetSection: React.FC = () => {
         wrap="nowrap"
       >
         {processCheatsheet.map(cheatsheet => (
-          <Grid item>
-            <CheatsheetCard key={cheatsheet.title} {...cheatsheet} />
+          <Grid item key={cheatsheet.id}>
+            <CheatsheetCard {...cheatsheet} />
           </Grid>
         ))}
       </Grid>

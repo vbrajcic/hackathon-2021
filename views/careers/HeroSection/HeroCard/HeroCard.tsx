@@ -15,7 +15,7 @@ const HeroCard: React.FC<HeroCardProps> = ({ color, text, isSpecial }) => (
     <div className={styles.image}>
       <FingerTouch fill={color} className={styles.cardIcon} />
     </div>
-    <Typography className={styles.text} variant="h4">
+    <Typography className={styles.text} variant="h4" component="h2">
       {text}
     </Typography>
   </div>

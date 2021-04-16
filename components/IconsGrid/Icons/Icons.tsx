@@ -59,7 +59,7 @@ const Icons: React.FC<IconsProps> = ({ icons, mode, HeadingProps }) => {
             <img
               src={addAssetPrefix(`images/${mode}/${icon}${mode === 'partners' ? '.png' : '.svg'}`)}
               alt={icon}
-              className={styles.logoImg}
+              className={cn(styles.logoImg, styles[icon])}
             />
           </Grid>
         </Grid>

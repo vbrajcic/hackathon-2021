@@ -5,10 +5,11 @@
     padding: rem-calc(72 60 94 60);
     position: relative;
     overflow: hidden;
+    border: 1px solid transparent;
+    transition: all $animation-duration__fast;
 
     &:hover {
-      background-color: $muted;
-      box-shadow: $box-shadow__paper;
+      border: 1px solid $muted;
 
       &::before {
         content: attr(data-index);
