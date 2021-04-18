@@ -21,6 +21,7 @@ const Hamburger: React.FC<HamburgerProps> = ({ open, onToggle, classes }) => {
   return (
     <IconButton
       onClick={onToggle}
+      title="Menu icon"
       className={cn(styles.container, classes?.root, { [styles.open]: open, [styles.darkTheme]: theme === 'dark' })}
       classes={{ root: styles.root, label: styles.label }}
     >

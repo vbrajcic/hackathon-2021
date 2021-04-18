@@ -72,10 +72,10 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
             organisations worldwide
           </Typography>
           <Grid item className={styles.scrollBtnWrapper}>
-            <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn}>
+            <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn} title="left-arrow">
               <ChevronLeftIcon className={styles.icon} />
             </IconButton>
-            <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn}>
+            <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn} title="right-arrow">
               <ChevronRightIcon className={styles.icon} />
             </IconButton>
           </Grid>

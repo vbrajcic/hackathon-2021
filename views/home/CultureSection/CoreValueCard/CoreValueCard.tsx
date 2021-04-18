@@ -33,7 +33,7 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({ value, index }) => {
   return (
     <Paper elevation={0} classes={{ root: styles.root }} className={styles.container} data-index={`0${index}`}>
       <Icon className={styles.icon} />
-      <Typography variant="h4" className={styles.title}>
+      <Typography variant="h4" component="h3" className={styles.title}>
         {title}
       </Typography>
       <Typography variant="body2" className={styles.subtitle}>

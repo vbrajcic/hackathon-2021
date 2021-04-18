@@ -5,10 +5,10 @@
     padding: rem-calc(72 60 94 60);
     position: relative;
     overflow: hidden;
+    border: 1px solid transparent;
 
     &:hover {
-      background-color: $muted;
-      box-shadow: $box-shadow__paper;
+      border: 1px solid $grey-700;
 
       &::before {
         content: attr(data-index);

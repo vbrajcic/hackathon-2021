@@ -24,7 +24,9 @@ const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direct
     <CardActionArea href={url} className={cn(styles.cardArea, { [styles.row]: direction === 'row' })}>
       {coverImage && <CardMedia image={coverImage?.sourceUrl} title={url} className={styles.image} />}
       <CardContent className={styles.content}>
-        <Typography variant="h4">{title}</Typography>
+        <Typography variant="h4" component="h3">
+          {title}
+        </Typography>
         <Typography
           variant="body2"
           component="div"

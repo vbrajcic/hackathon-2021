@@ -59,10 +59,10 @@ const QuoteCards: React.FC = () => {
     <Grid container direction={!isDesktop ? 'column' : 'row'} className={styles.container}>
       {!isMobile && (
         <Grid item className={styles.scrollBtnWrapper}>
-          <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn}>
+          <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn} title="left-icon">
             <ChevronLeftIcon className={styles.icon} />
           </IconButton>
-          <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn}>
+          <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn} title="right-icon">
             <ChevronRightIcon className={styles.icon} />
           </IconButton>
         </Grid>
