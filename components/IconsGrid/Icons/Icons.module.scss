@@ -69,9 +69,11 @@
     }
 
     .logoImg {
+      max-height: rem-calc(40);
       max-width: rem-calc(100);
 
       &.hegnar-media {
+        max-height: rem-calc(55);
         max-width: rem-calc(130);
       }
     }
