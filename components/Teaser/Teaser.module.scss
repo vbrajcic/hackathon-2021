@@ -4,6 +4,12 @@
 .root {
   max-width: $max-grid-width;
 
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    transform: translate(0, -5px);
+    box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.14);
+  }
+
   &.container {
     height: 100%;
   }
@@ -14,8 +20,11 @@
 
   .cardArea {
     @include flex(column);
-
     height: 100%;
+
+    .focusHighlight {
+      background-color: $white;
+    }
 
     .image {
       width: 100%;
@@ -64,6 +73,7 @@
 
       .button {
         padding: 0;
+        max-width: rem-calc(115);
 
         &:hover {
           background-color: transparent;

@@ -21,7 +21,7 @@
       }
 
       @include media(1250px) {
-        grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(400)));
+        grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(450)));
       }
 
       .teaser {

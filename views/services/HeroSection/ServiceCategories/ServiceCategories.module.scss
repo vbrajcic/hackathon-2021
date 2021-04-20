@@ -8,7 +8,6 @@
   .paper {
     padding: rem-calc(55 20 65);
     margin: 0 auto;
-    max-width: $max-grid-width;
 
     @include media(0, 'md') {
       padding: rem-calc(15 20 25);
