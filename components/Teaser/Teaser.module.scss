@@ -3,7 +3,7 @@
 
 .root {
   &.container {
-    max-width: $max-grid-width;
+    max-width: rem-calc(1440);
     height: 100%;
     transition: all 0.2s ease-in-out;
 
@@ -55,7 +55,7 @@
 
       &.row {
         height: rem-calc(510);
-        padding: rem-calc(56 140 56 30);
+        padding: rem-calc(56 140 56 40);
       }
 
       @include media('sm') {

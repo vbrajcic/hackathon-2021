@@ -11,7 +11,7 @@
       width: 100%;
       display: grid;
       justify-content: space-between;
-      max-width: $max-grid-width;
+      max-width: rem-calc(1480);
 
       @include media(0, 'md') {
         flex-direction: column;
