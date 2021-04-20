@@ -1,112 +1,116 @@
 .root {
   &.container {
     display: inline-block;
-    margin-left: rem-calc(32);
+    margin-left: rem-calc(16);
     white-space: normal;
     vertical-align: top;
-    width: rem-calc(280);
-    height: rem-calc(560);
+    width: rem-calc(310);
+    height: rem-calc(480);
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     scroll-margin-left: rem-calc(20);
 
     @include media('sm') {
       width: rem-calc(450);
-      height: rem-calc(430);
+      height: rem-calc(410);
     }
 
     @include media('md') {
       overflow: visible;
       width: rem-calc(640);
-      height: rem-calc(420);
+      height: rem-calc(450);
       margin-left: rem-calc(96);
     }
 
     @include media(1130px) {
       width: rem-calc(690);
-      margin-left: rem-calc(144);
+      margin-left: rem-calc(124);
       scroll-margin-left: rem-calc(80);
       height: rem-calc(420);
     }
 
     .content {
-      padding: rem-calc(20 0 0 20);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: rem-calc(30);
 
       @include media('sm') {
-        padding: rem-calc(20 0 0 25);
+        padding: rem-calc(40 30);
       }
 
       @include media('md') {
-        padding: rem-calc(30 0 0 40);
+        padding: rem-calc(58 80 70 80);
       }
 
       .textWrapper {
-        max-width: 95%;
-        height: rem-calc(400);
         overflow: hidden;
 
-        @include media('sm') {
-          height: rem-calc(300);
-        }
-
-        @include media('md') {
-          max-width: 90%;
-          height: rem-calc(220);
-        }
-
         .quotesIcon {
-          height: rem-calc(40);
-          width: rem-calc(40);
-          transform: rotate(180deg);
+          width: rem-calc(26);
 
           @include media('md') {
+            width: rem-calc(31);
             margin: 0 auto;
-            height: rem-calc(50);
-            width: rem-calc(50);
-          }
-
-          path {
-            fill: $purple-500;
           }
         }
 
         .quoteText {
+          color: #40474d;
+          font-size: rem-calc(15);
+          margin-top: rem-calc(15);
+          line-height: rem-calc(28);
+
           @include media('md') {
-            margin-top: rem-calc(20);
+            margin-top: rem-calc(40);
+            font-size: rem-calc(16);
           }
         }
       }
 
       .footer {
         width: 100%;
-        margin-top: rem-calc(15);
-
-        @include media(0, 'sm') {
-          max-width: rem-calc(240);
-        }
+        margin-top: rem-calc(20);
 
         .companyImg {
-          max-width: rem-calc(50);
-          max-height: rem-calc(50);
+          max-width: rem-calc(40);
+          max-height: rem-calc(40);
           border-radius: rem-calc(4);
-
-          @include media('md') {
-            max-width: rem-calc(75);
-            max-height: rem-calc(75);
-          }
         }
 
         .authorNameAndTitleWrapper {
           margin: rem-calc(0 0 0 12);
-          max-width: rem-calc(350);
 
           .authorName {
             font-weight: 700;
+            font-size: rem-calc(14);
+            line-height: rem-calc(20);
+
+            @include media('md') {
+              font-size: rem-calc(16);
+              line-height: rem-calc(24);
+            }
+          }
+
+          .authorTitle {
+            font-size: rem-calc(12);
+            line-height: rem-calc(20);
+            color: $grey-500;
+
+            @include media('md') {
+              font-size: rem-calc(14);
+              line-height: rem-calc(24);
+            }
           }
         }
       }
 
       .authorImg {
+        position: absolute;
+        right: -5px;
+        bottom: 100px;
         z-index: 1;
         margin-right: rem-calc(-60);
         width: rem-calc(120);

@@ -2,8 +2,8 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import Hyperlink from 'components/Hyperlink';
+import { CardContent } from '@material-ui/core';
+// import CardActionArea from '@material-ui/core/CardActionArea';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 import { Project, ProjectCategory } from 'config/projects';
@@ -33,7 +33,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ project }) => {
     return null;
   }
 
-  const { category, title, url, images } = project;
+  const { category, title, images } = project;
 
   return (
     <Card
@@ -41,22 +41,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ project }) => {
       className={styles.container}
       style={{ backgroundImage: `url(${isMobile ? images.small : images.large})` }}
     >
-      <Hyperlink
-        href={url}
-        component={
-          <CardActionArea classes={{ focusHighlight: styles.focusHighlight }} className={styles.wrapper}>
-            <Typography variant="overline" className={styles.category}>
-              {categoryBadgeMap[category]}
-            </Typography>
-            <Typography variant="h1" className={styles.title}>
-              {title}
-            </Typography>
-            <Button className={styles.button} color="primary">
-              View case study
-            </Button>
-          </CardActionArea>
-        }
-      />
+      <CardContent className={styles.wrapper}>
+        <Typography variant="overline" className={styles.category}>
+          {categoryBadgeMap[category]}
+        </Typography>
+        <Typography variant="h1" className={styles.title}>
+          {title}
+        </Typography>
+        <Button className={styles.button} color="primary" disabled>
+          Case study coming soon
+        </Button>
+      </CardContent>
     </Card>
   );
 };

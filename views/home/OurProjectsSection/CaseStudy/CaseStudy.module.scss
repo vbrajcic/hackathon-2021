@@ -43,8 +43,13 @@
       }
 
       .category {
+        display: block;
         font-weight: 500;
-        margin-bottom: rem-calc(20);
+        margin-bottom: rem-calc(10);
+
+        @include media('md') {
+          margin-bottom: rem-calc(20);
+        }
       }
 
       .title {
@@ -62,7 +67,10 @@
       }
 
       .button {
-        max-width: rem-calc(200);
+        color: $white;
+        background-color: $black;
+        opacity: 0.5;
+        max-width: rem-calc(255);
 
         @include media('lg') {
           margin-bottom: rem-calc(120);
