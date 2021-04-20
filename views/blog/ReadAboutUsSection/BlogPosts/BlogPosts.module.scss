@@ -1,9 +1,10 @@
 .root {
   &.container {
     margin-bottom: rem-calc(60);
+    margin-right: rem-calc(-20);
 
     @include media('lg') {
-      padding-left: rem-calc(60);
+      padding-left: rem-calc(40);
     }
 
     .content {
@@ -17,25 +18,17 @@
       }
 
       @include media('md', 1250px) {
-        grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(500)));
+        grid-template-columns: repeat(2, minmax(rem-calc(240), rem-calc(550)));
       }
 
       @include media(1250px) {
-        grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(450)));
+        grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(550)));
       }
 
       .teaser {
         flex: 1;
-        margin: rem-calc(20 8);
+        margin: rem-calc(20 20);
         padding: 0;
-
-        &:first-of-type {
-          margin-left: 0;
-        }
-
-        &:last-of-type {
-          margin-right: 0;
-        }
 
         @include media(0, 'md') {
           margin: rem-calc(10 0);
