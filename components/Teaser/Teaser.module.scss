@@ -55,6 +55,11 @@
     padding: rem-calc(20 40 46 30);
     flex: 1 1 auto;
 
+    &.row {
+      height: rem-calc(510);
+      padding: rem-calc(56 140 56 30);
+    }
+
     @include media('sm') {
       padding: rem-calc(20 82 46 40);
     }

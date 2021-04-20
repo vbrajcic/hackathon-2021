@@ -27,7 +27,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direct
       classes={{ focusHighlight: styles.focusHighlight }}
     >
       {coverImage && <CardMedia image={coverImage?.sourceUrl} title={url} className={styles.image} />}
-      <CardContent className={styles.content}>
+      <CardContent className={cn(styles.content, { [styles.row]: direction === 'row' })}>
         <Typography variant="h4" component="h3">
           {title}
         </Typography>
