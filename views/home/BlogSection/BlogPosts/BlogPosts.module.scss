@@ -37,7 +37,7 @@
       }
 
       .teaser {
-        max-width: rem-calc(450);
+        max-width: rem-calc(400);
         width: 83%;
         flex: 0 0 83%;
         margin: rem-calc(0 10);
@@ -75,6 +75,7 @@
         @include media('xl') {
           flex: 1;
           margin: rem-calc(0 30);
+          max-width: rem-calc(450);
         }
       }
     }
