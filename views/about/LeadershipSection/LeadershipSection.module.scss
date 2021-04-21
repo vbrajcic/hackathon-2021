@@ -31,7 +31,6 @@
 
     .cardsContainer {
       width: 100%;
-      max-width: $max-grid-width;
       flex-wrap: nowrap;
       @include media(0, 'md') {
         flex-wrap: wrap;

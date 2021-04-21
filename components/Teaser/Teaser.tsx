@@ -21,9 +21,13 @@ interface TeaserProps {
 
 const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direction }) => (
   <Card className={cn(styles.container, { [styles.noImage]: !coverImage })} classes={{ root: styles.root }}>
-    <CardActionArea href={url} className={cn(styles.cardArea, { [styles.row]: direction === 'row' })}>
+    <CardActionArea
+      href={url}
+      className={cn(styles.cardArea, { [styles.row]: direction === 'row' })}
+      classes={{ focusHighlight: styles.focusHighlight }}
+    >
       {coverImage && <CardMedia image={coverImage?.sourceUrl} title={url} className={styles.image} />}
-      <CardContent className={styles.content}>
+      <CardContent className={cn(styles.content, { [styles.row]: direction === 'row' })}>
         <Typography variant="h4" component="h3">
           {title}
         </Typography>

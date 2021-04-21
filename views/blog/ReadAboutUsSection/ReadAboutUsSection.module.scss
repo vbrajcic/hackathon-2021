@@ -39,14 +39,14 @@
       padding-left: rem-calc(60);
     }
 
-    h4 {
+    h3 {
       font-size: rem-calc(48);
     }
 
     @include media(0, 'md') {
       margin: rem-calc(10 0);
 
-      h4 {
+      h3 {
         font-size: rem-calc(20);
       }
 

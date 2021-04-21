@@ -2,84 +2,99 @@
 @import 'styles/mixins/flex';
 
 .root {
-  max-width: $max-grid-width;
-
   &.container {
+    max-width: rem-calc(1440);
     height: 100%;
-  }
+    transition: all $animation-duration__normal $timing-function;
 
-  &.noImage {
-    padding-top: rem-calc(55);
-  }
-
-  .cardArea {
-    @include flex(column);
-
-    height: 100%;
-
-    .image {
-      width: 100%;
-      height: rem-calc(240);
+    &:hover {
+      transform: translate(0, -5px);
+      box-shadow: rem-calc(12 31 85 0) rgba(0, 0, 0, 0.14);
     }
 
-    &.row {
-      @include flex(row-reverse);
+    &.noImage {
+      padding-top: rem-calc(55);
+    }
+
+    .cardArea {
+      @include flex(column);
+
+      height: 100%;
+
+      .focusHighlight {
+        background-color: $white;
+      }
 
       .image {
-        height: rem-calc(510);
+        width: 100%;
+        height: rem-calc(240);
       }
 
-      @include media(0, 'sm') {
-        @include flex(column);
+      &.row {
+        @include flex(row-reverse);
 
         .image {
-          height: rem-calc(240);
+          height: rem-calc(510);
+        }
+
+        @include media(0, 'sm') {
+          @include flex(column);
+
+          .image {
+            height: rem-calc(240);
+          }
         }
       }
     }
-  }
 
-  .content {
-    @include flex(column);
+    .content {
+      @include flex(column);
 
-    padding: rem-calc(20 40 46 30);
-    flex: 1 1 auto;
+      padding: rem-calc(20 40 46 30);
+      flex: 1 1 auto;
 
-    @include media('sm') {
-      padding: rem-calc(20 82 46 40);
-    }
-
-    .excerpt {
-      margin: rem-calc(12 0 26 0);
-      @include ml-ellipsis(3, 16, 1.5);
+      &.row {
+        height: rem-calc(510);
+        padding: rem-calc(56 140 56 40);
+      }
 
       @include media('sm') {
-        margin: rem-calc(22 0 45 0);
+        padding: rem-calc(20 82 46 40);
       }
-    }
 
-    .actions {
-      padding: 0;
-      margin-top: auto;
+      .excerpt {
+        margin: rem-calc(12 0 26 0);
+        @include ml-ellipsis(3, 16, 1.5);
 
-      .button {
+        @include media('sm') {
+          margin: rem-calc(22 0 45 0);
+        }
+      }
+
+      .actions {
         padding: 0;
+        margin-top: auto;
 
-        &:hover {
-          background-color: transparent;
-        }
+        .button {
+          padding: 0;
+          max-width: rem-calc(115);
 
-        .label {
-          @include flex(row-reverse, $justify: space-between);
-        }
+          &:hover {
+            background-color: transparent;
+          }
 
-        svg {
-          height: rem-calc(19);
-          width: rem-calc(10);
+          .label {
+            @include flex(row-reverse, $justify: space-between);
+          }
 
-          path {
-            stroke: $primary;
-            stroke-width: 1.5;
+          svg {
+            height: rem-calc(19);
+            width: rem-calc(10);
+
+            path {
+              stroke: $primary;
+              stroke-width: 1.5;
+            }
           }
         }
       }

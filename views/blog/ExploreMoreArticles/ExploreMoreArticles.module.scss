@@ -4,7 +4,7 @@
 .container {
   position: relative;
   height: rem-calc(650);
-  margin-top: rem-calc(200);
+  margin-top: rem-calc(160);
   margin-bottom: rem-calc(100);
 
   @include media(0, 'md') {
@@ -91,6 +91,10 @@
         padding-right: rem-calc(0 16 0 0);
       }
 
+      @include media('lg') {
+        margin-top: rem-calc(40);
+      }
+
       .text {
         width: rem-calc(280);
         padding-top: rem-calc(44);
@@ -112,7 +116,7 @@
         overflow-x: scroll;
         scroll-behavior: smooth;
         position: absolute;
-        padding: rem-calc(0 0 100 40);
+        padding: rem-calc(40 0 100 60);
         -ms-overflow-style: none;
         scrollbar-width: none;
 
@@ -128,11 +132,9 @@
         .teaser {
           width: rem-calc(400);
           height: rem-calc(513);
-          box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.06);
           white-space: normal;
           display: inline-block;
           margin-right: rem-calc(40);
-          overflow: hidden;
 
           h4 {
             @include ml-ellipsis(2, 20, 1.2);

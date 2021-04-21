@@ -3,7 +3,7 @@
     min-width: calc(100vw + 18px);
     width: 100%;
     overflow-x: hidden;
-    margin: rem-calc(40 -24 0 -24);
+    margin: rem-calc(0 -24 0 -24);
 
     @include media('sm') {
       min-width: calc(100vw);
@@ -11,7 +11,7 @@
 
     @include media('lg') {
       width: 100vw;
-      margin-top: rem-calc(50);
+      margin-top: rem-calc(10);
     }
 
     .slider {
@@ -19,7 +19,7 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: rem-calc(80);
+      padding: rem-calc(40 0 80 0);
 
       @include media('md') {
         padding-bottom: rem-calc(160);
@@ -29,11 +29,11 @@
         overflow-x: hidden;
         scroll-snap-type: none;
         margin: 0;
-        padding: rem-calc(0 0 250 0);
+        padding: rem-calc(40 0 250 30);
       }
 
       @include media('xl') {
-        padding: rem-calc(0 0 250 0);
+        padding: rem-calc(40 0 250 30);
       }
 
       .teaser {
@@ -75,6 +75,7 @@
         @include media('xl') {
           flex: 1;
           margin: rem-calc(0 30);
+          max-width: rem-calc(450);
         }
       }
     }
