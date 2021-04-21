@@ -11,6 +11,8 @@
   }
 
   .partnerImg {
+    width: 100%;
+    height: 100%;
     max-width: rem-calc(60);
 
     @include media('sm') {
@@ -18,6 +20,8 @@
     }
 
     @include media('md') {
+      height: auto;
+      width: auto;
       max-width: rem-calc(100);
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import QuoteIcon from 'components/SvgIcons/Quote';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -21,8 +21,8 @@ const QuoteCard: React.FC<QuoteProps> = ({ quote: { text, companyImgSrc, author 
     <Card className={styles.container} classes={{ root: styles.root }}>
       <CardContent className={styles.content}>
         <Grid container alignItems="flex-start" className={styles.textWrapper}>
-          <FormatQuoteIcon className={styles.quotesIcon} />
-          <Typography variant="body1" className={styles.quoteText}>
+          <QuoteIcon className={styles.quotesIcon} />
+          <Typography variant="body2" className={styles.quoteText}>
             {text}
           </Typography>
         </Grid>
@@ -33,7 +33,9 @@ const QuoteCard: React.FC<QuoteProps> = ({ quote: { text, companyImgSrc, author 
               <Typography variant="body2" className={styles.authorName}>
                 {author.name}
               </Typography>
-              <Typography variant="body2">{author.title}</Typography>
+              <Typography variant="body2" className={styles.authorTitle}>
+                {author.title}
+              </Typography>
             </Grid>
           </Grid>
           {!isMobile && (
