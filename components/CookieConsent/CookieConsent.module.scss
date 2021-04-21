@@ -1,0 +1,40 @@
+.root {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  background: $white;
+  color: $primary;
+
+  .container {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: rem-calc(14 20);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: rem-calc(14);
+  }
+
+  .button {
+    color: $white;
+    box-shadow: $box-shadow__button;
+    background-color: $secondary;
+    padding: rem-calc(18 28);
+    min-width: rem-calc(64);
+    font-family: $primary-font-family;
+    font-size: rem-calc(14);
+    font-weight: bold;
+    border-radius: rem-calc(32);
+    border: 1px solid $secondary;
+    transition: background-color $animation-duration__normal $timing-function;
+
+    &:hover {
+      cursor: pointer;
+      color: $secondary;
+      background-color: $white;
+    }
+  }
+}
