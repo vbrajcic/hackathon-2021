@@ -5,11 +5,11 @@
   &.container {
     max-width: rem-calc(1440);
     height: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: all $animation-duration__normal $timing-function;
 
     &:hover {
       transform: translate(0, -5px);
-      box-shadow: 12px 31px 85px 0 rgba(0, 0, 0, 0.14);
+      box-shadow: rem-calc(12 31 85 0) rgba(0, 0, 0, 0.14);
     }
 
     &.noImage {
