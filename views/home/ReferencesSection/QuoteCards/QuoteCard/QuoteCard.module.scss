@@ -8,7 +8,7 @@
     height: rem-calc(480);
     scroll-snap-align: start;
     scroll-snap-stop: normal;
-    scroll-margin-left: rem-calc(20);
+    scroll-margin-left: rem-calc(16);
 
     @include media('sm') {
       width: rem-calc(450);
