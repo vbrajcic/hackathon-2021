@@ -21,7 +21,7 @@ const BlogPosts: React.FC = () => {
   const expandCards = blogPosts.length < 3;
 
   return (
-    <Grid container classes={{ root: styles.root }} className={styles.container}>
+    <Grid container classes={{ root: styles.root }} data-ga-section="front" className={styles.container}>
       <Grid container wrap="nowrap" className={styles.slider}>
         {blogPosts.map((post: Post) => (
           <Grid item key={post.slug} className={cn(styles.teaser, { [styles.expand]: expandCards })}>
@@ -29,6 +29,7 @@ const BlogPosts: React.FC = () => {
               title={post.title}
               excerpt={post.excerpt}
               coverImage={post.featuredImage?.node}
+              tags={post.tags}
               url={`/blog/${post.slug}`}
             />
           </Grid>
