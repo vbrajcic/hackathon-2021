@@ -16,16 +16,28 @@ const Meta = () => (
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
     {metaIcons.favicons.map(size => (
-      <link href={`/favicon/favicon-${size}.png`} rel="icon" key={size} sizes={size} type="image/png" />
+      <link
+        href={`/favicon/favicon-${size}.png`}
+        rel="icon"
+        key={`/favicon/favicon-${size}.png`}
+        sizes={size}
+        type="image/png"
+      />
     ))}
     {metaIcons.android.map(size => (
-      <link href={`/favicon/android-icon-${size}.png`} rel="icon" key={size} sizes={size} type="image/png" />
+      <link
+        href={`/favicon/android-icon-${size}.png`}
+        rel="icon"
+        key={`/favicon/android-icon-${size}.png`}
+        sizes={size}
+        type="image/png"
+      />
     ))}
     {metaIcons.apple.map(size => (
       <link
         href={`/favicon/apple-touch-icon-${size}.png`}
         rel="apple-touch-icon"
-        key={size}
+        key={`/favicon/apple-touch-icon-${size}.png`}
         sizes={size}
         type="image/png"
       />
