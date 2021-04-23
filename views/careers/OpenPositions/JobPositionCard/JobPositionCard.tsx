@@ -26,9 +26,10 @@ const JobPositionCard: React.FC<JobPositionCardProps> = ({ position }) => {
   const JobIcon = jobPosition?.icon;
 
   return (
-    <Card classes={{ root: styles.root }} className={styles.container}>
+    <Card data-ga-event-name="open_position" classes={{ root: styles.root }} className={styles.container}>
       <Hyperlink
         href={`/careers/${position.slug}`}
+        data-ga-job-position={position.slug}
         component={
           <CardActionArea classes={{ focusHighlight: styles.focusHighlight }} className={styles.content}>
             <JobIcon className={styles.icon} />

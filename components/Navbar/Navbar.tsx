@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
             )}
           </Grid>
         </Grid>
-        <Button className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
+        <Button data-ga-event-name="click_cta" className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
           Get in touch
         </Button>
       </Container>
