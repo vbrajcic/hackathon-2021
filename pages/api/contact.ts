@@ -10,12 +10,12 @@ export default async function contact(req: NextApiRequest, res: NextApiResponse)
       user: process.env.GMAIL_USERNAME,
       pass: process.env.GMAIL_PASSWORD,
     },
+    secure: true,
   });
 
-  // PW-102: fvidak@profico.hr just for testing purposes - should be info@profico.hr
   const mailOption = {
     from: `Profico Web <${email}>`,
-    to: 'fvidak@profico.hr',
+    to: 'info@profico.hr',
     subject: `New inquiry from Profico web`,
     text: `FROM: ${email} MESSAGE: ${message}`,
     html: `<h2>Mail From Contact Form</h2><p>From: <a href="mailto:${email}">${email}</a></p><p>${message}</p>`,
