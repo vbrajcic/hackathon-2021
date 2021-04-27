@@ -58,11 +58,23 @@ const QuoteCards: React.FC = () => {
   return (
     <Grid container direction={!isDesktop ? 'column' : 'row'} className={styles.container}>
       {!isMobile && (
-        <Grid item className={styles.scrollBtnWrapper}>
-          <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn} title="left-icon">
+        <Grid item className={styles.scrollBtnWrapper} data-ga-event-name="testimonial_carousel">
+          <IconButton
+            onClick={handleScrollBtnClick}
+            data-ga-name="left-icon"
+            value="left"
+            className={styles.scrollBtn}
+            title="left-icon"
+          >
             <ChevronLeftIcon className={styles.icon} />
           </IconButton>
-          <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn} title="right-icon">
+          <IconButton
+            onClick={handleScrollBtnClick}
+            data-ga-name="right-icon"
+            value="right"
+            className={styles.scrollBtn}
+            title="right-icon"
+          >
             <ChevronRightIcon className={styles.icon} />
           </IconButton>
         </Grid>

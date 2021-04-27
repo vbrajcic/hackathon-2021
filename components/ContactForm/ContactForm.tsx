@@ -23,6 +23,7 @@ type ContactFields = {
 };
 
 interface ContactFormProps {
+  gaName?: string;
   className?: string;
   classes?: {
     root?: string;
@@ -35,7 +36,7 @@ const defaultValues: ContactFields = {
   message: '',
 };
 
-const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
+const ContactForm: FC<ContactFormProps> = ({ gaName = '', className, classes }) => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
   const { isMobile } = useBreakpoint();
@@ -110,7 +111,7 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
               }
               control={control}
             />
-            <Button type="submit" disabled={formState.isSubmitting}>
+            <Button type="submit" data-ga-event-name="contact_form_submit" disabled={formState.isSubmitting}>
               {submitText}
             </Button>
           </form>
@@ -126,7 +127,13 @@ const ContactForm: FC<ContactFormProps> = ({ className, classes }) => {
             Split+Zagreb, Croatia
             <br />
             {isMobile ? <Link href="tel:+385 91 322 1274">+385 91 322 1274</Link> : '+385 91 322 1274'}
-            <Link display="block" href="mailto:info@profico.hr" className={style.email}>
+            <Link
+              data-ga-event-name="contact"
+              data-ga-name={gaName}
+              display="block"
+              href="mailto:info@profico.hr"
+              className={style.email}
+            >
               info@profico.hr
             </Link>
           </ContactDetail>

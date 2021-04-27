@@ -68,6 +68,8 @@ const EasterEggPostButton: React.FC<EasterEggPostButtonProps> = ({ slug, tags })
       <Fab
         color="secondary"
         size="large"
+        data-ga-event-name="copy_job_post"
+        data-ga-job-position={jobPosition.tag}
         onClick={handleCopyToClipboard}
         classes={{ root: styles.root }}
         className={styles.container}
