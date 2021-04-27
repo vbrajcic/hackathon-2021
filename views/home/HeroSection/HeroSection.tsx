@@ -15,6 +15,7 @@ const HeroSection: React.FC = () => (
     <Container className={styles.container} maxWidth="xl">
       <Intro text="Mobile app and web development agency" className={styles.intro}>
         <Hyperlink
+          data-ga-event-name="go_to_services"
           href="/services"
           component={
             <Button className={styles.button} color="primary">

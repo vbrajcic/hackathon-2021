@@ -54,8 +54,9 @@ const Navbar: React.FC = () => {
       <Container className={styles.container} maxWidth="xl" disableGutters>
         <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
           <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
-          <Grid container justify="space-between" className={styles.inner}>
+          <Grid data-ga-event-name="navigation" container justify="space-between" className={styles.inner}>
             <Hyperlink
+              data-ga-section="logo"
               href="/"
               AnchorProps={{
                 variant: 'body1',
@@ -68,6 +69,7 @@ const Navbar: React.FC = () => {
               <Grid>
                 {filteredLinks.map(({ url, text }) => (
                   <Hyperlink
+                    data-ga-section={text}
                     key={url}
                     href={url}
                     AnchorProps={{

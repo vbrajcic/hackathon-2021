@@ -35,7 +35,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ numberOfOpenPositions }) => {
     <Grid component="section" className={styles.root}>
       <Container className={styles.container} maxWidth="xl">
         <Intro text="Join our team in building great products" className={styles.intro}>
-          <Button className={styles.button} onClick={handleButtonClick} color="primary" disabled={noOpenPositions}>
+          <Button
+            data-ga-event-name="scrollto_open_positions"
+            className={styles.button}
+            onClick={handleButtonClick}
+            color="primary"
+            disabled={noOpenPositions}
+          >
             {buttonText}
           </Button>
         </Intro>

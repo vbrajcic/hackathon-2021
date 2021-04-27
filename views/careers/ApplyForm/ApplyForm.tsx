@@ -10,10 +10,17 @@ import Paper from '@material-ui/core/Paper';
 import { FormControl, FormHelperText, Input } from '@material-ui/core';
 
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import useJobPosition from 'utils/hooks/useJobPosition';
+import { Edges } from 'types/common';
+import Tag from 'types/posts/tag';
 import File from 'components/SvgIcons/File';
 import { validationSchemas, fileValidation, acceptedMimeTypes } from 'utils/static/FormValidation';
 
 import style from './ApplyForm.module.scss';
+
+interface ApplyFormProps {
+  jobTags?: Edges<Tag>;
+}
 
 type ContactFields = {
   name: string;
@@ -45,11 +52,13 @@ const toBase64 = (file?: File) =>
     }
   });
 
-const ApplyForm: FC<{}> = () => {
+const ApplyForm: FC<ApplyFormProps> = ({ jobTags }) => {
   const [snackbarMessage, setSnackbarMessage] = useState<string>('');
   const [selectedFile, setSelectedFile] = useState<File>();
   const { handleSubmit, control, errors, formState, reset } = useForm({ defaultValues });
   const { isMobile } = useBreakpoint();
+
+  const jobPosition = useJobPosition(jobTags);
 
   const resetForm = (): void => {
     reset();
@@ -187,7 +196,13 @@ const ApplyForm: FC<{}> = () => {
               as={<TextField placeholder="Tell us something about yourself" fullWidth multiline rowsMax={3} />}
               control={control}
             />
-            <Button type="submit" disabled={formState.isSubmitting} className={style.submitButton}>
+            <Button
+              type="submit"
+              data-ga-event-name="job_application_submit"
+              data-ga-job-position={jobPosition?.tag || ''}
+              disabled={formState.isSubmitting}
+              className={style.submitButton}
+            >
               {submitText}
             </Button>
           </Grid>
