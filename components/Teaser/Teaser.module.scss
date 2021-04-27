@@ -28,6 +28,13 @@
       .image {
         width: 100%;
         height: rem-calc(240);
+        border-top-left-radius: $border-radius__lg;
+        border-top-right-radius: $border-radius__lg;
+
+        @include media(0, 'md') {
+          border-top-left-radius: $border-radius__md;
+          border-top-right-radius: $border-radius__md;
+        }
       }
 
       &.row {
