@@ -28,10 +28,11 @@ const ProductStrategy: React.FC = () => {
             Product Strategy
           </Typography>
           <Typography variant="body2" className={styles.descripton}>
-            We’re driven by a comprehensive understanding of what the user expects, wants and hates about digital
-            products we shape. Strongly believing that the true ProductStrategy value lies within the parts that are
-            rather felt and unseen. Highlighting the importance of the user experience half of the inseparable UX/UI
-            duo.
+            Combining design sprint, agile methods and data analytics, our strategists focus on shaping your idea into a
+            user oriented, market-ready product. They’ll work closely with your employees, partners, key stakeholders,
+            end-users, as they try to discover problems that look like they need to be solved, and transform them into
+            opportunities that need to be seized. Uncovering the true user value while driving design and dev teams
+            towards key variables that continuously increase it.
           </Typography>
         </Grid>
         {!isMobile && (

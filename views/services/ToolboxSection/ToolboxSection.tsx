@@ -28,8 +28,8 @@ const ToolboxSection: React.FC = () => (
       HeadingProps={{
         title: 'Our\neveryday\ntoolbox',
         description:
-          'We shape our core capabilities around lean product teams capable of delivering immense value to organisations worldwide',
-        sectionTitle: 'APPS WE USE TO MAKE AWESOMENESS',
+          'We are in love with technology, and we channel that love by using technology as a proper tool to deliver value and build the products we all believe in.',
+        sectionTitle: 'TECH WE USE TO BUILD GREAT PRODUCTS',
         className: styles.sectionHeading,
       }}
     />

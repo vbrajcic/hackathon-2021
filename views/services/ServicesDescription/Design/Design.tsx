@@ -30,7 +30,8 @@ const Design: React.FC = () => {
           <Typography variant="body2" className={styles.descripton}>
             We’re driven by a comprehensive understanding of what the user expects, wants and hates about digital
             products we shape. Strongly believing that the true design value lies within the parts that are rather felt
-            and unseen. Highlighting the importance of the user experience half of the inseparable UX/UI duo.
+            and unseen. Highlighting the importance of the user experience half of the inseparable UX/UI duo. We top
+            that with a visually appealing product that looks good but feels even better.
           </Typography>
         </Grid>
         {!isMobile && (

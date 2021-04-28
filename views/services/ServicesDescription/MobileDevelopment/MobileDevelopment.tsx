@@ -8,14 +8,7 @@ import KeywordChips from '../KeywordChips';
 
 import styles from './MobileDevelopment.module.scss';
 
-const keywords = [
-  'User Flow',
-  'Information Architecture',
-  'Wireframes',
-  'User Testing',
-  'Prototypes',
-  'Interface Design',
-];
+const keywords = ['iOS', 'Android', 'Swift', 'Kotlin', 'Native', 'Hybrid'];
 
 const MobileDevelopment: React.FC = () => {
   const { isMobile } = useBreakpoint();
@@ -36,10 +29,10 @@ const MobileDevelopment: React.FC = () => {
                 Mobile Development
               </Typography>
               <Typography variant="body2" className={styles.descripton}>
-                Packing intuitive features, fast performance and high engagement into user’s pockets. In order to make
+                Packing intuitive features, fast performance and high engagement into user’s pockets! In order to make
                 an extraordinary app you need people that have a bunch of successful mobile apps in their portfolio.
                 Fast forward to millions of downloads, 5 star ratings, revenue growth (and a couple of awards)
-                afterwards, you end up with our mobile development team.
+                afterwards, you end up with our mobile development team
               </Typography>
             </Grid>
             {!isMobile && (

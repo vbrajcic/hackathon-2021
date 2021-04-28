@@ -27,9 +27,9 @@ const CheatsheetSection: React.FC = () => {
         {!isMobile && (
           <Grid className={styles.textWrapper}>
             <Typography variant="h2">
-              Take a quick look at our
+              Different projects.
               <br />
-              process cheatsheet
+              Unified approach.
             </Typography>
           </Grid>
         )}
