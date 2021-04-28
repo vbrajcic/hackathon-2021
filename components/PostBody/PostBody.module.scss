@@ -124,6 +124,10 @@ $content-width: rem-calc(600);
       font-size: rem-calc(14);
     }
 
+    figure {
+      text-align: center;
+    }
+
     figcaption {
       display: flex;
       color: $muted;
