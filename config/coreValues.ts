@@ -8,25 +8,25 @@ export interface CoreValue {
 const coreValues: CoreValue[] = [
   {
     icon: 'REACT',
-    title: 'Stakeholders over\nplaceholders',
-    subtitle: 'A nonprofit organization giving support to women in Alabama who need access to abortion clinics.',
+    title: 'Goal oriented',
+    subtitle:
+      'Achieving goals is the single most important objective behind everything we do. Measure success. Learn. Improve.',
   },
   {
     icon: 'TEST_TUBE',
-    title: 'Small Teams,\nBig Ideas.',
+    title: 'Customer-centric',
     subtitle:
-      'ActBlue Civics supports several groups and charities working to protect kids and families separated by ICE.',
+      'Customers are the center of Profico’s universe. On our mission to solve your problems, we always take that extra mile!',
   },
   {
     icon: 'ALIEN',
-    title: 'Rise by lifting\nothers',
-    subtitle: 'Women Talk Design is on a mission to see more diverse speakers on stage, with training and promotion.',
+    title: 'User empathy',
+    subtitle: 'We always put ourselves in the perspective of the end user to understand what makes his life easier!',
   },
   {
     icon: 'ROCKET',
-    title: 'Start small,\nDream big',
-    subtitle:
-      'A Memphis based initiative connecting teams of volunteer creatives with nonprofits that need their help.',
+    title: 'Always deliver a little more!',
+    subtitle: 'We go beyond delivering what works. We strive to deliver great & sustainable results.',
   },
 ];
 

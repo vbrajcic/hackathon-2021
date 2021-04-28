@@ -23,10 +23,11 @@ const CultureSection: React.FC = () => (
           color="secondary"
         />
         <Typography variant="h2" className={styles.title}>
-          Make something you’re proud of.
+          Make something you are proud of.
         </Typography>
         <Typography variant="body2" className={styles.subtitle}>
-          Successful project relationships transform us from suppliers to partners and beyond.
+          We take pride in what we deliver as a team. Embracing full ownership over the challenges we face and
+          relentlessly working to help our clients build something both sides can be proud of.
         </Typography>
       </Grid>
       <Grid container>

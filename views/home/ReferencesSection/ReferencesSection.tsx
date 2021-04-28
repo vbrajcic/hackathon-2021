@@ -26,11 +26,13 @@ const ReferencesSection: React.FC = () => {
               trust us
             </Typography>
             <Typography variant="body2" className={styles.subtitle}>
-              We shape our core capabilities around lean
+              Shipping great products over the course
               <br />
-              product teams capable of delivering immense
+              of the past 10 years,
               <br />
-              value to organisations worldwide
+              earned us the trust and verification
+              <br />
+              by market leaders worldwide.
             </Typography>
           </Grid>
           <Grid item container lg={7} md={6} xs={12} alignItems="center" className={styles.partnersWrapper}>
