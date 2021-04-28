@@ -8,14 +8,7 @@ import KeywordChips from '../KeywordChips';
 
 import styles from './WebDevelopment.module.scss';
 
-const keywords = [
-  'User Flow',
-  'Information Architecture',
-  'Wireframes',
-  'User Testing',
-  'Prototypes',
-  'Interface Design',
-];
+const keywords = ['Backend', 'Backoffice', 'API', 'Web UI', 'Interactions', 'CMS'];
 
 const WebDevelopment: React.FC = () => {
   const { isMobile } = useBreakpoint();
@@ -37,8 +30,9 @@ const WebDevelopment: React.FC = () => {
               </Typography>
               <Typography variant="body2" className={styles.descripton}>
                 Our frontend and backend teams represent a main force behind our high performing sites across all
-                screens and browsers. Robust, and scalable backend development ensures your user journeys and business
-                flows work as they are expected to.
+                screens and browsers. Both teams are committed to building a robust and scalable backend that supports
+                your business flow and user journeys, transforming design sketches into a live and visually appealing
+                product with smooth interactions and the clean code.
               </Typography>
             </Grid>
             {!isMobile && (

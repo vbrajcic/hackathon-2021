@@ -7,12 +7,13 @@ interface Category {
 const expertiseCategories: Category[] = [
   {
     name: 'Product Strategy',
-    description: 'Hollistic understanding of what the user expects, wants and hates about digital products.',
+    description: 'Complete understanding of what the user expects, wants and hates about digital products.',
     icon: 'ProductStrategy',
   },
   {
-    name: 'Design & UX',
-    description: 'Driven by research insights we frame an abstract idea into an overall product context.',
+    name: 'UI/UX Design',
+    description:
+      'Driven by research, we translate an abstract idea into a product context, highlighting the importance of the user experience alongside carefully crafted UI.',
     icon: 'Design',
   },
   {
@@ -22,7 +23,8 @@ const expertiseCategories: Category[] = [
   },
   {
     name: 'Mobile Development',
-    description: 'Once we’re clear for take-off, what was once a user interface, now becomes a robust digital product.',
+    description:
+      'Keep your customers close and engaged by getting on their phones. We can help you uncover new growth opportunities by building custom mobile products.',
     icon: 'Mobile',
   },
 ];

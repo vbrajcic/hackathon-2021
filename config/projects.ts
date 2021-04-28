@@ -15,7 +15,7 @@ export interface Project {
 const projects: Project[] = [
   {
     category: 'MOBILE_APPS',
-    title: 'Norways Favorite TV Guide',
+    title: 'Norway’s Favorite TV Guide',
     url: '/work/meetv',
     images: {
       large: addAssetPrefix('/images/meetv-bg-image-lg.png'),
@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     category: 'MOBILE_APPS',
-    title: 'Hyre: Car anytime you want',
+    title: 'Peer to peer car sharing platform',
     url: '/work/hyre',
     images: {
       large: addAssetPrefix('/images/hyre-bg-image-lg.png'),

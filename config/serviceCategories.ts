@@ -12,21 +12,21 @@ export interface ServiceCategory {
 
 const serviceCategories: ServiceCategory[] = [
   {
-    name: 'Product Strategy',
+    name: 'Product strategy',
     description:
-      'Combining design sprint, agile methods and data analytics, our strategists set the “tone and context”.',
+      'Combining design sprint, agile methods and data analytics, our strategists set the “tone and context” of a user oriented, market-ready product, tailor-made from your idea.',
     icon: ProductStrategy,
   },
   {
-    name: 'UI/UX Design',
+    name: 'UI/UX design',
     description:
-      'Combining design sprint, agile methods and data analytics, our strategists set the “tone and context”.',
+      'To provide end users with great experience within apps, we base our design solutions on comprehensive research of what user needs, likes and dislikes and we make his journey exciting with beautiful UI.',
     icon: Design,
   },
   {
-    name: 'Web&Mobile Development',
+    name: 'Web & mobile development',
     description:
-      'Combining design sprint, agile methods and data analytics, our strategists set the “tone and context”.',
+      'To effectively engage millions of users with high performance digital products, across all the platforms, you need a team with a proven traction record at building successful web & mobile systems.',
     icon: Web,
   },
 ];

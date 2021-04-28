@@ -1,5 +1,6 @@
 .root {
   &.container {
+    height: 100%;
     width: rem-calc(320);
     margin-right: rem-calc(40);
     padding: rem-calc(48 40 76 50);

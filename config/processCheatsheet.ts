@@ -13,26 +13,28 @@ const processCheatsheet: Cheatsheet[] = [
   {
     id: 0,
     icon: ReactOutlined,
-    title: 'Stakeholders over\nplaceholders',
-    subtitle: 'A nonprofit organization giving support to women in Alabama who need access to abortion clinics.',
+    title: 'Discovery Workshops',
+    subtitle:
+      'Interactive workshops based on Design Sprint methodology that help us kickstart the project in a right way.',
   },
   {
     id: 1,
     icon: Alien,
-    title: 'Rise by lifting\nothers',
-    subtitle: 'Women Talk Design is on a mission to see more diverse speakers on stage, with training and promotion.',
+    title: 'Agile Delivery',
+    subtitle: 'Iterative approach that enables us to design, prototype and deliver faster and more to the point.',
   },
   {
     id: 2,
     icon: ReactOutlined,
-    title: 'Stakeholders over\nplaceholders',
-    subtitle: 'A nonprofit organization giving support to women in Alabama who need access to abortion clinics.',
+    title: 'Driven by Data',
+    subtitle: 'Placing user behaviour analysis, KPIs and A/B tests behind every step we take along the way.',
   },
   {
     id: 3,
     icon: Alien,
-    title: 'Rise by lifting\nothers',
-    subtitle: 'Women Talk Design is on a mission to see more diverse speakers on stage, with training and promotion.',
+    title: 'Long Term Support',
+    subtitle:
+      'Project is over, but collaboration has just started. Successful deliveries transform us from providers to long term partners.',
   },
 ];
 

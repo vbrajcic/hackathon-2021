@@ -17,8 +17,8 @@ const BlogSection: React.FC = () => (
         talking about
       </Typography>
       <Typography variant="body2" color="textSecondary" className={styles.subtitle}>
-        We shape our core capabilities around lean product teams capable of delivering immense value to organisations
-        worldwide
+        Sharing some random insights & comments about design, technology, projects and approach. On other occasions, we
+        just enjoy bragging about our achievements.
       </Typography>
       <Hyperlink href="/blog" component={<Button color="primary">Go to our blog</Button>} />
     </div>
