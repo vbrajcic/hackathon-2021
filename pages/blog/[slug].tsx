@@ -11,9 +11,9 @@ import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import BlogPostContactForm from 'views/blog/BlogPostContactForm';
 
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
+import { getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 
 type BlogPostProps = GetPostAndMorePostsResult & {
@@ -57,7 +57,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
 
 export default BlogPost;
 
-export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
+export const getServerSideProps: GetServerSideProps<{}, { slug: string }> = async ({
   params,
   preview = false,
   previewData,
@@ -80,13 +80,5 @@ export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
       post: data.post,
       posts: data.posts,
     },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllPostsWithSlug();
-  return {
-    paths: allPosts.edges.map(({ node }) => `/blog/${node.slug}`) || [],
-    fallback: true,
   };
 };

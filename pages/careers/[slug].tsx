@@ -9,9 +9,9 @@ import PostTitle from 'components/PostTitle';
 import ApplyForm from 'views/careers/ApplyForm';
 import EasterEggPostButton from 'views/careers/EasterEggPostButton';
 
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/api';
+import { getPostAndMorePosts } from 'lib/api';
+import { GetServerSideProps } from 'next';
 import { GetPostAndMorePostsResult } from 'lib/queries';
-import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
 import styles from './Careers.module.scss';
@@ -54,7 +54,7 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
 
 export default CareerPost;
 
-export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
+export const getServerSideProps: GetServerSideProps<{}, { slug: string }> = async ({
   params,
   preview = false,
   previewData,
@@ -75,14 +75,5 @@ export const getStaticProps: GetStaticProps<{}, { slug: string }> = async ({
       preview,
       post: data.post,
     },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllPostsWithSlug();
-
-  return {
-    paths: allPosts.edges.map(({ node }) => `/careers/${node.slug}`) || [],
-    fallback: true,
   };
 };
