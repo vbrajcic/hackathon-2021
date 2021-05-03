@@ -118,7 +118,7 @@ const ContactForm: FC<ContactFormProps> = ({ gaName = '', className, classes }) 
         </Grid>
         <Grid container item sm={12} md={5} lg={5}>
           <ContactDetail icon={Snowman} title="Zagreb Office">
-            Vukovarska 269D
+            Radnička cesta 39
           </ContactDetail>
           <ContactDetail icon={Sailing} title="Split Office">
             Makarska 26A
