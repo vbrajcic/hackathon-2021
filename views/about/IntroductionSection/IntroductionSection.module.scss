@@ -65,11 +65,10 @@
 
     .imageWrapper {
       height: rem-calc(650);
-      margin-top: rem-calc(30);
+      margin-top: rem-calc(50);
       white-space: nowrap;
 
       @include media(0, 'sm') {
-        margin-top: rem-calc(50);
         height: unset;
       }
 
