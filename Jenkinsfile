@@ -44,6 +44,9 @@ pipeline {
                 nodejs(nodeJSInstallationName: 'node:12') {
                     sh 'yarn run docker:push'
                 }
+                nodejs(nodeJSInstallationName: 'node:12') {
+                    sh 'yarn run docker:push:latest'
+                }
             }
         }
     }
