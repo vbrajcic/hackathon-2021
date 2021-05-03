@@ -25,9 +25,14 @@
     .subtitle {
       color: $muted;
       margin-bottom: rem-calc(96);
+      max-width: rem-calc(600);
 
       @include media(0, 800px) {
         margin-bottom: rem-calc(55);
+      }
+
+      @include media(0, 'md') {
+        max-width: 100%;
       }
     }
 

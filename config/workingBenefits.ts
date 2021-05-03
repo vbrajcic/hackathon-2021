@@ -12,51 +12,71 @@ export interface WorkBenefit {
 
 const workingBenefits: WorkBenefit[] = [
   {
-    name: 'Flexible working hours',
-    description: 'Feeling like a late starter? Tailor your own work schedule.',
+    name: 'Flexible work hours',
+    description:
+      'Do you feel like a late starter? Choose your own daily start time, with respect to your colleagues, meetings, and customers.',
     icon: Time,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Work from home',
-    description: 'Get all the work done while enjoying the comfortness of your home.',
+    name: 'Remote work possibilities',
+    description:
+      'If you need a day or more for yourself, but still feels like you have to do something, take a day from home.',
     icon: Coffee,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Constant learning',
-    description: 'The easiest way to unlock your full potential is to constantly learn.',
+    name: 'Education',
+    description: `Tell us what you need to develop your skills further, and we'll do our best to make it happen.`,
     icon: Brain,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Best team ever',
-    description: 'Calling it any differently would be an understatement.',
+    name: 'Unforgettable social moments',
+    description: `Yes, we are here for work and we are all serious about it. But we also know how to celebrate our wins and throw a party or team building. Actually, that's where most of the unforgettable moments are created ;)`,
     icon: Star,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Top equipment',
-    description: '94% of us are irrational Apple brand disciples, the remaining part comes down to backend developers.',
+    name: 'Constant learning, constant growing',
+    description:
+      'We will help you to constantly improve to become the best in what you love. You can count on honest feedback and clear pointers on how to strengthen your strengths and overthrow your weaknesses.',
     icon: Laptop,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Legendary office parties',
-    description: 'They probably happen more often than we’d like to confess in front our management board.',
+    name: 'Projects versatility',
+    description:
+      'We are not a single project company. Although you can stay as long as you want on that project you particularly like, you will probably get multiple exciting project opportunities in your career with us!',
     icon: Drinks,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Team building',
-    description: 'Everyone from Split and Zagreb offices gets together at least once a year.',
+    name: 'Kitchen perks',
+    description:
+      'To support your healthy lifestyle while in the office (or even the opposite one), we have a full-size kitchen. Make some smoothies or protein shake in the morning, or bring your favorite meal.',
     icon: PalmTree,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
   {
-    name: 'Travel opportunities',
-    description: 'You’ll get to work with clients and projects from all over the world.',
+    name: 'Business travel opportunities',
+    description:
+      'Our clients are all over the world, and we really like visiting them. The same thing goes for conferences. Pandemics won’t last forever!',
     icon: Travel,
+    image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
+  },
+  {
+    name: 'Empowering organisational culture',
+    description:
+      'We can help you build your career path no matter if you are a single contributor or the team lead. We will help you rise, and you will help us by lifting others!',
+    icon: Star,
+    image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
+  },
+  {
+    name: 'Multi-sport gym membership',
+    description:
+      'Working on your abbs lately?! We can support easier access to multiple sports programs through multi-sport memberships.',
+    icon: PalmTree,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },
 ];

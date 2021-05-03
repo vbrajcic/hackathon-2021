@@ -14,8 +14,8 @@ const IntroductionSection: FC = () => (
         {`Digital product agency\nwith a global impact`}
       </Typography>
       <Typography variant="body2" color="textSecondary" className={styles.descriptionText}>
-        Profico is a progressive full service digital product agency that focuses on building successful and
-        award-winning websites and mobile apps
+        Profico is a progressive full service digital product agency specialised for building successful and
+        award-winning websites and mobile apps.
       </Typography>
     </Grid>
     <Grid className={styles.imageWrapper}>
