@@ -1,0 +1,14 @@
+.container {
+  display: block;
+  width: rem-calc(24);
+  height: rem-calc(24);
+
+  svg {
+    font-size: rem-calc(26);
+    transition: color $animation-duration__normal $timing-function, fill $animation-duration__normal $timing-function;
+    &:hover {
+      color: $secondary;
+      fill: $secondary;
+    }
+  }
+}

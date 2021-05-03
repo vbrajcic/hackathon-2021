@@ -1,0 +1,36 @@
+$buttonSize: rem-calc(100);
+$bodyTopMargin: rem-calc(86);
+
+.root {
+  &.container {
+    position: absolute;
+    width: $buttonSize;
+    height: $buttonSize;
+    left: rem-calc(32);
+    top: calc(-#{$bodyTopMargin} - calc(#{$buttonSize} / 2));
+
+    @include media(0, 'sm') {
+      width: rem-calc(94);
+      height: rem-calc(94);
+      left: rem-calc(20);
+    }
+
+    @include media('md', 'lg') {
+      left: rem-calc(140);
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.snackbarRoot {
+  .snackbarContent {
+    .closeBtn {
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+}

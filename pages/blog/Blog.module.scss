@@ -1,0 +1,9 @@
+.container {
+  @include media('md') {
+    background-color: $grey-100;
+  }
+
+  .contactForm {
+    position: relative;
+  }
+}

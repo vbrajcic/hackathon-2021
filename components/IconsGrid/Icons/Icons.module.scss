@@ -1,0 +1,81 @@
+.container {
+  @include media('lg') {
+    margin-left: rem-calc(60);
+  }
+
+  .cardItem {
+    flex-basis: 50%;
+
+    @include media(1300px) {
+      flex-basis: 40%;
+    }
+
+    .cardWrapper {
+      position: relative;
+      height: rem-calc(140);
+
+      .card {
+        position: absolute;
+        bottom: rem-calc(0);
+        min-height: rem-calc(400);
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 25%;
+        padding-top: rem-calc(32);
+        padding-bottom: rem-calc(30);
+
+        &.toolbox {
+          background-color: $black;
+        }
+
+        @include media('lg') {
+          padding-top: rem-calc(52);
+          padding-bottom: rem-calc(50);
+          height: rem-calc(464);
+          width: 100%;
+        }
+
+        @include media('xl') {
+          width: rem-calc(520);
+          padding: rem-calc(52 140 70 66);
+        }
+      }
+    }
+  }
+
+  .logoWrapper {
+    margin-top: rem-calc(45);
+    margin-bottom: rem-calc(45);
+    flex-basis: 50%;
+
+    &.toolbox {
+      @include media(0, 'md') {
+        flex-basis: 33%;
+      }
+    }
+
+    @include media('md') {
+      flex-basis: 25%;
+      margin-top: rem-calc(65);
+      margin-bottom: rem-calc(65);
+    }
+
+    @include media('lg') {
+      padding-left: rem-calc(40);
+    }
+
+    @include media(1300px) {
+      flex-basis: 20%;
+    }
+
+    .logoImg {
+      max-height: rem-calc(40);
+      max-width: rem-calc(100);
+
+      &.hegnar-media {
+        max-height: rem-calc(55);
+        max-width: rem-calc(130);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.container {
+  @include media('md') {
+    background-color: $grey-100;
+  }
+
+  .formWrapper {
+    @include media('md') {
+      padding-bottom: rem-calc(150);
+    }
+  }
+}

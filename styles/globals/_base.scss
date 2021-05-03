@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $primary;
+  transition: color $animation-duration__fast $timing-function, fill $animation-duration__fast $timing-function;
+
+  &:not(.MuiButtonBase-root) {
+    &:hover,
+    &:focus {
+      color: $secondary;
+
+      path {
+        fill: $secondary;
+      }
+    }
+  }
+}

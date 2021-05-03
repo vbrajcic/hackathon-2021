@@ -1,0 +1,22 @@
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(49, 50, 51, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(49, 50, 51, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(49, 50, 51, 0);
+  }
+}

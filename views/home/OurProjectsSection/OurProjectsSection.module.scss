@@ -1,0 +1,11 @@
+.container {
+  margin: rem-calc(50 0);
+
+  @include media(0, 'sm') {
+    margin-top: 0;
+  }
+
+  @include media('md') {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,48 @@
+.container {
+  padding: rem-calc(95 2 61 2);
+
+  &.greyBackground {
+    background-color: $grey-100;
+  }
+
+  @include media('lg') {
+    padding: rem-calc(95 40);
+  }
+
+  .wrapper {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    max-width: map-get($breakpoints, 'xl');
+
+    @include media('sm') {
+      flex-direction: row;
+    }
+
+    @include media(0, 'md') {
+      text-align: center;
+    }
+
+    .socialIcons {
+      width: auto;
+
+      @include media(0, 'md') {
+        margin-bottom: rem-calc(44);
+        justify-content: center;
+      }
+
+      a {
+        margin: rem-calc(0 22);
+
+        @include media('lg') {
+          margin: rem-calc(0 0 0 33);
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

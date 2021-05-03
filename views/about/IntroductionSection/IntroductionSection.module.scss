@@ -1,0 +1,78 @@
+@import 'styles/mixins/flex';
+
+.root {
+  &.container {
+    padding-top: rem-calc(58);
+
+    @include media(0, 'sm') {
+      padding-top: rem-calc(25);
+    }
+
+    @include media('lg') {
+      padding-bottom: 5rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      margin-top: -($navTopBarHeight);
+      top: 0;
+      right: 0;
+      height: 45rem;
+      width: 100%;
+      background-color: $grey-100;
+      z-index: -1;
+
+      @include media('md', 'lg') {
+        height: 40rem;
+      }
+    }
+
+    .textWrapper {
+      @include media('lg') {
+        margin-top: 2.5rem;
+        margin-left: rem-calc(60);
+      }
+
+      .introText {
+        max-width: rem-calc(750);
+        white-space: pre-line;
+        padding-bottom: rem-calc(24);
+      }
+
+      .descriptionText {
+        max-width: rem-calc(420);
+      }
+    }
+
+    .imageWrapper {
+      height: rem-calc(650);
+      margin-top: rem-calc(100);
+      white-space: nowrap;
+
+      @include media(0, 'sm') {
+        margin-top: rem-calc(50);
+        height: unset;
+      }
+
+      .innerImageWrapper {
+        width: 100%;
+        position: absolute;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        @include media(0, 'sm') {
+          @include flex(column);
+
+          position: relative;
+          overflow: visible;
+        }
+      }
+    }
+  }
+}

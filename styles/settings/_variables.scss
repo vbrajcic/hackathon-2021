@@ -1,0 +1,43 @@
+// Colors
+$primary: #212529;
+$secondary: #1e8de1;
+$muted: #424d56;
+$text-primary: #484d50;
+$border-color: #e1e1e2;
+$grey-100: #f7f8f8;
+$grey-200: #c6c9cc;
+$grey-500: #757575;
+$grey-600: #8c8e90;
+$grey-700: #2f3234;
+$grey-800: #212529;
+$purple-500: #463ab8;
+
+$white: #fff;
+$black: #000;
+
+// Fonts
+$primary-font-family: 'Alliance', -apple-system, blinkmacsystemfont, segoe ui, roboto, 'Open Sans', 'Helvetica Neue',
+  helvetica, arial, sans-serif;
+
+// Shadows
+$box-shadow__paper: 0 2px 29px 0 rgba(63, 62, 74, 0.05), 19px 67px 102px 0 rgba(63, 62, 74, 0.13);
+$box-shadow__button: 2px 5px 14px 0 rgba(49, 50, 51, 0.2);
+$box-shadow__card: 12px 31px 85px 0 rgba(0, 0, 0, 0.08);
+
+// Transitions
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-duration__fast: 150ms;
+$animation-duration__normal: 225ms;
+
+// Breakpoints and sizes
+$breakpoints: (
+  xs: 375px,
+  sm: 500px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1680px,
+);
+$max-width: map-get($breakpoints, 'xl');
+$navTopBarHeight: rem-calc(84);
+$border-radius__md: rem-calc(40);
+$border-radius__lg: rem-calc(60);

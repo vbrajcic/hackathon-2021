@@ -1,0 +1,8 @@
+.container {
+  padding-top: rem-calc(64);
+  padding-bottom: rem-calc(64);
+
+  @include media('md') {
+    padding-bottom: rem-calc(48);
+  }
+}

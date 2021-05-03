@@ -1,0 +1,198 @@
+$full-width: rem-calc(1000);
+$intro-width: rem-calc(800);
+$content-width: rem-calc(600);
+
+.container {
+  max-width: $full-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem-calc(86);
+
+  @include media(0, 'md') {
+    padding-left: rem-calc(20);
+    padding-right: rem-calc(20);
+  }
+
+  .content {
+    font-size: rem-calc(18);
+    line-height: 1.625;
+    margin-bottom: rem-calc(169);
+
+    & > :first-child {
+      max-width: $intro-width;
+      margin-left: auto;
+      margin-right: auto;
+      color: $primary;
+      font-size: rem-calc(28);
+      letter-spacing: 0;
+      line-height: rem-calc(41);
+      margin-bottom: rem-calc(63);
+
+      @include media(0, 'sm') {
+        font-size: rem-calc(24);
+        line-height: rem-calc(39);
+      }
+    }
+
+    :not(:first-child):not(figure):not(blockquote) {
+      max-width: $content-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote {
+      margin-top: rem-calc(25);
+      margin-bottom: rem-calc(25);
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    ul,
+    ol {
+      padding-left: rem-calc(16);
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li::before {
+        content: '\2015';
+        color: $secondary;
+        padding-right: rem-calc(12);
+      }
+    }
+
+    ol {
+      list-style-type: decimal;
+
+      li::marker {
+        color: $secondary;
+      }
+    }
+
+    ul > li > ul,
+    ol > li > ol {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: rem-calc(16);
+    }
+
+    ul > li,
+    ol > li {
+      padding-bottom: rem-calc(16);
+      padding-left: rem-calc(30);
+      text-indent: rem-calc(-30);
+
+      &:last-child {
+        padding-bottom: unset;
+      }
+    }
+
+    h2 {
+      font-size: rem-calc(30);
+      margin-top: rem-calc(48);
+      margin-bottom: rem-calc(16);
+      line-height: 1.375;
+    }
+
+    h3 {
+      color: $primary;
+      font-size: rem-calc(24);
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: rem-calc(28);
+    }
+
+    pre {
+      white-space: pre;
+      overflow-x: auto;
+      padding: rem-calc(16);
+      font-size: rem-calc(14);
+      line-height: 1.2;
+      border-width: 1px;
+      border-color: #cbd5e0;
+      background-color: #f7fafc;
+    }
+
+    code {
+      font-size: rem-calc(14);
+    }
+
+    figure {
+      text-align: center;
+    }
+
+    figcaption {
+      display: flex;
+      color: $muted;
+      font-size: rem-calc(16);
+      text-align: center;
+      letter-spacing: 0;
+      line-height: rem-calc(24);
+
+      &::before {
+        content: '';
+        display: inline-flex;
+        vertical-align: middle;
+        height: rem-calc(20);
+        margin-right: rem-calc(15);
+        border-left: rem-calc(5) solid $secondary;
+      }
+    }
+
+    blockquote {
+      position: relative;
+      color: $secondary;
+      font-size: rem-calc(24);
+      font-weight: 500;
+      font-style: italic;
+      border-left: rem-calc(10) solid #eeeeef;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: rem-calc(18);
+        background-image: url(/icons/quote.svg);
+        background-repeat: no-repeat;
+        height: rem-calc(18);
+        width: rem-calc(20);
+
+        @include media(0, 'sm') {
+          display: none;
+        }
+      }
+
+      > p {
+        max-width: $content-width;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media(0, 'sm') {
+          padding-left: rem-calc(20);
+        }
+      }
+    }
+
+    blockquote p {
+      margin-top: 0;
+    }
+
+    blockquote cite {
+      font-style: normal;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    @include media(0, 'sm') {
+      margin-bottom: rem-calc(100);
+    }
+  }
+}

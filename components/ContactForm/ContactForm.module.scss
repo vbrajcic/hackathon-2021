@@ -1,0 +1,50 @@
+.container {
+  padding: rem-calc(64 20);
+
+  h2 {
+    margin-bottom: rem-calc(45);
+  }
+
+  a {
+    color: $muted;
+  }
+
+  .email {
+    margin-top: rem-calc(20);
+  }
+
+  @include media('md') {
+    padding: rem-calc(64 80);
+  }
+
+  @include media('lg') {
+    padding: rem-calc(75 160);
+  }
+}
+
+.form {
+  margin-top: rem-calc(50);
+  max-width: rem-calc(445);
+
+  textarea,
+  input {
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
+    color: $black;
+    &::placeholder {
+      color: $text-primary;
+    }
+  }
+
+  .input > div::after {
+    border-bottom-color: $primary;
+  }
+
+  button {
+    margin: rem-calc(15 0 90 0);
+
+    @include media('md') {
+      margin-bottom: 0;
+    }
+  }
+}

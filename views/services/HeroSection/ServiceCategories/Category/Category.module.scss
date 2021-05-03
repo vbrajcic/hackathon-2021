@@ -1,0 +1,17 @@
+.root {
+  &.container {
+    @include media('sm') {
+      margin: rem-calc(0 40);
+    }
+
+    .title {
+      margin: rem-calc(35 0 25);
+    }
+
+    .description {
+      @include media('md') {
+        max-width: rem-calc(320);
+      }
+    }
+  }
+}

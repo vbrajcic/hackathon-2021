@@ -1,0 +1,14 @@
+.container {
+  .button {
+    background-color: transparent;
+    color: $primary;
+    margin: rem-calc(0 6);
+
+    &.active,
+    &:hover {
+      background-color: $white;
+      color: $primary;
+      box-shadow: $box-shadow__button;
+    }
+  }
+}

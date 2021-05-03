@@ -1,0 +1,37 @@
+.root {
+  &.container {
+    height: 100%;
+    width: rem-calc(320);
+    margin-right: rem-calc(40);
+    padding: rem-calc(48 40 76 50);
+
+    @include media(0, 'sm') {
+      width: rem-calc(280);
+      padding: rem-calc(30 20 50 30);
+    }
+
+    .icon {
+      margin-bottom: rem-calc(57);
+      max-width: rem-calc(46);
+      max-height: rem-calc(46);
+
+      path {
+        stroke: $black;
+      }
+
+      circle {
+        stroke: $black;
+      }
+
+      ellipse {
+        stroke: $black;
+      }
+    }
+
+    .title {
+      margin-bottom: rem-calc(29);
+      max-height: rem-calc(48);
+      white-space: pre-wrap;
+    }
+  }
+}

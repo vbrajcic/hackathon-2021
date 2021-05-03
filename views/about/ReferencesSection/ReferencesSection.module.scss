@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  margin-top: rem-calc(52);
+
+  @include media('md') {
+    margin-top: rem-calc(430);
+  }
+
+  @include media('lg') {
+    margin-top: rem-calc(570);
+  }
+
+  .backgroundWrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    @include media('md') {
+      background-color: $grey-100;
+    }
+  }
+
+  .contactForm {
+    margin-top: rem-calc(150);
+  }
+}
