@@ -26,7 +26,7 @@ const coreValues: CoreValue[] = [
   {
     icon: 'ROCKET',
     title: 'Always deliver a little more!',
-    subtitle: 'We go beyond delivering what works. We strive to deliver great & sustainable results.',
+    subtitle: 'We go beyond delivering what just works. We always take that extra mile!',
   },
 ];
 
