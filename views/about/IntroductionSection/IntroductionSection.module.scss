@@ -18,7 +18,7 @@
       margin-top: -($navTopBarHeight);
       top: 0;
       right: 0;
-      height: 45rem;
+      height: 50rem;
       width: 100%;
       background-color: $grey-100;
       z-index: -1;
@@ -43,27 +43,50 @@
       .descriptionText {
         max-width: rem-calc(420);
       }
+
+      .scrollBtn {
+        box-shadow: $box-shadow__button;
+        background-color: $white;
+        border-radius: 50%;
+        width: rem-calc(60);
+        height: rem-calc(60);
+        margin: rem-calc(70 20 0 0);
+
+        .icon {
+          width: 2rem;
+          height: 2rem;
+
+          path {
+            fill: $primary;
+          }
+        }
+      }
     }
 
     .imageWrapper {
       height: rem-calc(650);
-      margin-top: rem-calc(100);
+      margin-top: rem-calc(50);
       white-space: nowrap;
 
       @include media(0, 'sm') {
-        margin-top: rem-calc(50);
         height: unset;
       }
 
       .innerImageWrapper {
         width: 100%;
         position: absolute;
-        overflow-x: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
 
-        &::-webkit-scrollbar {
-          display: none;
+        @include media('sm') {
+          padding-right: rem-calc(1250);
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          scroll-snap-type: inline mandatory;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
 
         @include media(0, 'sm') {
