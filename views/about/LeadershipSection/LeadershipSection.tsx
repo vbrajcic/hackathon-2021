@@ -13,7 +13,7 @@ const LeadershipSection: FC = () => (
   <Container className={styles.container} maxWidth="xl" component="section" classes={{ root: styles.root }}>
     <Grid className={styles.textWrapper}>
       <Typography variant="overline" className={styles.sectionTitle}>
-        Our management
+        COMPANY STRUCTURE
       </Typography>
       <Typography variant="h2" className={styles.title}>
         Meet the leadership

@@ -38,13 +38,13 @@ const leadership: Leader[] = [
   },
   {
     name: 'Miro Marasović',
-    jobPosition: 'Product Strategy Lead',
+    jobPosition: 'Head of Product Strategy & Delivery',
     image: addAssetPrefix('/images/leadership/team-member-3.jpg'),
     socialMedia: [{ url: 'https://www.linkedin.com/in/miromarasovic', icon: LinkedIn }],
   },
   {
     name: 'Ivan Ferenčak',
-    jobPosition: 'Tech Lead',
+    jobPosition: 'Head of Technology',
     image: addAssetPrefix('/images/leadership/team-member-4.jpg'),
     socialMedia: [
       { url: 'https://www.instagram.com/ferencakivan', icon: Instagram },

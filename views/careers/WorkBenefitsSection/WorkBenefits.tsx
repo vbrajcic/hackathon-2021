@@ -17,9 +17,9 @@ const WorkBenefits: FC = () => (
         at Profico
       </Typography>
       <Typography variant="body2" className={styles.subtitle}>
-        Successful project relationships transform us from
-        <br />
-        suppliers to partners and beyond.
+        We are building a cosy and stimulating environment that challenges your personal growth, with dedication to
+        creating a workplace that drives the inner best from people. A place where career and passion come together. New
+        career, new technologies and new friends – let the exciting adventure begin!
       </Typography>
     </Grid>
     <Grid className={styles.cardsContainer}>

@@ -15,7 +15,7 @@ const OurRules: React.FC = () => {
     <Container maxWidth="xl" component="section" className={styles.container} classes={{ root: styles.root }}>
       <Grid className={styles.innerWrapper}>
         <Typography variant="overline" color="textSecondary" className={styles.sectionTitle}>
-          OUR RULES
+          OUR VALUES
         </Typography>
         <Typography variant="h2" className={styles.title}>
           How we do it is

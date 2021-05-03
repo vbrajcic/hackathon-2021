@@ -7,39 +7,35 @@ export interface OurRule {
 const ourRules: OurRule[] = [
   {
     number: '01',
-    heading: 'Small Teams,\nBig Ideas.',
-    description:
-      'Big dreams will help us stay creative and feel inspired, hard work fuels the passion and work ethic to execute.',
+    heading: 'Don’t be an\nasshole',
+    description: 'No one likes it. Be a kind person instead.',
   },
   {
     number: '02',
-    heading: 'Don’t be an\nasshole',
-    description:
-      'You’re an integral part of a never-ending project titled: “From Assholes, to A teams”. Let’s build a team you and our clients want to work with.',
+    heading: 'Dream big,\nwork harder',
+    description: `Shoot for the stars, but take every step necessarily to get there! It's ok if you fail, land on the moon and jump again.`,
   },
   {
     number: '03',
-    heading: 'Make something\nyou’re proud of.',
+    heading: 'Rise by lifting\nothers.',
     description:
-      'Embrace the greatness and the challenge that comes along with it. We believe that you can do great things and we want to help you get there.',
+      'Do more than you take credit for, by demonstrating a strong commitment to inspire, motivate and empower others around you.',
   },
   {
     number: '04',
-    heading: 'Small Teams.\nBig Ideas.',
-    description:
-      'Big dreams will help us stay creative and feel inspired, hard work fuels the passion and work ethic to execute.',
+    heading: 'Play for\neach other',
+    description: 'We are the team. This is a teamplay.',
   },
   {
     number: '05',
-    heading: 'Stakeholders over\nplaceholders.',
+    heading: 'Take\nownership!',
     description:
-      'You’re an integral part of a never-ending project titled: “From Assholes, to A teams”. Let’s build a team you and our clients want to work with.',
+      'Own it! Stand out, take action with full responsibility and accountability. Influence with strong personal example and integrity.',
   },
   {
     number: '06',
-    heading: 'Rise by lifting\nothers.',
-    description:
-      'Embrace the greatness and the challenge that comes along with it. We believe that you can do great things and we want to help you get there.',
+    heading: 'Punch above your\nweight class',
+    description: `The only way to get smarter is by playing a smarter opponent. Don't be afraid of challenging big guys!`,
   },
 ];
 
