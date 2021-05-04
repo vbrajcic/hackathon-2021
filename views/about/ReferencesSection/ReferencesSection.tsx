@@ -30,7 +30,7 @@ const ReferencesSection: React.FC = () => (
       HeadingProps={{
         title: 'These\ncompanies\ntrust us',
         description:
-          'We shape our core capabilities around lean product teams capable of delivering immense value to organisations worldwide',
+          'Shipping great products over the course of the past 10 years earned us the trust and verification by market leaders worldwide.',
         sectionTitle: 'REFERENCES',
       }}
     />

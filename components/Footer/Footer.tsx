@@ -7,7 +7,6 @@ import Instagram from '@material-ui/icons/Instagram';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import SocialIcon from 'components/SocialIcon';
 import Dribbble from 'components/SvgIcons/Dribbble/DribbbleIcon';
-import Behance from 'components/SvgIcons/Behance/BehanceIcon';
 
 import { format } from 'date-fns';
 
@@ -35,7 +34,6 @@ const Footer: React.FC<FooterProps> = ({ hasGreyBackground }) => (
           <SocialIcon icon={Instagram} url="https://www.instagram.com/profi.co/" />
           <SocialIcon icon={Dribbble} url="https://dribbble.com/Profico" />
           <SocialIcon icon={LinkedIn} url="https://www.linkedin.com/company/profico" />
-          <SocialIcon icon={Behance} url="https://www.behance.net/profico" />
         </Grid>
       </Container>
     </Container>
