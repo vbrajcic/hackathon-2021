@@ -20,7 +20,7 @@ const leadership: Leader[] = [
   {
     name: 'Mateo Perak',
     jobPosition: 'Founder, Managing Director',
-    image: addAssetPrefix('/images/leadership/team-member-1.jpg'),
+    image: addAssetPrefix('/images/leadership/mateo.png'),
     socialMedia: [
       { url: 'https://www.instagram.com/mateoperak/', icon: Instagram },
       { url: 'https://www.linkedin.com/in/mateoperak', icon: LinkedIn },
@@ -29,7 +29,7 @@ const leadership: Leader[] = [
   {
     name: 'Ante Matijaca',
     jobPosition: 'Founder, Creative Director',
-    image: addAssetPrefix('/images/leadership/team-member-2.jpg'),
+    image: addAssetPrefix('/images/leadership/ante.png'),
     socialMedia: [
       { url: 'https://www.instagram.com/antematijaca/', icon: Instagram },
       { url: 'https://www.linkedin.com/in/antematijaca', icon: LinkedIn },
@@ -39,13 +39,13 @@ const leadership: Leader[] = [
   {
     name: 'Miro Marasović',
     jobPosition: 'Head of Product Strategy & Delivery',
-    image: addAssetPrefix('/images/leadership/team-member-3.jpg'),
+    image: addAssetPrefix('/images/leadership/miro.png'),
     socialMedia: [{ url: 'https://www.linkedin.com/in/miromarasovic', icon: LinkedIn }],
   },
   {
     name: 'Ivan Ferenčak',
     jobPosition: 'Head of Technology',
-    image: addAssetPrefix('/images/leadership/team-member-4.jpg'),
+    image: addAssetPrefix('/images/leadership/ferenc.png'),
     socialMedia: [
       { url: 'https://www.instagram.com/ferencakivan', icon: Instagram },
       { url: 'https://www.linkedin.com/in/ivan-feren%C4%8Dak-12005a58', icon: LinkedIn },
