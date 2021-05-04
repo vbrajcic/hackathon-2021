@@ -6,10 +6,14 @@ interface ImageCardProps {
   heading: string;
   text: string;
   image: string;
+  style?: {
+    paddingLeft: number;
+    width: number;
+  };
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ heading, text, image }) => (
-  <Card classes={{ root: styles.root }} className={styles.container} square>
+const ImageCard: React.FC<ImageCardProps> = ({ heading, text, image, style }) => (
+  <Card classes={{ root: styles.root }} className={styles.container} square style={style}>
     <CardMedia component="img" image={image} alt="Our Home" />
     <CardContent className={styles.content}>
       <Typography className={styles.title}>{heading}</Typography>

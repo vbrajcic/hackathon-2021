@@ -1,7 +1,7 @@
 @import 'styles/mixins/flex';
 
-.root {
-  &.container {
+.container {
+  &.root {
     padding-top: rem-calc(58);
 
     @include media(0, 'sm') {
@@ -77,7 +77,6 @@
         position: absolute;
 
         @include media('sm') {
-          padding-right: rem-calc(1250);
           overflow-x: auto;
           scroll-behavior: smooth;
           scroll-snap-type: inline mandatory;
