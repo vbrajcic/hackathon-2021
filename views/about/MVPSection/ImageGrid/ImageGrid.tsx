@@ -19,40 +19,37 @@ const ImageGrid: React.FC = () => {
   return (
     <Grid container className={styles.container} classes={{ root: styles.root }}>
       <Grid container className={styles.column} direction="column">
-        <ImageItem src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-4.jpg') : ''} />
-        <ImageItem src={addAssetPrefix('images/careers/who-we-are-1.jpg')} />
-        <ImageItem
-          src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-2.jpg') : ''}
-          doubleHeight={!isDesktop}
-        />
-        {isDesktop && <ImageItem src={!showFiveColumns ? addAssetPrefix('images/careers/who-we-are-3.jpg') : ''} />}
+        <ImageItem src={!isDesktop ? addAssetPrefix('images/mvp/5.png') : ''} />
+        <ImageItem src={addAssetPrefix('images/mvp/1.png')} />
+        <ImageItem src={!isDesktop ? addAssetPrefix('images/mvp/8.png') : ''} doubleHeight={!isDesktop} />
+        {isDesktop && <ImageItem src={!showFiveColumns ? addAssetPrefix('images/mvp/7.png') : ''} />}
       </Grid>
       <Grid container className={styles.column} direction="column">
-        {isDesktop && <ImageItem src={addAssetPrefix('images/careers/who-we-are-4.jpg')} />}
-        <ImageItem src={addAssetPrefix('images/careers/who-we-are-2.jpg')} doubleHeight />
-        {!isDesktop && <ImageItem src={addAssetPrefix('images/careers/who-we-are-3.jpg')} />}
-        <ImageItem src={!isDesktop ? addAssetPrefix('images/careers/who-we-are-4.jpg') : ''} />
+        {isDesktop && <ImageItem src={addAssetPrefix('images/mvp/2.png')} />}
+        <ImageItem src={addAssetPrefix('images/mvp/3.png')} doubleHeight />
+        {!isDesktop && <ImageItem src={addAssetPrefix('images/mvp/6.png')} />}
+        <ImageItem src={!isDesktop ? addAssetPrefix('images/mvp/4.png') : ''} />
       </Grid>
       {isDesktop && (
         <Grid container className={styles.column} direction="column">
           <ImageItem />
-          <ImageItem src={addAssetPrefix('images/careers/who-we-are-1.jpg')} />
+          <ImageItem src={addAssetPrefix('images/mvp/4.png')} />
           <ImageItem />
-          <ImageItem src={addAssetPrefix('images/careers/who-we-are-4.jpg')} />
+          <ImageItem src={addAssetPrefix('images/mvp/5.png')} />
         </Grid>
       )}
       {showFiveColumns && (
         <Grid container className={styles.column} direction="column">
-          <ImageItem src={addAssetPrefix('images/careers/who-we-are-1.jpg')} />
+          <ImageItem src={addAssetPrefix('images/mvp/6.png')} />
           <ImageItem />
-          <ImageItem src={addAssetPrefix('images/careers/who-we-are-4.jpg')} />
+          <ImageItem src={addAssetPrefix('images/mvp/7.png')} />
           <ImageItem />
         </Grid>
       )}
       {isDesktop && (
         <Grid container className={styles.column} direction="column">
-          <ImageItem src={!showFiveColumns ? addAssetPrefix('images/careers/who-we-are-3.jpg') : ''} />
-          <ImageItem src={addAssetPrefix('images/careers/who-we-are-2.jpg')} doubleHeight />
+          <ImageItem src={!showFiveColumns ? addAssetPrefix('images/mvp/6.png') : ''} />
+          <ImageItem src={addAssetPrefix('images/mvp/8.png')} doubleHeight />
         </Grid>
       )}
     </Grid>
