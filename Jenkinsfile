@@ -38,11 +38,14 @@ pipeline {
                 branch 'master'
             }
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'seb-aws', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'profico-aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh "aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 258375240157.dkr.ecr.eu-central-1.amazonaws.com"
                 }
                 nodejs(nodeJSInstallationName: 'node:12') {
                     sh 'yarn run docker:push'
+                }
+                nodejs(nodeJSInstallationName: 'node:12') {
+                    sh 'yarn run docker:push:latest'
                 }
             }
         }
