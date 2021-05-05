@@ -1,6 +1,7 @@
 .container {
   align-items: flex-start;
   margin-top: rem-calc(108);
+  overflow: hidden;
 
   @include media('md') {
     margin-top: rem-calc(148);
