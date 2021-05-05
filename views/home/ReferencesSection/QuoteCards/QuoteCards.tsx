@@ -30,9 +30,10 @@ const QuoteCards: React.FC = () => {
     /**
      * ReferencesSection > Container > padding-left: 120px
      * QuoteCards > .scrollBtnWrapper > width: 160px
+     * Need to render properly on Safari: 15px
      * ReferencesSection > Container > margin-left: (clientWidth - xl) / 2
      */
-    let width = clientWidth - 280;
+    let width = clientWidth - 295;
 
     if (clientWidth > xl) {
       width -= (clientWidth - xl) / 2;

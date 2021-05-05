@@ -1,10 +1,7 @@
 .root {
   &.container {
-    margin-top: 20rem;
-
     @include media('lg') {
       padding-left: rem-calc(120);
-      margin-top: 10rem;
     }
 
     .sectionTitle {
