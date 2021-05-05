@@ -6,6 +6,10 @@
     width: rem-calc(560);
     margin-top: 0;
     margin-right: rem-calc(40);
+    background-color: transparent;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    scroll-margin-left: rem-calc(20);
 
     @include media(0, 'sm') {
       width: calc(100% + #{rem-calc(64)});

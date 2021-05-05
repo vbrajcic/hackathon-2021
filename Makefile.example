@@ -1,0 +1,17 @@
+#vars
+include .env
+
+WEB=${REGISTRY}/profico-web:${VERSION}
+
+.PHONY: docker-login run
+
+.DEFAULT_GOAL := all
+
+# to use docker login command, aws cli needs to be configured with access key id and secret access key
+docker-login:
+			@aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 258375240157.dkr.ecr.eu-central-1.amazonaws.com
+docker-pull:
+        @docker pull ${WEB}
+run:
+			@docker-compose up -d
+all: docker-login docker-pull run

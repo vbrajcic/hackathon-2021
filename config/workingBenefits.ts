@@ -75,7 +75,7 @@ const workingBenefits: WorkBenefit[] = [
   {
     name: 'Multi-sport gym membership',
     description:
-      'Working on your abbs lately?! We can support easier access to multiple sports programs through multi-sport memberships.',
+      'Working on your abs lately?! We can support easier access to multiple sports programs through multi-sport memberships.',
     icon: PalmTree,
     image: addAssetPrefix('/images/careers/who-we-are-3.jpg'),
   },

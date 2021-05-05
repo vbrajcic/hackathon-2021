@@ -44,6 +44,17 @@ pipeline {
                 nodejs(nodeJSInstallationName: 'node:12') {
                     sh 'yarn run docker:push'
                 }
+                nodejs(nodeJSInstallationName: 'node:12') {
+                    sh 'yarn run docker:push:latest'
+                }
+            }
+        }
+        stage('Deploy latest version') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh "curl --location --request POST https://webhooks.profi.co/deploy --header 'Authorization: zPEWpRDxhsehvRAyYbIkOGYo3MeCLDJ1' --header 'Content-Type: application/json' --data-raw '{\"version\": \"latest\" }'"
             }
         }
     }

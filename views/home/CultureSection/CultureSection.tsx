@@ -27,7 +27,7 @@ const CultureSection: React.FC = () => (
         </Typography>
         <Typography variant="body2" className={styles.subtitle}>
           We take pride in what we deliver as a team. Embracing full ownership over the challenges we face and
-          relentlessly working to help our clients build something both sides can be proud of.
+          relentlessly working to help our clients build products that make a difference.
         </Typography>
       </Grid>
       <Grid container>
