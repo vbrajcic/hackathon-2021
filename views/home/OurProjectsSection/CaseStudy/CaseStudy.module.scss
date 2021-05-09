@@ -4,7 +4,6 @@
     margin-bottom: rem-calc(48);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
     min-height: rem-calc(700);
 
     @include media(0, 'lg') {
@@ -16,6 +15,10 @@
       &:last-of-type {
         margin-bottom: 0;
       }
+    }
+
+    @include media(0, '1440px') {
+      background-position: center;
     }
 
     @include media(0, 'md') {
