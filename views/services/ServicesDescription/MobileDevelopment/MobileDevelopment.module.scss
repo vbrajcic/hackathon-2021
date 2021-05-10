@@ -36,6 +36,7 @@
       top: rem-calc(-50);
       background-image: add-asset-prefix('/images/services/mobileDevelopment.png');
       height: rem-calc(662);
+      background-position: center left;
     }
 
     @include media('lg') {
