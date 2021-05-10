@@ -23,7 +23,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 10%;
+    top: 0;
     left: 2%;
     height: rem-calc(657);
     width: 50%;
@@ -35,9 +35,10 @@
       width: 100%;
       position: relative;
       display: block;
-      background-image: add-asset-prefix('/images/services/design_mb.png');
+      background-image: add-asset-prefix('/images/services/designDev_mb.png');
       margin-bottom: rem-calc(20);
       height: rem-calc(520);
+      left: 0;
     }
 
     @include media('lg') {
