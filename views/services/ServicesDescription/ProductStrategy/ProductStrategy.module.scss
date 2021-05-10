@@ -21,24 +21,20 @@
 
   &::before {
     content: '';
-    position: absolute;
+    position: relative;
+    display: block;
     top: 0;
     right: 0;
     width: 100%;
-    height: rem-calc(454);
-    background-image: add-asset-prefix('/images/services/productStrategy.png');
+    height: rem-calc(500);
+    background-image: add-asset-prefix('/images/services/product_mb.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center right;
 
-    @include media(0, 'md') {
-      position: relative;
-      display: block;
-      background-image: add-asset-prefix('/images/services/product_mb.png');
-      height: rem-calc(460);
-    }
-
     @include media('md') {
+      position: absolute;
+      background-image: add-asset-prefix('/images/services/productStrategy.png');
       width: 50%;
       height: rem-calc(834);
     }

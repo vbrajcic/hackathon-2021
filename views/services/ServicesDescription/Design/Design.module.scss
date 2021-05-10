@@ -22,23 +22,28 @@
 
   &::before {
     content: '';
-    position: absolute;
+    display: block;
+    position: relative;
     top: 0;
-    left: 2%;
-    height: rem-calc(657);
-    width: 50%;
-    background-image: add-asset-prefix('/images/services/designDev.png');
+    left: 0;
+    height: rem-calc(560);
+    width: 110%;
+    background-image: add-asset-prefix('/images/services/designDev_mb.png');
     background-repeat: no-repeat;
     background-size: contain;
+    margin-bottom: rem-calc(20);
 
-    @include media(0, 'md') {
-      width: 100%;
-      position: relative;
-      display: block;
-      background-image: add-asset-prefix('/images/services/designDev_mb.png');
-      margin-bottom: rem-calc(20);
-      height: rem-calc(520);
-      left: 0;
+    @include media('md') {
+      position: absolute;
+      height: rem-calc(657);
+      background-image: add-asset-prefix('/images/services/designDev.png');
+      left: 2%;
+      width: 50%;
+      margin-bottom: 0;
+    }
+
+    @include media('md', 'lg') {
+      top: rem-calc(30);
     }
 
     @include media('lg') {
