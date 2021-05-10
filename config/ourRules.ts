@@ -13,7 +13,7 @@ const ourRules: OurRule[] = [
   {
     number: '02',
     heading: 'Dream big,\nwork harder',
-    description: `Shoot for the stars, but take every step necessarily to get there! It's ok if you fail, land on the moon and jump again.`,
+    description: `Shoot for the stars, but take every step necessary to get there! It's ok if you fail, land on the moon and jump again.`,
   },
   {
     number: '03',
