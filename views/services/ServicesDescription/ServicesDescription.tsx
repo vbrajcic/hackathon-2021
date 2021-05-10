@@ -10,8 +10,8 @@ import styles from './ServicesDescription.module.scss';
 const ServicesDescription: React.FC = () => (
   <section className={styles.container}>
     <ProductStrategy />
-    <WebDevelopment />
     <Design />
+    <WebDevelopment />
     <MobileDevelopment />
   </section>
 );

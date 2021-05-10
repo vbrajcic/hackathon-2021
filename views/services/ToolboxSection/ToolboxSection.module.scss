@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  margin-top: rem-calc(200);
+  margin-top: rem-calc(100);
 
   @include media('md') {
     margin-top: rem-calc(430);
