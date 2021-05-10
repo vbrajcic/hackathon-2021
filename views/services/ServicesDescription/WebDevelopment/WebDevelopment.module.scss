@@ -4,7 +4,7 @@
 
   @include media(0, 'md') {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   @include media('md') {
@@ -35,12 +35,17 @@
       width: 100%;
       position: relative;
       display: block;
-      margin-top: rem-calc(50);
-      height: rem-calc(450);
+      background-image: add-asset-prefix('/images/services/web_mb.png');
+      margin-bottom: rem-calc(20);
+      height: rem-calc(440);
     }
 
     @include media('lg') {
       width: 50%;
+    }
+
+    @include media('md', 1440px) {
+      right: -8%;
     }
   }
 

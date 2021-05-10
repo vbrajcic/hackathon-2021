@@ -4,7 +4,7 @@
 
   @include media(0, 'md') {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   @include media('md') {
@@ -23,8 +23,8 @@
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 2%;
     height: rem-calc(657);
     width: 50%;
     background-image: add-asset-prefix('/images/services/design.png');
@@ -35,12 +35,17 @@
       width: 100%;
       position: relative;
       display: block;
-      margin-top: rem-calc(50);
-      height: rem-calc(450);
+      background-image: add-asset-prefix('/images/services/design_mb.png');
+      margin-bottom: rem-calc(20);
+      height: rem-calc(520);
     }
 
     @include media('lg') {
       height: rem-calc(750);
+    }
+
+    @include media('md', 1440px) {
+      left: -5%;
     }
   }
 

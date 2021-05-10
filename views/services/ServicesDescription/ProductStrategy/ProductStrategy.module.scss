@@ -3,7 +3,7 @@
 
   @include media(0, 'md') {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   @include media('md') {
@@ -26,7 +26,7 @@
     right: 0;
     width: 100%;
     height: rem-calc(454);
-    background-image: add-asset-prefix('/images/services/product-strategy.png');
+    background-image: add-asset-prefix('/images/services/product.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center right;
@@ -34,12 +34,17 @@
     @include media(0, 'md') {
       position: relative;
       display: block;
-      margin-top: rem-calc(50);
+      background-image: add-asset-prefix('/images/services/product_mb.png');
+      height: rem-calc(460);
     }
 
     @include media('md') {
       width: 50%;
       height: rem-calc(834);
+    }
+
+    @include media('md', 1440px) {
+      right: -8%;
     }
 
     @include media('xl') {

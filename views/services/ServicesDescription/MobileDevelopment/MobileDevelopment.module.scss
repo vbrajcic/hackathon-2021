@@ -4,7 +4,7 @@
 
   @include media(0, 'md') {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   @include media('md') {
@@ -20,7 +20,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 2%;
     height: rem-calc(662);
     width: 100%;
     background-image: add-asset-prefix('/images/services/mobile.png');
@@ -30,8 +30,9 @@
     @include media(0, 'md') {
       position: relative;
       display: block;
-      background-position: center left;
-      height: rem-calc(450);
+      background-image: add-asset-prefix('/images/services/mobile_mb.png');
+      background-position: center right;
+      height: rem-calc(481);
     }
 
     @include media('md') {
@@ -40,6 +41,10 @@
 
     @include media('lg') {
       height: rem-calc(800);
+    }
+
+    @include media('md', 1440px) {
+      left: -5%;
     }
   }
 
