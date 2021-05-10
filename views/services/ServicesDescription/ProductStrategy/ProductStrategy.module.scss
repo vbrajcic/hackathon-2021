@@ -1,6 +1,11 @@
 .container {
   position: relative;
 
+  @include media(0, 'md') {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
   @include media('md') {
     height: rem-calc(534);
   }
@@ -20,34 +25,24 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: rem-calc(550);
-    background-image: add-asset-prefix('/images/services/productStrategy.svg');
+    height: rem-calc(454);
+    background-image: add-asset-prefix('/images/services/product-strategy.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center right;
 
-    @include media('sm', 'md') {
-      width: 80%;
-      height: rem-calc(550);
+    @include media(0, 'md') {
+      position: relative;
+      display: block;
+      margin-top: rem-calc(50);
     }
 
     @include media('md') {
-      height: rem-calc(534);
-      width: 46%;
-    }
-
-    @include media('lg') {
-      height: rem-calc(734);
       width: 50%;
-    }
-
-    @include media(1200px) {
       height: rem-calc(834);
-      width: 60%;
-      right: -10%;
     }
 
     @include media('xl') {
-      width: 55%;
       height: rem-calc(900);
     }
   }
@@ -61,8 +56,8 @@
       }
 
       .textWrapper {
-        @include media(0, 'md') {
-          padding-top: rem-calc(500);
+        @include media('md') {
+          width: 40%;
         }
 
         @include media('lg') {
@@ -96,6 +91,10 @@
 
         @include media('md', 'lg') {
           max-width: rem-calc(440);
+        }
+
+        @include media('md') {
+          width: 40%;
         }
 
         @include media('lg') {
