@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Alert from 'components/Alert';
+import CookieConsent from 'components/CookieConsent';
 import Footer, { FooterProps as BaseFooterProps } from 'components/Footer';
 import Meta from 'components/Meta';
 import DocumentTitle from 'components/DocumentTitle';
@@ -29,6 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ title, theme = 'light', preview, childr
       <main>{children}</main>
     </div>
     <Footer {...FooterProps} />
+    <CookieConsent />
   </ThemeContextProvider>
 );
 
