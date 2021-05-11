@@ -1,6 +1,6 @@
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
-export type ProjectCategory = 'MOBILE_APPS';
+export type ProjectCategory = 'MOBILE_APPS' | 'PARKING';
 
 export interface Project {
   category: ProjectCategory;
@@ -23,7 +23,7 @@ const projects: Project[] = [
     },
   },
   {
-    category: 'MOBILE_APPS',
+    category: 'PARKING',
     title: 'Smart parking system',
     url: '/work/smart-parking-system',
     images: {

@@ -126,7 +126,7 @@ const ContactForm: FC<ContactFormProps> = ({ gaName = '', className, classes }) 
           <ContactDetail title="Contact info">
             Split+Zagreb, Croatia
             <br />
-            {isMobile ? <Link href="tel:+385 91 322 1274">+385 91 322 1274</Link> : '+385 91 322 1274'}
+            {isMobile ? <Link href="tel:+385 91 395 9711">+385 91 395 9711</Link> : '+385 91 395 9711'}
             <Link
               data-ga-event-name="contact"
               data-ga-name={gaName}

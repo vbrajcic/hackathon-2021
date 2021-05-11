@@ -23,7 +23,7 @@ const getUrl = (slug: string) => {
       return `https://web.proficodev.com/${slug}`;
     case 'production':
     default:
-      return `https://profi.co/${slug}`;
+      return `https://profi.co/careers/${slug}`;
   }
 };
 
