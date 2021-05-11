@@ -16,9 +16,10 @@ interface PostHeaderProps {
   title: string;
   excerpt: string;
   featuredImage?: Node<FeaturedImage>;
+  template?: 'static' | undefined;
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, excerpt, featuredImage }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, excerpt, featuredImage, template }) => {
   const { theme } = useTheme();
 
   return (
@@ -26,7 +27,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, excerpt, featured
       container
       justify="center"
       alignItems="center"
-      className={cn(styles.container, { [styles.darkTheme]: theme === 'dark' })}
+      className={cn(styles.container, { [styles.darkTheme]: theme === 'dark', [styles.static]: template === 'static' })}
       style={{ backgroundImage: `url(${featuredImage?.node?.sourceUrl})` }}
     >
       <Grid item className={styles.wrapper}>

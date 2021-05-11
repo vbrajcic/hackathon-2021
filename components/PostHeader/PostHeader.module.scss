@@ -4,6 +4,10 @@
   padding-top: calc(#{$navTopBarHeight} + 169px);
   margin-top: -($navTopBarHeight);
 
+  &.static {
+    padding: rem-calc(100 0);
+  }
+
   &.darkTheme {
     background-size: cover;
     background-repeat: no-repeat;
