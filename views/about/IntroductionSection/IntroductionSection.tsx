@@ -78,7 +78,7 @@ const IntroductionSection: FC = () => {
       <Container maxWidth="xl">
         <Grid className={styles.textWrapper}>
           <Typography variant="h1" className={styles.introText} color="textPrimary">
-            {`Digital product agency\nwith a global impact`}
+            {`Digital product agency,\nserving customers worldwide`}
           </Typography>
           <Typography variant="body2" color="textSecondary" className={styles.descriptionText}>
             Profico is a progressive full service digital product agency specialised for building successful and

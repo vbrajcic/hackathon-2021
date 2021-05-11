@@ -16,6 +16,7 @@ interface CaseStudyProps {
 
 const categoryBadgeMap: { [key in ProjectCategory]: string } = {
   MOBILE_APPS: 'Mobile apps',
+  PARKING: 'City scale smart parking system',
 };
 
 const CaseStudy: React.FC<CaseStudyProps> = ({ project }) => {
