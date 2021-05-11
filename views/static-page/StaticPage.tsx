@@ -17,7 +17,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ page }) => {
   return (
     <Layout title={staticPageData.title}>
       <article>
-        <PostHeader title={staticPageData.title} excerpt={staticPageData.excerpt} />
+        <PostHeader title={staticPageData.title} excerpt={staticPageData.excerpt} template="static" />
         <Container maxWidth="xl" disableGutters>
           <PostBody content={staticPageData.body} />
         </Container>
