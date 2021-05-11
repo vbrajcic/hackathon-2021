@@ -1,6 +1,11 @@
 .container {
   position: relative;
 
+  @include media(0, 'md') {
+    display: flex;
+    flex-direction: column;
+  }
+
   @include media('md') {
     height: rem-calc(534);
   }
@@ -16,38 +21,29 @@
 
   &::before {
     content: '';
-    position: absolute;
+    position: relative;
+    display: block;
     top: 0;
     right: 0;
     width: 100%;
-    height: rem-calc(550);
-    background-image: add-asset-prefix('/images/services/productStrategy.svg');
+    height: rem-calc(500);
+    background-image: add-asset-prefix('/images/services/product_mb.png');
     background-repeat: no-repeat;
-    background-size: cover;
-
-    @include media('sm', 'md') {
-      width: 80%;
-      height: rem-calc(550);
-    }
+    background-size: contain;
+    background-position: center right;
 
     @include media('md') {
-      height: rem-calc(534);
-      width: 46%;
-    }
-
-    @include media('lg') {
-      height: rem-calc(734);
+      position: absolute;
+      background-image: add-asset-prefix('/images/services/productStrategy.png');
       width: 50%;
+      height: rem-calc(834);
     }
 
-    @include media(1200px) {
-      height: rem-calc(834);
-      width: 60%;
-      right: -10%;
+    @include media('md', 1440px) {
+      right: -8%;
     }
 
     @include media('xl') {
-      width: 55%;
       height: rem-calc(900);
     }
   }
@@ -61,8 +57,8 @@
       }
 
       .textWrapper {
-        @include media(0, 'md') {
-          padding-top: rem-calc(500);
+        @include media('md') {
+          width: 40%;
         }
 
         @include media('lg') {
@@ -96,6 +92,10 @@
 
         @include media('md', 'lg') {
           max-width: rem-calc(440);
+        }
+
+        @include media('md') {
+          width: 40%;
         }
 
         @include media('lg') {

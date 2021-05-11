@@ -1,10 +1,7 @@
 .root {
   &.container {
-    margin-top: 20rem;
-
     @include media('lg') {
       padding-left: rem-calc(120);
-      margin-top: 10rem;
     }
 
     .sectionTitle {
@@ -29,7 +26,7 @@
     .imageWrapper {
       white-space: nowrap;
       margin-bottom: rem-calc(70);
-      height: 400px;
+      height: 450px;
 
       .innerImageWrapper {
         position: absolute;
@@ -51,8 +48,18 @@
       }
 
       .image {
+        max-height: rem-calc(264);
         vertical-align: top;
         margin-right: rem-calc(40);
+
+        &:first-child {
+          max-height: rem-calc(300);
+        }
+
+        &:nth-child(2),
+        &:nth-child(4) {
+          max-height: rem-calc(450);
+        }
       }
     }
   }

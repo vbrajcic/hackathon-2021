@@ -1,60 +1,61 @@
 .container {
   position: relative;
+  padding-top: rem-calc(70);
+
+  @include media(0, 'md') {
+    display: flex;
+    flex-direction: column;
+  }
 
   @include media('md') {
-    padding-top: rem-calc(70);
+    height: rem-calc(734);
+  }
+
+  @include media(1200px) {
+    height: rem-calc(834);
+  }
+
+  @include media('xl') {
+    height: rem-calc(900);
   }
 
   &::before {
     content: '';
-    position: absolute;
-    top: rem-calc(80);
-    height: rem-calc(780);
-    width: 60%;
-    left: -15%;
-    background-image: add-asset-prefix('/images/services/webDevelopment.svg');
+    position: relative;
+    display: block;
+    width: 100%;
+    height: rem-calc(530);
+    top: 0;
+    right: 0;
+    background-image: add-asset-prefix('/images/services/web_mb.png');
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center right;
+    margin-bottom: rem-calc(20);
 
-    @include media(0, 'sm') {
-      height: rem-calc(350);
-      width: 100%;
+    @include media('md') {
+      position: absolute;
+      width: 50%;
+      background-image: add-asset-prefix('/images/services/webDevelopment.png');
+      margin-bottom: 0;
+      height: rem-calc(780);
     }
 
-    @include media('sm', 'md') {
-      height: rem-calc(450);
-      width: 100%;
-    }
-
-    @include media('lg') {
-      top: 0;
-      width: 55%;
-    }
-
-    @include media(1200px) {
-      width: 60%;
-    }
-
-    @include media('xl') {
-      left: -5%;
+    @include media('md', 1440px) {
+      right: -8%;
     }
   }
 
   .root {
     &.content {
-      width: 100%;
-
       .textWrapper {
-        @include media(0, 'sm') {
-          padding-top: rem-calc(480);
-        }
-
-        @include media('sm', 'md') {
-          padding-top: rem-calc(550);
-        }
-
         @include media('md') {
-          width: rem-calc(360);
+          max-width: rem-calc(520);
+          width: 40%;
+        }
+
+        @include media('lg') {
+          margin-left: rem-calc(60);
         }
 
         @include media(1300px) {
@@ -89,6 +90,14 @@
 
         @include media('md', 'lg') {
           max-width: rem-calc(400);
+        }
+
+        @include media('md') {
+          width: 40%;
+        }
+
+        @include media('lg') {
+          margin-left: rem-calc(60);
         }
       }
     }

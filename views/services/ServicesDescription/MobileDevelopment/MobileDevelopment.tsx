@@ -23,7 +23,7 @@ const MobileDevelopment: React.FC = () => {
           className={styles.content}
           classes={{ root: styles.root }}
         >
-          <Grid item>
+          <Grid item md={5}>
             <Grid className={styles.textWrapper}>
               <Typography variant="h2" className={styles.title}>
                 Mobile Development

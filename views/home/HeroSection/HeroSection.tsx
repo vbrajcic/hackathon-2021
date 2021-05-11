@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => (
       </Intro>
       <Grid className={styles.imageWrapper}>
         <Image
-          src={addAssetPrefix('/images/hero-section-image.svg')}
+          src={addAssetPrefix('/images/hero-section-image.png')}
           alt="hero-image"
           layout="responsive"
           height="579"
