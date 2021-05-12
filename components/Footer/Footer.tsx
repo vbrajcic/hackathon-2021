@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ hasGreyBackground }) => (
         <Typography variant="body2">
           &copy;
           {` ${currentYear} Profico`}
-          <a href="https://profi.co/legal-info" className={styles.link}>
+          <a href="/legal-info" className={styles.link}>
             Legal info
           </a>
         </Typography>
