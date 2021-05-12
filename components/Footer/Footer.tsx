@@ -29,6 +29,9 @@ const Footer: React.FC<FooterProps> = ({ hasGreyBackground }) => (
         <Typography variant="body2">
           &copy;
           {` ${currentYear} Profico`}
+          <a href="https://profi.co/legal-info" className={styles.link}>
+            Legal info
+          </a>
         </Typography>
         <Grid container classes={{ root: styles.socialIcons }}>
           <SocialIcon icon={Instagram} url="https://www.instagram.com/profi.co/" />
