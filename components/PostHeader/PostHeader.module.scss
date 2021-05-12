@@ -5,7 +5,8 @@
   margin-top: -($navTopBarHeight);
 
   &.static {
-    padding: rem-calc(100 0);
+    padding-top: rem-calc(100);
+    padding-bottom: rem-calc(100);
   }
 
   &.darkTheme {

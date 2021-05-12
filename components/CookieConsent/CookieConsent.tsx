@@ -15,7 +15,7 @@ const CustomCookieConsent: React.FC = () => (
       expires={365}
     >
       This website uses cookies in order to provide a better user experience and functionality. By continuing to browse
-      the site you agree to our Cookie and <a href="https://profi.co/privacy-policy">Privacy Policy</a>.
+      the site you agree to our <a href="/cookie-policy">Cookie</a> and <a href="/privacy-policy">Privacy Policy</a>.
     </CookieConsent>
   </div>
 );
