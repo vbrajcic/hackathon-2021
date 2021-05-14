@@ -15,7 +15,7 @@ interface CaseStudyProps {
 }
 
 const categoryBadgeMap: { [key in ProjectCategory]: string } = {
-  MOBILE_APPS: 'Mobile apps',
+  MOBILE_APPS: 'Mobile apps, Dashboards',
   PARKING: 'City scale smart parking system',
 };
 
