@@ -36,15 +36,15 @@
     height: rem-calc(650);
     @include flex(row);
 
-    @include media(0, 'sm') {
-      padding-left: rem-calc(10);
-      padding-right: rem-calc(10);
-    }
-
     @include media(0, 'lg') {
       padding-left: rem-calc(20);
       padding-right: rem-calc(20);
       @include flex(column);
+    }
+
+    @include media(0, 'sm') {
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
     }
 
     @include media('lg') {
@@ -84,8 +84,6 @@
     }
 
     .exploreMore {
-      width: rem-calc(400);
-
       @include media(0, 'lg') {
         margin: 0;
         padding-right: rem-calc(0 16 0 0);
@@ -115,7 +113,6 @@
       .innerCardsWrapper {
         overflow-x: scroll;
         scroll-behavior: smooth;
-        position: absolute;
         padding: rem-calc(40 0 100 60);
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -129,9 +126,15 @@
           margin-left: rem-calc(-20);
         }
 
+        @include media(0, 'sm') {
+          padding-left: rem-calc(10);
+          margin-left: rem-calc(-10);
+          width: calc(100% + #{rem-calc(20)});
+        }
+
         .teaser {
           width: rem-calc(400);
-          height: rem-calc(513);
+          min-height: rem-calc(513);
           white-space: normal;
           display: inline-block;
           margin-right: rem-calc(40);

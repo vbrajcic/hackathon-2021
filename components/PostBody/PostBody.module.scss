@@ -46,6 +46,7 @@ $content-width: rem-calc(600);
     blockquote {
       margin-top: rem-calc(25);
       margin-bottom: rem-calc(25);
+      word-wrap: break-word;
     }
 
     a {
