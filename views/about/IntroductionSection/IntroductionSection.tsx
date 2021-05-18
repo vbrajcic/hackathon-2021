@@ -85,7 +85,7 @@ const IntroductionSection: FC = () => {
             award-winning websites and mobile apps.
           </Typography>
           {scrollableCardStyle && (
-            <Grid item className={styles.scrollBtnWrapper}>
+            <Grid item>
               <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn} title="left-icon">
                 <ChevronLeftIcon className={styles.icon} />
               </IconButton>

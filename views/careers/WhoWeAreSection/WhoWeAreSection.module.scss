@@ -23,6 +23,24 @@
       }
     }
 
+    .scrollBtn {
+      box-shadow: $box-shadow__button;
+      background-color: $white;
+      border-radius: 50%;
+      width: rem-calc(60);
+      height: rem-calc(60);
+      margin: rem-calc(0 20 50 0);
+
+      .icon {
+        width: 2rem;
+        height: 2rem;
+
+        path {
+          fill: $primary;
+        }
+      }
+    }
+
     .imageWrapper {
       white-space: nowrap;
       margin-bottom: rem-calc(70);
@@ -31,6 +49,8 @@
       .innerImageWrapper {
         position: absolute;
         overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: inline mandatory;
         -ms-overflow-style: none;
         scrollbar-width: none;
 
@@ -51,6 +71,8 @@
         max-height: rem-calc(264);
         vertical-align: top;
         margin-right: rem-calc(40);
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
 
         &:first-child {
           max-height: rem-calc(300);

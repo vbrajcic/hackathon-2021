@@ -4,6 +4,13 @@
     width: rem-calc(320);
     margin-right: rem-calc(40);
     padding: rem-calc(48 40 76 50);
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    scroll-margin-left: rem-calc(120);
+
+    @include media(0, 'lg') {
+      scroll-margin-left: rem-calc(24);
+    }
 
     @include media(0, 'sm') {
       width: rem-calc(280);
