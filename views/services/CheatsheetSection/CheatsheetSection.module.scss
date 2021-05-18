@@ -12,9 +12,40 @@
     }
   }
 
+  .scrollBtnWrapper {
+    margin-top: rem-calc(70);
+
+    @include media('lg') {
+      margin-left: rem-calc(60);
+    }
+
+    .scrollBtn {
+      box-shadow: $box-shadow__button;
+      background-color: $white;
+      border-radius: 50%;
+      width: rem-calc(60);
+      height: rem-calc(60);
+
+      &:first-of-type {
+        margin-right: rem-calc(20);
+      }
+
+      .icon {
+        width: 2rem;
+        height: 2rem;
+
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
   .cheatsheetCardsWrapper {
     overflow-x: scroll;
-    padding: rem-calc(90 0 100 120);
+    scroll-behavior: smooth;
+    scroll-snap-type: inline mandatory;
+    padding: rem-calc(50 0 100 120);
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -23,7 +54,11 @@
     }
 
     @include media(0, 'lg') {
-      padding: rem-calc(90 0 100 24);
+      padding: rem-calc(50 0 100 24);
+    }
+
+    @include media(1530px) {
+      padding-top: rem-calc(90);
     }
   }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +7,9 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import ContactForm from 'components/ContactForm';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import IconButton from '@material-ui/core/IconButton';
 
 import { useWindowSize } from 'react-use';
 
@@ -20,6 +23,22 @@ const CheatsheetSection: React.FC = () => {
   const { breakpoints } = useTheme();
 
   const hasMarginLeft = useMediaQuery(() => breakpoints.up('xl'));
+  const showScrollBtns = useMediaQuery(() => breakpoints.down(1530));
+  const cheatsheetCardsWrapperRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const {
+      currentTarget: { value },
+    } = e;
+
+    if (cheatsheetCardsWrapperRef && cheatsheetCardsWrapperRef.current) {
+      if (value === 'right') {
+        cheatsheetCardsWrapperRef.current.scrollLeft += 360;
+      } else {
+        cheatsheetCardsWrapperRef.current.scrollLeft -= 360;
+      }
+    }
+  };
 
   return (
     <Grid component="section" className={styles.container}>
@@ -33,12 +52,23 @@ const CheatsheetSection: React.FC = () => {
             </Typography>
           </Grid>
         )}
+        {showScrollBtns && (
+          <Grid className={styles.scrollBtnWrapper}>
+            <IconButton onClick={handleScrollBtnClick} value="left" className={styles.scrollBtn} title="left-icon">
+              <ChevronLeftIcon className={styles.icon} />
+            </IconButton>
+            <IconButton onClick={handleScrollBtnClick} value="right" className={styles.scrollBtn} title="right-icon">
+              <ChevronRightIcon className={styles.icon} />
+            </IconButton>
+          </Grid>
+        )}
       </Container>
       <Grid
         container
         style={{ marginLeft: hasMarginLeft ? (clientWidth - breakpoints.values.xl) / 2 : 0 }}
         className={styles.cheatsheetCardsWrapper}
         wrap="nowrap"
+        ref={cheatsheetCardsWrapperRef}
       >
         {processCheatsheet.map(cheatsheet => (
           <Grid item key={cheatsheet.id}>
