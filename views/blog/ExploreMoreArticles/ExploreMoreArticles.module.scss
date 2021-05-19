@@ -84,14 +84,13 @@
     }
 
     .exploreMore {
-      width: rem-calc(400);
-
       @include media(0, 'lg') {
         margin: 0;
         padding-right: rem-calc(0 16 0 0);
       }
 
       @include media('lg') {
+        width: rem-calc(400);
         margin-top: rem-calc(40);
       }
 
@@ -111,10 +110,6 @@
 
     .cardsWrapper {
       white-space: nowrap;
-
-      @include media(0, 'lg') {
-        margin-right: rem-calc(-20);
-      }
 
       .innerCardsWrapper {
         overflow-x: scroll;
