@@ -13,12 +13,13 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => (
   <Grid classes={{ root: styles.root }} className={styles.container}>
     <Grid container className={styles.content}>
       {posts.map((post: Post) => (
-        <Grid item key={post.slug} className={styles.teaser}>
+        <Grid item key={post.slug} className={styles.teaserWrapper}>
           <Teaser
             title={post.title}
             excerpt={post.excerpt}
             coverImage={post.featuredImage?.node}
             url={`/blog/${post.slug}`}
+            classes={{ root: styles.teaser, media: styles.media }}
           />
         </Grid>
       ))}
