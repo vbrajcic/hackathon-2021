@@ -84,6 +84,8 @@
     }
 
     .exploreMore {
+      width: rem-calc(400);
+
       @include media(0, 'lg') {
         margin: 0;
         padding-right: rem-calc(0 16 0 0);
@@ -110,12 +112,20 @@
     .cardsWrapper {
       white-space: nowrap;
 
+      @include media(0, 'lg') {
+        margin-right: rem-calc(-20);
+      }
+
       .innerCardsWrapper {
         overflow-x: scroll;
         scroll-behavior: smooth;
         padding: rem-calc(40 0 100 60);
         -ms-overflow-style: none;
         scrollbar-width: none;
+
+        @include media('lg') {
+          position: absolute;
+        }
 
         &::-webkit-scrollbar {
           display: none;
@@ -134,10 +144,11 @@
 
         .teaser {
           width: rem-calc(400);
-          min-height: rem-calc(513);
+          height: rem-calc(513);
           white-space: normal;
           display: inline-block;
           margin-right: rem-calc(40);
+          vertical-align: top;
 
           h4 {
             @include ml-ellipsis(2, 20, 1.2);
