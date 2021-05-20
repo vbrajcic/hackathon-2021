@@ -83,7 +83,7 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
         <Grid item className={styles.cardsWrapper}>
           <Grid
             className={styles.innerCardsWrapper}
-            style={{ width: isDesktop ? innerWrapperWidth : '100%' }}
+            style={{ width: isDesktop ? innerWrapperWidth : undefined }}
             ref={innerWrapperRef}
           >
             {posts.edges.map(({ node }) => (

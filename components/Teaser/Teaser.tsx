@@ -7,9 +7,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import FeaturedImage from 'types/posts/featuredImage';
-import { Edges } from 'types/common';
 import Tag from 'types/posts/tag';
 import cn from 'classnames';
+
+import { Edges } from 'types/common';
 
 import styles from './Teaser.module.scss';
 
@@ -20,13 +21,16 @@ interface TeaserProps {
   url: string;
   tags?: Edges<Tag>;
   direction?: 'row' | 'column';
+  className?: string;
+  classes?: Partial<Record<'root' | 'media', string>>;
 }
 
-const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direction, tags }) => {
+const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direction, className, tags, classes }) => {
   const blogTags = tags ? tags.edges.map(({ node }) => node.name) : [];
+
   return (
     <Card
-      className={cn(styles.container, { [styles.noImage]: !coverImage })}
+      className={cn(styles.container, className, classes?.root, { [styles.noImage]: !coverImage })}
       classes={{ root: styles.root }}
       data-ga-name={title}
       data-ga-category={blogTags.join(',')}
@@ -36,7 +40,9 @@ const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direct
         className={cn(styles.cardArea, { [styles.row]: direction === 'row' })}
         classes={{ focusHighlight: styles.focusHighlight }}
       >
-        {coverImage && <CardMedia image={coverImage?.sourceUrl} title={url} className={styles.image} />}
+        {coverImage && (
+          <CardMedia image={coverImage?.sourceUrl} title={url} className={cn(styles.image, classes?.media)} />
+        )}
         <CardContent className={cn(styles.content, { [styles.row]: direction === 'row' })}>
           <Typography variant="h4" component="h3">
             {title}
