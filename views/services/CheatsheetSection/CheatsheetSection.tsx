@@ -30,12 +30,13 @@ const CheatsheetSection: React.FC = () => {
     const {
       currentTarget: { value },
     } = e;
+    const scrollLeft = isMobile ? 320 : 360;
 
     if (cheatsheetCardsWrapperRef && cheatsheetCardsWrapperRef.current) {
       if (value === 'right') {
-        cheatsheetCardsWrapperRef.current.scrollLeft += 360;
+        cheatsheetCardsWrapperRef.current.scrollLeft += scrollLeft;
       } else {
-        cheatsheetCardsWrapperRef.current.scrollLeft -= 360;
+        cheatsheetCardsWrapperRef.current.scrollLeft -= scrollLeft;
       }
     }
   };
