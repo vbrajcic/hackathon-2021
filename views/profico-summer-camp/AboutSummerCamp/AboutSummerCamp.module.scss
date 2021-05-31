@@ -1,12 +1,9 @@
 @import 'styles/mixins/flex';
 
-$psc-orange: #dc6b42;
-$psc-red: #be5934;
-
 .container {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(220, 107, 66, 0) 0%, rgba(220, 107, 66, 0.08) 100%);
+  background: $blue-500;
   @include media(0, 'md') {
     display: flex;
     flex-direction: column;
@@ -17,7 +14,7 @@ $psc-red: #be5934;
   }
 
   @include media(1200px) {
-    height: rem-calc(834);
+    height: rem-calc(900);
   }
 
   @include media(0, 'lg') {
@@ -29,6 +26,8 @@ $psc-red: #be5934;
   }
   .cardsWrapper {
     @include flex($align: flex-end, $justify: space-evenly);
+
+    gap: rem-calc(77);
   }
   .root {
     @include flex($align: center, $direction: column);
@@ -40,13 +39,13 @@ $psc-red: #be5934;
         }
 
         @include media(1300px) {
-          margin-top: rem-calc(70);
+          margin-top: rem-calc(213);
         }
 
         .title {
           margin-bottom: rem-calc(32);
           max-width: 100%;
-          color: $psc-red;
+          color: $white;
           text-align: center;
 
           @include media('lg') {
@@ -56,7 +55,7 @@ $psc-red: #be5934;
 
         .descripton {
           text-align: center;
-          color: $psc-red;
+          color: $white;
 
           @include media('lg') {
             margin-bottom: rem-calc(42);
@@ -69,8 +68,14 @@ $psc-red: #be5934;
         max-width: rem-calc(550);
 
         .button {
-          color: $psc-orange;
-          background-color: #ffffff;
+          color: $blue-600;
+          background-color: $white;
+          path,
+          line,
+          polyline,
+          rect {
+            stroke: $blue-600;
+          }
         }
       }
     }

@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import React, { ElementType } from 'react';
 import FingerTouch from 'components/SvgIcons/Fingertouch';
 import ProductStrategy from 'components/SvgIcons/ProductStrategy';
 import Mobile from 'components/SvgIcons/Mobile';
@@ -6,7 +6,7 @@ import Web from 'components/SvgIcons/Web';
 
 export interface TechVerticals {
   id: string;
-  icon: ElementType;
+  icon: ElementType<React.SVGProps<SVGSVGElement>>;
   title: string;
 }
 

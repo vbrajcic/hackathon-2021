@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import Hyperlink from 'components/Hyperlink';
 import techVerticals from 'config/techVerticals';
 
-import Arrow from 'components/SvgIcons/Arrow';
 import SummerCampCard from './SummerCampCard';
 import styles from './AboutSummerCamp.module.scss';
 
@@ -33,7 +32,7 @@ const AboutSummerCamp: React.FC = () => (
         <Hyperlink
           href="about"
           component={
-            <Button startIcon={<Arrow stroke="#dc6b42" />} className={styles.button} color="secondary">
+            <Button className={styles.button} color="secondary">
               About us
             </Button>
           }

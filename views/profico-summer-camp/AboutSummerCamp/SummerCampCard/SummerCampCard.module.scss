@@ -1,49 +1,84 @@
 @import 'styles/mixins/flex';
-@import 'styles/settings/variables';
 
+@mixin svgColor($fillColor, $lineColor) {
+  circle {
+    fill: $fillColor;
+  }
+  path,
+  line,
+  polyline,
+  rect {
+    stroke: $lineColor;
+    fill: $fillColor;
+  }
+}
 .card {
   @include flex(column, $align: flex-start);
 
   border-radius: rem-calc(30);
   box-shadow: $box-shadow__paper;
 
-  &.mobile {
-    background-color: #4078d4;
-    width: rem-calc(155);
-    height: rem-calc(155);
-    margin-bottom: 13px;
-    .cardIcon {
-      fill: white;
-    }
-  }
-  &.management {
-    background-color: #dc6b42;
-    width: rem-calc(220);
-    height: rem-calc(220);
-    margin-left: 77px;
-    margin-bottom: 48px;
-  }
-  &.frontend {
-    background-color: #18ba98;
-    width: rem-calc(166);
-    height: rem-calc(168);
-    margin-left: 77px;
-  }
-  &.backend {
-    background-color: #f4be44;
-    width: rem-calc(200);
-    height: rem-calc(200);
-    margin-left: 77px;
-    margin-bottom: 68px;
-  }
-
   .image {
-    padding-left: 27px;
-    padding-top: 31px;
+    padding-left: rem-calc(27);
+    padding-top: rem-calc(31);
   }
 
   .text {
-    color: #ffffff;
-    padding-left: 27px;
+    color: #fff;
+    padding-left: rem-calc(27);
+  }
+
+  &.mobile {
+    background-color: $blue-200;
+    width: rem-calc(155);
+    height: rem-calc(155);
+    margin-bottom: rem-calc(13);
+
+    .cardIcon {
+      @include svgColor($white, $blue-200);
+    }
+    .text {
+      padding-top: rem-calc(8);
+    }
+  }
+
+  &.management {
+    background-color: $green-300;
+    width: rem-calc(220);
+    height: rem-calc(220);
+    margin-bottom: rem-calc(48);
+
+    .cardIcon {
+      @include svgColor($white, $green-300);
+    }
+    .text {
+      padding-top: rem-calc(22);
+    }
+  }
+
+  &.frontend {
+    background-color: $yellow-300;
+    width: rem-calc(166);
+    height: rem-calc(168);
+    .cardIcon {
+      max-width: rem-calc(63);
+      @include svgColor($white, $yellow-300);
+    }
+    .text {
+      padding-top: rem-calc(12);
+    }
+  }
+
+  &.backend {
+    background-color: $orange-300;
+    width: rem-calc(200);
+    height: rem-calc(200);
+    margin-bottom: rem-calc(68);
+    .cardIcon {
+      @include svgColor($white, $orange-300);
+    }
+    .text {
+      padding-top: rem-calc(22);
+    }
   }
 }
