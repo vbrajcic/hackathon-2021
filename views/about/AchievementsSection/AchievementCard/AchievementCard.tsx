@@ -31,7 +31,7 @@ const AchievementCard: React.FC<CoreValueCardProps> = ({ achievement }) => {
       <Logo className={styles.logo} />
       {followers && (
         <Grid>
-          <Typography variant="h3" component="p" className={styles.number}>
+          <Typography variant="h4" component="p" className={styles.number}>
             {followers.toLocaleString()}
           </Typography>
           <Typography variant="body2" className={styles.followers}>

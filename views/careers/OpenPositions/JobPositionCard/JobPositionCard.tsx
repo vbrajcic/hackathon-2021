@@ -34,7 +34,7 @@ const JobPositionCard: React.FC<JobPositionCardProps> = ({ position }) => {
           <CardActionArea classes={{ focusHighlight: styles.focusHighlight }} className={styles.content}>
             <JobIcon className={styles.icon} />
             <Grid container direction="column" className={styles.textWrapper}>
-              <Typography variant="h4">{position.title}</Typography>
+              <Typography variant="h5">{position.title}</Typography>
               <Typography
                 variant="body2"
                 component="div"
