@@ -1,7 +1,6 @@
 .root {
   &.container {
     margin-bottom: rem-calc(60);
-    margin-right: rem-calc(-20);
 
     @include media('lg') {
       padding-left: rem-calc(40);
@@ -25,16 +24,24 @@
         grid-template-columns: repeat(3, minmax(rem-calc(240), rem-calc(550)));
       }
 
-      .teaser {
+      .teaserWrapper {
         flex: 1;
         margin: rem-calc(20 20);
         padding: 0;
 
         @include media(0, 'md') {
           margin: rem-calc(10 0);
+        }
 
-          :first-of-type {
+        .teaser {
+          @include media(0, 'md') {
             border-radius: 0;
+          }
+
+          .media {
+            @include media(0, 'md') {
+              border-radius: 0;
+            }
           }
         }
       }

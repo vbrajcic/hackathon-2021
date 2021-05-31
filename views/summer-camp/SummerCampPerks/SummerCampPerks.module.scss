@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  padding-top: rem-calc(70);
+  margin-top: rem-calc(180);
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: rem-calc(265);
+    width: rem-calc(238);
+    top: rem-calc(-75);
+    left: 7%;
+    background-image: add-asset-prefix('/images/summerCamp/sand-castle.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include media('sm') {
+      width: rem-calc(278);
+    }
+
+    @include media('md') {
+      width: rem-calc(318);
+    }
+
+    @include media('lg') {
+      width: rem-calc(348);
+    }
+
+    @include media('xl') {
+      width: rem-calc(378);
+    }
+  }
+
+  .content {
+    background-color: $blue-300;
+    color: $white;
+    box-shadow: none;
+    padding: rem-calc(70 60);
+
+    @include media('lg') {
+      padding: rem-calc(70 120);
+    }
+
+    .title {
+      color: $white;
+      margin: 0 auto;
+      text-align: center;
+      max-width: rem-calc(520);
+      margin-bottom: rem-calc(45);
+
+      @include media('sm', 'md') {
+        margin-top: rem-calc(15);
+      }
+    }
+
+    .perksWrapper {
+      width: 100%;
+    }
+
+    .perk {
+      padding: 0 rem-calc(10);
+      text-align: center;
+      margin: rem-calc(45 0);
+
+      .title {
+        font-weight: bold;
+        margin-bottom: rem-calc(14);
+      }
+
+      .description {
+        max-width: rem-calc(280);
+        margin: 0 auto;
+      }
+    }
+  }
+}

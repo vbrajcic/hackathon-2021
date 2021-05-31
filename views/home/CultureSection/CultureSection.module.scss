@@ -39,7 +39,11 @@
     position: relative;
     bottom: rem-calc(-200);
 
-    @include media(0, 'md') {
+    @include media(0, 'sm') {
+      margin: rem-calc(0 -16);
+    }
+
+    @include media('sm', 'md') {
       margin: rem-calc(0 -24);
     }
 
