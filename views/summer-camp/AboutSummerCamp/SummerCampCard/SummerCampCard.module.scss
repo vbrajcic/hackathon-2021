@@ -30,12 +30,16 @@
 
   &.mobile {
     background-color: $blue-200;
-    width: rem-calc(155);
+    min-width: rem-calc(155);
     height: rem-calc(155);
     margin-bottom: rem-calc(13);
 
     .cardIcon {
       @include svgColor($white, $blue-200);
+    }
+    .image {
+      padding-left: rem-calc(27);
+      padding-top: rem-calc(22);
     }
     .text {
       padding-top: rem-calc(8);
@@ -44,12 +48,16 @@
 
   &.management {
     background-color: $green-300;
-    width: rem-calc(220);
+    min-width: rem-calc(220);
     height: rem-calc(220);
     margin-bottom: rem-calc(48);
 
     .cardIcon {
       @include svgColor($white, $green-300);
+    }
+    .image {
+      padding-left: rem-calc(31);
+      padding-top: rem-calc(29);
     }
     .text {
       padding-top: rem-calc(22);
@@ -58,11 +66,15 @@
 
   &.frontend {
     background-color: $yellow-300;
-    width: rem-calc(166);
+    min-width: rem-calc(166);
     height: rem-calc(168);
     .cardIcon {
       max-width: rem-calc(63);
       @include svgColor($white, $yellow-300);
+    }
+    .image {
+      padding-left: rem-calc(21);
+      padding-top: rem-calc(25);
     }
     .text {
       padding-top: rem-calc(12);
@@ -71,11 +83,15 @@
 
   &.backend {
     background-color: $orange-300;
-    width: rem-calc(200);
+    min-width: rem-calc(200);
     height: rem-calc(200);
     margin-bottom: rem-calc(68);
     .cardIcon {
       @include svgColor($white, $orange-300);
+    }
+    .image {
+      padding-left: rem-calc(32);
+      padding-top: rem-calc(32);
     }
     .text {
       padding-top: rem-calc(22);

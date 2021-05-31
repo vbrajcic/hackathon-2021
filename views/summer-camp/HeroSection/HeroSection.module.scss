@@ -6,10 +6,7 @@ $light-blue: #36a8e1;
   padding-top: calc(#{$navTopBarHeight} + 25px);
   padding-bottom: rem-calc(100);
   margin-top: -($navTopBarHeight);
-  background-image: add-asset-prefix('/images/summerCamp/psc-background.png');
-  background-repeat: no-repeat;
-  background-size: 100vw 100vh;
-  background-color: $white;
+  background-color: $blue-500;
 
   @include media('xl') {
     padding-top: calc(#{$navTopBarHeight} + 155px);
