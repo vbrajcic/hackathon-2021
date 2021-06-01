@@ -1,0 +1,49 @@
+@import 'styles/mixins/flex';
+
+.card {
+  @include flex(column, $align: flex-start);
+
+  background: #508cf4;
+  min-width: rem-calc(324);
+  height: rem-calc(480);
+  border-radius: rem-calc(60);
+  box-shadow: $box-shadow__paper;
+
+  @include media('xs', 'lg') {
+    max-width: rem-calc(324);
+    max-height: rem-calc(320);
+    align-self: center;
+  }
+
+  .image {
+    padding-left: rem-calc(55);
+    padding-top: rem-calc(72);
+
+    @include media('xs', 'lg') {
+      padding-left: rem-calc(40);
+      padding-top: rem-calc(56);
+    }
+  }
+
+  .text {
+    color: $white;
+    margin-top: rem-calc(96);
+    padding-left: rem-calc(55);
+
+    @include media('xs', 'lg') {
+      margin-top: rem-calc(40);
+      padding-left: rem-calc(40);
+    }
+  }
+  .subtitle {
+    color: $white;
+    max-width: calc(100% - 55px);
+    margin-top: rem-calc(35);
+    padding-left: rem-calc(55);
+    @include media('xs', 'lg') {
+      max-width: calc(100% - 55px);
+      margin-top: rem-calc(12);
+      padding-left: rem-calc(40);
+    }
+  }
+}

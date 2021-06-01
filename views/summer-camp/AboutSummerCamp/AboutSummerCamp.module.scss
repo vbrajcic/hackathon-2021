@@ -18,6 +18,7 @@
 
   .cardsWrapper {
     @include flex($align: flex-end, $justify: space-evenly);
+
     gap: rem-calc(77);
   }
   .root {
