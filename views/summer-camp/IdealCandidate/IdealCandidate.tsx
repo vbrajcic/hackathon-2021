@@ -4,8 +4,9 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import idealCandidate from 'config/idealCandidate';
 
-import styles from './IdealCandidate.module.scss';
 import CandidateCard from './CandidateCard/CandidateCard';
+
+import styles from './IdealCandidate.module.scss';
 
 const IdealCandidate: React.FC = () => (
   <Grid className={styles.container} component="section">
@@ -20,7 +21,6 @@ const IdealCandidate: React.FC = () => (
           studenti nižih godina studija.
         </Typography>
       </Grid>
-
       <Container className={styles.cardsWrapper}>
         {idealCandidate.map(tech => (
           <CandidateCard key={tech.id} {...tech} />
