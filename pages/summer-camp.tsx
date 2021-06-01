@@ -5,6 +5,7 @@ import AboutSummerCamp from 'views/summer-camp/AboutSummerCamp';
 import SummerCampPerks from 'views/summer-camp/SummerCampPerks';
 import AboutMentors from 'views/summer-camp/AboutMentors';
 import SummerCampFocusPoints from 'views/summer-camp/SummerCampFocusPoints';
+import IdealCandidate from 'views/summer-camp/IdealCandidate';
 
 const ProficoSummerCamp: React.FC = () => (
   <Layout title="Summer Camp" theme="dark">
@@ -13,6 +14,7 @@ const ProficoSummerCamp: React.FC = () => (
     <SummerCampPerks />
     <SummerCampFocusPoints />
     <AboutMentors />
+    <IdealCandidate />
   </Layout>
 );
 
