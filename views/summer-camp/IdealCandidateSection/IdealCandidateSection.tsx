@@ -2,13 +2,13 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import idealCandidate from 'config/idealCandidate';
+import idealCandidateDetails from 'config/idealCandidateDetails';
 
 import CandidateCard from './CandidateCard';
 
-import styles from './IdealCandidate.module.scss';
+import styles from './IdealCandidateSection.module.scss';
 
-const IdealCandidate: React.FC = () => (
+const IdealCandidateSection: React.FC = () => (
   <Grid className={styles.container} component="section">
     <Container maxWidth="xl" className={styles.content}>
       <Grid className={styles.textWrapper}>
@@ -22,12 +22,12 @@ const IdealCandidate: React.FC = () => (
         </Typography>
       </Grid>
       <Container className={styles.cardsWrapper}>
-        {idealCandidate.map(tech => (
-          <CandidateCard key={tech.id} {...tech} />
+        {idealCandidateDetails.map(candidate => (
+          <CandidateCard key={candidate.id} {...candidate} />
         ))}
       </Container>
     </Container>
   </Grid>
 );
 
-export default IdealCandidate;
+export default IdealCandidateSection;
