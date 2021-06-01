@@ -1,34 +1,52 @@
 import React from 'react';
+import Image from 'next/image';
+import { useWindowSize } from 'react-use';
+
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { useMediaQuery, useTheme } from '@material-ui/core';
+import { addAssetPrefix } from 'utils/static/addAssetPrefix';
+
 import summerCampPerks from 'config/summerCampPerks';
+import PerkCard from './PerkCard';
 
 import styles from './SummerCampPerks.module.scss';
 
-const SummerCampPerks: React.FC = () => (
-  <Container maxWidth="xl" className={styles.container} component="section">
-    <Paper classes={{ root: styles.content }}>
-      <Typography variant="h2" className={styles.title}>
-        What&apos;s in it for
-        <br />
-        you?
-      </Typography>
-      <Grid container className={styles.perksWrapper}>
+const SummerCampPerks: React.FC = () => {
+  const { width: clientWidth } = useWindowSize();
+  const { breakpoints } = useTheme();
+  const hasMarginLeft = useMediaQuery(() => breakpoints.up('xl'));
+
+  return (
+    <Grid component="section" className={styles.container}>
+      <Container maxWidth="xl" className={styles.content}>
+        <Typography variant="h2" className={styles.title}>
+          What is in it for you?
+        </Typography>
+        <Grid className={styles.imageWrapper}>
+          <Image
+            src={addAssetPrefix('/images/summerCamp/sandcastle.png')}
+            alt="sandcastle"
+            layout="responsive"
+            height="265"
+            width="364"
+          />
+        </Grid>
+      </Container>
+      <Grid
+        container
+        style={{ marginLeft: hasMarginLeft ? (clientWidth - breakpoints.values.xl) / 2 : 0 }}
+        className={styles.perksWrapper}
+      >
         {summerCampPerks.map(perk => (
-          <Grid item xs={12} sm={6} lg={4} key={perk.heading} className={styles.perk}>
-            <Typography variant="body1" className={styles.title}>
-              {perk.heading}
-            </Typography>
-            <Typography variant="body2" className={styles.description}>
-              {perk.description}
-            </Typography>
+          <Grid item key={perk.title}>
+            <PerkCard {...perk} />
           </Grid>
         ))}
       </Grid>
-    </Paper>
-  </Container>
-);
+    </Grid>
+  );
+};
 
 export default SummerCampPerks;
