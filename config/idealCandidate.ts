@@ -13,21 +13,23 @@ const idealCandidate: IdealCandidate[] = [
   {
     id: 0,
     icon: ReactOutlined,
-    title: 'Discovery Workshops',
+    title: 'Final year student',
     subtitle:
-      'Interactive workshops based on Design Sprint methodology that help us kickstart the project in a right way.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {
     id: 1,
     icon: Alien,
-    title: 'Agile Delivery',
-    subtitle: 'Iterative approach that enables us to design, prototype and deliver faster and more to the point.',
+    title: 'Free during summer',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {
     id: 2,
     icon: ReactOutlined,
-    title: 'Driven by Data',
-    subtitle: 'Placing user behaviour analysis, KPIs and A/B tests behind every step we take along the way.',
+    title: 'Passionate learner',
+    subtitle:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
 ];
 

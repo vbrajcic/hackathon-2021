@@ -17,7 +17,7 @@ const SummerCampCard: React.FC<TechVerticals> = ({ title, id, icon: Icon }) => (
     <div className={styles.image}>
       <Icon className={styles.cardIcon} />
     </div>
-    <Typography className={styles.text} variant="h4" component="h2">
+    <Typography className={styles.text} variant="h5" component="h2">
       {title}
     </Typography>
   </div>

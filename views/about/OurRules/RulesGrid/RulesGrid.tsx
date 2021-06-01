@@ -20,7 +20,7 @@ const OurRules: React.FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography className={styles.heading} variant="h4" component="h3">
+              <Typography className={styles.heading} variant="h5" component="h3">
                 {heading}
               </Typography>
               <Typography variant="body2" color="textSecondary">

@@ -25,21 +25,26 @@
     }
   }
 
-  .text {
+  .title {
     color: $white;
     margin-top: rem-calc(96);
     padding-left: rem-calc(55);
+    font-weight: bold;
+    font-size: rem-calc(20);
+    line-height: rem-calc(24);
 
     @include media('xs', 'lg') {
       margin-top: rem-calc(40);
       padding-left: rem-calc(40);
     }
   }
+
   .subtitle {
     color: $white;
     max-width: calc(100% - 55px);
     margin-top: rem-calc(35);
     padding-left: rem-calc(55);
+
     @include media('xs', 'lg') {
       max-width: calc(100% - 55px);
       margin-top: rem-calc(12);

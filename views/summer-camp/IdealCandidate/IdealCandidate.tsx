@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import idealCandidate from 'config/idealCandidate';
 
-import CandidateCard from './CandidateCard/CandidateCard';
+import CandidateCard from './CandidateCard';
 
 import styles from './IdealCandidate.module.scss';
 

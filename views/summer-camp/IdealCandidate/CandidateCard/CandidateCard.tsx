@@ -10,7 +10,7 @@ const CandidateCard: React.FC<IdealCandidate> = ({ title, subtitle, icon: Icon }
     <div className={styles.image}>
       <Icon className={styles.cardIcon} />
     </div>
-    <Typography className={styles.text} variant="h4" component="h2">
+    <Typography className={styles.title} variant="h3">
       {title}
     </Typography>
     <Typography variant="body2" className={styles.subtitle}>
