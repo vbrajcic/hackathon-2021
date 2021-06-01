@@ -1,32 +1,42 @@
+import { ElementType } from 'react';
+import Rocket from 'components/SvgIcons/Rocket';
+
 export interface SummerCampPerk {
-  heading: string;
-  description: string;
+  title: string;
+  subtitle: string;
+  icon: ElementType;
 }
 
 const summerCampPerks: SummerCampPerk[] = [
   {
-    heading: 'Practical work',
-    description: 'Povezivanje stečenih teorijskih znanja s profesionalnim iskustvima',
+    title: 'Practical work',
+    subtitle: 'Povezivanje stečenih teorijskih znanja s profesionalnim iskustvima',
+    icon: Rocket,
   },
   {
-    heading: 'New set of skills',
-    description: `Stjecanje vještina iz područja računarstva i drugih djelokruga poslovanja IT i ostalih organizacija u kojima se praksa obavlja.`,
+    title: 'Easier career start',
+    subtitle: `Stjecanje vještina iz područja računarstva i drugih djelokruga poslovanja IT i ostalih organizacija u kojima se praksa obavlja.`,
+    icon: Rocket,
   },
   {
-    heading: 'Menthor guidence',
-    description: 'Nalaženje teme za diplomski rad',
+    title: 'New set of skills',
+    subtitle: 'Nalaženje teme za diplomski rad',
+    icon: Rocket,
   },
   {
-    heading: 'Easier career start',
-    description: 'Stjecanje mogućih preporuka u cilju budućeg zapošljavanja',
+    title: 'Menthor guidance',
+    subtitle: 'Stjecanje mogućih preporuka u cilju budućeg zapošljavanja',
+    icon: Rocket,
   },
   {
-    heading: 'Networking',
-    description: 'Ostvarivanje kontakata i poznanstava u sektoru računarstva',
+    title: 'Networking opportunities',
+    subtitle: 'Ostvarivanje kontakata i poznanstava u sektoru računarstva',
+    icon: Rocket,
   },
   {
-    heading: 'Creating habbits ',
-    description: `Stvaranje dobrih radnih navika i priprema studenta za poslovni svijet`,
+    title: 'Creating habbits',
+    subtitle: `Stvaranje dobrih radnih navika i priprema studenta za poslovni svijet`,
+    icon: Rocket,
   },
 ];
 
