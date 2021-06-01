@@ -1,0 +1,25 @@
+@import 'styles/mixins/flex';
+
+.container {
+  background: $blue-500;
+  padding: rem-calc(150 0);
+
+  .content {
+    @include flex($align: center, $direction: column);
+
+    .title {
+      margin-bottom: rem-calc(61);
+      max-width: 100%;
+      color: $white;
+      text-align: center;
+    }
+
+    .cards {
+      @include flex($justify: space-between);
+
+      @include media(0, 'md') {
+        flex-direction: column;
+      }
+    }
+  }
+}
