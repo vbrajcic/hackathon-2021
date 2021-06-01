@@ -8,7 +8,7 @@ import summerCampPerks from 'config/summerCampPerks';
 import styles from './SummerCampPerks.module.scss';
 
 const SummerCampPerks: React.FC = () => (
-  <Container maxWidth="xl" className={styles.container}>
+  <Container maxWidth="xl" className={styles.container} component="section">
     <Paper classes={{ root: styles.content }}>
       <Typography variant="h2" className={styles.title}>
         What&apos;s in it for
