@@ -1,39 +1,36 @@
 @import 'styles/mixins/flex';
 
 .container {
-  position: relative;
-  overflow: hidden;
   background: $blue-500;
-  padding-top: rem-calc(53);
-  padding-bottom: rem-calc(60);
+  padding: rem-calc(60 0);
 
-  .cardsWrapper {
-    @include flex($align: flex-end, $justify: space-evenly);
-
-    gap: rem-calc(60);
-    @include media('xs', 'lg') {
-      flex-direction: column;
-      gap: rem-calc(20);
-    }
-  }
-  .root {
+  .content {
     @include flex($align: center, $direction: column);
 
-    &.content {
-      .textWrapper {
-        max-width: rem-calc(650);
-        .title {
-          max-width: 100%;
-          color: $white;
-          text-align: center;
-          margin-bottom: rem-calc(42);
-        }
+    .textWrapper {
+      max-width: rem-calc(650);
 
-        .descripton {
-          text-align: center;
-          color: $white;
-          margin-bottom: rem-calc(78);
-        }
+      .title {
+        max-width: 100%;
+        color: $white;
+        text-align: center;
+        margin-bottom: rem-calc(42);
+      }
+
+      .descripton {
+        text-align: center;
+        color: $white;
+        margin-bottom: rem-calc(78);
+      }
+    }
+
+    .cardsWrapper {
+      @include flex($align: flex-end, $justify: space-evenly);
+      gap: rem-calc(60);
+
+      @include media('xs', 'lg') {
+        flex-direction: column;
+        gap: rem-calc(20);
       }
     }
   }

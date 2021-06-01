@@ -10,7 +10,7 @@ import styles from './IdealCandidate.module.scss';
 
 const IdealCandidate: React.FC = () => (
   <Grid className={styles.container} component="section">
-    <Container maxWidth="xl" className={styles.content} classes={{ root: styles.root }}>
+    <Container maxWidth="xl" className={styles.content}>
       <Grid className={styles.textWrapper}>
         <Typography variant="h2" className={styles.title}>
           Ideal candidate
