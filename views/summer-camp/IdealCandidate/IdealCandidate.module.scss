@@ -26,6 +26,7 @@
 
     .cardsWrapper {
       @include flex($align: flex-end, $justify: space-evenly);
+
       gap: rem-calc(60);
 
       @include media('xs', 'lg') {
