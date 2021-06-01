@@ -1,8 +1,13 @@
 .container {
   position: relative;
-  padding-top: rem-calc(157);
-  padding-bottom: rem-calc(140);
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(79);
   background-color: $blue-500;
+
+  @include media('sm') {
+    padding-top: rem-calc(157);
+    padding-bottom: rem-calc(140);
+  }
 
   .content {
     display: flex;
@@ -51,7 +56,7 @@
 
   .perksWrapper {
     flex-flow: column wrap;
-    padding: rem-calc(60 24);
+    padding: rem-calc(60 20);
 
     &::-webkit-scrollbar {
       display: none;
@@ -61,11 +66,11 @@
       flex-flow: row nowrap;
       overflow-x: scroll;
       -ms-overflow-style: none;
-      padding: rem-calc(50 0 100 83);
+      padding: rem-calc(50 0 100 24);
     }
 
-    @include media(0, 'lg') {
-      padding-left: rem-calc(24);
+    @include media('lg') {
+      padding-left: rem-calc(83);
     }
 
     @include media('xl') {

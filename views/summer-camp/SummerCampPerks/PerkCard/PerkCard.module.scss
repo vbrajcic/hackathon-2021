@@ -6,7 +6,7 @@
     width: 100%;
     margin-bottom: rem-calc(20);
     padding: rem-calc(56 40 70 40);
-    background: rgba(75, 141, 248, 255);
+    background: $blue-400;
 
     @include media('sm') {
       width: rem-calc(324);
