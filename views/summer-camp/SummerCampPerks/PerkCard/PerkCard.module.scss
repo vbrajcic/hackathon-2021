@@ -1,0 +1,43 @@
+.root {
+  &.container {
+    border-radius: rem-calc(60);
+    color: $white;
+    height: 100%;
+    width: 100%;
+    margin-bottom: rem-calc(20);
+    padding: rem-calc(56 40 70 40);
+    background: $blue-400;
+
+    @include media('sm') {
+      width: rem-calc(324);
+      padding: rem-calc(70 55);
+      margin-right: rem-calc(32);
+      margin-bottom: 0;
+    }
+
+    .icon {
+      margin-bottom: rem-calc(40);
+      max-width: rem-calc(42);
+      max-height: rem-calc(42);
+
+      @include media('md') {
+        margin-bottom: rem-calc(98);
+      }
+    }
+
+    .title {
+      color: $white;
+      margin-bottom: rem-calc(12);
+      max-height: rem-calc(48);
+      white-space: pre-wrap;
+
+      @include media('sm') {
+        max-width: rem-calc(135);
+      }
+
+      @include media('md') {
+        margin-bottom: rem-calc(32);
+      }
+    }
+  }
+}
