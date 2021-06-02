@@ -17,8 +17,8 @@
       flex-direction: column;
       gap: 0;
       position: relative;
-      height: rem-calc(812px);
-      max-width: rem-calc(375px);
+      height: rem-calc(812);
+      max-width: rem-calc(375);
     }
 
     @include media('md', 'lg') {
@@ -45,10 +45,10 @@
         margin-bottom: rem-calc(42);
 
         @include media(0, 'md') {
-          max-width: 9rem;
+          max-width: rem-calc(144);
           margin-bottom: rem-calc(32);
-          line-height: 48px;
-          letter-spacing: -2.25px;
+          line-height: rem-calc(48);
+          letter-spacing: rem-calc(-2.25);
         }
       }
 
