@@ -26,18 +26,21 @@
   margin-top: rem-calc(50);
   max-width: rem-calc(445);
 
-  textarea,
-  input {
-    font-size: rem-calc(16);
-    line-height: rem-calc(24);
-    color: $black;
-    &::placeholder {
-      color: $text-primary;
+  .input {
+    & > div:not([class*='Mui-error']) {
+      &::after {
+        border-bottom-color: $primary;
+      }
     }
-  }
 
-  .input > div::after {
-    border-bottom-color: $primary;
+    textarea,
+    input {
+      color: $black;
+
+      &::placeholder {
+        color: $text-primary;
+      }
+    }
   }
 
   button {

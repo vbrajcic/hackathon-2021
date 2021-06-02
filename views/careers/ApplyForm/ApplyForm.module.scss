@@ -27,7 +27,7 @@
         font-weight: normal;
         box-sizing: border-box;
         height: rem-calc(59);
-        border: 1px solid $grey-200;
+        border: rem-calc(1) solid $grey-200;
         border-radius: rem-calc(20);
       }
 

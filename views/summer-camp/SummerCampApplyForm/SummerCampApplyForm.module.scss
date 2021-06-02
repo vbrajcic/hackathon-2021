@@ -1,0 +1,205 @@
+@import '~styles/mixins/flex';
+
+.container {
+  background-color: $blue-500;
+  padding-top: rem-calc(60);
+  padding-bottom: rem-calc(90);
+
+  .inner {
+    border-radius: $border-radius__md;
+    box-shadow: $box-shadow__card;
+    background: linear-gradient(0deg, rgba($green-300, 0.1), rgba($green-300, 0.1)), $white;
+    padding: rem-calc(100 135 50 0);
+    width: 100%;
+    max-width: rem-calc(1320);
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include media(0, 1225px) {
+      padding-right: rem-calc(75);
+    }
+
+    @include media(0, 'lg') {
+      padding-right: rem-calc(45);
+    }
+
+    @include media(0, 'md') {
+      flex-direction: column;
+      padding-left: rem-calc(45);
+      padding-top: rem-calc(60);
+    }
+
+    @include media(0, 'sm') {
+      border-radius: 0;
+    }
+
+    @include media(0, 'xs') {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+    }
+
+    .bgImg {
+      margin-bottom: rem-calc(-135);
+      margin-left: rem-calc(-50);
+
+      @include media(0, 'md') {
+        display: none;
+      }
+    }
+
+    @include flex($justify: space-between);
+
+    .titleWrapper {
+      max-width: rem-calc(645);
+      width: 100%;
+      display: inline-block;
+      padding-left: rem-calc(115);
+      margin-bottom: rem-calc(20);
+
+      @include media(0, 1225px) {
+        padding-left: rem-calc(75);
+      }
+
+      @include media(0, 'lg') {
+        padding-left: rem-calc(45);
+
+        .title {
+          max-width: rem-calc(430);
+        }
+      }
+
+      @include media(0, 'md') {
+        padding-left: 0;
+        margin-bottom: rem-calc(50);
+
+        .title {
+          max-width: 100%;
+        }
+      }
+
+      .year {
+        display: inline-block;
+        transform: rotate(-3deg);
+        background-color: $orange-300;
+        padding: rem-calc(10 15 5 15);
+        margin-bottom: rem-calc(16);
+        color: $white;
+        font-size: rem-calc(42);
+
+        @include media(0, 'md') {
+          margin-left: 0;
+        }
+      }
+
+      .title {
+        color: $green-300;
+      }
+    }
+
+    .form {
+      max-width: rem-calc(445);
+      width: 100%;
+
+      @include media(0, 'md') {
+        max-width: 100%;
+      }
+
+      .input {
+        & > div:not([class*='Mui-error']) {
+          &::before {
+            border-color: $green-300;
+          }
+
+          &::after {
+            border-bottom-color: darken($green-300, 2.5);
+          }
+        }
+
+        textarea,
+        input,
+        label {
+          color: $green-300;
+
+          &::placeholder {
+            color: $green-300;
+          }
+        }
+
+        &.select {
+          .formControl {
+            margin-top: 0;
+          }
+
+          .label {
+            font-size: rem-calc(16);
+            line-height: rem-calc(24);
+            transform: translate(rem-calc(36), rem-calc(12));
+
+            &.shrinked {
+              transform: translate(0, rem-calc(-12)) scale(0.75);
+            }
+          }
+
+          .selectInputInner {
+            padding-top: rem-calc(14);
+            padding-bottom: rem-calc(14);
+            color: $green-300;
+          }
+
+          .icon {
+            path {
+              fill: $green-300;
+            }
+          }
+
+          .dropdown {
+            border-radius: rem-calc(10);
+            box-shadow: $box-shadow__card;
+
+            &Item {
+              padding: rem-calc(12);
+            }
+          }
+        }
+      }
+
+      .uploadButton {
+        color: $green-300;
+        justify-content: left;
+        font-weight: normal;
+        box-sizing: border-box;
+        height: rem-calc(59);
+        border-color: $green-300;
+        border-radius: rem-calc(20);
+      }
+
+      .selectedFileName {
+        color: rgba($black, 0.35);
+        margin-top: rem-calc(10);
+      }
+
+      .cvError {
+        margin-top: rem-calc(10);
+      }
+
+      .submitButton {
+        margin-top: rem-calc(50);
+        background-color: $green-300;
+        padding: rem-calc(24 48);
+        border-radius: rem-calc(36);
+
+        span {
+          color: $white;
+        }
+
+        &:not([disabled]):hover {
+          background-color: darken($green-300, 2.5);
+        }
+
+        &.disabled {
+          background-color: rgba($green-300, 0.5);
+        }
+      }
+    }
+  }
+}

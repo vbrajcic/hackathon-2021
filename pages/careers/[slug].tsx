@@ -43,7 +43,7 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
             <Container className={styles.container} maxWidth="xl" disableGutters>
               <EasterEggPostButton slug={post.slug} tags={post.tags} />
               <PostBody content={post.content} className={styles.body} />
-              <ApplyForm jobTags={post.tags} />
+              <ApplyForm title={post.title} jobTags={post.tags} />
             </Container>
           </article>
         </>

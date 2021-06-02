@@ -113,6 +113,8 @@ const overrides: ThemeOptions['overrides'] = {
     },
     input: {
       paddingBottom: 19,
+      fontSize: 16,
+      lineHeight: 1.5,
     },
   },
   MuiGrid: {

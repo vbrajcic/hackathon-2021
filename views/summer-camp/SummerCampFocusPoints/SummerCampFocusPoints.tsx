@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popper from '@material-ui/core/Popper';
 import summerCampFocusPoints, { SummerCampFocusPoint } from 'config/summerCampFocusPoints';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
 import cx from 'classnames';
 
 import { Grow } from '@material-ui/core';
@@ -27,6 +28,8 @@ const SummerCampFocusPoints: React.FC = () => {
   const [shouldPauseAnimation, setShouldPauseAnimation] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [currentImage, setCurrentImage] = useState<Pick<SummerCampFocusPoint, 'imageUrl' | 'text'>>();
+
+  const { isDesktop } = useBreakpoint();
 
   const handleTooltipOpen = (e: React.MouseEvent<HTMLHeadingElement>) => {
     const {
@@ -69,8 +72,8 @@ const SummerCampFocusPoints: React.FC = () => {
                 key={key}
                 data-row-key={row.key}
                 data-item-key={key}
-                onMouseEnter={handleTooltipOpen}
-                onMouseLeave={handleTooltipClose}
+                onMouseEnter={isDesktop ? handleTooltipOpen : undefined}
+                onMouseLeave={isDesktop ? handleTooltipClose : undefined}
                 variant="h2"
                 className={styles.focusPoint}
               >
@@ -80,7 +83,7 @@ const SummerCampFocusPoints: React.FC = () => {
           </Box>
         ))}
       </Box>
-      {currentImage && (
+      {currentImage && isDesktop && (
         <Popper open transition placement="right" className={styles.focusPointTooltip} anchorEl={anchorEl}>
           {({ TransitionProps }) => (
             <Grow {...TransitionProps}>

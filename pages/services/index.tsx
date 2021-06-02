@@ -9,7 +9,7 @@ const ServicesPage = () => {
   const { isMobile } = useBreakpoint();
 
   return (
-    <Layout title="Our services" FooterProps={{ hasGreyBackground: !isMobile }}>
+    <Layout title="Our services" FooterProps={{ bgColor: !isMobile ? 'grey' : undefined }}>
       <HeroSection />
       <ServicesDescription />
       <ToolboxSection />
