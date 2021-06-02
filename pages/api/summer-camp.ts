@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export default async function contact(req: NextApiRequest, res: NextApiResponse) {
+export default async function summerCamp(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(404).json({ message: 'Not found', status: 404 });
   }
 
-  const { email, message } = req.body;
+  const { name, phone, email, fieldOfInterest, cv } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -14,15 +14,19 @@ export default async function contact(req: NextApiRequest, res: NextApiResponse)
       user: process.env.GMAIL_USERNAME,
       pass: process.env.GMAIL_PASSWORD,
     },
-    secure: true,
   });
 
   const mailOption = {
     from: `Profico Web <${email}>`,
-    to: 'info@profico.hr',
-    subject: `New inquiry from Profico web`,
-    text: `FROM: ${email} MESSAGE: ${message}`,
-    html: `<h2>Mail From Contact Form</h2><p>From: <a href="mailto:${email}">${email}</a></p><p>${message}</p>`,
+    to: 'careers@profico.hr',
+    subject: `New summer camp apply from Profico web`,
+    text: `FROM: ${email}`,
+    html: `<h2>Summer Camp Apply</h2><p><strong>From: </strong> <a href="mailto:${email}">${email}</a></p><p><strong>Name: </strong>${name}</p><p><strong>Phone: </strong>${phone}</p><p><strong>Field of interest: </strong>${fieldOfInterest}</p>`,
+    attachments: [
+      {
+        path: cv,
+      },
+    ],
     replyTo: email,
   };
 
@@ -34,7 +38,7 @@ export default async function contact(req: NextApiRequest, res: NextApiResponse)
         res.status(500).json({ message: 'There was an error. Please try again!', status: 500 });
         resolve();
       } else {
-        res.status(200).json({ message: 'Thanks for contacting us!', status: 200 });
+        res.status(200).json({ message: 'Thanks for applying for this job!', status: 200 });
         resolve();
       }
     });

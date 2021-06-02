@@ -49,4 +49,21 @@
       }
     }
   }
+
+  &.blueBackground {
+    background-color: $blue-500;
+
+    .wrapper {
+      .copyright,
+      .link {
+        color: $white;
+      }
+
+      svg {
+        path {
+          fill: $white;
+        }
+      }
+    }
+  }
 }

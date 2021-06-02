@@ -7,9 +7,10 @@ import AboutMentors from 'views/summer-camp/AboutMentors';
 import SummerCampFocusPoints from 'views/summer-camp/SummerCampFocusPoints';
 import IdealCandidate from 'views/summer-camp/IdealCandidate';
 import LastYearSection from 'views/summer-camp/LastYearSection';
+import SummerCampApplyForm from 'views/summer-camp/SummerCampApplyForm';
 
 const ProficoSummerCamp: React.FC = () => (
-  <Layout title="Summer Camp" theme="dark">
+  <Layout title="Summer Camp" theme="dark" FooterProps={{ bgColor: 'blue' }}>
     <HeroSection />
     <AboutSummerCamp />
     <SummerCampPerks />
@@ -17,6 +18,7 @@ const ProficoSummerCamp: React.FC = () => (
     <AboutMentors />
     <LastYearSection />
     <IdealCandidate />
+    <SummerCampApplyForm />
   </Layout>
 );
 
