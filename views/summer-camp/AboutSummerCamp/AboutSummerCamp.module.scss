@@ -1,10 +1,7 @@
 @import 'styles/mixins/flex';
 
 .container {
-  position: relative;
-  overflow: hidden;
   background: $blue-500;
-  padding-top: rem-calc(140);
   padding-bottom: rem-calc(75);
 
   @include media(0, 'md') {
@@ -12,62 +9,67 @@
     flex-direction: column;
   }
 
-  @include media(0, 'lg') {
-    margin-top: 0;
-  }
-
   .cardsWrapper {
     @include flex($align: flex-end, $justify: space-evenly);
-
     gap: rem-calc(77);
+
+    @include media(0, 'md') {
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      height: rem-calc(812px);
+      max-width: rem-calc(375px);
+    }
+
+    @include media('md', 'lg') {
+      gap: 0;
+    }
   }
-  .root {
+
+  .content {
     @include flex($align: center, $direction: column);
 
-    &.content {
-      .textWrapper {
-        @include media('md') {
-          max-width: rem-calc(650);
-        }
+    .textWrapper {
+      max-width: rem-calc(650);
+      margin-top: rem-calc(213);
+      text-align: center;
 
-        @include media(1300px) {
-          margin-top: rem-calc(213);
-        }
+      @include media(0, 'md') {
+        text-align: left;
+        margin-top: 0;
+      }
 
-        .title {
+      .title {
+        max-width: 100%;
+        color: $white;
+        margin-bottom: rem-calc(42);
+
+        @include media(0, 'md') {
+          max-width: 9rem;
           margin-bottom: rem-calc(32);
-          max-width: 100%;
-          color: $white;
-          text-align: center;
-
-          @include media('lg') {
-            margin-bottom: rem-calc(42);
-          }
-        }
-
-        .descripton {
-          text-align: center;
-          color: $white;
-
-          @include media('lg') {
-            margin-bottom: rem-calc(42);
-          }
+          line-height: 48px;
+          letter-spacing: -2.25px;
         }
       }
 
-      .buttonWrapper {
-        text-align: center;
-        max-width: rem-calc(550);
+      .descripton {
+        color: $white;
+        margin-bottom: rem-calc(42);
+      }
+    }
 
-        .button {
-          color: $blue-600;
-          background-color: $white;
-          path,
-          line,
-          polyline,
-          rect {
-            stroke: $blue-600;
-          }
+    .buttonWrapper {
+      text-align: center;
+      max-width: rem-calc(550);
+
+      .button {
+        color: $blue-600;
+        background-color: $white;
+        path,
+        line,
+        polyline,
+        rect {
+          stroke: $blue-600;
         }
       }
     }

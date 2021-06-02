@@ -15,6 +15,10 @@
 .card {
   @include flex(column, $align: flex-start);
 
+  @include media(0, 'md') {
+    position: absolute;
+  }
+
   border-radius: rem-calc(30);
   box-shadow: $box-shadow__paper;
 
@@ -26,6 +30,7 @@
   .text {
     color: #fff;
     padding-left: rem-calc(27);
+    font-size: 22px;
   }
 
   &.mobile {
@@ -44,6 +49,13 @@
     .text {
       padding-top: rem-calc(8);
     }
+
+    @include media(0, 'md') {
+      margin: 0 rem-calc(16);
+      padding: 0;
+      align-self: flex-start;
+      top: 4rem;
+    }
   }
 
   &.management {
@@ -61,6 +73,14 @@
     }
     .text {
       padding-top: rem-calc(22);
+      max-width: 13rem;
+    }
+
+    @include media(0, 'md') {
+      margin: 0 rem-calc(4);
+      padding: 0;
+      top: 12.5rem;
+      z-index: 2;
     }
   }
 
@@ -79,6 +99,14 @@
     .text {
       padding-top: rem-calc(12);
     }
+
+    @include media(0, 'md') {
+      margin: 0 rem-calc(4);
+      padding: 0;
+      align-self: flex-start;
+      top: 23.5rem;
+      z-index: 1;
+    }
   }
 
   &.backend {
@@ -95,6 +123,13 @@
     }
     .text {
       padding-top: rem-calc(22);
+    }
+
+    @include media(0, 'md') {
+      margin: 0 rem-calc(23px);
+      padding: 0;
+      bottom: rem-calc(90);
+      z-index: 0;
     }
   }
 }
