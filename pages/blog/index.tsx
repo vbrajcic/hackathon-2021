@@ -25,7 +25,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts, preview }) => {
   const { filteredPosts, activeCategory, handleCategoryChange, page, handlePageChange } = useBlogParams(allPosts);
 
   return (
-    <Layout preview={preview} title="Blog" FooterProps={{ hasGreyBackground: !isMobile }}>
+    <Layout preview={preview} title="Blog" FooterProps={{ bgColor: !isMobile ? 'grey' : undefined }}>
       <HeroSection
         activeCategory={activeCategory}
         onCategoryChange={handleCategoryChange}
