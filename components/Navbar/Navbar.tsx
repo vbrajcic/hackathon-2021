@@ -1,11 +1,12 @@
 import React from 'react';
 import Hyperlink from 'components/Hyperlink';
 import useToggleState from 'utils/hooks/useToggleState';
+import useScrollDirection, { ScrollDirection } from 'utils/hooks/useScrollDirection';
 import cn from 'classnames';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';
-import { Button, Container, Grid, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { Button, Container, Grid, Slide, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
 import { useTheme } from 'utils/context/ThemeContext';
 
 import Hamburger from './Hamburger';
@@ -24,6 +25,7 @@ const Navbar: React.FC = () => {
     threshold: 20,
   });
   const isAboveMd = useMediaQuery<Theme>(t => t.breakpoints.up('md'));
+  const scrollDirection = useScrollDirection();
 
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
@@ -47,49 +49,51 @@ const Navbar: React.FC = () => {
   return (
     <Grid
       className={cn(styles.root, {
-        [styles.painted]: hasCrossedThreshold || menuOpen,
+        [styles.painted]: (hasCrossedThreshold && scrollDirection === ScrollDirection.DOWN) || menuOpen,
         [styles.darkTheme]: theme === 'dark',
       })}
     >
-      <Container className={styles.container} maxWidth="xl" disableGutters>
-        <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
-          <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
-          <Grid data-ga-event-name="navigation" container justify="space-between" className={styles.inner}>
-            <Hyperlink
-              data-ga-section="logo"
-              href="/"
-              AnchorProps={{
-                variant: 'body1',
-                className: styles.logo,
-              }}
-            >
-              Profico
-            </Hyperlink>
-            {isAboveMd && (
-              <Grid>
-                {filteredLinks.map(({ url, text }) => (
-                  <Hyperlink
-                    data-ga-section={text}
-                    key={url}
-                    href={url}
-                    AnchorProps={{
-                      variant: 'body2',
-                      align: 'left',
-                      className: styles.link,
-                      color: router.route === url ? 'secondary' : 'primary',
-                    }}
-                  >
-                    {text}
-                  </Hyperlink>
-                ))}
-              </Grid>
-            )}
+      <Slide direction="down" in={scrollDirection === ScrollDirection.DOWN}>
+        <Container className={styles.container} maxWidth="xl" disableGutters>
+          <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
+            <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
+            <Grid data-ga-event-name="navigation" container justify="space-between" className={styles.inner}>
+              <Hyperlink
+                data-ga-section="logo"
+                href="/"
+                AnchorProps={{
+                  variant: 'body1',
+                  className: styles.logo,
+                }}
+              >
+                Profico
+              </Hyperlink>
+              {isAboveMd && (
+                <Grid>
+                  {filteredLinks.map(({ url, text }) => (
+                    <Hyperlink
+                      data-ga-section={text}
+                      key={url}
+                      href={url}
+                      AnchorProps={{
+                        variant: 'body2',
+                        align: 'left',
+                        className: styles.link,
+                        color: router.route === url ? 'secondary' : 'primary',
+                      }}
+                    >
+                      {text}
+                    </Hyperlink>
+                  ))}
+                </Grid>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-        <Button data-ga-event-name="click_cta" className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
-          Get in touch
-        </Button>
-      </Container>
+          <Button data-ga-event-name="click_cta" className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
+            Get in touch
+          </Button>
+        </Container>
+      </Slide>
       <MenuDrawer links={filteredLinks} open={menuOpen} onOpen={toggleMenu} onClose={toggleMenu} />
     </Grid>
   );

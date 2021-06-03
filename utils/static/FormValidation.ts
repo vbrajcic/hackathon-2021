@@ -1,26 +1,44 @@
 import { isPossiblePhoneNumber } from 'libphonenumber-js';
-import { RegisterOptions } from 'react-hook-form';
+import { isNotEmpty, isEmail, maxLength } from 'class-validator';
 
 export const acceptedMimeTypes =
   '.pdf,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
-export const validationSchemas: { [key: string]: RegisterOptions } = {
-  email: {
-    required: { value: true, message: 'Email is required' },
-    pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid email address' },
-  },
-  name: {
-    required: { value: true, message: 'Name is required' },
-    maxLength: 100,
-  },
-  phone: {
-    required: { value: true, message: 'Phone is required' },
-    validate: (value: string) => isPossiblePhoneNumber(value, 'HR') || 'Phone number is not valid',
-  },
-};
+type ValidationFn = (value?: string) => string | true;
 
-export const fileValidation = (file: File) => {
-  const maxAllowedSize = 5 * 1024 * 1024;
-  if (file.size > maxAllowedSize) return 'File must be smaller than 5MB';
-  return '';
-};
+export class FormValidator {
+  public static all = (...validationFns: ValidationFn[]) => (value?: string) => {
+    const errors = validationFns.map(fn => fn(value));
+
+    return errors.find(e => e !== true) || true;
+  };
+
+  public static isNotEmpty: ValidationFn = value => (isNotEmpty(value) ? true : 'Required');
+
+  public static isValidEmail = (value?: string) => (isEmail(value) ? true : 'Invalid email address');
+
+  public static isValidPhoneNumber = (value?: string) => {
+    if (!value) {
+      return 'Invalid phone number';
+    }
+
+    return isPossiblePhoneNumber(value, 'HR') ? true : 'Invalid phone number';
+  };
+
+  public static maxLength = (length: number) => (value?: string) =>
+    maxLength(value, length) ? true : `Exceeds max. length allowed (${length})`;
+
+  public static isValidFile = (file?: File | string) => {
+    if (!file || typeof file === 'string') {
+      return true;
+    }
+
+    const maxAllowedSize = 5 * 1024 * 1024;
+
+    if (file.size > maxAllowedSize) {
+      return 'File must be smaller than 5MB';
+    }
+
+    return true;
+  };
+}

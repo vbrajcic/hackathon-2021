@@ -30,8 +30,6 @@
     margin-top: rem-calc(96);
     padding-left: rem-calc(55);
     font-weight: bold;
-    font-size: rem-calc(20);
-    line-height: rem-calc(24);
 
     @include media('xs', 'lg') {
       margin-top: rem-calc(40);

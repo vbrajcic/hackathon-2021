@@ -2,14 +2,14 @@ import { ElementType } from 'react';
 import Alien from 'components/SvgIcons/Alien';
 import ReactOutlined from 'components/SvgIcons/ReactOutlined';
 
-export interface IdealCandidate {
+export interface CandidateDetail {
   id: number;
   icon: ElementType;
   title: string;
   subtitle: string;
 }
 
-const idealCandidate: IdealCandidate[] = [
+const idealCandidateDetails: CandidateDetail[] = [
   {
     id: 0,
     icon: ReactOutlined,
@@ -33,4 +33,4 @@ const idealCandidate: IdealCandidate[] = [
   },
 ];
 
-export default idealCandidate;
+export default idealCandidateDetails;
