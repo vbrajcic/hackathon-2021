@@ -23,13 +23,13 @@ const PreviousYearSection: React.FC = () => (
         <Divider className={styles.horizontalDivider} />
       </Box>
       <Box className={styles.images}>
-        <Box display="flex">
+        <Box display="flex" className={styles.topImages}>
           <img
             className={cx(styles.image, styles.large)}
             src={addAssetPrefix('/images/summerCamp/last-year-group-photo.png')}
             alt="Last year group"
           />
-          <Box display="flex" flexDirection="column" justifyContent="space-between">
+          <Box display="flex" flexDirection="column" justifyContent="space-between" position="relative">
             <img
               className={cx(styles.image, styles.medium)}
               src={addAssetPrefix('/images/summerCamp/last-year-backend-team.png')}
@@ -39,6 +39,11 @@ const PreviousYearSection: React.FC = () => (
               className={cx(styles.image, styles.small)}
               src={addAssetPrefix('/images/summerCamp/last-year-pm-team.png')}
               alt="Last year PM team"
+            />
+            <img
+              className={cx(styles.image, styles.small)}
+              src={addAssetPrefix('/images/summerCamp/last-year-mobile-team.png')}
+              alt="Last year mobile team"
             />
           </Box>
         </Box>

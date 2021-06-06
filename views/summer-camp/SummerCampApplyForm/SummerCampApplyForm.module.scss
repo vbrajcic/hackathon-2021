@@ -29,10 +29,6 @@
       padding-top: rem-calc(60);
     }
 
-    @include media(0, 'sm') {
-      border-radius: 0;
-    }
-
     @include media(0, 'xs') {
       padding-left: rem-calc(20);
       padding-right: rem-calc(20);
@@ -187,6 +183,10 @@
         background-color: $green-300;
         padding: rem-calc(24 48);
         border-radius: rem-calc(36);
+
+        @include media(0, 'sm') {
+          width: 100%;
+        }
 
         span {
           color: $white;

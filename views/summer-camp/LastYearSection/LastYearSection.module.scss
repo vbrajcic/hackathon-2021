@@ -16,6 +16,13 @@
     .title {
       margin: rem-calc(0 auto 80 auto);
       max-width: rem-calc(760);
+
+      @include media(0, 'md') {
+        font-size: rem-calc(48);
+        text-align: left;
+        max-width: rem-calc(327);
+        margin-left: 0;
+      }
     }
 
     .dividers {
@@ -32,6 +39,7 @@
       .horizontalDivider {
         width: 100%;
         height: rem-calc(1);
+        opacity: 0.2;
         background-image: linear-gradient(
           270deg,
           rgba($white, 0) 0%,
@@ -48,19 +56,28 @@
         object-fit: cover;
 
         &.large {
-          width: rem-calc(760);
-          height: rem-calc(560);
-          margin-right: rem-calc(40);
+          width: 100%;
+          height: rem-calc(252);
 
-          @include media(0, 1200px) {
-            width: rem-calc(700);
-            margin-right: rem-calc(20);
+          @include media('md') {
+            width: rem-calc(500);
+            height: auto;
+            margin-right: rem-calc(40);
+          }
+
+          @include media(900px) {
+            width: rem-calc(600);
+          }
+
+          @include media(1200px) {
+            width: rem-calc(760);
           }
         }
 
         &.medium {
           width: rem-calc(400);
           height: rem-calc(300);
+          margin-bottom: rem-calc(40);
         }
 
         &.small {
@@ -73,13 +90,43 @@
         max-width: rem-calc(840);
         margin: rem-calc(40 auto 0 auto);
 
+        .small {
+          @include media(0, 'md') {
+            display: none;
+          }
+        }
+
         .testimonial {
+          position: relative;
           margin-left: rem-calc(40);
           max-width: rem-calc(500);
           width: 100%;
           background-color: $blue-200;
           border-radius: $border-radius__lg;
           padding: rem-calc(45 70 70 50);
+          overflow: hidden;
+
+          @include media(0, 'md') {
+            margin-left: 0;
+            padding: rem-calc(40 40 120 40);
+          }
+
+          &::after {
+            display: block;
+            content: '“';
+            font-size: rem-calc(370);
+            position: absolute;
+            height: rem-calc(95);
+            line-height: 1;
+            right: rem-calc(40);
+            color: $white;
+            opacity: 0.2;
+
+            @include media('md') {
+              font-size: rem-calc(320);
+              bottom: rem-calc(10);
+            }
+          }
 
           .description,
           .author .name {
@@ -92,6 +139,37 @@
             .name {
               font-weight: bold;
             }
+          }
+        }
+      }
+
+      .topImages {
+        flex-direction: column;
+
+        @include media('md') {
+          flex-direction: row;
+        }
+
+        .medium,
+        .small {
+          @include media(0, 'md') {
+            width: calc(50% - 10px);
+            height: rem-calc(178);
+            margin-top: rem-calc(16);
+            margin-bottom: 0;
+          }
+        }
+
+        .small:last-of-type {
+          display: none;
+
+          @include media(0, 'md') {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: rem-calc(372);
+            object-position: 30% center;
           }
         }
       }

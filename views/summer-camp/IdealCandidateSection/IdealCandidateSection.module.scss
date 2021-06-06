@@ -11,27 +11,63 @@
       max-width: rem-calc(650);
 
       .title {
-        max-width: 100%;
+        font-size: rem-calc(48);
+        max-width: rem-calc(314);
         color: $white;
-        text-align: center;
+        text-align: left;
         margin-bottom: rem-calc(42);
+
+        @include media('md') {
+          max-width: 100%;
+          text-align: center;
+        }
+
+        @include media('lg') {
+          font-size: rem-calc(64);
+          margin-left: rem-calc(60);
+        }
       }
 
       .descripton {
-        text-align: center;
+        text-align: left;
         color: $white;
         margin-bottom: rem-calc(78);
+
+        @include media('md') {
+          text-align: center;
+        }
       }
     }
+  }
 
-    .cardsWrapper {
-      @include flex($align: flex-end, $justify: space-evenly);
+  .cardsWrapper {
+    @include flex($align: flex-end, $justify: center);
 
+    flex-wrap: nowrap;
+    max-width: rem-calc(1680);
+    padding: 0 rem-calc(60);
+    margin: 0 auto;
+    gap: rem-calc(30);
+
+    @include media('md', 'lg') {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @include media(1440px) {
       gap: rem-calc(60);
+    }
 
-      @include media('xs', 'lg') {
-        flex-direction: column;
-        gap: rem-calc(20);
+    @include media(0, 'md') {
+      flex-flow: row nowrap;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      padding: 0 rem-calc(24);
+      justify-content: flex-start;
+      gap: 0;
+
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
   }
