@@ -169,11 +169,11 @@
         font-weight: normal;
         box-sizing: border-box;
         height: rem-calc(59);
-        border: 1px solid $green-300;
+        border: rem-calc(1) solid $green-300;
         border-radius: rem-calc(36);
 
-        & > span {
-          @include flex($justify: center);
+        .buttonLabel {
+          @include flex($justify: center, $align: center);
         }
       }
 

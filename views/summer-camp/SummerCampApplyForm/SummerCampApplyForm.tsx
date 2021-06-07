@@ -180,6 +180,7 @@ const SummerCampApplyForm: React.FC = () => {
                             startIcon={<Upload />}
                             component="span"
                             className={styles.uploadButton}
+                            classes={{ label: styles.buttonLabel }}
                             fullWidth
                           >
                             Upload CV / Resume
@@ -216,6 +217,7 @@ const SummerCampApplyForm: React.FC = () => {
                             startIcon={<Upload />}
                             component="span"
                             className={styles.uploadButton}
+                            classes={{ label: styles.buttonLabel }}
                             fullWidth
                           >
                             Upload motivation letter
