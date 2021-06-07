@@ -159,14 +159,22 @@
         }
       }
 
+      .file {
+        margin-bottom: rem-calc(29);
+      }
+
       .uploadButton {
         color: $green-300;
         justify-content: left;
         font-weight: normal;
         box-sizing: border-box;
         height: rem-calc(59);
-        border-color: $green-300;
-        border-radius: rem-calc(20);
+        border: 1px solid $green-300;
+        border-radius: rem-calc(36);
+
+        & > span {
+          @include flex($justify: center);
+        }
       }
 
       .selectedFileName {

@@ -32,6 +32,7 @@ interface ApplyFormValues {
   email: string;
   fieldOfInterest: FieldOfInterest;
   cv: File | string;
+  motivationLetter: File | string;
 }
 
 const fieldsOfInterest: Exclude<FieldOfInterest, ''>[] = ['Project manager', 'Mobile', 'Frontend', 'Backend'];
@@ -41,6 +42,7 @@ const defaultValues: ApplyFormValues = {
   email: '',
   fieldOfInterest: '',
   cv: '',
+  motivationLetter: '',
 };
 
 const SummerCampApplyForm: React.FC = () => {
@@ -57,6 +59,9 @@ const SummerCampApplyForm: React.FC = () => {
       body: JSON.stringify({
         ...data,
         ...(data.cv && typeof data.cv !== 'string' ? { cv: await convertFileToBase64(data.cv) } : {}),
+        ...(data.motivationLetter && typeof data.motivationLetter !== 'string'
+          ? { motivationLetter: await convertFileToBase64(data.motivationLetter) }
+          : {}),
       }),
     });
     const json = await res.json();
@@ -86,18 +91,20 @@ const SummerCampApplyForm: React.FC = () => {
           </Box>
           <Form<ApplyFormValues> defaultValues={defaultValues} className={styles.form} onSubmit={handleSubmit}>
             {({ watch, setValue, trigger, formState: { errors, isSubmitting } }) => {
-              const { fieldOfInterest, cv } = watch();
+              const { fieldOfInterest, cv, motivationLetter } = watch();
 
               const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-                const { files } = event.target;
+                const { files, name } = event.target;
+                const inputName = name as keyof ApplyFormValues;
 
                 if (files) {
-                  setValue('cv', files[0]);
-                  trigger('cv');
+                  setValue(inputName, files[0]);
+                  trigger(inputName);
                 }
               };
 
               const cvFilename = typeof cv !== 'string' ? cv.name : '';
+              const motivationFilename = typeof motivationLetter !== 'string' ? motivationLetter.name : '';
 
               return (
                 <>
@@ -158,7 +165,7 @@ const SummerCampApplyForm: React.FC = () => {
                     name="cv"
                     validate={FormValidator.all(FormValidator.isNotEmpty, FormValidator.isValidFile)}
                     renderInput={() => (
-                      <FormControl margin="dense" fullWidth>
+                      <FormControl className={styles.file} fullWidth>
                         <Input
                           name="cv"
                           id="cv-file-input"
@@ -185,6 +192,42 @@ const SummerCampApplyForm: React.FC = () => {
                         ) : (
                           <FormHelperText className={styles.selectedFileName}>
                             {cvFilename || 'Maximum file size is 5MB'}
+                          </FormHelperText>
+                        )}
+                      </FormControl>
+                    )}
+                  />
+                  <FormInput
+                    name="motivationLetter"
+                    validate={FormValidator.all(FormValidator.isNotEmpty, FormValidator.isValidFile)}
+                    renderInput={() => (
+                      <FormControl margin="dense" fullWidth>
+                        <Input
+                          name="motivationLetter"
+                          id="motivation-letter-file-input"
+                          type="file"
+                          inputProps={{ accept: acceptedMimeTypes }}
+                          style={{ display: 'none' }}
+                          onChange={handleUpload}
+                        />
+                        <label htmlFor="motivation-letter-file-input">
+                          <Button
+                            variant="outlined"
+                            startIcon={<Upload />}
+                            component="span"
+                            className={styles.uploadButton}
+                            fullWidth
+                          >
+                            Upload motivation letter
+                          </Button>
+                        </label>
+                        {errors.motivationLetter && errors.motivationLetter.message ? (
+                          <FormHelperText id="motivation-letter-error" className={styles.cvError} error>
+                            {errors.motivationLetter.message}
+                          </FormHelperText>
+                        ) : (
+                          <FormHelperText className={styles.selectedFileName}>
+                            {motivationFilename || 'Maximum file size is 5MB'}
                           </FormHelperText>
                         )}
                       </FormControl>
