@@ -30,7 +30,7 @@ const Intro: React.FC = () => {
         July 26 - August 6
       </Typography>
       <Button
-        data-ga-event-name="scrollto_apply_form"
+        data-ga-event-name="scrollto_summercamp_apply_form"
         onClick={handleApplyClick}
         className={styles.button}
         color="secondary"
