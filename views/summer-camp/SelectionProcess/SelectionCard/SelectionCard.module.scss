@@ -4,17 +4,16 @@
   @include flex($align: center);
 
   gap: rem-calc(16);
-  padding-left: rem-calc(10);
-  width: rem-calc(500);
-  height: rem-calc(90);
+  padding: rem-calc(10 24 10 10);
+  max-width: rem-calc(500);
+  width: 100%;
   color: $white;
   box-shadow: $box-shadow__paper;
   border-radius: rem-calc(30);
 
   @include media(0, 'md') {
-    width: rem-calc(335);
-    height: rem-calc(114);
     padding-left: rem-calc(16);
+    max-width: 100%;
   }
 
   .textWrapper {
@@ -43,40 +42,22 @@
   &.apply {
     background: $orange-300;
     margin-bottom: rem-calc(40);
-    margin-right: rem-calc(940);
 
     @include media(0, 'md') {
       margin-bottom: rem-calc(40);
-      margin-right: 0;
-    }
-
-    @include media('lg', 1440px) {
-      margin-right: rem-calc(740);
-    }
-
-    @include media('lg', 1260px) {
-      margin-right: rem-calc(590);
-    }
-
-    @include media('lg', 1100px) {
-      margin-right: rem-calc(440);
-    }
-
-    @include media('md', 'lg') {
-      margin-right: rem-calc(300);
     }
 
     .step {
-      background: #df7b57;
-      box-shadow: 1px 1px 27px rgba(63, 62, 74, 0.1);
-      border-radius: rem-calc(16.8);
+      background: $orange-200;
+      box-shadow: rem-calc(1 1 27) rgba(63, 62, 74, 0.1);
+      border-radius: rem-calc(16);
     }
   }
 
   &.talk {
     background: $yellow-300;
     margin-bottom: rem-calc(40);
-    margin-right: rem-calc(200);
+    margin-left: rem-calc(250);
 
     @include media(0, 'md') {
       margin: 0;
@@ -84,39 +65,23 @@
     }
 
     @include media('md', 'lg') {
-      margin-right: rem-calc(100);
+      margin-left: rem-calc(100);
     }
 
     .step {
-      background: #f9cb63;
-      box-shadow: 1px 1px 27px rgba(63, 62, 74, 0.1);
-      border-radius: rem-calc(16.8);
+      background: $yellow-200;
+      box-shadow: rem-calc(1 1 27) rgba(63, 62, 74, 0.1);
+      border-radius: rem-calc(16);
     }
   }
 
   &.internship {
-    background: #48bbe0;
-    margin-left: rem-calc(800);
+    background: $blue-100;
 
-    @include media(0, 'md') {
-      margin: 0;
+    @include media('md') {
+      align-self: flex-end;
     }
 
-    @include media('lg', 1440px) {
-      margin-left: rem-calc(740);
-    }
-
-    @include media('lg', 1260px) {
-      margin-left: rem-calc(590);
-    }
-
-    @include media('lg', 1100px) {
-      margin-left: rem-calc(440);
-    }
-
-    @include media('md', 'lg') {
-      margin-left: rem-calc(300);
-    }
     .step {
       background: $blue-200;
       box-shadow: 1px 1px 27px rgba(63, 62, 74, 0.1);

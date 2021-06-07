@@ -2,16 +2,16 @@ import React from 'react';
 import cn from 'classnames';
 
 import { SelectionStep } from 'config/selectionSteps';
-
 import { Typography } from '@material-ui/core';
+
 import styles from './SelectionCard.module.scss';
 
 const SelectionCard: React.FC<SelectionStep> = ({ id, step, title, subtitle }) => (
   <div
     className={cn(styles.card, {
-      [styles.apply]: id === 0,
-      [styles.talk]: id === 1,
-      [styles.internship]: id === 2,
+      [styles.apply]: id === 'apply',
+      [styles.talk]: id === 'talk',
+      [styles.internship]: id === 'internship',
     })}
   >
     <div className={styles.step}>

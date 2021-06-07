@@ -4,12 +4,14 @@
   background-color: $blue-500;
   background-image: url('/images/summerCamp/selectionProcessLines.png');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding-bottom: rem-calc(106);
+  background-position: center rem-calc(64);
+  background-size: 100% 85%;
+  padding: rem-calc(75 0 300 0);
+  position: relative;
 
   @include media(0, 'md') {
     background-image: none;
+    padding-bottom: rem-calc(120);
   }
 
   .title {
@@ -18,48 +20,87 @@
     margin-bottom: rem-calc(82);
 
     @include media(0, 'md') {
-      max-width: rem-calc(40);
+      text-align: left;
       margin-left: rem-calc(20);
       margin-bottom: rem-calc(48);
     }
   }
 
   .cardsWrapper {
-    @include flex($align: center, $justify: center, $direction: column);
-    padding-bottom: rem-calc(190);
+    max-width: rem-calc(1200);
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
 
-    @include media(0, 'md') {
-      padding-bottom: 0;
+    @include flex($direction: column);
+
+    @include media(0, 1240px) {
+      padding: rem-calc(0 20);
     }
 
-    .dividers {
-      margin-bottom: rem-calc(70);
+    @include media(0, 'md') {
+      align-items: center;
+    }
+  }
 
-      @include flex($align: center, $direction: column);
+  .dividerWrapper {
+    max-width: rem-calc(1200);
+    width: 100%;
+    height: 80%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: rem-calc(82);
+    left: 50%;
 
-      position: relative;
-      transform: rotate(90deg);
-
-      .verticalDivider {
-        height: rem-calc(16);
-        width: rem-calc(16);
-        border-radius: 50%;
-        background-color: $white;
+    .divider {
+      @include media('md') {
         position: absolute;
-        top: rem-calc(-8px);
-        right: rem-calc(144);
-      }
-
-      .horizontalDivider {
-        width: 100%;
-        height: rem-calc(1);
+        bottom: 0;
+        height: 90%;
+        width: rem-calc(1);
         background-image: linear-gradient(
-          270deg,
+          0deg,
           rgba($white, 0) 0%,
           rgba($white, 0.90625) 9.38%,
           $white 89.58%,
           rgba($white, 0) 100%
         );
+
+        .circle {
+          position: absolute;
+          bottom: rem-calc(80);
+          left: 50%;
+          transform: translateX(-50%);
+          width: rem-calc(48);
+          height: rem-calc(48);
+          background-color: $blue-500;
+          border-radius: 50%;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $white;
+            border-radius: 50%;
+            width: rem-calc(12);
+            height: rem-calc(12);
+          }
+        }
+
+        &.applyStage {
+          left: 15%;
+        }
+
+        &.talkStage {
+          left: 45%;
+        }
+
+        &.internshipStage {
+          left: 75%;
+        }
       }
     }
   }

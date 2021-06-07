@@ -1,5 +1,5 @@
 export interface SelectionStep {
-  id: number;
+  id: 'apply' | 'talk' | 'internship';
   step: string;
   title: string;
   subtitle: string;
@@ -7,19 +7,19 @@ export interface SelectionStep {
 
 const selectionSteps: SelectionStep[] = [
   {
-    id: 0,
+    id: 'apply',
     step: '01',
     title: 'Prijave',
     subtitle: 'do 12.06.2021',
   },
   {
-    id: 1,
+    id: 'talk',
     step: '02',
     title: 'Razgovori s kandidatima',
     subtitle: 'real time problem solving',
   },
   {
-    id: 2,
+    id: 'internship',
     step: '03',
     title: 'Internship',
     subtitle: 'odabrani kandidati će dobiti obavijest e-mailom',
