@@ -2,17 +2,15 @@
   &.container {
     border-radius: rem-calc(60);
     color: $white;
+    width: rem-calc(263);
     height: 100%;
-    width: 100%;
-    margin-bottom: rem-calc(20);
-    padding: rem-calc(56 40 70 40);
+    margin-right: rem-calc(32);
+    padding: rem-calc(40);
     background: $blue-400;
 
-    @include media('sm') {
+    @include media('md') {
       width: rem-calc(324);
       padding: rem-calc(70 55);
-      margin-right: rem-calc(32);
-      margin-bottom: 0;
     }
 
     .icon {

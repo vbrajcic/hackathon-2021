@@ -21,12 +21,14 @@ const IdealCandidateSection: React.FC = () => (
           studenti nižih godina studija.
         </Typography>
       </Grid>
-      <Container className={styles.cardsWrapper}>
-        {idealCandidateDetails.map(candidate => (
-          <CandidateCard key={candidate.id} {...candidate} />
-        ))}
-      </Container>
     </Container>
+    <Grid container className={styles.cardsWrapper}>
+      {idealCandidateDetails.map(candidate => (
+        <Grid item key={candidate.id}>
+          <CandidateCard {...candidate} />
+        </Grid>
+      ))}
+    </Grid>
   </Grid>
 );
 

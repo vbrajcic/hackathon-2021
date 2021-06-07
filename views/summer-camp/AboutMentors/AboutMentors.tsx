@@ -11,7 +11,7 @@ import styles from './AboutMentors.module.scss';
 const AboutMentors: React.FC = () => (
   <Grid className={styles.container} component="section">
     <Container maxWidth="xl" className={styles.content}>
-      <Typography variant="h2" className={styles.title}>
+      <Typography variant="h3" className={styles.title}>
         Meet your mentors
       </Typography>
       <Grid className={styles.cards}>

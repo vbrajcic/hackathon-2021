@@ -6,7 +6,7 @@ export default async function summerCamp(req: NextApiRequest, res: NextApiRespon
     return res.status(404).json({ message: 'Not found', status: 404 });
   }
 
-  const { name, phone, email, fieldOfInterest, cv } = req.body;
+  const { name, phone, email, fieldOfInterest, cv, motivationLetter } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -25,6 +25,9 @@ export default async function summerCamp(req: NextApiRequest, res: NextApiRespon
     attachments: [
       {
         path: cv,
+      },
+      {
+        path: motivationLetter,
       },
     ],
     replyTo: email,

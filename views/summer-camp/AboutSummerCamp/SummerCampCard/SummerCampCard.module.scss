@@ -114,13 +114,16 @@
     min-width: rem-calc(200);
     height: rem-calc(200);
     margin-bottom: rem-calc(68);
+
     .cardIcon {
       @include svgColor($white, $orange-300);
     }
+
     .image {
       padding-left: rem-calc(32);
       padding-top: rem-calc(32);
     }
+
     .text {
       padding-top: rem-calc(22);
     }
@@ -130,6 +133,10 @@
       padding: 0;
       bottom: rem-calc(90);
       z-index: 0;
+    }
+
+    @include media(0, 'sm') {
+      margin: rem-calc(0 16 0 -16);
     }
   }
 }

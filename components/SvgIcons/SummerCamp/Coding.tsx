@@ -1,7 +1,7 @@
 import React, { FC, SVGProps } from 'react';
 
 const Coding: FC<SVGProps<SVGSVGElement>> = props => (
-  <svg width="63" height="63" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <circle cx="31.5" cy="31.5" r="31.5" fill="#50CBF2" />
     <rect
       x="30.287"

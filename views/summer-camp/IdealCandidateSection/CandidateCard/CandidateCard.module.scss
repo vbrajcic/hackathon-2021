@@ -4,22 +4,25 @@
   @include flex(column, $align: flex-start);
 
   background: #508cf4;
-  min-width: rem-calc(324);
+  max-width: rem-calc(324);
+  min-width: rem-calc(263);
   height: rem-calc(480);
   border-radius: rem-calc(60);
-  box-shadow: $box-shadow__paper;
 
-  @include media('xs', 'lg') {
-    max-width: rem-calc(324);
-    max-height: rem-calc(352);
-    align-self: center;
+  @include media(0, 'md') {
+    max-width: initial;
+    margin-right: rem-calc(20);
+  }
+
+  @include media(0, 'lg') {
+    height: rem-calc(394);
   }
 
   .image {
     padding-left: rem-calc(55);
     padding-top: rem-calc(72);
 
-    @include media('xs', 'lg') {
+    @include media(0, 'lg') {
       padding-left: rem-calc(40);
       padding-top: rem-calc(56);
     }
@@ -28,10 +31,11 @@
   .title {
     color: $white;
     margin-top: rem-calc(96);
+    max-width: rem-calc(170);
     padding-left: rem-calc(55);
     font-weight: bold;
 
-    @include media('xs', 'lg') {
+    @include media(0, 'lg') {
       margin-top: rem-calc(40);
       padding-left: rem-calc(40);
     }
@@ -43,7 +47,7 @@
     margin-top: rem-calc(35);
     padding-left: rem-calc(55);
 
-    @include media('xs', 'lg') {
+    @include media(0, 'lg') {
       max-width: calc(100% - 55px);
       margin-top: rem-calc(12);
       padding-left: rem-calc(40);

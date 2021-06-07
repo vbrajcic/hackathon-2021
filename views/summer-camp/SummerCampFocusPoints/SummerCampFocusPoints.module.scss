@@ -7,6 +7,10 @@
   .subtitle {
     color: $white;
     margin-bottom: rem-calc(32);
+
+    @include media('md') {
+      text-align: center;
+    }
   }
 
   .focusPoints {
@@ -22,16 +26,24 @@
 
       animation: loop 45s linear 0s infinite normal none;
       display: flex;
+    }
 
-      .focusPoint {
-        color: $blue-200;
+    .focusPoint {
+      color: $blue-200;
+      margin-top: rem-calc(48);
+      user-select: none;
+
+      @include media('lg') {
         white-space: nowrap;
-        margin-top: rem-calc(48);
         margin-right: rem-calc(46);
+      }
 
-        &:hover {
-          color: $white;
-        }
+      @include media('md') {
+        text-align: center;
+      }
+
+      &:hover {
+        color: $white;
       }
     }
 
