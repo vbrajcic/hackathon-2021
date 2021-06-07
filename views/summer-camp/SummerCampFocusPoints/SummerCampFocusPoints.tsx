@@ -3,11 +3,11 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Popper from '@material-ui/core/Popper';
+import Fade from '@material-ui/core/Fade';
 import summerCampFocusPoints, { SummerCampFocusPoint } from 'config/summerCampFocusPoints';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import cx from 'classnames';
 
-import { Grow } from '@material-ui/core';
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
 import styles from './SummerCampFocusPoints.module.scss';
@@ -31,7 +31,13 @@ const SummerCampFocusPoints: React.FC = () => {
 
   const { isDesktop } = useBreakpoint();
 
-  const handleTooltipOpen = (e: React.MouseEvent<HTMLHeadingElement>) => {
+  const openTooltip = (target: HTMLElement, image: SummerCampFocusPoint) => {
+    setAnchorEl(target);
+    setCurrentImage(image);
+    setShouldPauseAnimation(true);
+  };
+
+  const handleDesktopTooltipOpen = (e: React.MouseEvent<HTMLHeadingElement>) => {
     const {
       currentTarget: {
         dataset: { rowKey, itemKey },
@@ -48,51 +54,85 @@ const SummerCampFocusPoints: React.FC = () => {
       return;
     }
 
-    setAnchorEl(e.currentTarget);
-    setCurrentImage(image);
-    setShouldPauseAnimation(true);
+    openTooltip(e.currentTarget, image);
   };
 
-  const handleTooltipClose = () => {
+  const handleMobileTooltipOpen = (e: React.TouchEvent<HTMLHeadingElement>) => {
+    e.preventDefault();
+
+    const {
+      currentTarget: {
+        dataset: { itemKey },
+      },
+    } = e;
+
+    if (!itemKey) {
+      return;
+    }
+
+    const image = summerCampFocusPoints.find(({ text }) => text === itemKey);
+
+    if (!image) {
+      return;
+    }
+
+    openTooltip(e.currentTarget, image);
+  };
+
+  const closeTooltip = () => {
     setAnchorEl(null);
     setShouldPauseAnimation(false);
     setCurrentImage(undefined);
   };
 
   return (
-    <Container maxWidth={false} className={styles.container} disableGutters>
-      <Typography variant="h3" align="center" className={styles.subtitle}>
+    <Container maxWidth={false} className={styles.container} disableGutters={isDesktop}>
+      <Typography variant="h3" className={styles.subtitle}>
         What are we going to do
       </Typography>
       <Box className={cx(styles.focusPoints, { [styles.paused]: shouldPauseAnimation })}>
-        {focusPoints.map(row => (
-          <Box key={row.key} className={styles.row}>
-            {row.data.map(({ text, key }) => (
-              <Typography
-                key={key}
-                data-row-key={row.key}
-                data-item-key={key}
-                onMouseEnter={isDesktop ? handleTooltipOpen : undefined}
-                onMouseLeave={isDesktop ? handleTooltipClose : undefined}
-                variant="h2"
-                className={styles.focusPoint}
-              >
-                {text}
-              </Typography>
-            ))}
-          </Box>
-        ))}
+        {isDesktop &&
+          focusPoints.map(row => (
+            <Box key={row.key} className={styles.row}>
+              {row.data.map(({ text, key }) => (
+                <Typography
+                  key={key}
+                  data-row-key={row.key}
+                  data-item-key={key}
+                  onMouseEnter={handleDesktopTooltipOpen}
+                  onMouseLeave={closeTooltip}
+                  variant="h2"
+                  className={styles.focusPoint}
+                >
+                  {text}
+                </Typography>
+              ))}
+            </Box>
+          ))}
+        {!isDesktop &&
+          summerCampFocusPoints.map(({ text }) => (
+            <Typography
+              key={text}
+              data-item-key={text}
+              variant="h2"
+              className={styles.focusPoint}
+              onTouchStart={handleMobileTooltipOpen}
+              onTouchEnd={closeTooltip}
+            >
+              {text}
+            </Typography>
+          ))}
       </Box>
-      {currentImage && isDesktop && (
+      {currentImage && (
         <Popper open transition placement="right" className={styles.focusPointTooltip} anchorEl={anchorEl}>
           {({ TransitionProps }) => (
-            <Grow {...TransitionProps}>
+            <Fade {...TransitionProps}>
               <img
                 src={addAssetPrefix(currentImage.imageUrl)}
                 alt={currentImage.text}
                 className={styles.focusPointImage}
               />
-            </Grow>
+            </Fade>
           )}
         </Popper>
       )}

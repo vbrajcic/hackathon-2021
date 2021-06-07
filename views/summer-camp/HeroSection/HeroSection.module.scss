@@ -22,6 +22,8 @@ $light-blue: #36a8e1;
 
     @include media(0, 'md') {
       @include flex(column);
+
+      overflow: hidden;
     }
 
     .imageWrapper {

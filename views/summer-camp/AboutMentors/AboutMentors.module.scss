@@ -16,17 +16,12 @@
     }
 
     .title {
-      font-size: rem-calc(48);
       margin-bottom: rem-calc(61);
       max-width: 100%;
       color: $white;
 
       @include media('md') {
         text-align: center;
-      }
-
-      @include media('lg') {
-        font-size: rem-calc(64);
       }
     }
 
