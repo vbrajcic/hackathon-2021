@@ -74,7 +74,7 @@ const SummerCampApplyForm: React.FC = () => {
   };
 
   return (
-    <Box className={styles.container}>
+    <Box id="summer-camp-apply-form" className={styles.container}>
       <Snackbar message={snackbarMessage} open={Boolean(snackbarMessage.length)} />
       <Container maxWidth="xl" disableGutters={isMobile}>
         <Paper className={styles.inner}>
