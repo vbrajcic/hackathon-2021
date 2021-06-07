@@ -1,6 +1,5 @@
 import { ElementType } from 'react';
-import Alien from 'components/SvgIcons/Alien';
-import ReactOutlined from 'components/SvgIcons/ReactOutlined';
+import Rocket from 'components/SvgIcons/Rocket';
 
 export interface CandidateDetail {
   id: number;
@@ -12,21 +11,21 @@ export interface CandidateDetail {
 const idealCandidateDetails: CandidateDetail[] = [
   {
     id: 0,
-    icon: ReactOutlined,
+    icon: Rocket,
     title: 'Final year student',
     subtitle:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {
     id: 1,
-    icon: Alien,
+    icon: Rocket,
     title: 'Free during summer',
     subtitle:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {
     id: 2,
-    icon: ReactOutlined,
+    icon: Rocket,
     title: 'Passionate learner',
     subtitle:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
