@@ -25,13 +25,9 @@
 
     .title {
       color: $white;
-      margin-bottom: rem-calc(12);
+      margin-bottom: rem-calc(24);
       max-height: rem-calc(48);
       white-space: pre-wrap;
-
-      @include media('sm') {
-        max-width: rem-calc(135);
-      }
 
       @include media('md') {
         margin-bottom: rem-calc(32);
