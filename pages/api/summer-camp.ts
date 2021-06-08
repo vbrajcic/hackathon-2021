@@ -47,3 +47,11 @@ export default async function summerCamp(req: NextApiRequest, res: NextApiRespon
     });
   });
 }
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+};
