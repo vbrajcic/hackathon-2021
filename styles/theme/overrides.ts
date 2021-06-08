@@ -125,6 +125,7 @@ const overrides: ThemeOptions['overrides'] = {
   MuiSnackbarContent: {
     root: {
       backgroundColor: Colors.muted,
+      zIndex: 1500,
     },
   },
 };
