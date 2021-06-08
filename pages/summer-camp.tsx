@@ -11,7 +11,13 @@ import SummerCampApplyForm from 'views/summer-camp/SummerCampApplyForm';
 import SelectionProcess from 'views/summer-camp/SelectionProcess';
 
 const ProficoSummerCamp: React.FC = () => (
-  <Layout title="Summer Camp" theme="dark" FooterProps={{ bgColor: 'blue' }}>
+  <Layout
+    title="Summer Camp"
+    image="/logo/logo-sharing-summer-camp.png"
+    description="Learn product design &amp; development from the most experienced product team in town!"
+    theme="dark"
+    FooterProps={{ bgColor: 'blue' }}
+  >
     <HeroSection />
     <AboutSummerCamp />
     <SummerCampPerks />
