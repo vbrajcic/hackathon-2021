@@ -41,7 +41,7 @@
   }
 
   .cardsWrapper {
-    @include flex($align: flex-end, $justify: center);
+    @include flex($align: flex-start, $justify: center);
 
     flex-wrap: nowrap;
     max-width: rem-calc(1680);

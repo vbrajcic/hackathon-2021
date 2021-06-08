@@ -6,7 +6,7 @@
   background: #508cf4;
   max-width: rem-calc(324);
   min-width: rem-calc(263);
-  height: rem-calc(480);
+  height: rem-calc(576);
   border-radius: rem-calc(60);
 
   @include media(0, 'md') {
@@ -15,7 +15,7 @@
   }
 
   @include media(0, 'lg') {
-    height: rem-calc(394);
+    height: rem-calc(576);
   }
 
   .image {
