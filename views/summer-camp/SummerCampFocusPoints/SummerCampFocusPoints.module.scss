@@ -14,6 +14,8 @@
   }
 
   .focusPoints {
+    overflow: hidden;
+
     .row {
       @keyframes loop {
         from {
