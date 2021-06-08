@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { Coding, DataAnalyst, Fingertouch } from 'components/SvgIcons/SummerCamp';
+import { Coding, DataAnalyst, Fingertouch, Mobile } from 'components/SvgIcons/SummerCamp';
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
 export interface Mentor {
@@ -12,22 +12,34 @@ export interface Mentor {
 
 const mentors: Mentor[] = [
   {
-    name: 'Ivan',
-    description: 'Backend Engineer',
+    name: 'Ivan Lovrić',
+    description: 'Frontend',
+    icon: Fingertouch,
+    image: addAssetPrefix('/images/team/ivan-lovric.png'),
+  },
+  {
+    name: 'Ivan Romac',
+    description: 'Backend',
     icon: Coding,
     image: addAssetPrefix('/images/team/ivan-romac.png'),
   },
   {
-    name: 'Erik',
-    description: 'Data Analyst',
-    icon: DataAnalyst,
-    image: addAssetPrefix('/images/team/erik-zupancic.png'),
+    name: 'Pero Pavlović',
+    description: `Android`,
+    icon: Mobile,
+    image: addAssetPrefix('/images/team/pero-pavlovic.png'),
   },
   {
-    name: 'Nikola',
-    description: `UI/UX designer`,
-    icon: Fingertouch,
-    image: addAssetPrefix('/images/team/nikola-dadic.png'),
+    name: 'Ivan Ferenčak',
+    description: `iOS`,
+    icon: Mobile,
+    image: addAssetPrefix('/images/team/ivan-ferencak.png'),
+  },
+  {
+    name: 'Miro Marasović',
+    description: `Management`,
+    icon: DataAnalyst,
+    image: addAssetPrefix('/images/team/miro-marasovic.png'),
   },
 ];
 

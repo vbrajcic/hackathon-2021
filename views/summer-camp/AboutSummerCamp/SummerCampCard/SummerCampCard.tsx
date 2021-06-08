@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import cn from 'classnames';
+import cn from 'clsx';
 import { TechVerticals } from 'config/techVerticals';
 
 import styles from './SummerCampCard.module.scss';
