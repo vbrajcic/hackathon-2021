@@ -89,7 +89,7 @@ const SummerCampFocusPoints: React.FC = () => {
           ))}
         {!isDesktop &&
           summerCampFocusPoints.map(({ text }) => (
-            <Typography key={text} data-item-key={text} variant="h2" className={styles.focusPoint}>
+            <Typography key={text} variant="h2" className={styles.focusPoint}>
               {text}
             </Typography>
           ))}
