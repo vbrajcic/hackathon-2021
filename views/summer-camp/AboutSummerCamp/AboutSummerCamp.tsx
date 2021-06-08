@@ -22,9 +22,10 @@ const AboutSummerCamp: React.FC = () => (
           What is Profico Summer Camp?
         </Typography>
         <Typography variant="body2" className={styles.descripton}>
-          Profico Summer Camp je naš dvotjedni program gdje polaznici imaju priliku radeći u timu na konkretnom projektu
-          iskusiti simulaciju svega onoga što ih očekuje po završetku studiranja. Dakle, fokus nije samo na razvijanju
-          tehničkog znanja nego i dobivanju uvida u procese i rad tvrtke s ciljem budućeg zapošljavanja.
+          Profico Summer Camp is a two-week educational program where students participate in a digital product
+          development course that replicates real-life collaboration in the product team. You will get insights not only
+          into the technology, design & delivery methods, but also in our company’s processes and typical work dynamics.
+          The main goal is to establish an early interface with a company and hire young talents!
         </Typography>
       </Grid>
 

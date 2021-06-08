@@ -27,7 +27,7 @@ const Intro: React.FC = () => {
         <div className={styles.label}>2021</div>
       </Typography>
       <Typography variant="body1" className={styles.subtitle}>
-        July 26 - August 6
+        July 7 - July 30
       </Typography>
       <Button
         data-ga-event-name="scrollto_summercamp_apply_form"
@@ -38,7 +38,7 @@ const Intro: React.FC = () => {
         Apply now
       </Button>
       <Typography variant="body2" className={styles.disclaimer}>
-        Applications close on June 7
+        Applications close on June 26th
       </Typography>
     </Grid>
   );
