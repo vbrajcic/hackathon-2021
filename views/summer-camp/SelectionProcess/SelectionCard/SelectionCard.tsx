@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import styles from './SelectionCard.module.scss';
 
 const SelectionCard: React.FC<SelectionStep> = ({ id, step, title, subtitle }) => (
-  <div className={cn(styles.card, styles[id])}>
+  <div className={cn(styles.container, styles[id])}>
     <div className={styles.step}>
       <Typography className={styles.stepNumber} variant="h3">
         {step}

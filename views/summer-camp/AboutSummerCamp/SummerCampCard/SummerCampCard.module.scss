@@ -12,7 +12,7 @@
     fill: $fillColor;
   }
 }
-.card {
+.container {
   @include flex(column, $align: flex-start);
 
   @include media(0, 'md') {
@@ -38,6 +38,7 @@
     min-width: rem-calc(155);
     height: rem-calc(155);
     margin-bottom: rem-calc(13);
+    margin-right: rem-calc(77);
 
     .cardIcon {
       @include svgColor($white, $blue-200);
@@ -56,6 +57,10 @@
       align-self: flex-start;
       top: rem-calc(64);
     }
+
+    @include media('md', 'lg') {
+      margin-right: 0;
+    }
   }
 
   &.management {
@@ -63,6 +68,7 @@
     min-width: rem-calc(220);
     height: rem-calc(220);
     margin-bottom: rem-calc(48);
+    margin-right: rem-calc(77);
 
     .cardIcon {
       @include svgColor($white, $green-300);
@@ -82,12 +88,18 @@
       top: rem-calc(200);
       z-index: 2;
     }
+
+    @include media('md', 'lg') {
+      margin-right: 0;
+    }
   }
 
   &.frontend {
     background-color: $yellow-300;
     min-width: rem-calc(166);
     height: rem-calc(168);
+    margin-right: rem-calc(77);
+
     .cardIcon {
       max-width: rem-calc(63);
       @include svgColor($white, $yellow-300);
@@ -106,6 +118,10 @@
       align-self: flex-start;
       top: rem-calc(376);
       z-index: 1;
+    }
+
+    @include media('md', 'lg') {
+      margin-right: 0;
     }
   }
 

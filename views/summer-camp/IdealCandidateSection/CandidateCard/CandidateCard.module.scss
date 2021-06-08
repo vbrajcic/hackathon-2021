@@ -1,6 +1,6 @@
 @import 'styles/mixins/flex';
 
-.card {
+.container {
   @include flex(column, $align: flex-start);
 
   background: #508cf4;

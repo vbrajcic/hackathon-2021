@@ -1,9 +1,8 @@
 @import 'styles/mixins/flex';
 
-.card {
+.container {
   @include flex($align: center);
 
-  gap: rem-calc(16);
   padding: rem-calc(10 24 10 10);
   max-width: rem-calc(500);
   width: 100%;
@@ -17,6 +16,7 @@
   }
 
   .textWrapper {
+    margin-left: rem-calc(16);
     .title {
       font-weight: 700;
       line-height: rem-calc(24);
