@@ -55,15 +55,16 @@ const PreviousYearSection: React.FC = () => (
           />
           <Box className={styles.testimonial}>
             <Typography variant="body2" className={styles.description}>
-              I am impressed by the 360 degrees approach that Profico takes on any challenge we throw at them. As a
-              result we have now integrated them fully into our organization.
+              I was very excited to enter this program in the first generation, and I didn’t expect to see such a
+              detailed process of product development. It was a great experience with patient mentors, and most
+              importantly, I have decided to choose this team for my first and the most important job!
             </Typography>
             <Box className={styles.author}>
               <Typography variant="body2" className={styles.name}>
                 Fabijan
               </Typography>
               <Typography variant="body2" className={styles.description}>
-                Student 3. godine FESB-a
+                Student, FESB, 5th year
               </Typography>
             </Box>
           </Box>

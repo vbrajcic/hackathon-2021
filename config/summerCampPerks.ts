@@ -9,33 +9,35 @@ export interface SummerCampPerk {
 
 const summerCampPerks: SummerCampPerk[] = [
   {
-    title: 'Practical work',
-    subtitle: 'Povezivanje stečenih teorijskih znanja s profesionalnim iskustvima',
+    title: 'Practical\nwork',
+    subtitle: 'Connect theoretical knowledge with practical work and realistic project situations.',
     icon: Rocket,
   },
   {
-    title: 'Easier career start',
-    subtitle: `Stjecanje vještina iz područja računarstva i drugih djelokruga poslovanja IT i ostalih organizacija u kojima se praksa obavlja.`,
+    title: 'Easier career\nstart',
+    subtitle: 'Some practical experience truly helps kick-start your career!',
     icon: Rocket,
   },
   {
-    title: 'New set of skills',
-    subtitle: 'Nalaženje teme za diplomski rad',
+    title: 'New set of\nskills',
+    subtitle: 'We bet you don’t know everything about product design, development and delivery, don’t you?',
     icon: Rocket,
   },
   {
-    title: 'Menthor guidance',
-    subtitle: 'Stjecanje mogućih preporuka u cilju budućeg zapošljavanja',
+    title: 'Mentor\nguidance',
+    subtitle:
+      'You will meet established professionals as your mentors. Ask them anything you want to know! Get hired or recommended by a mentor!',
     icon: Rocket,
   },
   {
-    title: 'Networking opportunities',
-    subtitle: 'Ostvarivanje kontakata i poznanstava u sektoru računarstva',
+    title: 'Great networking\nopportunity',
+    subtitle: 'Start building your business network early, it is valuable capital for your future career development.',
     icon: Rocket,
   },
   {
-    title: 'Creating habbits',
-    subtitle: `Stvaranje dobrih radnih navika i priprema studenta za poslovni svijet`,
+    title: 'Prepare yourself\nfor the job',
+    subtitle:
+      'Break that barrier between education and the business world and prepare yourself for the reality of the first job!',
     icon: Rocket,
   },
 ];
