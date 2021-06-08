@@ -30,7 +30,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   }
 
   return (
-    <Layout preview={preview} theme="dark" title={post?.title} FooterProps={{ hasGreyBackground: !isMobile }}>
+    <Layout
+      preview={preview}
+      theme="dark"
+      title={post?.title}
+      FooterProps={{ bgColor: !isMobile ? 'grey' : undefined }}
+    >
       {router.isFallback ? (
         <Container maxWidth="xl" disableGutters>
           <PostTitle title="Loading…" />

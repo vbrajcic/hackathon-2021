@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 
 import { IconButton } from '@material-ui/core';
 

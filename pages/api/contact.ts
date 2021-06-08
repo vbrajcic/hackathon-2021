@@ -2,6 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
 export default async function contact(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== 'POST') {
+    return res.status(404).json({ message: 'Not found', status: 404 });
+  }
+
   const { email, message } = req.body;
 
   const transporter = nodemailer.createTransport({

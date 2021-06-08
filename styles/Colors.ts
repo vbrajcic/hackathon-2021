@@ -4,6 +4,7 @@ export default {
   muted: '#424D56',
   textPrimary: '#212529',
   textSecondary: '#484D50',
+  error: '#f44336',
 
   white: '#FFF',
   black: '#000',

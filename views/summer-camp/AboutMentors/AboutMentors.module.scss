@@ -1,0 +1,39 @@
+@import 'styles/mixins/flex';
+
+.container {
+  background: $blue-500;
+  padding: rem-calc(60 0);
+
+  @include media('md') {
+    padding: rem-calc(150 0);
+  }
+
+  .content {
+    @include flex($direction: column);
+
+    @include media('md') {
+      align-items: center;
+    }
+
+    .title {
+      margin-bottom: rem-calc(61);
+      max-width: 100%;
+      color: $white;
+
+      @include media('md') {
+        text-align: center;
+      }
+    }
+
+    .cards {
+      position: relative;
+      @include flex($justify: space-between, $direction: column);
+
+      @include media('md') {
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

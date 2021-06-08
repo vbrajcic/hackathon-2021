@@ -1,0 +1,71 @@
+@import 'styles/mixins/flex';
+
+.container {
+  background: $blue-500;
+  padding-bottom: rem-calc(75);
+
+  @include media(0, 'md') {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardsWrapper {
+    @include flex($align: flex-end, $justify: space-evenly);
+
+    @include media(0, 'md') {
+      flex-direction: column;
+      position: relative;
+      height: rem-calc(812);
+      max-width: rem-calc(375);
+    }
+  }
+
+  .content {
+    @include flex($align: center, $direction: column);
+
+    .textWrapper {
+      max-width: rem-calc(650);
+      margin-top: rem-calc(213);
+      text-align: center;
+
+      @include media(0, 'md') {
+        text-align: left;
+        margin-top: 0;
+      }
+
+      .title {
+        max-width: 100%;
+        color: $white;
+        margin-bottom: rem-calc(42);
+
+        @include media(0, 'md') {
+          max-width: rem-calc(144);
+          margin-bottom: rem-calc(32);
+          line-height: rem-calc(48);
+          letter-spacing: rem-calc(-2.25);
+        }
+      }
+
+      .descripton {
+        color: $white;
+        margin-bottom: rem-calc(42);
+      }
+    }
+
+    .buttonWrapper {
+      text-align: center;
+      max-width: rem-calc(550);
+
+      .button {
+        color: $blue-600;
+        background-color: $white;
+        path,
+        line,
+        polyline,
+        rect {
+          stroke: $blue-600;
+        }
+      }
+    }
+  }
+}

@@ -32,7 +32,7 @@ const OpenPositions: React.FC<OpenPositionsProps> = ({ positions }) => {
         </Typography>
       </Grid>
       <Grid container direction="column">
-        <Typography variant="h4" component="h3" className={styles.subtitle}>
+        <Typography variant="h5" component="h3" className={styles.subtitle}>
           Open positions
           <b>{` (${positionsCount})`}</b>
         </Typography>

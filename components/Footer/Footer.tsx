@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -13,20 +13,21 @@ import { format } from 'date-fns';
 import styles from './Footer.module.scss';
 
 export interface FooterProps {
-  hasGreyBackground?: boolean;
+  bgColor?: 'grey' | 'blue';
 }
 
 const currentYear = format(new Date(), 'yyyy');
 
-const Footer: React.FC<FooterProps> = ({ hasGreyBackground }) => (
+const Footer: React.FC<FooterProps> = ({ bgColor }) => (
   <footer
     className={cn(styles.container, {
-      [styles.greyBackground]: hasGreyBackground,
+      [styles.greyBackground]: bgColor === 'grey',
+      [styles.blueBackground]: bgColor === 'blue',
     })}
   >
     <Container maxWidth="xl">
       <Container maxWidth={false} className={styles.wrapper}>
-        <Typography variant="body2">
+        <Typography variant="body2" className={styles.copyright}>
           &copy;
           {` ${currentYear} Profico`}
           <a href="/legal-info" className={styles.link}>
