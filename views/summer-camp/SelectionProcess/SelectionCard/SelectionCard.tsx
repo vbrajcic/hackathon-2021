@@ -8,7 +8,7 @@ import styles from './SelectionCard.module.scss';
 
 const SelectionCard: React.FC<SelectionStep> = ({ id, step, title, subtitle }) => (
   <div
-    className={cn(styles.card, {
+    className={cn(styles.container, {
       [styles.apply]: id === 'apply',
       [styles.talk]: id === 'talk',
       [styles.internship]: id === 'internship',

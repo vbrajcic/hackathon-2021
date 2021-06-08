@@ -24,7 +24,7 @@ const IdealCandidateSection: React.FC = () => (
     </Container>
     <Grid container className={styles.cardsWrapper}>
       {idealCandidateDetails.map(candidate => (
-        <Grid item key={candidate.id}>
+        <Grid className={styles.cardItem} item key={candidate.id}>
           <CandidateCard {...candidate} />
         </Grid>
       ))}

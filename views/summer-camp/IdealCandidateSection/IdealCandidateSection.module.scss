@@ -47,15 +47,10 @@
     max-width: rem-calc(1680);
     padding: 0 rem-calc(60);
     margin: 0 auto;
-    gap: rem-calc(30);
 
     @include media('md', 'lg') {
       flex-wrap: wrap;
       align-items: center;
-    }
-
-    @include media(1440px) {
-      gap: rem-calc(60);
     }
 
     @include media(0, 'md') {
@@ -64,10 +59,25 @@
       -ms-overflow-style: none;
       padding: 0 rem-calc(24);
       justify-content: flex-start;
-      gap: 0;
 
       &::-webkit-scrollbar {
         display: none;
+      }
+    }
+
+    .cardItem {
+      margin-right: rem-calc(30);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      @include media('md', 'lg') {
+        margin-bottom: rem-calc(30);
+      }
+
+      @include media(1440px) {
+        margin-right: rem-calc(60);
       }
     }
   }

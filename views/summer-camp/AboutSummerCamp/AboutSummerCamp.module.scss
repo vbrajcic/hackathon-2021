@@ -12,18 +12,11 @@
   .cardsWrapper {
     @include flex($align: flex-end, $justify: space-evenly);
 
-    gap: rem-calc(77);
-
     @include media(0, 'md') {
       flex-direction: column;
-      gap: 0;
       position: relative;
       height: rem-calc(812);
       max-width: rem-calc(375);
-    }
-
-    @include media('md', 'lg') {
-      gap: 0;
     }
   }
 

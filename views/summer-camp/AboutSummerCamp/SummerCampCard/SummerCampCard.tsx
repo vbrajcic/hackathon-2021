@@ -7,7 +7,7 @@ import styles from './SummerCampCard.module.scss';
 
 const SummerCampCard: React.FC<TechVerticals> = ({ title, id, icon: Icon }) => (
   <div
-    className={cn(styles.card, {
+    className={cn(styles.container, {
       [styles.mobile]: id === 'mobile',
       [styles.management]: id === 'management',
       [styles.frontend]: id === 'frontend',

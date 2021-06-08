@@ -6,7 +6,7 @@ import { CandidateDetail } from 'config/idealCandidateDetails';
 import styles from './CandidateCard.module.scss';
 
 const CandidateCard: React.FC<CandidateDetail> = ({ title, subtitle, icon: Icon }) => (
-  <div className={styles.card}>
+  <div className={styles.container}>
     <div className={styles.image}>
       <Icon className={styles.cardIcon} />
     </div>
