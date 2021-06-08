@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Snowman from 'components/SvgIcons/Snowman';
 import Sailing from 'components/SvgIcons/Sailing';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
-import cn from 'classnames';
+import cn from 'clsx';
 import Form, { FormSubmitHandler } from 'components/Forms/Form';
 import FormInput from 'components/Forms/FormInput';
 

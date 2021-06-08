@@ -2,7 +2,7 @@ import React from 'react';
 import Hyperlink from 'components/Hyperlink';
 import useToggleState from 'utils/hooks/useToggleState';
 import useScrollDirection, { ScrollDirection } from 'utils/hooks/useScrollDirection';
-import cn from 'classnames';
+import cn from 'clsx';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';

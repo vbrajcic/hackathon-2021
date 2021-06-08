@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 import Card from '@material-ui/core/Card';
 import DesignFull from 'components/SvgIcons/DesignFull';
 import MobileFull from 'components/SvgIcons/MobileFull';

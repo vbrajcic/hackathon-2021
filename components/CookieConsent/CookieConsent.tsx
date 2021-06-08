@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { Box, Button, Paper, Typography } from '@material-ui/core';
 import { useCookie } from 'react-use';

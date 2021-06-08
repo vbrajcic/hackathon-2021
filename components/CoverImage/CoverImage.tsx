@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 import FeaturedImage from 'types/posts/featuredImage';
 import Hyperlink from 'components/Hyperlink';
 import styles from './CoverImage.module.scss';

@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import FeaturedImage from 'types/posts/featuredImage';
 import Tag from 'types/posts/tag';
-import cn from 'classnames';
+import cn from 'clsx';
 
 import { Edges } from 'types/common';
 

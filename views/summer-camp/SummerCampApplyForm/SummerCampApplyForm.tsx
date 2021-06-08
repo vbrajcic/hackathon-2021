@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form, { FormSubmitHandler } from 'components/Forms/Form';
 import FormInput from 'components/Forms/FormInput';
-import cx from 'classnames';
+import cx from 'clsx';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 import {

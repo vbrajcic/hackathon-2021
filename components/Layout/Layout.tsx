@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 import Alert from 'components/Alert';
 import CookieConsent from 'components/CookieConsent';
 import Footer, { FooterProps as BaseFooterProps } from 'components/Footer';

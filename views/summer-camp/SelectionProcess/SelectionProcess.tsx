@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import selectionSteps, { SelectionStep } from 'config/selectionSteps';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { Box, Grid, Typography } from '@material-ui/core';
 import { isBefore, isWithinInterval } from 'date-fns';
