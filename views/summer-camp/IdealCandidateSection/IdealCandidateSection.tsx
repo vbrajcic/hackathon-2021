@@ -16,9 +16,9 @@ const IdealCandidateSection: React.FC = () => (
           Ideal candidate
         </Typography>
         <Typography variant="body2" className={styles.descripton}>
-          Traži se visoka razina motivacije i želje za učenjem i napredovanjem u struci, kao i elemente osobne
-          izvrsnosti. Prednost imaju visokomotivirani pojedinci na završnim godinama studija, ali ne isključuju se ni
-          studenti nižih godina studija.
+          We would like to offer this opportunity to highly motivated students, eager to learn and grow professionally,
+          with a proven track record of personal excellence in any field (education, competitions, sport, hobbies,
+          etc.). We give some advantage to final year students, but younger students and freshmans are not excluded.
         </Typography>
       </Grid>
     </Container>
