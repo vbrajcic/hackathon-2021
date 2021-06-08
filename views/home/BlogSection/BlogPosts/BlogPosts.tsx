@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import cn from 'classnames';
+import cn from 'clsx';
 import Post from 'types/posts/post';
 import Teaser from 'components/Teaser';
 

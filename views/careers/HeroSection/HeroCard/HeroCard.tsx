@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import FingerTouch from 'components/SvgIcons/Fingertouch';
-import cn from 'classnames';
+import cn from 'clsx';
 import styles from './HeroCard.module.scss';
 
 interface HeroCardProps {

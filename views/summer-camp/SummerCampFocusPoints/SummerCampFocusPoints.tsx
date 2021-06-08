@@ -6,7 +6,7 @@ import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import summerCampFocusPoints, { SummerCampFocusPoint } from 'config/summerCampFocusPoints';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
-import cx from 'classnames';
+import cx from 'clsx';
 
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
 
