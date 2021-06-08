@@ -30,8 +30,9 @@ const Navbar: React.FC = () => {
   const handleGetInTouchClick = () => {
     const contactForm = document.getElementById('contact-form');
     const applyForm = document.getElementById('apply-form');
+    const summerCampApplyForm = document.getElementById('summer-camp-apply-form');
 
-    const form = contactForm || applyForm;
+    const form = contactForm || applyForm || summerCampApplyForm;
 
     if (form) {
       const position = form.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
