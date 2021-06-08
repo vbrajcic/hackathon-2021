@@ -30,7 +30,9 @@
       @include flex($justify: space-between, $direction: column);
 
       @include media('md') {
-        flex-direction: row;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

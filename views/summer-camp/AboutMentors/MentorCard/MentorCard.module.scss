@@ -5,18 +5,28 @@
     margin-bottom: rem-calc(40);
     overflow: visible;
 
+    &:nth-child(4),
     &:nth-child(2) {
       position: absolute;
       right: rem-calc(25);
-      top: 50%;
+      top: 23%;
       margin-right: 0;
-      transform: translateY(-50%);
+      transform: translateY(-23%);
 
       @include media('md') {
         position: relative;
-        margin-right: rem-calc(80);
+        margin: rem-calc(0 40 40 40);
         transform: translateY(0);
         right: 0;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 70%;
+      transform: translateY(-70%);
+
+      @include media('md') {
+        transform: translateY(0);
       }
     }
 
@@ -34,11 +44,7 @@
     @include media('md') {
       width: rem-calc(160);
       height: rem-calc(192);
-      margin-right: rem-calc(80);
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+      margin: rem-calc(0 40 40 40);
     }
 
     .image {
@@ -84,12 +90,16 @@
 
       .title {
         font-size: rem-calc(12);
-        margin: rem-calc(5 0 10 0);
         font-weight: bold;
         line-height: 0;
+        margin: rem-calc(5 0);
 
         @include media('xs') {
           font-size: rem-calc(14);
+          margin: rem-calc(7 0);
+        }
+
+        @include media('md') {
           margin: rem-calc(5 0 12 0);
         }
       }
