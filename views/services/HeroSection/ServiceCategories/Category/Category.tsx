@@ -8,7 +8,7 @@ import styles from './Category.module.scss';
 const Category: React.FC<ServiceCategory> = ({ name, description, icon: CategoryIcon }) => (
   <Grid className={styles.container} classes={{ root: styles.root }}>
     <CategoryIcon className={styles.icon} />
-    <Typography variant="h4" component="h2" className={styles.title}>
+    <Typography variant="h5" component="h2" className={styles.title}>
       {name}
     </Typography>
     <Typography variant="body2" className={styles.description}>

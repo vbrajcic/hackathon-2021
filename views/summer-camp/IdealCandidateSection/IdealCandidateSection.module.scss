@@ -1,0 +1,84 @@
+@import 'styles/mixins/flex';
+
+.container {
+  background: $blue-500;
+  padding: rem-calc(60 0);
+
+  .content {
+    @include flex($align: center, $direction: column);
+
+    .textWrapper {
+      max-width: rem-calc(650);
+
+      .title {
+        font-size: rem-calc(48);
+        max-width: rem-calc(314);
+        color: $white;
+        text-align: left;
+        margin-bottom: rem-calc(42);
+
+        @include media('md') {
+          max-width: 100%;
+          text-align: center;
+        }
+
+        @include media('lg') {
+          font-size: rem-calc(64);
+          margin-left: rem-calc(60);
+        }
+      }
+
+      .descripton {
+        text-align: left;
+        color: $white;
+        margin-bottom: rem-calc(78);
+
+        @include media('md') {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .cardsWrapper {
+    @include flex($align: flex-start, $justify: center);
+
+    flex-wrap: nowrap;
+    max-width: rem-calc(1680);
+    padding: 0 rem-calc(60);
+    margin: 0 auto;
+
+    @include media('md', 'lg') {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @include media(0, 'md') {
+      flex-flow: row nowrap;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      padding: 0 rem-calc(24);
+      justify-content: flex-start;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .cardItem {
+      margin-right: rem-calc(30);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      @include media('md', 'lg') {
+        margin-bottom: rem-calc(30);
+      }
+
+      @include media(1440px) {
+        margin-right: rem-calc(60);
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.root {
+  &.container {
+    border-radius: rem-calc(60);
+    color: $white;
+    width: rem-calc(263);
+    height: 100%;
+    margin-right: rem-calc(32);
+    padding: rem-calc(40);
+    background: $blue-400;
+
+    @include media('md') {
+      width: rem-calc(324);
+      padding: rem-calc(70 55);
+    }
+
+    .icon {
+      margin-bottom: rem-calc(40);
+      max-width: rem-calc(42);
+      max-height: rem-calc(42);
+
+      @include media('md') {
+        margin-bottom: rem-calc(98);
+      }
+    }
+
+    .title {
+      color: $white;
+      margin-bottom: rem-calc(24);
+      max-height: rem-calc(48);
+      white-space: pre-wrap;
+
+      @include media('md') {
+        margin-bottom: rem-calc(32);
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import FeaturedImage from 'types/posts/featuredImage';
 import Tag from 'types/posts/tag';
-import cn from 'classnames';
+import cn from 'clsx';
 
 import { Edges } from 'types/common';
 
@@ -44,7 +44,7 @@ const Teaser: React.FC<TeaserProps> = ({ title, coverImage, excerpt, url, direct
           <CardMedia image={coverImage?.sourceUrl} title={url} className={cn(styles.image, classes?.media)} />
         )}
         <CardContent className={cn(styles.content, { [styles.row]: direction === 'row' })}>
-          <Typography variant="h4" component="h3">
+          <Typography variant="h5" component="h3">
             {title}
           </Typography>
           <Typography

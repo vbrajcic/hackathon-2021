@@ -34,12 +34,18 @@ const typography: ThemeOptions['typography'] = {
     },
   },
   h3: {
+    fontSize: 32,
+    lineHeight: 2,
+    letterSpacing: '-1.5px',
+    fontWeight: 'bold',
+  },
+  h4: {
     fontSize: 28,
     lineHeight: 1.46,
     letterSpacing: 0,
     color: Colors.primary,
   },
-  h4: {
+  h5: {
     fontSize: 20,
     lineHeight: 1.2,
     letterSpacing: 0,

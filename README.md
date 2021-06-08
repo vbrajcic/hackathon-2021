@@ -64,7 +64,7 @@ In addition several smaller libraries are used. Instructions on how to use them 
 | ------------------------------------------------------- | ------------------------------------------------------- |
 | [Nodemailer](https://github.com/nodemailer/nodemailer/) | for email sending                                       |
 | [date-fns](https://github.com/date-fns/date-fns)        | for manipulating JavaScript dates                       |
-| [Classnames](https://github.com/JedWatson/classnames)   | for conditionally joining classNames together           |
+| [clsx](https://github.com/lukeed/clsx)                  | for constructing `className` strings conditionally      |
 | [ESLint](https://github.com/eslint/eslint)              | for making code more consistent and avoiding bugs       |
 | [Stylelint](https://github.com/stylelint/stylelint)     | for avoiding errors and enforcing conventions in styles |
 | [Prettier](https://github.com/prettier/prettier)        | for code formatting                                     |
