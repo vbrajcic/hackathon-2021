@@ -57,28 +57,6 @@ const SummerCampFocusPoints: React.FC = () => {
     openTooltip(e.currentTarget, image);
   };
 
-  const handleMobileTooltipOpen = (e: React.TouchEvent<HTMLHeadingElement>) => {
-    e.preventDefault();
-
-    const {
-      currentTarget: {
-        dataset: { itemKey },
-      },
-    } = e;
-
-    if (!itemKey) {
-      return;
-    }
-
-    const image = summerCampFocusPoints.find(({ text }) => text === itemKey);
-
-    if (!image) {
-      return;
-    }
-
-    openTooltip(e.currentTarget, image);
-  };
-
   const closeTooltip = () => {
     setAnchorEl(null);
     setShouldPauseAnimation(false);
@@ -111,14 +89,7 @@ const SummerCampFocusPoints: React.FC = () => {
           ))}
         {!isDesktop &&
           summerCampFocusPoints.map(({ text }) => (
-            <Typography
-              key={text}
-              data-item-key={text}
-              variant="h2"
-              className={styles.focusPoint}
-              onTouchStart={handleMobileTooltipOpen}
-              onTouchEnd={closeTooltip}
-            >
+            <Typography key={text} data-item-key={text} variant="h2" className={styles.focusPoint}>
               {text}
             </Typography>
           ))}
