@@ -16,9 +16,9 @@
     }
 
     .title {
-      font-size: 18px;
-      line-height: 19px;
-      letter-spacing: -0.712722px;
+      font-weight: 700;
+      line-height: rem-calc(19);
+      letter-spacing: rem-calc(-0.712722);
       color: $white;
       display: inline-block;
       margin-left: rem-calc(19);
@@ -33,8 +33,8 @@
     }
 
     .subtitle {
-      font-size: 15px;
-      line-height: 24px;
+      font-size: rem-calc(15);
+      line-height: rem-calc(24);
       margin-left: rem-calc(15.84);
       color: $white;
     }
@@ -42,8 +42,8 @@
     .buttonWrapper {
       margin-left: rem-calc(32);
       .button {
-        font-size: 12px;
-        line-height: 14px;
+        font-size: rem-calc(12);
+        line-height: rem-calc(14);
         border-radius: rem-calc(27);
         padding: rem-calc(8 14 8 14);
         background-color: $yellow-300;

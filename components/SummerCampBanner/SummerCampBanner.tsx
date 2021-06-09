@@ -4,15 +4,14 @@ import Hyperlink from 'components/Hyperlink';
 
 import { Container, Typography, Grid, Button, Box } from '@material-ui/core';
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
+import { useRouter } from 'next/router';
 
 import styles from './SummerCampBanner.module.scss';
 
-interface BannerProps {
-  disableBanner?: boolean;
-}
+const SummerCampBanner: React.FC = () => {
+  const router = useRouter();
 
-const SummerCampBanner: React.FC<BannerProps> = ({ disableBanner }) => {
-  if (disableBanner) {
+  if (router.pathname === '/summer-camp') {
     return null;
   }
   return (
@@ -26,7 +25,7 @@ const SummerCampBanner: React.FC<BannerProps> = ({ disableBanner }) => {
             width="126"
           />
         </Grid>
-        <Typography variant="h5" className={styles.title}>
+        <Typography variant="subtitle1" className={styles.title}>
           Profico Summer Camp
           <div className={styles.label}>2021</div>
         </Typography>
@@ -35,7 +34,7 @@ const SummerCampBanner: React.FC<BannerProps> = ({ disableBanner }) => {
           <Hyperlink
             href="summer-camp"
             component={
-              <Button className={styles.button} startIcon="" color="secondary">
+              <Button className={styles.button} startIcon={null} color="secondary">
                 Find out more
               </Button>
             }
