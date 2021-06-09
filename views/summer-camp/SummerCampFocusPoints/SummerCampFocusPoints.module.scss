@@ -49,7 +49,7 @@
       }
 
       &:hover {
-        @include media('md') {
+        @include media('lg') {
           color: $white;
         }
       }
