@@ -67,6 +67,10 @@
         background-color: $white;
       }
     }
+    .getInTouchButton {
+      background-color: $blue-400;
+      box-shadow: none;
+    }
   }
 
   &.painted {

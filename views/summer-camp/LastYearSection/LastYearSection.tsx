@@ -13,7 +13,7 @@ const PreviousYearSection: React.FC = () => (
   <Box className={styles.container}>
     <Container maxWidth="xl" className={styles.inner}>
       <Typography variant="h2" align="center" className={styles.title}>
-        Check out previous year atmosphere
+        Check out last year&apos;s atmosphere
       </Typography>
       <Typography variant="body2" align="center" className={styles.year}>
         2020
