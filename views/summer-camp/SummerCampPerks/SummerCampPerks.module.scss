@@ -1,12 +1,12 @@
 .container {
   position: relative;
   padding-top: rem-calc(50);
-  padding-bottom: rem-calc(79);
+  padding-bottom: rem-calc(60);
   background-color: $blue-500;
 
   @include media('sm') {
     padding-top: rem-calc(157);
-    padding-bottom: rem-calc(140);
+    padding-bottom: rem-calc(120);
   }
 
   .content {

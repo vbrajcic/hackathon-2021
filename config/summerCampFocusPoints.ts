@@ -4,7 +4,7 @@ export interface SummerCampFocusPoint {
 }
 
 const summerCampFocusPoints: SummerCampFocusPoint[] = [
-  { text: 'Product desing', imageUrl: '/images/summerCamp/perks/product-design.png' },
+  { text: 'Product design', imageUrl: '/images/summerCamp/perks/product-design.png' },
   { text: 'Teamwork', imageUrl: '/images/summerCamp/perks/teamwork.png' },
   { text: 'Mentoring sessions', imageUrl: '/images/summerCamp/perks/mentoring-sessions.png' },
   { text: 'Design sprints', imageUrl: '/images/summerCamp/perks/design-sprint.png' },
