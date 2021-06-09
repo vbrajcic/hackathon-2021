@@ -17,6 +17,7 @@ const ProficoSummerCamp: React.FC = () => (
     description="Learn product design &amp; development from the most experienced product team in town!"
     theme="dark"
     FooterProps={{ bgColor: 'blue' }}
+    disableBanner
   >
     <HeroSection />
     <AboutSummerCamp />

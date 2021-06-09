@@ -1,0 +1,56 @@
+@import 'styles/mixins/flex';
+
+.container {
+  width: 100%;
+  height: rem-calc(60);
+  background-color: $blue-500;
+
+  .content {
+    @include flex($align: center, $justify: center);
+
+    height: rem-calc(60);
+
+    .imageWrapper {
+      max-height: rem-calc(57);
+      margin-top: rem-calc(3);
+    }
+
+    .title {
+      font-size: 18px;
+      line-height: 19px;
+      letter-spacing: -0.712722px;
+      color: $white;
+      display: inline-block;
+      margin-left: rem-calc(19);
+
+      .label {
+        display: inline-block;
+        transform: rotate(3deg);
+        background-color: $orange-300;
+        padding: rem-calc(2 1.96 0.92 3.16);
+        margin-left: rem-calc(4);
+      }
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 24px;
+      margin-left: rem-calc(15.84);
+      color: $white;
+    }
+
+    .buttonWrapper {
+      margin-left: rem-calc(32);
+      .button {
+        font-size: 12px;
+        line-height: 14px;
+        border-radius: rem-calc(27);
+        padding: rem-calc(8 14 8 14);
+        background-color: $yellow-300;
+        color: $white;
+        height: rem-calc(32);
+        width: rem-calc(109);
+      }
+    }
+  }
+}

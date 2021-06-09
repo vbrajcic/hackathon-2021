@@ -5,6 +5,7 @@ import CookieConsent from 'components/CookieConsent';
 import Footer, { FooterProps as BaseFooterProps } from 'components/Footer';
 import Meta from 'components/Meta';
 import Navbar from 'components/Navbar';
+import SummerCampBanner from 'components/SummerCampBanner';
 
 import { ThemeContextProvider } from 'utils/context/ThemeContext';
 import { PaletteType } from '@material-ui/core';
@@ -19,6 +20,7 @@ interface LayoutProps {
   preview?: boolean;
   FooterProps?: BaseFooterProps;
   ContainerProps?: React.HTMLProps<HTMLDivElement>;
+  disableBanner?: boolean;
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -30,10 +32,12 @@ const Layout: React.FC<LayoutProps> = ({
   children,
   FooterProps,
   ContainerProps,
+  disableBanner = false,
 }) => (
   <ThemeContextProvider value={{ theme }}>
     <Meta title={title} image={image} description={description} />
     <div {...ContainerProps} className={cn(styles.container, ContainerProps?.className)}>
+      <SummerCampBanner disableBanner={disableBanner} />
       <Alert preview={preview} />
       <Navbar />
       <main>{children}</main>
