@@ -64,21 +64,5 @@
         display: none;
       }
     }
-
-    .cardItem {
-      margin-right: rem-calc(30);
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      @include media('md', 'lg') {
-        margin-bottom: rem-calc(30);
-      }
-
-      @include media(1440px) {
-        margin-right: rem-calc(60);
-      }
-    }
   }
 }

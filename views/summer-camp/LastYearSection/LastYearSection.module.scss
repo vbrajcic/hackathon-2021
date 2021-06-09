@@ -4,9 +4,14 @@
   background-color: $blue-500;
 
   .inner {
-    padding-top: rem-calc(110);
-    padding-bottom: rem-calc(75);
+    padding-top: rem-calc(60);
+    padding-bottom: rem-calc(60);
     max-width: rem-calc(1320);
+
+    @include media('md') {
+      padding-top: rem-calc(110);
+      padding-bottom: rem-calc(75);
+    }
 
     .title,
     .year {
