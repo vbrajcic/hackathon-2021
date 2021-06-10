@@ -13,6 +13,10 @@
     .imageWrapper {
       max-height: rem-calc(57);
       margin-top: rem-calc(3);
+
+      @include media(0, 'md') {
+        display: none;
+      }
     }
 
     .title {
@@ -30,6 +34,10 @@
         padding: rem-calc(2 1.96 0.92 3.16);
         margin-left: rem-calc(4);
       }
+
+      @include media(0, 'md') {
+        margin-left: 0;
+      }
     }
 
     .subtitle {
@@ -37,6 +45,10 @@
       line-height: rem-calc(24);
       margin-left: rem-calc(15.84);
       color: $white;
+
+      @include media(0, 'md') {
+        display: none;
+      }
     }
 
     .buttonWrapper {
