@@ -30,6 +30,9 @@ const overrides: ThemeOptions['overrides'] = {
         backgroundColor: Colors.black,
       },
     },
+    outlinedSizeSmall: {
+      padding: '8px 14px',
+    },
   },
   MuiCard: {
     root: {

@@ -65,14 +65,14 @@
 
   // applied when screen size is smaller than 'lg' - 1024px
 
-  @include media('md', 'lg') {
+  @include media('md', 1440px) {
     &:nth-of-type(1) {
       top: rem-calc(30);
     }
 
     &:nth-of-type(2) {
       top: rem-calc(280);
-      left: rem-calc(170);
+      left: rem-calc(160);
     }
 
     &:nth-of-type(3) {
@@ -100,7 +100,7 @@
 
   // applied when screen size is small mobile
 
-  @include media(0, 'sm') {
+  @include media(0, 585px) {
     &:nth-of-type(1) {
       top: rem-calc(-90);
       left: 49%;
