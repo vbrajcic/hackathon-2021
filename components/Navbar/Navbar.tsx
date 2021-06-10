@@ -48,14 +48,16 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const isScrollingDown = scrollDirection === ScrollDirection.DOWN;
+
   return (
     <Grid
       className={cn(styles.root, {
-        [styles.painted]: (hasCrossedThreshold && scrollDirection === ScrollDirection.DOWN) || menuOpen,
+        [styles.painted]: (hasCrossedThreshold && isScrollingDown) || menuOpen,
         [styles.darkTheme]: theme === 'dark',
       })}
     >
-      <Slide direction="down" in={scrollDirection === ScrollDirection.DOWN}>
+      <Slide direction="down" in={isScrollingDown}>
         <div>
           <SummerCampBanner className={cn(styles.banner, { [styles.hidden]: menuOpen })} />
           <Container className={styles.container} maxWidth="xl" disableGutters>
