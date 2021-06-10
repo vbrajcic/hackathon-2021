@@ -8,6 +8,12 @@
   z-index: 1500;
   transition: background-color $animation-duration__fast $timing-function;
 
+  .banner {
+    &.hidden {
+      display: none;
+    }
+  }
+
   .container {
     @include flex($justify: space-between);
 
