@@ -26,17 +26,24 @@ const SummerCampBanner: React.FC = () => {
             width="126"
           />
         </Grid>
-        <Typography variant="subtitle1" className={styles.title}>
-          Profico Summer Camp
-          <div className={styles.label}>2021</div>
-        </Typography>
-        <Typography className={styles.subtitle}>July 19 - July 30</Typography>
+        <Box className={styles.textWrapper}>
+          <Typography variant="subtitle1" className={styles.title}>
+            Profico Summer Camp
+            <div className={styles.label}>2021</div>
+          </Typography>
+          <Typography className={styles.subtitle}>July 19 - July 30</Typography>
+        </Box>
         <Box className={styles.buttonWrapper}>
           <Hyperlink
             href="summer-camp"
             component={
-              <Button className={styles.button} startIcon={null} color="secondary">
-                Find out more
+              <Button
+                className={styles.button}
+                size="small"
+                classes={{ startIcon: styles.startIcon }}
+                color="secondary"
+              >
+                <Typography className={styles.text}>Find out more</Typography>
               </Button>
             }
           />
