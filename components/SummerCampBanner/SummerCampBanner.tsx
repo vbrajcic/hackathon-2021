@@ -14,6 +14,7 @@ const SummerCampBanner: React.FC = () => {
   if (router.pathname === '/summer-camp') {
     return null;
   }
+
   return (
     <div className={styles.container}>
       <Container className={styles.content}>
@@ -29,7 +30,7 @@ const SummerCampBanner: React.FC = () => {
           Profico Summer Camp
           <div className={styles.label}>2021</div>
         </Typography>
-        <Typography className={styles.subtitle}>July 26 - August 6</Typography>
+        <Typography className={styles.subtitle}>July 19 - July 30</Typography>
         <Box className={styles.buttonWrapper}>
           <Hyperlink
             href="summer-camp"
