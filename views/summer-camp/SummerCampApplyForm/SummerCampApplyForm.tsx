@@ -103,9 +103,8 @@ const SummerCampApplyForm: React.FC = () => {
                 }
               };
 
-              const cvFilename = typeof cv !== 'string' ? cv.name : '';
-              const motivationFilename = typeof motivationLetter !== 'string' ? motivationLetter.name : '';
-
+              const cvFilename = typeof cv !== 'string' ? cv?.name : '';
+              const motivationFilename = typeof motivationLetter !== 'string' ? motivationLetter?.name : '';
               return (
                 <>
                   <FormInput
