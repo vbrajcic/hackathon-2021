@@ -15,31 +15,31 @@ const mentors: Mentor[] = [
     name: 'Ivan Lovrić',
     description: 'Frontend',
     icon: Fingertouch,
-    image: addAssetPrefix('/images/team/ivan-lovric.png'),
+    image: addAssetPrefix('/images/team/ivan-lovric.jpg'),
   },
   {
     name: 'Ivan Romac',
     description: 'Backend',
     icon: Coding,
-    image: addAssetPrefix('/images/team/ivan-romac.png'),
+    image: addAssetPrefix('/images/team/ivan-romac.jpg'),
   },
   {
     name: 'Pero Pavlović',
     description: `Android`,
     icon: Mobile,
-    image: addAssetPrefix('/images/team/pero-pavlovic.png'),
+    image: addAssetPrefix('/images/team/pero-pavlovic.jpg'),
   },
   {
     name: 'Ivan Ferenčak',
     description: `iOS`,
     icon: Mobile,
-    image: addAssetPrefix('/images/team/ivan-ferencak.png'),
+    image: addAssetPrefix('/images/team/ivan-ferencak.jpg'),
   },
   {
     name: 'Miro Marasović',
     description: `Management`,
     icon: DataAnalyst,
-    image: addAssetPrefix('/images/team/miro-marasovic.png'),
+    image: addAssetPrefix('/images/team/miro-marasovic.jpg'),
   },
 ];
 
