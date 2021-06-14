@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const hasCrossedThreshold = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 20,
+    threshold: 0,
   });
   const isAboveMd = useMediaQuery<Theme>(t => t.breakpoints.up('md'));
   const scrollDirection = useScrollDirection();
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
     >
       <Slide direction="down" in={isScrollingDown}>
         <div>
-          <SummerCampBanner className={cn(styles.banner, { [styles.hidden]: menuOpen })} />
+          <SummerCampBanner className={cn(styles.banner, { [styles.hidden]: hasCrossedThreshold || menuOpen })} />
           <Container className={styles.container} maxWidth="xl" disableGutters>
             <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
               <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
