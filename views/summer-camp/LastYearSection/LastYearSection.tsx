@@ -26,23 +26,23 @@ const PreviousYearSection: React.FC = () => (
         <Box display="flex" className={styles.topImages}>
           <img
             className={cx(styles.image, styles.large)}
-            src={addAssetPrefix('/images/summerCamp/last-year-group-photo.png')}
+            src={addAssetPrefix('/images/summerCamp/last-year-group-photo.jpg')}
             alt="Last year group"
           />
           <Box display="flex" flexDirection="column" justifyContent="space-between" position="relative">
             <img
               className={cx(styles.image, styles.medium)}
-              src={addAssetPrefix('/images/summerCamp/last-year-backend-team.png')}
+              src={addAssetPrefix('/images/summerCamp/last-year-backend-team.jpg')}
               alt="Last year backend"
             />
             <img
               className={cx(styles.image, styles.small)}
-              src={addAssetPrefix('/images/summerCamp/last-year-pm-team.png')}
+              src={addAssetPrefix('/images/summerCamp/last-year-pm-team.jpg')}
               alt="Last year PM team"
             />
             <img
               className={cx(styles.image, styles.small)}
-              src={addAssetPrefix('/images/summerCamp/last-year-mobile-team.png')}
+              src={addAssetPrefix('/images/summerCamp/last-year-mobile-team.jpg')}
               alt="Last year mobile team"
             />
           </Box>
@@ -50,7 +50,7 @@ const PreviousYearSection: React.FC = () => (
         <Box display="flex" className={styles.imageTestimonialWrapper}>
           <img
             className={cx(styles.image, styles.small)}
-            src={addAssetPrefix('/images/summerCamp/last-year-mobile-team.png')}
+            src={addAssetPrefix('/images/summerCamp/last-year-mobile-team.jpg')}
             alt="Last year mobile team"
           />
           <Box className={styles.testimonial}>
