@@ -6,10 +6,11 @@ import cn from 'clsx';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';
-import { Button, Container, Grid, Slide, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { Button, Container, Grid, Slide, Theme, Collapse, useMediaQuery, useScrollTrigger } from '@material-ui/core';
 import { useTheme } from 'utils/context/ThemeContext';
 
 import SummerCampBanner from 'components/SummerCampBanner';
+import { useWindowScroll } from 'react-use';
 import Hamburger from './Hamburger';
 import MenuDrawer from './MenuDrawer';
 
@@ -23,8 +24,10 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const hasCrossedThreshold = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 0,
+    threshold: 20,
   });
+  const windowScroll = useWindowScroll();
+
   const isAboveMd = useMediaQuery<Theme>(t => t.breakpoints.up('md'));
   const scrollDirection = useScrollDirection();
 
@@ -57,9 +60,11 @@ const Navbar: React.FC = () => {
         [styles.darkTheme]: theme === 'dark',
       })}
     >
+      <Collapse in={windowScroll.y === 0 && !menuOpen}>
+        <SummerCampBanner className={styles.banner} />
+      </Collapse>
       <Slide direction="down" in={isScrollingDown}>
         <div>
-          <SummerCampBanner className={cn(styles.banner, { [styles.hidden]: hasCrossedThreshold || menuOpen })} />
           <Container className={styles.container} maxWidth="xl" disableGutters>
             <Grid alignItems="center" className={styles.topBar} justify="space-between" container>
               <Hamburger onToggle={toggleMenu} open={menuOpen} classes={{ bar: styles.bar }} />
