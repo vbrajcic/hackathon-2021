@@ -53,11 +53,11 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <Hyperlink href="summer-camp">
-        <Collapse in={!menuOpen}>
+      <Collapse in={!menuOpen}>
+        <Hyperlink href="summer-camp">
           <SummerCampBanner className={styles.banner} />
-        </Collapse>
-      </Hyperlink>
+        </Hyperlink>
+      </Collapse>
       <Grid
         className={cn(styles.root, {
           [styles.painted]: (hasCrossedThreshold && isScrollingDown) || menuOpen,
