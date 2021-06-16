@@ -54,7 +54,9 @@ const Navbar: React.FC = () => {
   return (
     <>
       <Collapse in={!menuOpen}>
-        <SummerCampBanner className={styles.banner} />
+        <Hyperlink href="summer-camp">
+          <SummerCampBanner className={styles.banner} />
+        </Hyperlink>
       </Collapse>
       <Grid
         className={cn(styles.root, {

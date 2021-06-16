@@ -8,7 +8,7 @@
   width: 100%;
   color: $white;
   box-shadow: $box-shadow__paper;
-  border-radius: rem-calc(30);
+  border-radius: rem-calc(26);
 
   @include media(0, 'md') {
     padding-left: rem-calc(16);
@@ -33,6 +33,8 @@
 
     min-width: rem-calc(70);
     height: rem-calc(70);
+    border-radius: rem-calc(16.8);
+    box-shadow: rem-calc(1 1 27) rgba(63, 62, 74, 0.1);
 
     .stepNumber {
       font-size: rem-calc(36);
@@ -49,8 +51,6 @@
 
     .step {
       background: $orange-200;
-      box-shadow: rem-calc(1 1 27) rgba(63, 62, 74, 0.1);
-      border-radius: rem-calc(16);
     }
   }
 
@@ -70,8 +70,6 @@
 
     .step {
       background: $yellow-200;
-      box-shadow: rem-calc(1 1 27) rgba(63, 62, 74, 0.1);
-      border-radius: rem-calc(16);
     }
   }
 
@@ -84,8 +82,6 @@
 
     .step {
       background: $blue-200;
-      box-shadow: 1px 1px 27px rgba(63, 62, 74, 0.1);
-      border-radius: rem-calc(16.8);
     }
   }
 }
