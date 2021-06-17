@@ -3,7 +3,7 @@ import Intro from 'components/Intro';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Colors from 'styles/Colors';
+import careersHeroCards from 'config/careersHeroCards';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 import HeroCard from './HeroCard';
@@ -46,9 +46,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ numberOfOpenPositions }) => {
           </Button>
         </Intro>
         <Grid className={styles.cardsContainer}>
-          <HeroCard color={Colors.muted} text="Design systems" />
-          <HeroCard color="#2ACDA3" text="Kick ass IoT implementations" isSpecial />
-          <HeroCard color={Colors.textPrimary} text="Killer web and mobile apps" />
+          {careersHeroCards.map(cards => (
+            <HeroCard key={cards.id} {...cards} />
+          ))}
         </Grid>
       </Container>
     </Grid>
