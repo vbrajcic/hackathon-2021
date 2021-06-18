@@ -1,26 +1,26 @@
 import React, { FC, SVGProps } from 'react';
 
 const DesignFull: FC<SVGProps<SVGSVGElement>> = props => (
-  <svg width="331px" height="339px" {...props}>
-    <title>Group 19</title>
+  <svg width="329px" height="337px" viewBox="0 0 329 337" version="1.1" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <title>Group 6</title>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <g id="Home_1440" transform="translate(-414.000000, -1242.000000)">
-        <g id="Oval" transform="translate(401.000000, 1200.000000)">
-          <g id="Group-19" transform="translate(14.000000, 43.000000)">
-            <path
-              d="M329,337 L205.625,0 L118.754213,0 L0,337 L77.1671348,337 L97.0365169,278.290809 L227.804775,278.290809 L247.212079,337 L329,337 Z M129.88,182.588997 L162.54,78 L165.3,78 L196.12,182.588997 L209,221 L117,221 L129.88,182.588997 Z"
-              id="A"
-              stroke="#DA7067"
-              opacity="0.5"
-              fillRule="nonzero"
-            />
-            <g id="Group-16" transform="translate(10.000000, 185.000000)">
-              <g id="Group" fill="#DA7067">
+      <g id="Home_1680" transform="translate(-476.000000, -1247.000000)">
+        <g id="Group-15" transform="translate(60.000000, 1200.000000)">
+          <g id="Oval" transform="translate(400.000000, 0.000000)">
+            <g id="Group-6" transform="translate(16.000000, 47.000000)">
+              <path
+                d="M329,337 L205.625,0 L118.754213,0 L0,337 L77.1671348,337 L97.0365169,278.290809 L227.804775,278.290809 L247.212079,337 L329,337 Z M129.88,182.588997 L162.54,78 L165.3,78 L196.12,182.588997 L209,221 L117,221 L129.88,182.588997 Z"
+                id="A"
+                fill="#DA7067"
+                fillRule="nonzero"
+                opacity="0.200000003"
+              />
+              <g id="Group" transform="translate(10.000000, 185.000000)" fill="#DA7067">
                 <circle id="Oval" cx="35" cy="35" r="35" />
               </g>
               <g
                 id="Group"
-                transform="translate(23.000000, 18.000000)"
+                transform="translate(33.000000, 203.000000)"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2.25"

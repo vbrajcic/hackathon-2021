@@ -26,11 +26,11 @@ const HeroSection: React.FC = () => (
       </Intro>
       <Grid className={styles.imageWrapper}>
         <Image
-          src={addAssetPrefix('/images/hero-section-image.png')}
+          src={addAssetPrefix('/images/hero-image.png')}
           alt="hero-image"
           layout="responsive"
-          height="579"
-          width="421"
+          height="1398"
+          width="1510"
         />
       </Grid>
     </Container>

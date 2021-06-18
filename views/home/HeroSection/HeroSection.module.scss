@@ -1,21 +1,6 @@
 @import 'styles/mixins/flex';
 
 .root {
-  @include media('md') {
-    &::before {
-      content: '';
-      position: absolute;
-      margin-top: -($navTopBarHeight);
-      top: 0;
-      right: 0;
-      max-height: rem-calc(730);
-      height: 100%;
-      width: 65%;
-      background-color: $grey-100;
-      z-index: -1;
-    }
-  }
-
   .container {
     @include flex($justify: space-between);
 
@@ -50,7 +35,6 @@
     }
 
     .imageWrapper {
-      max-width: 40%;
       min-width: rem-calc(335);
       width: 100%;
       margin-top: rem-calc(50);

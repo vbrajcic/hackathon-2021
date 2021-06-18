@@ -43,7 +43,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) 
           {icon === 'Mobile' && (
             <MobileFull
               className={cn(styles.iconWithBackground, styles.left)}
-              style={{ transform: 'translateY(-113px)' }}
+              style={{ transform: 'translateY(-350px)' }}
             />
           )}
           {icon === 'Design' && (
@@ -67,7 +67,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) 
         <Typography variant="body1" className={styles.title}>
           {name}
         </Typography>
-        <Typography variant="body2">{description}</Typography>
+        <Typography className={styles.subtitle} variant="body2">
+          {description}
+        </Typography>
       </div>
     </Card>
   );
