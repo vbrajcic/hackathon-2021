@@ -1,8 +1,8 @@
 import React from 'react';
-import Alien from 'components/SvgIcons/Alien';
-import ReactOutlined from 'components/SvgIcons/ReactOutlined';
-import RocketOutlined from 'components/SvgIcons/RocketOutlined';
-import TestTube from 'components/SvgIcons/TestTube';
+import Target from 'components/SvgIcons/Target';
+import CustomerCenter from 'components/SvgIcons/CustomerCenter';
+import RatingStar from 'components/SvgIcons/RatingStar';
+import HandHeart from 'components/SvgIcons/HandHeart';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
@@ -16,10 +16,10 @@ interface CoreValueCardProps {
 }
 
 const IconMap: { [key in CoreValueIcon]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
-  ALIEN: Alien,
-  REACT: ReactOutlined,
-  ROCKET: RocketOutlined,
-  TEST_TUBE: TestTube,
+  EMPATHY: HandHeart,
+  TARGET: Target,
+  STAR: RatingStar,
+  CUSTOMER: CustomerCenter,
 };
 
 const CoreValueCard: React.FC<CoreValueCardProps> = ({ value, index }) => {

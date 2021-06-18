@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { Frontend, FullStack, ProductManager, QAEngineer } from 'components/SvgIcons/JobPositions';
+import { Frontend, FullStack, ProductManager, QAEngineer, Designer, Backend } from 'components/SvgIcons/JobPositions';
 
 export type JobType = 'FULL_STACK' | 'FRONTEND' | 'BACKEND' | 'PRODUCT_MANAGER' | 'QA_ENGINEER' | 'DESIGNER';
 
@@ -24,7 +24,7 @@ const jobPositions: JobPosition[] = [
   },
   {
     id: 'BACKEND',
-    icon: Frontend,
+    icon: Backend,
     tag: 'Backend',
   },
   {
@@ -39,7 +39,7 @@ const jobPositions: JobPosition[] = [
   },
   {
     id: 'DESIGNER',
-    icon: FullStack,
+    icon: Designer,
     tag: 'Design',
   },
 ];
