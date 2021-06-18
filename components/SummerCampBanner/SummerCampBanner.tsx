@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Hyperlink from 'components/Hyperlink';
 import cx from 'clsx';
 
 import { Typography, Grid, Button, Box } from '@material-ui/core';
@@ -40,16 +39,11 @@ const SummerCampBanner: React.FC<SummerCampBannerProps> = ({ className }) => {
         </Typography>
       </Box>
       <Box className={styles.buttonWrapper}>
-        <Hyperlink
-          href="summer-camp"
-          component={
-            <Button className={styles.button} size="small" classes={{ startIcon: styles.startIcon }} color="secondary">
-              <Typography variant="overline" className={styles.btnText}>
-                Find out more
-              </Typography>
-            </Button>
-          }
-        />
+        <Button className={styles.button} size="small" classes={{ startIcon: styles.startIcon }} color="secondary">
+          <Typography variant="overline" className={styles.btnText}>
+            Find out more
+          </Typography>
+        </Button>
       </Box>
     </div>
   );
