@@ -10,7 +10,7 @@ const selectionSteps: SelectionStep[] = [
     id: 'apply',
     step: '01',
     title: 'Apply',
-    subtitle: 'Via form on this page. Applications close on June 26.',
+    subtitle: 'Via form on this page. Applications close on July 1.',
   },
   {
     id: 'talk',
