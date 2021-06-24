@@ -37,7 +37,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, icon }) 
           {icon === 'ProductStrategy' && (
             <ProductStrategyFull
               className={cn(styles.iconWithBackground, styles.right)}
-              style={{ transform: 'translateY(-44px)' }}
+              style={{ transform: 'translateY(-54px)' }}
             />
           )}
           {icon === 'Mobile' && (
