@@ -26,6 +26,7 @@
       border-radius: rem-calc(20);
       box-shadow: 0 5px 13px 0 rgba(63, 62, 74, 0.04);
     }
+
     @include media(0, 'sm') {
       height: rem-calc(300);
     }

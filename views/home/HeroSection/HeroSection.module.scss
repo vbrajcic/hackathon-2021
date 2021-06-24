@@ -6,6 +6,7 @@
 
     @include media(0, 'md') {
       @include flex(column);
+
       margin-bottom: rem-calc(405);
     }
 
