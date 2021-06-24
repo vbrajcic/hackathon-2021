@@ -48,7 +48,7 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '5mb',
+      sizeLimit: '7mb',
     },
   },
 };
