@@ -33,6 +33,10 @@ export class FormValidator {
       return true;
     }
 
+    if (!acceptedMimeTypes.includes(file.type)) {
+      return 'Invalid file type.';
+    }
+
     const maxAllowedSize = 5 * 1024 * 1024;
 
     if (file.size > maxAllowedSize) {
