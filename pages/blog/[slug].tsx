@@ -34,6 +34,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
       preview={preview}
       theme="dark"
       title={post?.title}
+      image={post.featuredImage?.node?.sourceUrl}
+      description={post?.excerpt.replace('<p>', '').replace('</p>', '').trim()}
       FooterProps={{ bgColor: !isMobile ? 'grey' : undefined }}
     >
       {router.isFallback ? (
