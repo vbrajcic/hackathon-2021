@@ -6,6 +6,7 @@
     @include media(0, 'sm') {
       background-color: $white;
       padding: 0;
+      margin-top: -170px;
     }
 
     @include media('sm', 'lg') {

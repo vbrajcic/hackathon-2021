@@ -4,22 +4,12 @@
   .container {
     @include flex($justify: space-between);
 
+    overflow-x: hidden;
+
     @include media(0, 'md') {
       @include flex(column);
 
-      margin-bottom: rem-calc(405);
-    }
-
-    @include media(0, 380px) {
-      margin-bottom: rem-calc(360);
-    }
-
-    @include media(0, 340px) {
-      margin-bottom: rem-calc(300);
-    }
-
-    @include media(0, 320px) {
-      margin-bottom: rem-calc(280);
+      margin-bottom: rem-calc(0);
     }
 
     .intro {
@@ -27,7 +17,7 @@
       margin-top: rem-calc(40);
 
       @include media('md', 'lg') {
-        max-width: rem-calc(510);
+        min-width: rem-calc(510);
         margin-bottom: rem-calc(117);
       }
 
@@ -37,13 +27,10 @@
         margin-bottom: rem-calc(178);
       }
 
-      @include media(0, 'lg') {
-        margin-top: 0;
-        padding-top: rem-calc(50);
-      }
-
       @include media(0, 'md') {
         max-width: 100%;
+        margin-top: 0;
+        padding-top: rem-calc(50);
       }
 
       .button {
@@ -56,35 +43,21 @@
     }
 
     .imageWrapper {
-      min-width: rem-calc(335);
-      width: 125%;
+      width: 100%;
+      margin-top: rem-calc(45);
 
-      @include media(1440px) {
-        position: absolute;
-        width: 45%;
-        transform: translateX(810px);
+      @include media(1680px) {
+        margin-left: rem-calc(70);
       }
 
-      @include media('lg') {
-        margin-top: rem-calc(45);
-      }
-
-      @include media('lg', 1320px) {
-        position: absolute;
-        width: 50%;
-        transform: translateX(600px);
-      }
-
-      @include media(1320px, 1440px) {
-        position: absolute;
-        width: 62%;
-        transform: translateX(630px);
+      @include media('lg', 1680px) {
+        margin-left: -100px;
+        min-width: rem-calc(912);
       }
 
       @include media('md', 'lg') {
-        position: absolute;
-        width: 75%;
-        transform: translateX(390px);
+        min-width: rem-calc(750);
+        margin-left: -120px;
       }
 
       @include media('sm', 'md') {
@@ -92,22 +65,10 @@
       }
 
       @include media(0, 'sm') {
-        width: 135%;
-        margin-top: 0;
-        position: absolute;
+        margin-top: -375px;
+        width: calc(140% + 32px);
+        margin-left: calc(16px - 30%);
         z-index: -1;
-        top: rem-calc(247);
-        transform: translateX(-98px);
-      }
-
-      @include media(0, 380px) {
-        top: rem-calc(260);
-        transform: translateX(-80px);
-      }
-
-      @include media(0, 320px) {
-        top: rem-calc(280);
-        transform: translateX(-70px);
       }
     }
   }
