@@ -6,6 +6,7 @@
     @include media(0, 'sm') {
       background-color: $white;
       padding: 0;
+      margin-top: rem-calc(-170);
     }
 
     @include media('sm', 'lg') {
@@ -14,8 +15,8 @@
 
     .textWrapper {
       @include media(0, 'md') {
-        padding-left: 20px;
-        padding-top: 65px;
+        padding-left: rem-calc(20);
+        padding-top: rem-calc(65);
       }
 
       @include media('lg') {

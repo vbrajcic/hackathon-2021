@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
             <Image
               src={addAssetPrefix('/images/hero-image-1440.png')}
               alt="hero-image"
-              className={styles.image}
+              layout="responsive"
               height="701"
               width="906"
             />
@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
             <Image
               src={addAssetPrefix('/images/hero-image.png')}
               alt="hero-image"
-              className={styles.image}
+              layout="responsive"
               height="1398"
               width="1510"
             />
