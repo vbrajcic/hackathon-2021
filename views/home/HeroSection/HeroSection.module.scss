@@ -51,13 +51,13 @@
       }
 
       @include media('lg', 1680px) {
-        margin-left: -100px;
+        margin-left: rem-calc(-100);
         min-width: rem-calc(912);
       }
 
       @include media('md', 'lg') {
         min-width: rem-calc(750);
-        margin-left: -120px;
+        margin-left: rem-calc(-120);
       }
 
       @include media('sm', 'md') {
@@ -65,7 +65,7 @@
       }
 
       @include media(0, 'sm') {
-        margin-top: -375px;
+        margin-top: rem-calc(-375);
         width: calc(140% + 32px);
         margin-left: calc(16px - 30%);
         z-index: -1;
