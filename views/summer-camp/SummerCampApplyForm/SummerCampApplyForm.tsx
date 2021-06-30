@@ -115,6 +115,7 @@ const SummerCampApplyForm: React.FC = () => {
                     validate={FormValidator.isNotEmpty}
                     className={styles.input}
                     fullWidth
+                    disabled
                   />
                   <FormInput
                     name="phone"
@@ -122,6 +123,7 @@ const SummerCampApplyForm: React.FC = () => {
                     validate={FormValidator.all(FormValidator.isNotEmpty, FormValidator.isValidPhoneNumber)}
                     className={styles.input}
                     fullWidth
+                    disabled
                   />
                   <FormInput
                     name="email"
@@ -129,6 +131,7 @@ const SummerCampApplyForm: React.FC = () => {
                     validate={FormValidator.all(FormValidator.isNotEmpty, FormValidator.isValidEmail)}
                     className={styles.input}
                     fullWidth
+                    disabled
                   />
                   <FormInput
                     validate={FormValidator.isNotEmpty}
@@ -155,6 +158,7 @@ const SummerCampApplyForm: React.FC = () => {
                     }}
                     fullWidth
                     select
+                    disabled
                   >
                     {fieldsOfInterest.map(field => (
                       <MenuItem key={field} value={field} className={styles.dropdownItem}>
@@ -174,6 +178,7 @@ const SummerCampApplyForm: React.FC = () => {
                           inputProps={{ accept: acceptedMimeTypes }}
                           style={{ display: 'none' }}
                           onChange={handleUpload}
+                          disabled
                         />
                         <label htmlFor="cv-file-input">
                           <Button
@@ -211,6 +216,7 @@ const SummerCampApplyForm: React.FC = () => {
                           inputProps={{ accept: acceptedMimeTypes }}
                           style={{ display: 'none' }}
                           onChange={handleUpload}
+                          disabled
                         />
                         <label htmlFor="motivation-letter-file-input">
                           <Button
@@ -240,11 +246,11 @@ const SummerCampApplyForm: React.FC = () => {
                     type="submit"
                     classes={{ disabled: styles.disabled }}
                     startIcon={null}
-                    disabled={isSubmitting}
+                    disabled
                     className={styles.submitButton}
                   >
                     <Typography variant="h5" component="span">
-                      {isSubmitting ? 'Sending...' : 'Apply'}
+                      {isSubmitting ? 'Sending...' : 'Applications are now closed'}
                     </Typography>
                   </Button>
                 </>
