@@ -38,7 +38,7 @@ const Intro: React.FC = () => {
         Apply now
       </Button>
       <Typography variant="body2" className={styles.disclaimer}>
-        Applications close on June 26
+        Applications are now closed.
       </Typography>
     </Grid>
   );
