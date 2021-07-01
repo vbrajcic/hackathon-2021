@@ -3,7 +3,7 @@ import selectionSteps, { SelectionStep } from 'config/selectionSteps';
 import cx from 'clsx';
 
 import { Box, Grid, Typography } from '@material-ui/core';
-import { isBefore, isWithinInterval } from 'date-fns';
+import { isBefore } from 'date-fns';
 
 import SelectionCard from './SelectionCard';
 
@@ -12,16 +12,11 @@ import styles from './SelectionProcess.module.scss';
 const getCurrentStage = (): SelectionStep['id'] => {
   const now = new Date();
 
-  if (isBefore(now, new Date(2021, 6, 12))) {
+  if (isBefore(now, new Date(2021, 5, 30))) {
     return 'apply';
   }
 
-  if (
-    isWithinInterval(now, {
-      start: new Date(2021, 6, 12),
-      end: new Date(2021, 6, 21),
-    })
-  ) {
+  if (isBefore(now, new Date(2021, 6, 19))) {
     return 'talk';
   }
 

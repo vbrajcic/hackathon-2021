@@ -20,6 +20,7 @@ const Intro: React.FC = () => {
       });
     }
   };
+
   return (
     <Grid className={styles.container}>
       <Typography variant="h1" className={styles.title}>
@@ -38,7 +39,7 @@ const Intro: React.FC = () => {
         Apply now
       </Button>
       <Typography variant="body2" className={styles.disclaimer}>
-        Applications are now closed.
+        Applications close on July 1
       </Typography>
     </Grid>
   );
