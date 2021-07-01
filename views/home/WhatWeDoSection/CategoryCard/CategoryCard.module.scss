@@ -2,6 +2,7 @@
   &.container {
     width: rem-calc(300);
     border-radius: rem-calc(32);
+    box-shadow: $box-shadow__paper;
     margin-bottom: rem-calc(32);
     padding-bottom: rem-calc(48);
 
@@ -16,15 +17,21 @@
 
     @include media(0, 'lg') {
       min-height: rem-calc(280);
+      margin-bottom: rem-calc(20);
     }
 
     @include media(0, 'md') {
       width: 100%;
-      border-radius: rem-calc(16);
+      border-radius: rem-calc(20);
+      box-shadow: 0 5px 13px 0 rgba(63, 62, 74, 0.04);
+    }
+
+    @include media(0, 'sm') {
+      height: rem-calc(300);
     }
 
     .iconContainer {
-      height: rem-calc(200);
+      height: rem-calc(215);
       margin-bottom: rem-calc(48);
       overflow: hidden;
     }
@@ -49,6 +56,7 @@
 
       @include media(0, 'md') {
         margin-left: rem-calc(16);
+        margin-top: rem-calc(20);
       }
     }
 
@@ -62,6 +70,9 @@
       .title {
         font-weight: bold;
         margin-bottom: rem-calc(16);
+      }
+      .subtitle {
+        color: $muted;
       }
     }
   }

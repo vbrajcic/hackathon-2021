@@ -20,6 +20,7 @@ const Intro: React.FC = () => {
       });
     }
   };
+
   return (
     <Grid className={styles.container}>
       <Typography variant="h1" className={styles.title}>

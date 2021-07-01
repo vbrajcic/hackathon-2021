@@ -1,43 +1,36 @@
 @import 'styles/mixins/flex';
 
 .root {
-  @include media('md') {
-    &::before {
-      content: '';
-      position: absolute;
-      margin-top: -($navTopBarHeight);
-      top: 0;
-      right: 0;
-      max-height: rem-calc(730);
-      height: 100%;
-      width: 65%;
-      background-color: $grey-100;
-      z-index: -1;
-    }
-  }
-
   .container {
     @include flex($justify: space-between);
 
+    overflow-x: hidden;
+
     @include media(0, 'md') {
       @include flex(column);
+
+      margin-bottom: rem-calc(0);
     }
 
     .intro {
       max-width: rem-calc(712);
       margin-top: rem-calc(40);
 
-      @include media('lg') {
-        margin-left: rem-calc(60);
+      @include media('md', 'lg') {
+        min-width: rem-calc(510);
+        margin-bottom: rem-calc(117);
       }
 
-      @include media(0, 'lg') {
-        margin-top: 0;
-        padding-top: rem-calc(50);
+      @include media(1300px) {
+        margin-left: rem-calc(60);
+        min-width: rem-calc(644);
+        margin-bottom: rem-calc(178);
       }
 
       @include media(0, 'md') {
         max-width: 100%;
+        margin-top: 0;
+        padding-top: rem-calc(50);
       }
 
       .button {
@@ -50,21 +43,32 @@
     }
 
     .imageWrapper {
-      max-width: 40%;
-      min-width: rem-calc(335);
       width: 100%;
-      margin-top: rem-calc(50);
+      margin-top: rem-calc(45);
+
+      @include media(1680px) {
+        margin-left: rem-calc(70);
+      }
+
+      @include media('lg', 1680px) {
+        margin-left: rem-calc(-100);
+        min-width: rem-calc(912);
+      }
+
+      @include media('md', 'lg') {
+        min-width: rem-calc(750);
+        margin-left: rem-calc(-120);
+      }
 
       @include media('sm', 'md') {
         display: none;
       }
 
       @include media(0, 'sm') {
-        margin-top: 0;
-      }
-
-      @include media(0, 350px) {
-        min-width: rem-calc(300);
+        margin-top: rem-calc(-375);
+        width: calc(140% + 32px);
+        margin-left: calc(16px - 30%);
+        z-index: -1;
       }
     }
   }

@@ -9,6 +9,7 @@ import PostTitle from 'components/PostTitle';
 import AuthorInfo from 'views/blog/AuthorInfo';
 import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
+import useFactory from 'utils/hooks/useFactory';
 import BlogPostContactForm from 'views/blog/BlogPostContactForm';
 
 import { getPostAndMorePosts } from 'lib/api';
@@ -25,6 +26,20 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
 
   const { isMobile } = useBreakpoint();
 
+  const metaImage = useFactory(() => {
+    if (post.featuredImage) {
+      return post.featuredImage.node.sourceUrl;
+    }
+    return undefined;
+  });
+
+  const metaDescription = useFactory(() => {
+    if (post.excerpt) {
+      return post.excerpt.replace('<p>', '').replace('</p>', '').trim();
+    }
+    return undefined;
+  });
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -34,6 +49,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
       preview={preview}
       theme="dark"
       title={post?.title}
+      image={metaImage}
+      description={metaDescription}
       FooterProps={{ bgColor: !isMobile ? 'grey' : undefined }}
     >
       {router.isFallback ? (
