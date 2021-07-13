@@ -47,7 +47,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
   return (
     <Layout
       preview={preview}
-      theme="dark"
+      theme="light"
       title={post?.title}
       image={metaImage}
       description={metaDescription}
@@ -63,7 +63,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <Head>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
-            <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />
+            <PostHeader
+              title={post.title}
+              author={post.author.node}
+              content={post.content}
+              featuredImage={post.featuredImage}
+            />
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <AuthorInfo author={post.author.node} />

@@ -1,8 +1,6 @@
 .container {
-  background-color: $grey-100;
-  padding: rem-calc(0 5 169 5);
-  padding-top: calc(#{$navTopBarHeight} + 169px);
-  margin-top: -($navTopBarHeight);
+  padding-top: calc(#{$nav-top-bar-height} + 50px);
+  margin-top: -($nav-top-bar-height);
 
   &.static {
     padding-top: rem-calc(100);
@@ -12,26 +10,47 @@
   &.darkTheme {
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: inset 0 0 0 100vh rgba(33, 37, 41, 0.7);
 
     h1,
     p {
-      color: $white;
+      color: $black;
     }
   }
 
   .wrapper {
     width: 100%;
-    max-width: rem-calc(1000);
+    max-width: rem-calc(800);
+
+    @include media(0, 'md') {
+      padding: rem-calc(0 19 0 19);
+    }
+  }
+
+  .imageWrapper {
+    margin-top: rem-calc(65);
+    min-width: 100%;
+
+    @include media(0, 'md') {
+      margin-top: rem-calc(34);
+    }
+    .image {
+      display: block;
+      width: 100vw;
+      height: rem-calc(506);
+      object-fit: cover;
+
+      @include media(0, 'md') {
+        height: rem-calc(306);
+      }
+    }
   }
 
   @include media(0, 'md') {
-    padding: rem-calc(32 20 90 20);
-    padding-top: calc(#{$navTopBarHeight} + 32px);
+    padding-bottom: 0;
+    padding-top: calc(#{$nav-top-bar-height} + 32px);
   }
 
   @include media('md', 'lg') {
-    padding: rem-calc(74 20 156 20);
-    padding-top: calc(#{$navTopBarHeight} + 74px);
+    padding-top: calc(#{$nav-top-bar-height} + 74px);
   }
 }

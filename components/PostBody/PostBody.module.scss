@@ -6,11 +6,12 @@ $content-width: rem-calc(600);
   max-width: $full-width;
   margin-left: auto;
   margin-right: auto;
-  margin-top: rem-calc(86);
+  margin-top: rem-calc(79);
 
   @include media(0, 'md') {
     padding-left: rem-calc(20);
     padding-right: rem-calc(20);
+    margin-top: rem-calc(39);
   }
 
   .content {

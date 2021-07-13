@@ -15,7 +15,7 @@
     &::before {
       content: '';
       position: absolute;
-      margin-top: -($navTopBarHeight);
+      margin-top: -($nav-top-bar-height);
       top: 0;
       right: 0;
       height: 50rem;

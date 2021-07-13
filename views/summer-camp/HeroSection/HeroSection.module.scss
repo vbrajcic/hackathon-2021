@@ -3,8 +3,8 @@
 $light-blue: #36a8e1;
 
 .root {
-  padding-top: calc(#{$navTopBarHeight} + 25px);
-  margin-top: -($navTopBarHeight);
+  padding-top: calc(#{$nav-top-bar-height} + 25px);
+  margin-top: -($nav-top-bar-height);
   background-color: $blue-500;
 
   @include media('md') {
@@ -12,7 +12,7 @@ $light-blue: #36a8e1;
   }
 
   @include media('xl') {
-    padding-top: calc(#{$navTopBarHeight} + 155px);
+    padding-top: calc(#{$nav-top-bar-height} + 155px);
     background-size: 100vw 75vh;
   }
 
