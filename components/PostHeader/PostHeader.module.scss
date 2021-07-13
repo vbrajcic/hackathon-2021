@@ -1,6 +1,6 @@
 .container {
-  padding-top: calc(#{$navTopBarHeight} + 50px);
-  margin-top: -($navTopBarHeight);
+  padding-top: calc(#{$nav-top-bar-height} + 50px);
+  margin-top: -($nav-top-bar-height);
 
   &.static {
     padding-top: rem-calc(100);
@@ -47,10 +47,10 @@
 
   @include media(0, 'md') {
     padding-bottom: 0;
-    padding-top: calc(#{$navTopBarHeight} + 32px);
+    padding-top: calc(#{$nav-top-bar-height} + 32px);
   }
 
   @include media('md', 'lg') {
-    padding-top: calc(#{$navTopBarHeight} + 74px);
+    padding-top: calc(#{$nav-top-bar-height} + 74px);
   }
 }

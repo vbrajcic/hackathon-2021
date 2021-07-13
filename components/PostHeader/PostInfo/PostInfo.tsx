@@ -8,7 +8,7 @@ import styles from './PostInfo.module.scss';
 
 interface PostInfoProps {
   author: Author;
-  content: string | undefined;
+  content?: string;
 }
 
 const PostInfo: React.FC<PostInfoProps> = ({ author, content }) => {
@@ -16,6 +16,7 @@ const PostInfo: React.FC<PostInfoProps> = ({ author, content }) => {
     return null;
   }
   const timeLeft = estimateReadingTime(content);
+
   return (
     <Box className={styles.container}>
       <Avatar src={author.avatar.url} className={styles.avatar} alt={author.name} />

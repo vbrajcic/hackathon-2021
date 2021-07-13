@@ -16,7 +16,7 @@ interface PostHeaderProps {
   intro?: string;
   title: string;
   author: Author;
-  content: string | undefined;
+  content?: string;
   featuredImage?: Node<FeaturedImage>;
   template?: 'static' | undefined;
 }
