@@ -36,7 +36,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, author, content, 
         <PostInfo author={author} content={content} />
       </Grid>
       <Box className={styles.imageWrapper}>
-        <img className={styles.image} src={featuredImage?.node?.sourceUrl} alt="blogImage" />
+        <img className={styles.image} src={featuredImage?.node?.sourceUrl} alt={title} />
       </Box>
     </Grid>
   );
