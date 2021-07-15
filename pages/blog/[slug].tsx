@@ -3,7 +3,7 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import PostBody from 'components/PostBody';
-import PostHeader from 'components/PostHeader';
+import BlogHeader from 'components/BlogHeader';
 import Layout from 'components/Layout';
 import PostTitle from 'components/PostTitle';
 import AuthorInfo from 'views/blog/AuthorInfo';
@@ -63,7 +63,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <Head>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
-            <PostHeader
+            <BlogHeader
               title={post.title}
               author={post.author.node}
               content={post.content}

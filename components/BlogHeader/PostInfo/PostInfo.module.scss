@@ -14,8 +14,11 @@
     font-weight: 500;
     color: rgba(0, 0, 0, 0.5);
 
-    @include media(0, 'md') {
+    @include media('sm', 'md') {
       margin-left: rem-calc(156);
+    }
+    @include media(0, 'sm') {
+      margin-left: auto;
     }
   }
 }
