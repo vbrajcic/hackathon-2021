@@ -44,6 +44,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
     return <ErrorPage statusCode={404} />;
   }
 
+  const mobileImage = post.image?.thumbnailImage || post.featuredImage?.node;
+
   return (
     <Layout
       preview={preview}
@@ -67,7 +69,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
               title={post.title}
               author={post.author.node}
               content={post.content}
-              featuredImage={post.featuredImage}
+              featuredImage={isMobile ? mobileImage : post.featuredImage?.node}
             />
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />

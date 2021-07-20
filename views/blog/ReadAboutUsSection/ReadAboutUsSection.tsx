@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import useFactory from 'utils/hooks/useFactory';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import Teaser from 'components/Teaser';
+import teaserStyle from 'components/Teaser/Teaser.module.scss';
 
 import { useUpdateEffect } from 'react-use';
 import { Grid } from '@material-ui/core';
@@ -67,9 +68,10 @@ const ReadAboutUsSection: React.FC<ReadAboutUsSectionProps> = ({
           <Teaser
             title={featuredPost.title}
             excerpt={featuredPost.excerpt}
-            coverImage={featuredPost.featuredImage?.node}
+            coverImage={featuredPost.image?.thumbnailImage || featuredPost.featuredImage?.node}
             url={`/blog/${featuredPost.slug}`}
             direction={isMobile ? 'column' : 'row'}
+            classes={{ media: teaserStyle.noLeftBorder }}
           />
         </Grid>
       )}

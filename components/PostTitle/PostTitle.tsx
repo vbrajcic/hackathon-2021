@@ -10,7 +10,7 @@ interface PostTitleProps {
 }
 
 const PostTitle: React.FC<PostTitleProps> = ({ intro, title }) => (
-  <Typography variant="h2" className={styles.container}>
+  <Typography variant="h1" className={styles.container}>
     {intro && (
       <Typography color="secondary" variant="h1" component="span">
         {intro}
