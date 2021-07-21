@@ -57,6 +57,6 @@ $breakpoints: (
   xl: 1680px,
 );
 $max-width: map-get($breakpoints, 'xl');
-$navTopBarHeight: rem-calc(84);
+$nav-top-bar-height: rem-calc(84);
 $border-radius__md: rem-calc(40);
 $border-radius__lg: rem-calc(60);

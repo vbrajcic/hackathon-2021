@@ -11,7 +11,7 @@ import { useTheme } from 'utils/context/ThemeContext';
 
 import styles from './PostHeader.module.scss';
 
-interface PostHeaderProps {
+interface CareerHeaderProps {
   intro?: string;
   title: string;
   excerpt: string;
@@ -19,7 +19,7 @@ interface PostHeaderProps {
   template?: 'static' | undefined;
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, excerpt, featuredImage, template }) => {
+const CareerHeader: React.FC<CareerHeaderProps> = ({ intro, title, excerpt, featuredImage, template }) => {
   const { theme } = useTheme();
 
   return (
@@ -38,4 +38,4 @@ const PostHeader: React.FC<PostHeaderProps> = ({ intro, title, excerpt, featured
   );
 };
 
-export default PostHeader;
+export default CareerHeader;

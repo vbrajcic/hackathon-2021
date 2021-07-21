@@ -1,3 +1,8 @@
 .container {
   word-break: break-word;
+  max-width: rem-calc(750);
+
+  @include media(0, 'sm') {
+    max-width: rem-calc(310);
+  }
 }

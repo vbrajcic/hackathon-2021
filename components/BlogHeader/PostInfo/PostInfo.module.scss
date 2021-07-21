@@ -1,0 +1,24 @@
+@import 'styles/mixins/flex';
+
+.container {
+  @include flex($align: center);
+
+  margin-top: rem-calc(37);
+
+  .name {
+    margin-left: rem-calc(15);
+    font-weight: bold;
+  }
+  .timeLeft {
+    margin-left: rem-calc(174);
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+
+    @include media('sm', 'md') {
+      margin-left: rem-calc(156);
+    }
+    @include media(0, 'sm') {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 .container {
   background-color: $grey-100;
   padding: rem-calc(0 5 169 5);
-  padding-top: calc(#{$navTopBarHeight} + 169px);
-  margin-top: -($navTopBarHeight);
+  padding-top: calc(#{$nav-top-bar-height} + 169px);
+  margin-top: -($nav-top-bar-height);
 
   &.static {
     padding-top: rem-calc(100);
@@ -27,11 +27,11 @@
 
   @include media(0, 'md') {
     padding: rem-calc(32 20 90 20);
-    padding-top: calc(#{$navTopBarHeight} + 32px);
+    padding-top: calc(#{$nav-top-bar-height} + 32px);
   }
 
   @include media('md', 'lg') {
     padding: rem-calc(74 20 156 20);
-    padding-top: calc(#{$navTopBarHeight} + 74px);
+    padding-top: calc(#{$nav-top-bar-height} + 74px);
   }
 }

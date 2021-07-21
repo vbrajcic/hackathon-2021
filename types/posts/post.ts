@@ -17,6 +17,9 @@ type Post = {
   tags?: Edges<Tag>;
   content?: string;
   revisions?: Edges<Revision>;
+  image?: {
+    thumbnailImage: FeaturedImage;
+  };
 };
 
 export default Post;

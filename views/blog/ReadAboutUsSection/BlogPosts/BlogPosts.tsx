@@ -17,7 +17,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => (
           <Teaser
             title={post.title}
             excerpt={post.excerpt}
-            coverImage={post.featuredImage?.node}
+            coverImage={post.image?.thumbnailImage || post.featuredImage?.node}
             url={`/blog/${post.slug}`}
             classes={{ root: styles.teaser, media: styles.media }}
           />

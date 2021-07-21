@@ -3,7 +3,7 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import PostBody from 'components/PostBody';
-import PostHeader from 'components/PostHeader';
+import BlogHeader from 'components/BlogHeader';
 import Layout from 'components/Layout';
 import PostTitle from 'components/PostTitle';
 import AuthorInfo from 'views/blog/AuthorInfo';
@@ -44,10 +44,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
     return <ErrorPage statusCode={404} />;
   }
 
+  const mobileImage = post.image?.thumbnailImage || post.featuredImage?.node;
+
   return (
     <Layout
       preview={preview}
-      theme="dark"
+      theme="light"
       title={post?.title}
       image={metaImage}
       description={metaDescription}
@@ -63,7 +65,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
             <Head>
               <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
             </Head>
-            <PostHeader title={post.title} excerpt={post.excerpt} featuredImage={post.featuredImage} />
+            <BlogHeader
+              title={post.title}
+              author={post.author.node}
+              content={post.content}
+              featuredImage={isMobile ? mobileImage : post.featuredImage?.node}
+            />
             <Container maxWidth="xl" disableGutters>
               <PostBody content={post.content} />
               <AuthorInfo author={post.author.node} />
