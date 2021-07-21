@@ -42,6 +42,10 @@
 
         .image {
           height: rem-calc(510);
+
+          &.noLeftBorder {
+            border-top-left-radius: 0;
+          }
         }
 
         @include media(0, 'sm') {

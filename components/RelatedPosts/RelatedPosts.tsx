@@ -27,7 +27,7 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ posts, page }) => {
           <Teaser
             key={node.slug}
             title={node.title}
-            coverImage={node.featuredImage?.node}
+            coverImage={node.image?.thumbnailImage || node.featuredImage?.node}
             url={`/${page}/${node.slug}`}
             excerpt={node.excerpt}
           />

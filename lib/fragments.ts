@@ -23,6 +23,11 @@ export const REGULAR_POST_FIELDS_FRAGMENT = `
         sourceUrl
       }
     }
+    image {
+      thumbnailImage {
+        sourceUrl
+      }
+    }
     author {
       node {
         ...AuthorFields

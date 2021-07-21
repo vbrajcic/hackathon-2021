@@ -18,12 +18,14 @@
   }
 
   br {
-    @include media(0, 'md') {
-      display: none;
-    }
+    display: none;
   }
 
   h2 {
+    line-height: rem-calc(80);
+    @include media(0, 'lg') {
+      line-height: 1;
+    }
     @include media(0, 'md') {
       font-size: rem-calc(48);
       line-height: rem-calc(48);
@@ -49,7 +51,7 @@
     .image {
       display: block;
       width: 100vw;
-      height: rem-calc(506);
+      max-height: rem-calc(600);
       object-fit: cover;
 
       @include media(0, 'md') {
