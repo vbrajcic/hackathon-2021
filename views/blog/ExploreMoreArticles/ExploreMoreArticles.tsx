@@ -91,7 +91,7 @@ const ExploreMoreArticles: React.FC<ExploreMoreArticlesProps> = ({ posts }) => {
                 <Teaser
                   key={node.slug}
                   title={node.title}
-                  coverImage={node.featuredImage?.node}
+                  coverImage={node.image?.thumbnailImage || node.featuredImage?.node}
                   url={`/blog/${node.slug}`}
                   excerpt={node.excerpt}
                 />
