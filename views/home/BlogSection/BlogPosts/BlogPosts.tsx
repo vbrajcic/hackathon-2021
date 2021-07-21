@@ -28,7 +28,7 @@ const BlogPosts: React.FC = () => {
             <Teaser
               title={post.title}
               excerpt={post.excerpt}
-              coverImage={post.featuredImage?.node}
+              coverImage={post.image?.thumbnailImage || post.featuredImage?.node}
               tags={post.tags}
               url={`/blog/${post.slug}`}
             />
