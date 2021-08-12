@@ -3,6 +3,7 @@ import Author from 'types/posts/author';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 import { Avatar, Grid, Paper, Typography } from '@material-ui/core';
+import { getAuthorImage, getAuthorInitials, getAuthorName } from 'utils/static/postHelpers';
 
 import styles from './AuthorInfo.module.scss';
 
@@ -12,13 +13,6 @@ interface AuthorInfoProps {
 
 const AuthorInfo: React.FC<AuthorInfoProps> = ({ author }) => {
   const Breakpoint = useBreakpoint();
-  const initials = React.useMemo(() => {
-    if (author.firstName && author.lastName) {
-      return author.firstName.charAt(0).toUpperCase() + author.lastName.charAt(0).toUpperCase();
-    }
-
-    return author.name.charAt(0).toUpperCase();
-  }, [author]);
 
   const renderJobTitle = () =>
     author.jobTitle && (
@@ -29,13 +23,13 @@ const AuthorInfo: React.FC<AuthorInfoProps> = ({ author }) => {
 
   const renderName = () => (
     <Typography variant="subtitle1" component="h3" className={styles.name}>
-      {author.name}
+      {getAuthorName(author)}
     </Typography>
   );
 
   const renderAvatar = () => (
-    <Avatar src={author.avatar.url} className={styles.avatar} alt={author.name}>
-      {initials}
+    <Avatar src={getAuthorImage(author)} className={styles.avatar} alt={getAuthorName(author)}>
+      {getAuthorInitials(author)}
     </Avatar>
   );
 

@@ -7,6 +7,7 @@ type Author = {
   lastName?: string | null;
   description?: string | null;
   jobTitle?: string | null;
+  profilePictureUrl?: string | null;
 };
 
 export default Author;
