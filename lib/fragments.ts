@@ -8,6 +8,7 @@ export const AUTHOR_FIELDS_FRAGMENT = `
     }
     description
     jobTitle
+    profilePictureUrl
   }`;
 
 export const REGULAR_POST_FIELDS_FRAGMENT = `
