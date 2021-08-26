@@ -1,4 +1,4 @@
-$footer-height: 214px;
+$footer-height: rem-calc(214);
 
 .root {
   min-height: 100%;
@@ -11,7 +11,7 @@ $footer-height: 214px;
     }
 
     .item {
-      max-width: 30rem;
+      max-width: rem-calc(480);
 
       .ins {
         text-decoration: none;
@@ -19,7 +19,7 @@ $footer-height: 214px;
       }
 
       .button {
-        margin-top: 2rem;
+        margin-top: rem-calc(32)
       }
     }
   }
