@@ -1,0 +1,26 @@
+$footer-height: rem-calc(214);
+
+.root {
+  min-height: 100%;
+
+  .container {
+    height: calc(100vh - #{$nav-top-bar-height} - #{$footer-height});
+
+    @include media(0, 'sm') {
+      padding: rem-calc(0 20);
+    }
+
+    .item {
+      max-width: rem-calc(480);
+
+      .ins {
+        text-decoration: none;
+        vertical-align: middle;
+      }
+
+      .button {
+        margin-top: rem-calc(32)
+      }
+    }
+  }
+}
