@@ -19,9 +19,9 @@ export default async function career(req: NextApiRequest, res: NextApiResponse) 
   const mailOption = {
     from: `Profico Web <${email}>`,
     to: 'careers@profico.hr',
-    subject: `New career apply from Profico web`,
+    subject: `New career application from Profico web`,
     text: `FROM: ${email} MESSAGE: ${message}`,
-    html: `<h2>Career Apply</h2><p><strong>From: </strong> <a href="mailto:${email}">${email}</a></p><p><strong>Name: </strong>${name}</p><p><strong>Position: </strong>${position}</p><p><strong>Phone: </strong>${phone}</p><p><strong>Links to your Website/Github/Bitbucket: </strong>${repo}</p><p><strong>Tell us something about yourself: </strong>${message}</p>`,
+    html: `<h2>Career Application</h2><p><strong>From: </strong> <a href="mailto:${email}">${email}</a></p><p><strong>Name: </strong>${name}</p><p><strong>Position: </strong>${position}</p><p><strong>Phone: </strong>${phone}</p><p><strong>Links to your Website/Github/Bitbucket: </strong>${repo}</p><p><strong>Tell us something about yourself: </strong>${message}</p>`,
     attachments: [
       {
         path: cv,
