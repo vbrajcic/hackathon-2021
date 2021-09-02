@@ -1,6 +1,5 @@
 import React from 'react';
 import ErrorPage from 'next/error';
-import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import PostBody from 'components/PostBody';
 import PostHeader from 'components/PostHeader';
@@ -8,6 +7,7 @@ import Layout from 'components/Layout';
 import PostTitle from 'components/PostTitle';
 import ApplyForm from 'views/careers/ApplyForm';
 import EasterEggPostButton from 'views/careers/EasterEggPostButton';
+import useFactory from 'utils/hooks/useFactory';
 
 import { getPostAndMorePosts } from 'lib/api';
 import { GetServerSideProps } from 'next';
@@ -23,12 +23,26 @@ type CareerPostProps = GetPostAndMorePostsResult & {
 const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
   const router = useRouter();
 
+  const metaImage = useFactory(() => {
+    if (post.featuredImage) {
+      return post.featuredImage.node.sourceUrl;
+    }
+    return undefined;
+  });
+
+  const metaDescription = useFactory(() => {
+    if (post.excerpt) {
+      return post.excerpt.replace('<p>', '').replace('</p>', '').trim();
+    }
+    return undefined;
+  });
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview} title={post?.title}>
+    <Layout preview={preview} title={post?.title} image={metaImage} description={metaDescription}>
       {router.isFallback ? (
         <Container maxWidth="xl" disableGutters>
           <PostTitle title="Loading…" />
@@ -36,9 +50,6 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
       ) : (
         <>
           <article>
-            <Head>
-              <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
-            </Head>
             <PostHeader intro="We are hiring" title={post.title} excerpt={post.excerpt} />
             <Container className={styles.container} maxWidth="xl" disableGutters>
               <EasterEggPostButton slug={post.slug} tags={post.tags} />
