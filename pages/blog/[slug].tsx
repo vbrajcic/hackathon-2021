@@ -1,6 +1,5 @@
 import React from 'react';
 import ErrorPage from 'next/error';
-import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import PostBody from 'components/PostBody';
 import BlogHeader from 'components/BlogHeader';
@@ -62,9 +61,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
       ) : (
         <>
           <article>
-            <Head>
-              <meta property="og:image" content={post.featuredImage?.node?.sourceUrl} />
-            </Head>
             <BlogHeader
               title={post.title}
               author={post.author.node}
