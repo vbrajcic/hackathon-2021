@@ -4,6 +4,8 @@ import { fetchAPI } from './fetchAPI';
 import {
   GET_PREVIEW_POST,
   GET_ALL_POSTS_WITH_SLUG,
+  GET_ALL_BLOG_POSTS_WITH_SLUG,
+  GET_ALL_CARRERS_POSTS_WITH_SLUG,
   GET_ALL_CAREER_POSTS,
   GET_ALL_BLOG_POSTS,
   GetPostAndMorePostsResult,
@@ -24,6 +26,18 @@ export async function getPreviewPost(id: string | string[], idType = 'DATABASE_I
 
 export async function getAllPostsWithSlug() {
   const data = await fetchAPI<GetAllPostsWithSlugResult>(GET_ALL_POSTS_WITH_SLUG);
+
+  return data.posts;
+}
+
+export async function getAllBlogPostsWithSlug() {
+  const data = await fetchAPI<GetAllPostsWithSlugResult>(GET_ALL_BLOG_POSTS_WITH_SLUG);
+
+  return data.posts;
+}
+
+export async function getAllCarreersPostsWithSlug() {
+  const data = await fetchAPI<GetAllPostsWithSlugResult>(GET_ALL_CARRERS_POSTS_WITH_SLUG);
 
   return data.posts;
 }

@@ -29,6 +29,28 @@ export const GET_ALL_POSTS_WITH_SLUG = `
     }
   }`;
 
+  export const GET_ALL_BLOG_POSTS_WITH_SLUG = `
+  {
+    posts(first: 100, where: { categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+  }`;
+
+  export const GET_ALL_CARRERS_POSTS_WITH_SLUG = `
+  {
+    posts(first: 100, where: { categoryIn: "${CAREERS_CATEGORY_ID}" }) {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+  }`;
+
 export type GetAllCategoryPostsResult = QueryEdgesResult<'posts', Post>;
 
 export const GET_ALL_CAREER_POSTS = `
