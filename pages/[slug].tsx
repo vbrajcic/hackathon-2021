@@ -3,7 +3,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { GetPostAndMorePostsResult } from 'lib/queries';
-import { getAllBlogPostsWithSlug, getAllCarreersPostsWithSlug } from 'lib/api';
+import { getAllBlogPostsSlugs, getAllCareersPostsSlugs } from 'lib/api';
 
 import Error404Page from './404';
 
@@ -34,16 +34,13 @@ export const getServerSideProps: GetServerSideProps<{}, { slug: string }> = asyn
     };
   }
 
-  const [allBlogPostsWithSlug, allCarreersPostsWithSlug] = await Promise.all([
-    getAllBlogPostsWithSlug(),
-    getAllCarreersPostsWithSlug(),
+  const [allBlogPostsSlugs, allCareersPostsSlugs] = await Promise.all([
+    getAllBlogPostsSlugs(),
+    getAllCareersPostsSlugs(),
   ]);
 
-  const allBlogSlugs = allBlogPostsWithSlug.edges.map(({ node }) => node.slug || []);
-  const allCareersSlugs = allCarreersPostsWithSlug.edges.map(({ node }) => node.slug || []);
-
-  const isBlogPost = Boolean(allBlogSlugs.find(slug => slug === params.slug));
-  const isCareerPost = Boolean(allCareersSlugs.find(slug => slug === params.slug));
+  const isBlogPost = allBlogPostsSlugs.edges.some(({ node }) => node.slug === params.slug);
+  const isCareerPost = allCareersPostsSlugs.edges.some(({ node }) => node.slug === params.slug);
 
   if (isBlogPost) {
     return {
