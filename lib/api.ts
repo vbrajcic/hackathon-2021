@@ -3,7 +3,6 @@ import { fetchAPI } from './fetchAPI';
 
 import {
   GET_PREVIEW_POST,
-  GET_ALL_POSTS_SLUGS,
   GET_ALL_BLOG_POSTS_SLUGS,
   GET_ALL_CAREERS_POSTS_SLUGS,
   GET_ALL_CAREER_POSTS,
@@ -22,12 +21,6 @@ export async function getPreviewPost(id: string | string[], idType = 'DATABASE_I
   });
 
   return data.post;
-}
-
-export async function getAllPostsSlugs() {
-  const data = await fetchAPI<GetAllPostsSlugsResult>(GET_ALL_POSTS_SLUGS);
-
-  return data.posts;
 }
 
 export async function getAllBlogPostsSlugs() {

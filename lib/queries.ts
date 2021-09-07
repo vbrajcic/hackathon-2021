@@ -18,18 +18,7 @@ export const GET_PREVIEW_POST = `
 
 export type GetAllPostsSlugsResult = QueryEdgesResult<'posts', Post>;
 
-export const GET_ALL_POSTS_SLUGS = `
-  {
-    posts(first: 10000) {
-      edges {
-        node {
-          slug
-        }
-      }
-    }
-  }`;
-
-  export const GET_ALL_BLOG_POSTS_SLUGS = `
+export const GET_ALL_BLOG_POSTS_SLUGS = `
   {
     posts(first: 100, where: { categoryNotIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
@@ -40,7 +29,7 @@ export const GET_ALL_POSTS_SLUGS = `
     }
   }`;
 
-  export const GET_ALL_CAREERS_POSTS_SLUGS = `
+export const GET_ALL_CAREERS_POSTS_SLUGS = `
   {
     posts(first: 100, where: { categoryIn: "${CAREERS_CATEGORY_ID}" }) {
       edges {
