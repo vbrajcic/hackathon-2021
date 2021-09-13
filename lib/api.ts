@@ -3,11 +3,12 @@ import { fetchAPI } from './fetchAPI';
 
 import {
   GET_PREVIEW_POST,
-  GET_ALL_POSTS_WITH_SLUG,
+  GET_ALL_BLOG_POSTS_SLUGS,
+  GET_ALL_CAREERS_POSTS_SLUGS,
   GET_ALL_CAREER_POSTS,
   GET_ALL_BLOG_POSTS,
   GetPostAndMorePostsResult,
-  GetAllPostsWithSlugResult,
+  GetAllPostsSlugsResult,
   GetAllCategoryPostsResult,
   GetPreviewPostResult,
   GET_BLOG_POST_AND_MORE_POSTS,
@@ -22,8 +23,14 @@ export async function getPreviewPost(id: string | string[], idType = 'DATABASE_I
   return data.post;
 }
 
-export async function getAllPostsWithSlug() {
-  const data = await fetchAPI<GetAllPostsWithSlugResult>(GET_ALL_POSTS_WITH_SLUG);
+export async function getAllBlogPostsSlugs() {
+  const data = await fetchAPI<GetAllPostsSlugsResult>(GET_ALL_BLOG_POSTS_SLUGS);
+
+  return data.posts;
+}
+
+export async function getAllCareersPostsSlugs() {
+  const data = await fetchAPI<GetAllPostsSlugsResult>(GET_ALL_CAREERS_POSTS_SLUGS);
 
   return data.posts;
 }
