@@ -33,6 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# next-sitemap
+/public/robots.txt
+/public/sitemap.xml
 
 # docker-compose
 docker-compose.yml
