@@ -48,6 +48,7 @@ const HeroSection: React.FC = () => {
               layout="responsive"
               height="701"
               width="906"
+              quality={100}
             />
           )}
           {isUpXl && (
@@ -57,6 +58,7 @@ const HeroSection: React.FC = () => {
               layout="responsive"
               height="1398"
               width="1510"
+              quality={100}
             />
           )}
         </Grid>
