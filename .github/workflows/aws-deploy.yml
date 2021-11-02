@@ -70,8 +70,8 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           curl --location --request POST 'https://webhooks.profi.co/deploy' \
-          --header 'Authorization: $WEBHOOK_API_KEY' \
+          --header 'Authorization: '"$WEBHOOK_API_KEY"'' \
           --header 'Content-Type: application/json' \
           --data-raw '{
-              "version": "$IMAGE_TAG"
+              "version": "'"$IMAGE_TAG"'"
           }'
