@@ -64,6 +64,10 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
       - name: Trigger webhook for deployment
+        id: trigger-webhook
+        env:
+          WEBHOOK_API_KEY: ${{ secrets.WEBHOOK_API_KEY }}
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           curl --location --request POST 'https://webhooks.profi.co/deploy' \
           --header 'Authorization: $WEBHOOK_API_KEY' \
