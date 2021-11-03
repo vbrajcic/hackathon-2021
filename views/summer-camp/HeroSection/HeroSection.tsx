@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Img from 'components/Img';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
         <Intro />
         <Grid className={styles.imageWrapper}>
           {!isExtraSmall && (
-            <Image
+            <Img
               src={addAssetPrefix('/images/summerCamp/hero-image.png')}
               alt="hero-image"
               layout="responsive"
