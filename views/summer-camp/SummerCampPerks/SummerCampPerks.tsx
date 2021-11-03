@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Img from 'components/Img';
 import { useWindowSize } from 'react-use';
 
 import Container from '@material-ui/core/Container';
@@ -25,7 +25,7 @@ const SummerCampPerks: React.FC = () => {
           What is in it for you?
         </Typography>
         <Grid className={styles.imageWrapper}>
-          <Image
+          <Img
             src={addAssetPrefix('/images/summerCamp/sandcastle.png')}
             alt="sandcastle"
             layout="responsive"

@@ -1,9 +1,9 @@
 import React from 'react';
-import Image from 'next/image';
 import cx from 'clsx';
 
 import { Typography, Grid, Button, Box } from '@material-ui/core';
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
+import Img from 'components/Img';
 import { useRouter } from 'next/router';
 
 import styles from './SummerCampBanner.module.scss';
@@ -22,7 +22,7 @@ const SummerCampBanner: React.FC<SummerCampBannerProps> = ({ className }) => {
   return (
     <div className={cx(styles.container, className)}>
       <Grid className={styles.imageWrapper}>
-        <Image
+        <Img
           src={addAssetPrefix('/images/summerCamp/sandcastle-banner.png')}
           alt="sandcastle"
           height="57"
