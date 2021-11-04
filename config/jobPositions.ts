@@ -10,7 +10,6 @@ export interface JobPosition {
   tag: string;
 }
 
-// Missing for Designer and Backend
 const jobPositions: JobPosition[] = [
   {
     id: 'FULL_STACK',

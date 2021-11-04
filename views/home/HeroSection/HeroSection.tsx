@@ -1,11 +1,11 @@
 import React from 'react';
 import Intro from 'components/Intro';
 import Button from '@material-ui/core/Button';
-import Image from 'next/image';
 import Hyperlink from 'components/Hyperlink';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Img from 'components/Img';
 
 import { Theme } from '@material-ui/core/styles';
 import { addAssetPrefix } from 'utils/static/addAssetPrefix';
@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
         </Intro>
         <Grid className={styles.imageWrapper}>
           {isBelowSm && (
-            <Image
+            <Img
               src={addAssetPrefix('/images/hero-image-mb.png')}
               alt="hero-image"
               layout="responsive"
@@ -42,23 +42,21 @@ const HeroSection: React.FC = () => {
             />
           )}
           {isBetweenMdXl && (
-            <Image
+            <Img
               src={addAssetPrefix('/images/hero-image-1440.png')}
               alt="hero-image"
               layout="responsive"
               height="701"
               width="906"
-              quality={100}
             />
           )}
           {isUpXl && (
-            <Image
+            <Img
               src={addAssetPrefix('/images/hero-image.png')}
               alt="hero-image"
               layout="responsive"
               height="1398"
               width="1510"
-              quality={100}
             />
           )}
         </Grid>
