@@ -70,6 +70,8 @@ const ApplyForm: FC<ApplyFormProps> = ({ jobTags, title }) => {
     }, 3000);
   };
 
+  const accountLinks = jobPosition?.id === 'DESIGNER' ? 'Portfolio/Dribbble/Behance' : 'Website/Github/Bitbucket';
+
   return (
     <Paper
       id="apply-form"
@@ -156,13 +158,7 @@ const ApplyForm: FC<ApplyFormProps> = ({ jobTags, title }) => {
                 />
               </Grid>
               <Grid item sm={12} md={12} lg={12}>
-                <FormInput
-                  name="repo"
-                  placeholder="Links to your Website/Github/Bitbucket"
-                  fullWidth
-                  multiline
-                  rowsMax={3}
-                />
+                <FormInput name="repo" placeholder={`Links to your ${accountLinks}`} fullWidth multiline rowsMax={3} />
                 <FormInput
                   name="message"
                   placeholder="Tell us something about yourself"
