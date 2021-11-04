@@ -24,14 +24,14 @@ const CareerPost: React.FC<CareerPostProps> = ({ post, preview }) => {
   const router = useRouter();
 
   const metaImage = useFactory(() => {
-    if (post.featuredImage) {
+    if (post && post.featuredImage) {
       return post.featuredImage.node.sourceUrl;
     }
     return undefined;
   });
 
   const metaDescription = useFactory(() => {
-    if (post.excerpt) {
+    if (post && post.excerpt) {
       return post.excerpt.replace('<p>', '').replace('</p>', '').trim();
     }
     return undefined;
