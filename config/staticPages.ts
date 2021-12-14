@@ -24,6 +24,21 @@ const staticPage: StaticPage[] = [
     excerpt: 'About company.',
     body: `<h3></h3><h3>Headquarters</h3><p>Viška 2, 21000 Split, Croatia</p><h3>Registrant</h3><p>The company is registered with the Trade Court in Split. <ul> <li>MBS number: 060286115</li><li>VAT number: 65368355175</li></ul><h3>Board Members</h3><p><ul> <li>Mateo Perak</li><li>Ante Matijaca</li></ul></p><h3>Base Capital</h3><p>Base capital in the amount of 20,000.00 HRK paid in full.</p><h3>Bank Details</h3><p> <ul> <li>HR1323400091110547272</li><li>Privredna Banka Zagreb d.d.</li></ul> </p><h3>Contact Info</h3> <p> <ul> <li>Email: info@profico.hr</li><li>Phone: +385 91 395 9711</li></ul> </p><h3>Cookie and Privacy Policy</h3> <p>For more information read our <a href="https://profi.co/cookie-policy">Cookie</a> and <a href="https://profi.co/privacy-policy">Privacy Policy</a>.</p>`,
   },
+  {
+    id: 'eu-project',
+    title: 'EU Projekt',
+    excerpt: '',
+    body: `<h3></h3><p><img src='/images/eu-project-logo.png' alt='project-logo' /></p><p>Ovim projektom Društvo želi ostvariti poslovni rast širenjem na ciljana međunarodna tržišta koja karakterizira visoka razvijenost i standard te spremnost primjene naprednih tehnoloških rješenja. U tom dijelu Društvo će prezentirati svoja napredna Smart City rješenja koja će biti temelj prodajne strategije. Nastupom na specijaliziranim konferencijama Društvo će, uz spomenute proizvode iz segmenta pametnih gradova, promovirati i svoje usluge kreiranja naprednih web i mobilnih rješenja prema željama klijenta. Time će pokazati svu svoju stručnost i inovativnost te dokazati da mogu odgovoriti najvišim zahtjevima tržišta. Društvo će na konferencijama sklapati nove poslovne suradnje i time ostvariti sve preduvjete za daljnji razvoj poslovanja.</p>
+    <ul>
+      <li><b>Naziv projekta:</b> Internacionalizacija poslovanja putem izlaganja na sajmovima</li>
+      <li>KK.03.2.1.16.0319</li>
+      <li><b>Naziv korisnika:</b> Innovatio Proficit d.o.o.</li>
+      <li><b>Ukupna vrijednost projekta:</b> 494.465,00 HRK/li>
+      <li><b>EU sufinanciranje projekta:</b> 408.607,75 HRK </li>
+      <li><b>Razdoblje provedbe projekta:</b> 1.01.2020. – 31.12.2022.</li>
+      <li><b>Kontakt osoba:</b> Mateo Perak</li>
+    </ul>`,
+  },
 ];
 
 export default staticPage;
