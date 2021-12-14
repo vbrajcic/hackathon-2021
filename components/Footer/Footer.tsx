@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ bgColor }) => (
       </Container>
       <Container maxWidth="sm" disableGutters>
         <Hyperlink href="/eu-project" AnchorProps={{ className: styles.euLogo }}>
-          <Img src="/images/eu-project-logo.png" alt="project-logo" layout="responsive" width={500} height={80} />
+          <Img src="/images/eu-project-logo.png" alt="project-logo" layout="responsive" width={1012} height={150} />
         </Hyperlink>
       </Container>
     </Container>
