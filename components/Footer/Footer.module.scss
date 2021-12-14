@@ -1,12 +1,12 @@
 .container {
-  padding: rem-calc(95 2 61 2);
+  padding: rem-calc(95 2 31 2);
 
   &.greyBackground {
     background-color: $grey-100;
   }
 
   @include media('lg') {
-    padding: rem-calc(95 40);
+    padding: rem-calc(95 40 55 40);
   }
 
   .wrapper {
@@ -47,6 +47,15 @@
           margin-left: 0;
         }
       }
+    }
+  }
+
+  .euLogo {
+    display: block;
+    margin-top: rem-calc(20);
+
+    @include media('md') {
+      margin-top: rem-calc(40);
     }
   }
 
