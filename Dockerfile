@@ -16,7 +16,7 @@ RUN yarn install --production --frozen-lockfile
 
 FROM node:14.15-alpine
 
-WORKDIR /profico-web
+WORKDIR /hackathon
 
 COPY --from=BUILD_IMAGE /app/package.json ./package.json
 COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
