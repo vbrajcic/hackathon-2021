@@ -1,8 +1,0 @@
-.container {
-  margin-top: rem-calc(180);
-  overflow: hidden;
-
-  @include media(0, 'lg') {
-    margin-top: rem-calc(100);
-  }
-}

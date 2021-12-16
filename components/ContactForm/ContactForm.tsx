@@ -12,7 +12,6 @@ import Form, { FormSubmitHandler } from 'components/Forms/Form';
 import FormInput from 'components/Forms/FormInput';
 
 import { Link } from '@material-ui/core';
-import { FormValidator } from 'utils/static/FormValidation';
 
 import ContactDetail from './ContactDetail';
 
@@ -78,14 +77,7 @@ const ContactForm: FC<ContactFormProps> = ({ gaName = '', className, classes }) 
           <Form defaultValues={defaultValues} onSubmit={handleSubmit} className={cn(style.form, classes?.form)}>
             {({ formState: { isSubmitting } }) => (
               <>
-                <FormInput
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  fullWidth
-                  className={style.input}
-                  validate={FormValidator.all(FormValidator.isNotEmpty, FormValidator.isValidEmail)}
-                />
+                <FormInput name="email" type="email" placeholder="Your email" fullWidth className={style.input} />
                 <FormInput
                   name="message"
                   placeholder="Tell us more about your project"
@@ -93,7 +85,6 @@ const ContactForm: FC<ContactFormProps> = ({ gaName = '', className, classes }) 
                   multiline
                   rowsMax={3}
                   className={style.input}
-                  validate={FormValidator.isNotEmpty}
                 />
                 <Button type="submit" data-ga-event-name="contact_form_submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Sending...' : 'Contact us'}

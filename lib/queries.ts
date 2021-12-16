@@ -121,7 +121,7 @@ export const GET_BLOG_POST_AND_MORE_POSTS = (isRevision: boolean) => `
         ${getRevisionsQuery(isRevision)}
       }
   
-      posts(first: 10, where: { orderby: { field: DATE, order: DESC }, categoryNotIn: [${CAREERS_CATEGORY_ID}] }) {
+      posts(first: 10, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             ...RegularPostFields

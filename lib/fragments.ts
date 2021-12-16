@@ -7,8 +7,6 @@ export const AUTHOR_FIELDS_FRAGMENT = `
       url
     }
     description
-    jobTitle
-    profilePictureUrl
   }`;
 
 export const REGULAR_POST_FIELDS_FRAGMENT = `
@@ -21,11 +19,6 @@ export const REGULAR_POST_FIELDS_FRAGMENT = `
     date
     featuredImage {
       node {
-        sourceUrl
-      }
-    }
-    image {
-      thumbnailImage {
         sourceUrl
       }
     }

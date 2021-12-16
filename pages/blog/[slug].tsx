@@ -9,7 +9,6 @@ import AuthorInfo from 'views/blog/AuthorInfo';
 import ExploreMoreArticles from 'views/blog/ExploreMoreArticles';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import useFactory from 'utils/hooks/useFactory';
-import BlogPostContactForm from 'views/blog/BlogPostContactForm';
 
 import { getPostAndMorePosts } from 'lib/api';
 import { GetPostAndMorePostsResult } from 'lib/queries';
@@ -72,7 +71,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, posts, preview }) => {
               <AuthorInfo author={post.author.node} />
             </Container>
             <ExploreMoreArticles posts={posts} />
-            <BlogPostContactForm />
           </article>
         </>
       )}

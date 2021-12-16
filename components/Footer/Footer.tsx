@@ -6,9 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Instagram from '@material-ui/icons/Instagram';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import SocialIcon from 'components/SocialIcon';
-import Hyperlink from 'components/Hyperlink';
-import Img from 'components/Img';
-import Dribbble from 'components/SvgIcons/Dribbble/DribbbleIcon';
 
 import { format } from 'date-fns';
 
@@ -31,21 +28,15 @@ const Footer: React.FC<FooterProps> = ({ bgColor }) => (
       <Container maxWidth={false} className={styles.wrapper}>
         <Typography variant="body2" className={styles.copyright}>
           &copy;
-          {` ${currentYear} Profico`}
+          {` ${currentYear} Startsiden`}
           <a href="/legal-info" className={styles.link}>
             Legal info
           </a>
         </Typography>
         <Grid container classes={{ root: styles.socialIcons }}>
           <SocialIcon icon={Instagram} url="https://www.instagram.com/profi.co/" />
-          <SocialIcon icon={Dribbble} url="https://dribbble.com/Profico" />
           <SocialIcon icon={LinkedIn} url="https://www.linkedin.com/company/profico" />
         </Grid>
-      </Container>
-      <Container maxWidth="sm" disableGutters>
-        <Hyperlink href="/eu-project" AnchorProps={{ className: styles.euLogo }}>
-          <Img src="/images/eu-project-logo.png" alt="project-logo" layout="responsive" width={1012} height={150} />
-        </Hyperlink>
       </Container>
     </Container>
   </footer>

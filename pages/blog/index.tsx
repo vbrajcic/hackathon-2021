@@ -2,7 +2,6 @@ import React from 'react';
 import Post from 'types/posts/post';
 import Container from '@material-ui/core/Container';
 import Layout from 'components/Layout';
-import ContactForm from 'components/ContactForm';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import ReadAboutUsSection from 'views/blog/ReadAboutUsSection';
 import useBlogParams from 'views/blog/useBlogParams';
@@ -41,7 +40,6 @@ const BlogPage: React.FC<BlogPageProps> = ({ allPosts, preview }) => {
               onPageChange={handlePageChange}
             />
           </BlogPostsContextProvider>
-          <ContactForm className={styles.contactForm} />
         </Container>
       </Container>
     </Layout>

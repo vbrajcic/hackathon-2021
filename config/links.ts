@@ -4,12 +4,12 @@ export interface Link {
 }
 
 const links: Link[] = [
-  { text: 'Work', url: '/work' },
-  { text: 'Services', url: '/services' },
-  { text: 'About', url: '/about' },
-  { text: 'Careers', url: '/careers' },
-  { text: 'Blog', url: '/blog' },
-  { text: 'Contact us', url: '/contact' },
+  { text: 'Popular', url: '/' },
+  { text: 'Gifts', url: '/' },
+  { text: 'Tech', url: '/' },
+  { text: 'Home & Garden', url: '/' },
+  { text: 'Sleep', url: '/' },
+  { text: 'Kitchen', url: '/' },
 ];
 
 export default links;

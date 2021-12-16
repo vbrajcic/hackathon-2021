@@ -9,7 +9,7 @@ import { Edges, Node } from 'types/common';
 
 export interface FilteredPosts {
   allPosts: Post[];
-  company: Post[];
+  health: Post[];
   design: Post[];
   development: Post[];
   technology: Post[];
@@ -46,7 +46,7 @@ const useBlogParams = (allPosts: Edges<Post>) => {
   });
   const [filteredPosts, setFilteredPosts] = useState<FilteredPosts>({
     allPosts: [],
-    company: [],
+    health: [],
     design: [],
     development: [],
     technology: [],
@@ -57,7 +57,7 @@ const useBlogParams = (allPosts: Edges<Post>) => {
 
     const posts: FilteredPosts = {
       allPosts: filterPostsByCategory('allPosts', edges),
-      company: filterPostsByCategory('company', edges),
+      health: filterPostsByCategory('health', edges),
       design: filterPostsByCategory('design', edges),
       development: filterPostsByCategory('development', edges),
       technology: filterPostsByCategory('technology', edges),

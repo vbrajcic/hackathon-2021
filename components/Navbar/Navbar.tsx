@@ -6,7 +6,7 @@ import cn from 'clsx';
 import links from 'config/links';
 
 import { useRouter } from 'next/router';
-import { Button, Container, Grid, Slide, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { Container, Grid, Slide, Theme, useMediaQuery, useScrollTrigger } from '@material-ui/core';
 import { useTheme } from 'utils/context/ThemeContext';
 
 import Hamburger from './Hamburger';
@@ -27,26 +27,6 @@ const Navbar: React.FC = () => {
 
   const isAboveMd = useMediaQuery<Theme>(t => t.breakpoints.up('md'));
   const scrollDirection = useScrollDirection();
-
-  const handleGetInTouchClick = () => {
-    const contactForm = document.getElementById('contact-form');
-    const applyForm = document.getElementById('apply-form');
-    const summerCampApplyForm = document.getElementById('summer-camp-apply-form');
-
-    const form = contactForm || applyForm || summerCampApplyForm;
-
-    if (form) {
-      const position = form.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
-      window.scrollTo({
-        top: position - 90,
-        behavior: 'smooth',
-      });
-
-      if (menuOpen) {
-        toggleMenu();
-      }
-    }
-  };
 
   const isScrollingDown = scrollDirection === ScrollDirection.DOWN;
 
@@ -71,14 +51,14 @@ const Navbar: React.FC = () => {
                     className: styles.logo,
                   }}
                 >
-                  Profico
+                  Startsiden Guides
                 </Hyperlink>
                 {isAboveMd && (
                   <Grid>
                     {filteredLinks.map(({ url, text }) => (
                       <Hyperlink
                         data-ga-section={text}
-                        key={url}
+                        key={text}
                         href={url}
                         AnchorProps={{
                           variant: 'body2',
@@ -94,9 +74,6 @@ const Navbar: React.FC = () => {
                 )}
               </Grid>
             </Grid>
-            <Button data-ga-event-name="click_cta" className={styles.getInTouchButton} onClick={handleGetInTouchClick}>
-              Get in touch
-            </Button>
           </Container>
         </div>
       </Slide>
