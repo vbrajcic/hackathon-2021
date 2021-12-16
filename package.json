@@ -2,9 +2,8 @@
   "name": "@profico/web",
   "version": "1.3.15",
   "config": {
-    "docker_reg": "258375240157.dkr.ecr.eu-central-1.amazonaws.com",
-    "docker_reg_dev": "docker.proficodev.com",
-    "docker_image_name": "profico-web",
+
+    "docker_image_name": "hackathon-web",
     "dir_dev": "/etc/profico-web"
   },
   "scripts": {
@@ -17,11 +16,7 @@
     "lint:base": "eslint --ext .ts,.tsx ./",
     "lint:styles": "stylelint '**/*.scss' --fix --cache --cache-location=./node_modules/.cache/",
     "lint": "yarn lint:base --fix --cache --cache-location=./node_modules/.cache/ && yarn lint:styles",
-    "docker:build": "docker build . -t $npm_package_config_docker_reg/$npm_package_config_docker_image_name:$npm_package_version -t $npm_package_config_docker_reg/$npm_package_config_docker_image_name:latest",
-    "docker:push": "docker push $npm_package_config_docker_reg/$npm_package_config_docker_image_name:$npm_package_version",
-    "docker:push:latest": "docker push $npm_package_config_docker_reg/$npm_package_config_docker_image_name:latest",
-    "docker:build:dev": "docker build . -t $npm_package_config_docker_reg_dev/$npm_package_config_docker_image_name:$npm_package_version",
-    "docker:run:dev": "cd $npm_package_config_dir_dev && docker-compose up -d",
+    "docker:build": "docker build . -t $npm_package_config_docker_image_name:latest",
     "version:set:dev": "echo \"VERSION=$npm_package_version\"> $npm_package_config_dir_dev/.env"
   },
   "dependencies": {

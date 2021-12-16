@@ -2,12 +2,6 @@
 
 Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature + [WordPress](https://wordpress.org) as the data source.
 
-## Demo
-
-![Demo](./public/demo.png)
-
----
-
 ## How to use
 
 ### Prerequisites
