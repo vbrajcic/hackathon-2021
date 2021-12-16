@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ filteredPosts, activeCategory
 
   return (
     <Container className={styles.container} component="section" maxWidth="xl">
-      <Intro text="We love what we do and we want to tell you all about it" className={styles.intro} />
+      <Intro text="We have every guide you can think of" className={styles.intro} />
       <Tabs
         value={activeCategory}
         onChange={handleCategoryChange}

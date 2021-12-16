@@ -34,8 +34,8 @@ const Footer: React.FC<FooterProps> = ({ bgColor }) => (
           </a>
         </Typography>
         <Grid container classes={{ root: styles.socialIcons }}>
-          <SocialIcon icon={Instagram} url="https://www.instagram.com/profi.co/" />
-          <SocialIcon icon={LinkedIn} url="https://www.linkedin.com/company/profico" />
+          <SocialIcon icon={Instagram} url="" />
+          <SocialIcon icon={LinkedIn} url="" />
         </Grid>
       </Container>
     </Container>

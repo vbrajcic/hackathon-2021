@@ -10,8 +10,8 @@ interface MetaProps {
 }
 
 const Meta: React.FC<MetaProps> = ({ title = '', image = '', description = '' }) => {
-  const metaTitle = title ? `${title} | Profico` : 'Profico';
-  const metaDescription = description || 'Profico - Mobile app and web development agency.';
+  const metaTitle = title ? `${title} | Startsiden Guides` : 'Startsiden Guides';
+  const metaDescription = description || 'Startsiden Guides - every guide you can think of';
   const metaImage = image || '/logo/logo-sharing.png';
 
   return (

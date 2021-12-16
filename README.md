@@ -1,4 +1,4 @@
-# Profico web
+# Startsiden Guides web
 
 Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature + [WordPress](https://wordpress.org) as the data source.
 
@@ -18,7 +18,7 @@ Also, you can use `nvm` as a helpful tool to install the correct **node** and **
 ### Installing the application
 
 ```
-$ git clone https://bitbucket.org/profico/react-profico-web.git <my-project-name>
+$ git clone https://github.com/vbrajcic/hackathon-2021 <my-project-name>
 $ cd <my-project-name>
 $ yarn
 ```
